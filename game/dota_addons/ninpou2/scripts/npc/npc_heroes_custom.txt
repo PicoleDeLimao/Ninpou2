@@ -1,0 +1,37 @@
+"DOTAHeroes"
+{
+  "npc_dota_hero_sasuke"
+  {
+    "override_hero"     "npc_dota_hero_antimage"
+    "Model"				      "models/development/invisiblebox.vmdl"
+    "ModelScale"		    "1.3"
+    "SoundSet"          "0" 
+    "ItemSlots"			
+    { }
+	
+    "AbilityLayout"     "6"
+    "Ability1"          "example_ability" 
+    "Ability2"          "forest_troll_high_priest_heal" 
+    "Ability3"          "medical_ninja_heal" 
+    "Ability4"          "barebones_empty4"
+    "Ability5"          "barebones_empty5"
+    "Ability6"          "barebones_empty6"
+  }
+  "npc_dota_hero_orochimaru"
+  {
+    "override_hero"     "npc_dota_hero_dark_seer"
+    "Model"				      "models/development/invisiblebox.vmdl"
+    "ModelScale"		    "1.3"
+    "SoundSet"          "0" 
+    "ItemSlots"			
+    { }
+	
+    "AbilityLayout"     "6"
+    "Ability1"          "example_ability" 
+    "Ability2"          "barebones_empty2" 
+    "Ability3"          "barebones_empty3" 
+    "Ability4"          "barebones_empty4"
+    "Ability5"          "barebones_empty5"
+    "Ability6"          "barebones_empty6"
+  }
+}

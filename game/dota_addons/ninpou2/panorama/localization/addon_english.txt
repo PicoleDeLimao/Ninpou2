@@ -1,0 +1,13 @@
+"addon"
+{
+	"Unassigned"      								"Unassigned Team"
+	"Spectator"       								"Spectator Team"
+	"Neutrals"        								"Neutral Team"
+	"NoTeam"          								"No Team"
+
+	"DOTA_GoodGuys"   								"Konohagakure"
+	"DOTA_BadGuys"    								"Otogakure"
+	"DOTA_Custom1"    								"Akatsuki"
+	
+	"addonname"										    "Naruto Ninpou New Generation"
+}

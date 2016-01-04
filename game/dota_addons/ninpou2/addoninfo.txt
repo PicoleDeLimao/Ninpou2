@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+	"TeamCount"		"3"
+	"template_map"
+	{
+		"MaxPlayers"		"12"
+	}
+}
