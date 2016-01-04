@@ -2,8 +2,16 @@
 
 require('libraries/timers')
 require('internal/util')
-require('gamemode')
+
 require('model_list')
+
+-- Library containing many utility functions
+require('utilities') 
+
+-- AI for medical ninja units in order to enable them to autocast heal ability
+require('units/medical_ninja_ai')
+
+require('gamemode')
 
 function Precache( context )
 --[[

@@ -342,8 +342,8 @@
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"30"
-	"AttackDamageMax"			"35"
+	"AttackDamageMin"			"20"
+	"AttackDamageMax"			"25"
 	"AttackRate"				"1.5"
 	"AttackAnimationPoint"		"0.30"
 	"AttackAcquisitionRange"	"800"
@@ -361,7 +361,7 @@
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"300"
+	"MovementSpeed"				"270"
 	
 	// Team
 	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
@@ -373,12 +373,16 @@
 	"StatusHealth"				"800"
 	"StatusHealthRegen"			"0.25"
 	"StatusMana"				"300"
-	"StatusManaRegen"			"0.25"
+	"StatusManaRegen"			"1.0"
     
     // Bounty
 	"BountyXP"					"100"
     "BountyGoldMin"       	    "180"      // Gold earned min.
     "BountyGoldMax"      	    "220"      // Gold earned max.
+    
+    // Abilities
+    "AbilitiesLayout"           "1"
+    "Ability1"                  "medical_ninja_heal"
   }
   "npc_konoha_base_unit"
   {

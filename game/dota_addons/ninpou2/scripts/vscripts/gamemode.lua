@@ -22,7 +22,6 @@ require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
 require('libraries/attachments')
 
-
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
 require('internal/events')
@@ -109,6 +108,10 @@ function SpawnCreepsLane(units, unitsCount, path, team, spawnerName)
 			for i = 1, unitsCount[unitKey] do 
 				Timers:CreateTimer(function()
 					local unit = CreateUnitByName(unitValue, path[1] + RandomVector(RandomInt(100, 200)), true, nil, nil, team)
+                    -- Attach AI behavior to medical ninja unit
+                    if unitValue == "npc_medical_ninja_unit" then 
+                        MedicalNinjaAI:Start(unit)
+                    end
 					for j = 2, #path do 
 						ExecuteOrderFromTable({
 							UnitIndex = unit:GetEntityIndex(),
@@ -202,6 +205,16 @@ function GameMode:OnGameInProgress()
     end)
 end
 
+function StartAI() 
+  local units = Entities:FindAllByClassname("npc_dota_creature")
+  for _, unit in pairs(units) do 
+    -- Start AI for Medical Ninjas
+    if unit:GetUnitName() == "npc_medical_ninja_unit" then 
+        MedicalNinjaAI:Start(unit)
+    end
+  end
+end
+
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
@@ -213,25 +226,6 @@ function GameMode:InitGameMode()
   -- Check out internals/gamemode to see/modify the exact code
   GameMode:_InitGameMode()
 
-  -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
-  Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
-
-  DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
-  
-  -- GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
-end
-
--- This is an example console command
-function GameMode:ExampleConsoleCommand()
-  print( '******* Example Console Command ***************' )
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      -- Do something here for the player who called this command
-      PlayerResource:ReplaceHeroWith(playerID, "npc_dota_hero_viper", 1000, 1000)
-    end
-  end
-
-  print( '*********************************************' )
+  -- Start AI Behavior for pre defined units
+  StartAI()
 end

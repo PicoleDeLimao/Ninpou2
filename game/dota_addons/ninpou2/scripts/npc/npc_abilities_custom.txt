@@ -338,19 +338,19 @@
   {
 	// General
 	"BaseClass"					"ability_datadriven"
-	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityTextureName"		"medical_ninja_heal"
 	"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	
-	"AbilityCastPoint"			"0.35"
+	//"AbilityCastPoint"			"0.35"
 	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	"AnimationPlaybackRate"		"1"
 	
 	// Stats 
-	"AbilityManaCost"			"5"
+	"AbilityManaCost"			"10"
 	"AbilityCooldown"			"1.0"
-	"AbilityCastRange"			"100"
+	"AbilityCastRange"			"500"
 	
 	// Special
 	"AbilitySpecial"
