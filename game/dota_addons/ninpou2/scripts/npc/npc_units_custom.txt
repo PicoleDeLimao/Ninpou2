@@ -199,11 +199,11 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"40"
+	"RingRadius"				"60"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"300"
+	"MovementSpeed"				"285"
 	
 	// Team
 	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
@@ -221,6 +221,12 @@
 	"BountyXP"					"200"
     "BountyGoldMin"       	    "230"      // Gold earned min.
     "BountyGoldMax"      	    "260"      // Gold earned max.
+    
+    // Abilities
+    "AbilitiesLayout"           "3"
+    "Ability1"                  "anbu_bash"
+    "Ability2"                  "anbu_demolish"
+    "Ability3"                  "anbu_confidence_aura"
   }
   "npc_elite_anbu_unit"
   {
@@ -240,7 +246,7 @@
 	"AttackDamageMax"			"350"
 	"AttackRate"				"1.5"
 	"AttackAnimationPoint"		"0.3"
-	"AttackAcquisitionRange"	"1200"
+	"AttackAcquisitionRange"	"900"
 	"AttackRange"				"600"
 	"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
 	"ProjectileSpeed"			"800"
@@ -251,7 +257,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"40"
+	"RingRadius"				"60"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -293,7 +299,7 @@
 	"AttackDamageMax"			"550"
 	"AttackRate"				"1.5"
 	"AttackAnimationPoint"		"0.3"
-	"AttackAcquisitionRange"	"1200"
+	"AttackAcquisitionRange"	"900"
 	"AttackRange"				"600"
 	"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
 	"ProjectileSpeed"			"800"
@@ -337,17 +343,17 @@
     "Level"           			"2"    
 	
 	// Armor 
-	"ArmorPhysical"				"5"
+	"ArmorPhysical"				"0"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageMin"			"20"
 	"AttackDamageMax"			"25"
-	"AttackRate"				"1.5"
+	"AttackRate"				"2.0"
 	"AttackAnimationPoint"		"0.30"
 	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"500"
+	"AttackRange"				"400"
 	"ProjectileModel"			"particles/units/medicalninja/medicalninja_base_attack.vpcf"
 	"ProjectileSpeed"			"800"
 	
@@ -535,14 +541,14 @@
     "SoundSet"          		"n_creep_Ranged"        
 	
 	// Armor 
-	"ArmorPhysical"				"2"
+	"ArmorPhysical"				"0"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageMin"			"30"
 	"AttackDamageMax"			"35"
-	"AttackRate"				"1.5"
+	"AttackRate"				"1.75"
 	"AttackAnimationPoint"		"0.30"
 	"AttackAcquisitionRange"	"800"
 	"AttackRange"				"600"
@@ -555,7 +561,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"40"
+	"RingRadius"				"50"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -587,14 +593,14 @@
     "SoundSet"          		"n_creep_Meele"        
 	
 	// Armor 
-	"ArmorPhysical"				"5"
+	"ArmorPhysical"				"2"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 	"AttackDamageMin"			"50"
 	"AttackDamageMax"			"55"
-	"AttackRate"				"1.5"
+	"AttackRate"				"1.75"
 	"AttackRange"				"100"
 	
 	// Vision
@@ -603,7 +609,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"40"
+	"RingRadius"				"50"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -778,14 +784,14 @@
     "SoundSet"          		"n_creep_Ranged"        
 	
 	// Armor 
-	"ArmorPhysical"				"2"
+	"ArmorPhysical"				"0"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageMin"			"30"
 	"AttackDamageMax"			"35"
-	"AttackRate"				"1.5"
+	"AttackRate"				"1.75"
 	"AttackAnimationPoint"		"0.30"
 	"AttackAcquisitionRange"	"800"
 	"AttackRange"				"600"
@@ -798,7 +804,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"40"
+	"RingRadius"				"50"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -830,14 +836,14 @@
     "SoundSet"          		"n_creep_Meele"        
 	
 	// Armor 
-	"ArmorPhysical"				"5"
+	"ArmorPhysical"				"2"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 	"AttackDamageMin"			"50"
 	"AttackDamageMax"			"55"
-	"AttackRate"				"1.5"
+	"AttackRate"				"1.75"
 	"AttackRange"				"100"
 	
 	// Vision
@@ -846,7 +852,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"40"
+	"RingRadius"				"50"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1020,14 +1026,14 @@
     "SoundSet"          		"n_creep_Ranged"        
 	
 	// Armor 
-	"ArmorPhysical"				"2"
+	"ArmorPhysical"				"0"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageMin"			"30"
 	"AttackDamageMax"			"35"
-	"AttackRate"				"1.5"
+	"AttackRate"				"1.75"
 	"AttackAnimationPoint"		"0.30"
 	"AttackAcquisitionRange"	"800"
 	"AttackRange"				"600"
@@ -1040,7 +1046,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"40"
+	"RingRadius"				"50"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1072,14 +1078,14 @@
     "SoundSet"          		"n_creep_Meele"        
 	
 	// Armor 
-	"ArmorPhysical"				"5"
+	"ArmorPhysical"				"2"
 	"MagicalResistance" 		"0"
 	
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 	"AttackDamageMin"			"50"
 	"AttackDamageMax"			"55"
-	"AttackRate"				"1.5"
+	"AttackRate"				"1.75"
 	"AttackRange"				"100"
 	
 	// Vision
@@ -1088,7 +1094,7 @@
 	
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"40"
+	"RingRadius"				"50"
 	
 	// Movement
 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"

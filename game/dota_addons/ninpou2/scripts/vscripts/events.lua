@@ -81,7 +81,12 @@ function GameMode:OnNPCSpawned(keys)
   GameMode:_OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
-  
+  -- Initialize AI behavior for medical ninjas
+  Timers:CreateTimer(0.05, function() 
+	  if npc:GetUnitName() == "npc_medical_ninja_unit" then 
+		MedicalNinjaAI:Start(npc)
+	  end
+  end)
   RemoveCosmetics(npc)
 end
 

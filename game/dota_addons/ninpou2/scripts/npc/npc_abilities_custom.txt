@@ -334,6 +334,8 @@
   //-------------------------------------------------------------------------------------------------------------
   // Units
   //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Medical Ninja's Heal 
+  //-------------------------------------------------------------------------------------------------------------
   "medical_ninja_heal"
   {
 	// General
@@ -385,7 +387,6 @@
     {
         "particle"              "particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
         "particle"              "particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf"
-        "soundfile"             "sounds/weapons/creep/neutral/troll_priest_heal.vsnd"
     }
 	"Modifiers"
 	{
@@ -393,14 +394,13 @@
 		{
 			"IsBuff"			"1"
 			"Duration"			"%duration"
-            "TextureName"       "medical_ninja_heal"
             "ThinkInterval"		"%think_interval"
 			"OnIntervalThink"
 			{
 				"Heal"
 				{
-					"HealAmount"		"%heal_per_think"
 					"Target"			"TARGET"
+					"HealAmount"		"%heal_per_think"
 				}
 			}
             "OnCreated"
@@ -421,14 +421,211 @@
                     "EffectName"        "particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf"
                     "EffectAttachType"  "attach_attack1"
                 }
-                "FireSound"
-                {
-                    "Target"            "TARGET"
-                    "EffectName"        "sounds/weapons/creep/neutral/troll_priest_heal.vsnd"
-                }
             }
 		}
 	}
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Anbu's Bash
+  //-------------------------------------------------------------------------------------------------------------
+  "anbu_bash"
+  {
+    // General
+    "BaseClass"                         "ability_datadriven"
+    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                "anbu_bash"
+    
+    // Special 
+    "precache"
+    {
+        "particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
+        "particle"                      "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+        "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+    }
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "bash_chance"               "10"
+        }
+        "02"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "stun_duration_hero"        "1.0"
+        }
+        "03"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "stun_duration_creep"       "2.0"
+        }
+    }
+    "Modifiers"
+    {
+        "modifier_anbu_bash"
+        {
+            "Passive"                   "1"
+            "IsHidden"                  "1"
+            "OnAttackLanded"
+            {
+                "Random"
+                {
+                    "Chance"            "%bash_chance"
+                    "PseudoRandom"      "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+                    "OnSuccess"
+                    {
+                        "FireSound"
+                        {
+                            "Target"        "TARGET"
+                            "EffectName"    "Hero_FacelessVoid.TimeLockImpact"
+                        }
+                        "ApplyModifier"
+                        {
+                            "ModifierName"  "modifier_bash_stun"
+                            "Target"
+                            {
+                                "Center"    "TARGET"
+                                "Types"     "DOTA_UNIT_TARGET_HERO"
+                            }
+                            "Duration"      "%stun_duration_hero"
+                        }
+                        "ApplyModifier"
+                        {
+                            "ModifierName"  "modifier_bash_stun"
+                            "Target"
+                            {
+                                "Center"    "TARGET"
+                                "Types"     "DOTA_UNIT_TARGET_BASIC"
+                            }
+                            "Duration"      "%stun_duration_creep"
+                        }
+                    }
+                }
+            }
+        }
+        "modifier_bash_stun"
+        {
+            "IsDebuff"                      "1"
+            "IsStunDebuff"                  "true"
+            "EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+            "EffectAttachType"              "follow_overhead"
+            "StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+            "StatusEffectPriority"          "1"
+            "States"
+            {
+                "MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+    }
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Anbu's Demolish
+  //-------------------------------------------------------------------------------------------------------------
+  "anbu_demolish"
+  {
+    // General 
+    "BaseClass"                         "ability_datadriven"
+    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                "anbu_demolish"
+    
+    // Special 
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "demolish"                  "3.0"
+        }
+    }
+    
+    // Datadriven
+    "precache"
+    {
+        "particle"                      "particles/units/heroes/hero_earth_spirit/espirit_spawn.vpcf"
+    }
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "Target"                    "CASTER"
+            "ModifierName"              "modifier_anbu_demolish"
+        }
+    }
+    "Modifiers"
+    {
+        "modifier_anbu_demolish"
+        {
+            "Passive"                   "1"
+            "IsHidden"                  "1"
+            "OnAttackLanded"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"        "units/anbu/demolish.lua"
+                    "Function"          "Demolish"
+                }
+            }
+        }
+    }
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Anbu's Confidence Aura
+  //-------------------------------------------------------------------------------------------------------------
+  "anbu_confidence_aura"
+  {
+    // General
+    "BaseClass"                         "ability_datadriven"
+    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityCastRange"                  "800"
+	"AbilityTextureName"                "anbu_confidence_aura"
+    
+    // Special
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "attack_speed_bonus"        "25"
+        }
+        "02"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "radius"                    "800"
+        }
+    }
+    
+    // Datadriven
+    "precache"
+    {
+        "particle"                      "particles/items_fx/aura_endurance.vpcf"
+    }
+    "Modifiers"
+    {
+        "modifier_anbu_confidence_aura"
+        {
+            "Passive"                   "1"
+            "IsBuff"                    "1"
+            "IsHidden"                  "1"
+            "EffectName"                "particles/items_fx/aura_endurance.vpcf"
+            "EffectAttachType"          "follow_origin"
+            "Aura"                      "modifier_anbu_confidence_aura_buff"
+            "Aura_Radius"               "%radius"
+            "Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+            "Aura_Types"                "DOTA_UNIT_TARGET_ALL"
+        }
+        "modifier_anbu_confidence_aura_buff"
+        {
+            "IsBuff"                    "1"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed_bonus"
+            }
+        }
+    }
   }
 }
 

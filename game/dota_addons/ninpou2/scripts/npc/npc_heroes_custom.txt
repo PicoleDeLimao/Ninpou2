@@ -11,7 +11,7 @@
 	
     "AbilityLayout"     "6"
     "Ability1"          "example_ability" 
-    "Ability2"          "forest_troll_high_priest_heal" 
+    "Ability2"          "anbu_bash" 
     "Ability3"          "medical_ninja_heal" 
     "Ability4"          "barebones_empty4"
     "Ability5"          "barebones_empty5"

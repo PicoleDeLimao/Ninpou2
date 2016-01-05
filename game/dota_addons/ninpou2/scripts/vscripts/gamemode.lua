@@ -98,20 +98,17 @@ function GameMode:OnHeroInGame(hero)
   -- Set player gold to zero
   hero:SetGold(0, false)
 end
-
+                  
 -- Spawn creeps for a determined lane
-function SpawnCreepsLane(units, unitsCount, path, team, spawnerName)
+function SpawnCreepsLane(units, unitsCount, offsets, path, team, spawnerName)
 	local spawner = Entities:FindByName(nil, spawnerName)
-	if IsValidEntity(spawner) and spawner:IsAlive() then -- Only spawn units from which spawner is alive
+	if Utils:IsValidAlive(spawner) then -- Only spawn units from which spawner is alive
+		local forwardVector = (path[2] - path[1]):Normalized()
 		for unitKey, unitValue in pairs(units) do 
-            --print("Spawning " .. tostring(unitsCount[unitKey]) .. " " .. unitValue .. " at " .. spawnerName .. "...")
-			for i = 1, unitsCount[unitKey] do 
+            for i = 1, unitsCount[unitKey] do 
 				Timers:CreateTimer(function()
-					local unit = CreateUnitByName(unitValue, path[1] + RandomVector(RandomInt(100, 200)), true, nil, nil, team)
-                    -- Attach AI behavior to medical ninja unit
-                    if unitValue == "npc_medical_ninja_unit" then 
-                        MedicalNinjaAI:Start(unit)
-                    end
+					-- Create unit at forward vector between origin spot and next spot (in order to spawn them in correct order)
+					local unit = CreateUnitByName(unitValue, path[1] + forwardVector * offsets[unitKey], true, nil, nil, team)
 					for j = 2, #path do 
 						ExecuteOrderFromTable({
 							UnitIndex = unit:GetEntityIndex(),
@@ -138,53 +135,38 @@ function SpawnCreeps(count)
     local akatsukiLeftLane   = Entities:FindByName(nil, "spawn_akatsuki_left_lane"):GetAbsOrigin()
     local akatsukiRightLane  = Entities:FindByName(nil, "spawn_akatsuki_right_lane"):GetAbsOrigin()
     local akatsukiMidLane    = Entities:FindByName(nil, "spawn_akatsuki_mid_lane"):GetAbsOrigin()
-    local konohaOtoLane      = Entities:FindByName(nil, "spawn_konoha_oto_lane"):GetAbsOrigin()
-    local otoAkatsukiLane    = Entities:FindByName(nil, "spawn_oto_akatsuki_lane"):GetAbsOrigin()
-    local akatsukiKonohaLane = Entities:FindByName(nil, "spawn_akatsuki_konoha_lane"):GetAbsOrigin()
     local midLane            = Entities:FindByName(nil, "spawn_mid_lane"):GetAbsOrigin()
-    -- Define the units for each team 
-    local konohaUnits = { chunnin = "npc_konoha_chunnin_unit", 
-        jounin = "npc_konoha_jounin_unit", 
-        medical = "npc_medical_ninja_unit", 
-        anbu = "npc_anbu_unit" }
-    local otoUnits = { chunnin = "npc_oto_chunnin_unit",
-        jounin = "npc_oto_jounin_unit",
-        medical = "npc_medical_ninja_unit",
-        anbu = "npc_anbu_unit" }
-    local akatsukiUnits = { chunnin = "npc_akatsuki_chunnin_unit",
-        jounin = "npc_akatsuki_jounin_unit",
-        medical = "npc_medical_ninja_unit",
-        anbu = "npc_anbu_unit" }
-    local anbusSpawnFrequency = 2 -- How often will Anbus spawn? 2 = half the time, 3 = a third of the time, etc...
-    -- How much units will be spawned?
-    local spawnCountSide = { chunnin = 2,
-        jounin = 3, 
-        medical = 1,
-        anbu = (math.fmod(count, anbusSpawnFrequency) == 0 and 1 or 0) }
-    local spawnCountMid = { chunnin = 3,
-        jounin = 4, 
-        medical = 1,
-        anbu = (math.fmod(count, anbusSpawnFrequency) == 0 and 1 or 0) }
     -- Define the path for which the units will walk 
-    local konohaLeftLanePath    = {konohaLeftLane, konohaOtoLane, otoLeftLane, otoMidLane, otoRightLane, otoAkatsukiLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, akatsukiKonohaLane, konohaRightLane, konohaMidLane, konohaLeftLane}
-    local konohaRightLanePath   = {konohaRightLane, akatsukiKonohaLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane, otoAkatsukiLane, otoRightLane, otoMidLane, otoLeftLane, konohaOtoLane, konohaLeftLane, konohaMidLane, konohaRightLane}
-    local konohaMidLanePath     = {konohaMidLane, midLane, otoMidLane, otoRightLane, otoAkatsukiLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, akatsukiKonohaLane, konohaLeftLane, konohaMidLane}
-    local otoLeftLanePath       = {otoLeftLane, konohaOtoLane, konohaLeftLane, konohaMidLane, konohaRightLane, akatsukiKonohaLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane, otoAkatsukiLane, otoRightLane, otoMidLane, otoLeftLane}
-    local otoRightLanePath      = {otoRightLane, otoAkatsukiLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, akatsukiKonohaLane, konohaRightLane, konohaMidLane, konohaLeftLane, konohaOtoLane, otoLeftLane, otoMidLane, otoRightLane}
-    local otoMidLanePath        = {otoMidLane, midLane, akatsukiMidLane, akatsukiLeftLane, akatsukiKonohaLane, konohaRightLane, konohaMidLane, konohaLeftLane, konohaOtoLane, otoLeftLane, otoMidLane}
-    local akatsukiLeftLanePath  = {akatsukiLeftLane, akatsukiKonohaLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoAkatsukiLane, otoLeftLane, otoMidLane, otoRightLane, otoAkatsukiLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane}
-    local akatsukiRightLanePath = {akatsukiRightLane, otoAkatsukiLane, otoRightLane, otoMidLane, otoLeftLane, konohaOtoLane, konohaLeftLane, konohaMidLane, konohaRightLane, akatsukiKonohaLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane}
-    local akatsukiMidLanePath   = {akatsukiMidLane, midLane, konohaMidLane, konohaLeftLane, konohaOtoLane, otoLeftLane, otoMidLane, otoRightLane, otoAkatsukiLane, akatsukiRightLane, akatsukiMidLane}
-    -- Spawn creeps 
-    SpawnCreepsLane(konohaUnits, spawnCountSide, konohaLeftLanePath, DOTA_TEAM_GOODGUYS, "konoha_academy_left")
-    SpawnCreepsLane(konohaUnits, spawnCountSide, konohaRightLanePath, DOTA_TEAM_GOODGUYS, "konoha_academy_right")
-    SpawnCreepsLane(konohaUnits, spawnCountMid, konohaMidLanePath, DOTA_TEAM_GOODGUYS, "konoha_base")
-    SpawnCreepsLane(otoUnits, spawnCountSide, otoLeftLanePath, DOTA_TEAM_BADGUYS, "oto_academy_left")
-    SpawnCreepsLane(otoUnits, spawnCountSide, otoRightLanePath, DOTA_TEAM_BADGUYS, "oto_academy_right")
-    SpawnCreepsLane(otoUnits, spawnCountMid, otoMidLanePath, DOTA_TEAM_BADGUYS, "oto_base")
-    SpawnCreepsLane(akatsukiUnits, spawnCountSide, akatsukiLeftLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_academy_left")
-    SpawnCreepsLane(akatsukiUnits, spawnCountSide, akatsukiRightLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_academy_right")
-    SpawnCreepsLane(akatsukiUnits, spawnCountMid, akatsukiMidLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_base")
+    local konohaLeftLanePath    = {konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane}
+    local konohaRightLanePath   = {konohaRightLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane, otoRightLane, otoMidLane, otoLeftLane, konohaLeftLane, konohaMidLane, konohaRightLane}
+    local konohaMidLanePath     = {konohaMidLane, midLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, konohaLeftLane, konohaMidLane}
+    local otoLeftLanePath       = {otoLeftLane, konohaLeftLane, konohaMidLane, konohaRightLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane, otoRightLane, otoMidLane, otoLeftLane}
+    local otoRightLanePath      = {otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane}
+    local otoMidLanePath        = {otoMidLane, midLane, akatsukiMidLane, akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane}
+    local akatsukiLeftLanePath  = {akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane}
+    local akatsukiRightLanePath = {akatsukiRightLane, otoRightLane, otoMidLane, otoLeftLane, konohaLeftLane, konohaMidLane, konohaRightLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane}
+    local akatsukiMidLanePath   = {akatsukiMidLane, midLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane}
+	-- Load units definition from keyvalue file
+	local kv = LoadKeyValues("scripts/kv/units_spawn.kv")
+	local frequency = kv.Frequency
+	local spawnCountSide = kv.SideLaneSpawnCount
+	for unitKey, unitValue in pairs(spawnCountSide) do 
+		spawnCountSide[unitKey] = math.fmod(count, tonumber(frequency[unitKey])) == 0 and tonumber(spawnCountSide[unitKey]) or 0
+	end
+	local spawnCountMid = kv.MidLaneSpawnCount
+	for unitKey, unitValue in pairs(spawnCountMid) do 
+		spawnCountMid[unitKey] = math.fmod(count, tonumber(frequency[unitKey])) == 0 and tonumber(spawnCountMid[unitKey]) or 0 
+	end
+	-- Spawn creeps 
+    SpawnCreepsLane(kv.Konoha, spawnCountSide, kv.Offsets, konohaLeftLanePath, DOTA_TEAM_GOODGUYS, "konoha_academy_left")
+    SpawnCreepsLane(kv.Konoha, spawnCountSide, kv.Offsets, konohaRightLanePath, DOTA_TEAM_GOODGUYS, "konoha_academy_right")
+    SpawnCreepsLane(kv.Konoha, spawnCountMid, kv.Offsets, konohaMidLanePath, DOTA_TEAM_GOODGUYS, "konoha_base")
+    SpawnCreepsLane(kv.Oto, spawnCountSide, kv.Offsets, otoLeftLanePath, DOTA_TEAM_BADGUYS, "oto_academy_left")
+    SpawnCreepsLane(kv.Oto, spawnCountSide, kv.Offsets, otoRightLanePath, DOTA_TEAM_BADGUYS, "oto_academy_right")
+    SpawnCreepsLane(kv.Oto, spawnCountMid, kv.Offsets, otoMidLanePath, DOTA_TEAM_BADGUYS, "oto_base")
+    SpawnCreepsLane(kv.Akatsuki, spawnCountSide, kv.Offsets, akatsukiLeftLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_academy_left")
+    SpawnCreepsLane(kv.Akatsuki, spawnCountSide, kv.Offsets, akatsukiRightLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_academy_right")
+    SpawnCreepsLane(kv.Akatsuki, spawnCountMid, kv.Offsets, akatsukiMidLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_base")
 end
 
 --[[
@@ -209,9 +191,9 @@ function StartAI()
   local units = Entities:FindAllByClassname("npc_dota_creature")
   for _, unit in pairs(units) do 
     -- Start AI for Medical Ninjas
-    if unit:GetUnitName() == "npc_medical_ninja_unit" then 
-        MedicalNinjaAI:Start(unit)
-    end
+    --if unit:GetUnitName() == "npc_medical_ninja_unit" then 
+    --    MedicalNinjaAI:Start(unit)
+    --end
   end
 end
 
