@@ -299,6 +299,12 @@ function GameMode:OnEntityKilled( keys )
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
   -- Put code here to handle when an entity gets killed
+  -- Kuchiyose doesn't display corpses nor death animation
+  if killedUnit.is_kuchiyose then 
+	Timers:CreateTimer(0.05, function()
+		killedUnit:RemoveSelf()
+	end)
+  end
 end
 
 

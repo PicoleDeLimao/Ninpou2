@@ -1,3 +1,10 @@
+--[[
+	Author: PicoleDeLimao
+	Date: 01.04.2016
+	Perform the logic of Demolish ability
+]]
+
+-- Deal additional damage to buildings and fire a special effect
 function Demolish(event)
     local caster = event.caster
     local target = event.target 

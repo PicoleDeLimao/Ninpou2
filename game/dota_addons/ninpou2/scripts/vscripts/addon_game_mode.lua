@@ -37,9 +37,6 @@ function Precache( context )
   -- PrecacheResource("model", "particles/heroes/viper/viper.vmdl", context)
   -- PrecacheModel("models/heroes/viper/viper.vmdl", context)
 
-  -- Sounds can precached here like anything else
-  -- PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts", context)
-
   -- Entire items can be precached by name
   -- Abilities can also be precached in this way despite the name
   -- PrecacheItemByNameSync("example_ability", context)
@@ -50,6 +47,9 @@ function Precache( context )
   -- PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
   -- PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
   
+  -- Precache custom sounds
+  PrecacheResource("soundfile", "soundevents/game_sounds_custom.vsndevts", context)
+
   -- Precache units 
   PrecacheUnitByNameSync("npc_konoha_chunnin_unit", context)
   PrecacheUnitByNameSync("npc_konoha_jounin_unit", context)

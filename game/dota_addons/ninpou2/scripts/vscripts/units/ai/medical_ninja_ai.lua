@@ -1,3 +1,9 @@
+--[[
+	Author: PicoleDeLimao
+	Date: 01.03.2016
+	Define AI behavior for Medical Ninja units
+]]
+
 MEDICAL_NINJA_AI_THINK_INTERVAL = 2.0   -- How much time will be elapsed between one action and another?
 
 MedicalNinjaAI = {}

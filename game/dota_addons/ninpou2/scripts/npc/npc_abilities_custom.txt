@@ -340,8 +340,8 @@
   {
 	// General
 	"BaseClass"					"ability_datadriven"
-	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityTextureName"		"medical_ninja_heal"
+	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	
@@ -433,8 +433,8 @@
   {
     // General
     "BaseClass"                         "ability_datadriven"
-    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                "anbu_bash"
+    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     
     // Special 
     "precache"
@@ -527,8 +527,8 @@
   {
     // General 
     "BaseClass"                         "ability_datadriven"
-    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                "anbu_demolish"
+    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     
     // Special 
     "AbilitySpecial"
@@ -578,10 +578,10 @@
   {
     // General
     "BaseClass"                         "ability_datadriven"
+	"AbilityTextureName"                "anbu_confidence_aura"
     "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityCastRange"                  "800"
-	"AbilityTextureName"                "anbu_confidence_aura"
     
     // Special
     "AbilitySpecial"
@@ -623,6 +623,410 @@
             "Properties"
             {
                 "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed_bonus"
+            }
+        }
+    }
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Elite Anbu's Fuuma Shuriken
+  //-------------------------------------------------------------------------------------------------------------
+  "elite_anbu_fuuma_shuriken"
+  {
+	// General
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"elite_anbu_fuuma_shuriken"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+	
+	"AbilityCastAnimation"				"ACT_DOTA_ATTACK"
+	"AbilityCastRange"					"700"
+	"AbilityCastPoint"					"0.35"
+	"AbilityCooldown"					"30"
+	"AbilityManaCost"					"50"
+	"AbilityDamage"						"1000"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration"		        "2.0"
+		}
+	}
+    
+    // Datadriven 
+    "precache"
+    {
+        "particle"                      "particles/units/eliteanbu/eliteanbu_fuuma_shuriken.vpcf"
+        "particle"                      "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+        "particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
+        "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_sven.vsndevt"
+    }
+    "OnSpellStart"
+    {
+        "TrackingProjectile"
+        {
+            "Target"                    "TARGET"
+            "EffectName"                "particles/units/eliteanbu/eliteanbu_fuuma_shuriken.vpcf"
+            "Dodgeable"                 "1"
+            "ProvidesVision"            "1"
+            "VisionRadius"              "250"
+            "MoveSpeed"                 "800"
+            "SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+        }
+        "FireSound"
+        {
+            "Target"                    "CASTER"
+            "EffectName"                "Hero_Sven.StormBolt"
+        }
+    }
+    "OnProjectileHitUnit"
+    {
+        "FireEffect"
+        {
+            "Target"                    "TARGET"
+            "EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+            "EffectAttachType"          "attach_origin"
+            "ControlPointEntities"
+            {
+                "TARGET"                "attach_origin"
+                "TARGET"                "attach_origin"
+                "TARGET"                "attach_origin"
+                "TARGET"                "attach_origin"
+            }
+        }
+        "FireSound"
+        {
+            "Target"                    "TARGET"
+            "EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+        }
+        "Damage"
+        {
+            "Target"                    "TARGET"
+            "Type"                      "DAMAGE_TYPE_PHYSICAL"
+            "Damage"                    "%AbilityDamage"
+        }
+        "ApplyModifier"
+        {
+            "Target"                    "TARGET"
+            "ModifierName"              "modifier_bash_stun"
+            "Duration"                  "%stun_duration"
+        }
+    }
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Elite Anbu's Kuchiyose no Jutsu: Ninkens
+  //-------------------------------------------------------------------------------------------------------------
+  "elite_anbu_kuchiyose_ninkens"
+  {
+	// General
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"elite_anbu_kuchiyose_ninkens"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	
+	"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+	"AbilityCastPoint"					"0.3"
+	"AbilityCooldown"					"120"
+	"AbilityManaCost"					"100"
+	
+	// Special 
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"duration"					"30"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"hit_points"				"2000"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"num_units"					"2"
+		}
+	}
+	
+	// Datadriven
+	"precache"
+	{
+		"particle"						"particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf"
+		"particle"						"particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"
+		"particle"						"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_final_explosion_smoke.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+		"soundfile"						"soundevents/game_sounds_custom.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"units/eliteanbu/kuchiyose_ninkens.lua"
+			"Function"					"KillNinkens"
+		}
+		"AttachEffect"
+		{
+			"Target"					"CASTER"
+			"EffectName"				"particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf"
+			"EffectAttachType"			"start_at_customorigin"
+			"ControlPointEntities"
+			{
+				"CASTER"				"attach_attack1"
+			}
+		}
+		"FireSound"
+		{
+			"Target"					"CASTER"
+			"EffectName"				"Hero_Lycan.SummonWolves"
+		}
+		"SpawnUnit"
+		{
+			"UnitName"					"npc_ninken_unit"
+			"Target"
+			{
+				"Center"				"CASTER"
+				"ScriptSelectPoints"
+				{
+					"ScriptFile"		"units/eliteanbu/kuchiyose_ninkens.lua"
+					"Function"			"GetSummonPoints"
+					"Target"			"CASTER"
+					"Count"				"1"
+					"distance"			"150"
+				}
+			}
+			"Duration"					"%duration"
+			"UnitCount"					"1"
+			"UnitLimit"					"%num_units"
+			"GrantsGold"				"0"
+			"GrantsXP"					"0"
+			"SpawnRadius"				"10"
+			"OnSpawn"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"units/eliteanbu/kuchiyose_ninkens.lua"
+					"Function"			"SetUnitsMoveForward"
+				}
+				"ApplyModifier"
+				{
+					"Target"			"TARGET"
+					"ModifierName"		"modifier_phase"
+					"Duration"			"0.03"
+				}
+				"ApplyModifier"
+				{
+					"Target"			"TARGET"
+					"ModifierName"		"modifier_kuchiyose"
+					"Duration"			"%duration"
+				}
+				"FireEffect"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_final_explosion_smoke.vpcf"
+				}
+			}
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_kuchiyose"
+		{
+			"Passive"					"0"
+			"IsHidden"					"1"
+			"IsDebuff"					"0"
+			"OnCreated"
+			{
+				"FireEffect"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"
+					"EffectAttachType"	"follow_origin"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"units/ninken/kuchiyose.lua"
+					"Function"			"ShowEffect"
+				}
+			}
+		}
+		"modifier_kuchiyose_effect"
+		{
+			"IsHidden"					"1"
+			"Duration"					"3"
+			"OnCreated"
+			{
+				"FireSound"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"Poof"
+				}
+				"RunScript"
+				{
+					"ScriptFile"		"units/ninken/kuchiyose.lua"
+					"Function"			"ShowSmoke"
+				}
+			}
+		}
+	}
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Ninken's Critical Strike
+  //-------------------------------------------------------------------------------------------------------------
+  "ninken_critical_strike"
+  {
+	// General 
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"ninken_critical_strike"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	// Special 
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crit_bonus"				"200"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crit_chance"				"15"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"						"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+		"particle"						"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+	}
+	"Modifiers"
+	{
+		"modifier_ninken_critical_strike"
+		{
+			"Passive"					"1"
+			"IsHidden"					"1"
+			"OnAttackStart"
+			{
+				"RemoveModifier"
+				{
+					"Target"			"CASTER"
+					"ModifierName"		"modifier_ninken_critical_strike_crit"
+				}
+				"Random"
+				{
+					"Chance"				"%crit_chance"
+					"OnSuccess"
+					{
+						"FireEffect"
+						{
+							"Target"		"CASTER"
+							"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+							"EffectAttachType"	"attach_attack1"
+						}
+						"FireSound"
+						{
+							"Target"		"CASTER"
+							"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+						}
+						"ApplyModifier"
+						{
+							"Target"		"CASTER"
+							"ModifierName"	"modifier_ninken_critical_strike_crit"
+						}
+					}
+				}
+			}
+		}
+		"modifier_ninken_critical_strike_crit"
+		{
+			"IsHidden"					"1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
+			}
+			"OnAttackLanded"
+			{
+				"FireEffect"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+					"EffectAttachType"	"attach_hitloc"
+				}
+				"RemoveModifier"
+				{
+					"Target"			"CASTER"
+					"ModifierName"		"modifier_ninken_critical_strike_crit"
+				}
+			}
+		}
+	}
+  }
+  
+  
+  //-------------------------------------------------------------------------------------------------------------
+  // UNITS: Elite Anbu's Tatics Aura
+  //-------------------------------------------------------------------------------------------------------------
+  "elite_anbu_tatics_aura"
+  {
+    // General
+    "BaseClass"                         "ability_datadriven"
+	"AbilityTextureName"                "elite_anbu_tatics_aura"
+    "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityCastRange"                  "900"
+    
+    // Special
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "resistance_bonus"		    "15"
+        }
+        "02"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "radius"                    "1200"
+        }
+    }
+    
+    // Datadriven
+    "precache"
+    {
+        "particle"                      "particles/items_fx/aura_shivas.vpcf"
+    }
+    "Modifiers"
+    {
+        "modifier_elite_anbu_tatics_aura"
+        {
+            "Passive"                   "1"
+            "IsBuff"                    "1"
+            "IsHidden"                  "1"
+            "EffectName"                "particles/items_fx/aura_shivas.vpcf"
+            "EffectAttachType"          "follow_origin"
+            "Aura"                      "modifier_elite_anbu_tatics_aura_buff"
+            "Aura_Radius"               "%radius"
+            "Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+            "Aura_Types"                "DOTA_UNIT_TARGET_ALL"
+        }
+        "modifier_elite_anbu_tatics_aura_buff"
+        {
+            "IsBuff"                    "1"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"      "%resistance_bonus"
             }
         }
     }
