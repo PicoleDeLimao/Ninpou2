@@ -190,10 +190,10 @@ end
 function StartAI() 
   local units = Entities:FindAllByClassname("npc_dota_creature")
   for _, unit in pairs(units) do 
-    -- Start AI for Medical Ninjas
-    --if unit:GetUnitName() == "npc_medical_ninja_unit" then 
-    --    MedicalNinjaAI:Start(unit)
-    --end
+    -- Start AI for Elite Anbus
+    if unit:GetUnitName() == "npc_elite_anbu_unit" then 
+        EliteAnbuAI:Start(unit)
+    end
   end
 end
 

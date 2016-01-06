@@ -343,7 +343,7 @@
 	"AbilityTextureName"		"medical_ninja_heal"
 	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	
 	//"AbilityCastPoint"			"0.35"
 	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -482,7 +482,7 @@
                         }
                         "ApplyModifier"
                         {
-                            "ModifierName"  "modifier_bash_stun"
+                            "ModifierName"  "modifier_anbu_bash_stun"
                             "Target"
                             {
                                 "Center"    "TARGET"
@@ -492,7 +492,7 @@
                         }
                         "ApplyModifier"
                         {
-                            "ModifierName"  "modifier_bash_stun"
+                            "ModifierName"  "modifier_anbu_bash_stun"
                             "Target"
                             {
                                 "Center"    "TARGET"
@@ -504,7 +504,7 @@
                 }
             }
         }
-        "modifier_bash_stun"
+        "modifier_anbu_bash_stun"
         {
             "IsDebuff"                      "1"
             "IsStunDebuff"                  "true"
@@ -638,7 +638,7 @@
 	"AbilityTextureName"				"elite_anbu_fuuma_shuriken"
 	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
 	
 	"AbilityCastAnimation"				"ACT_DOTA_ATTACK"
@@ -646,7 +646,7 @@
 	"AbilityCastPoint"					"0.35"
 	"AbilityCooldown"					"30"
 	"AbilityManaCost"					"50"
-	"AbilityDamage"						"1000"
+	"AbilityDamage"						"500"
 	
 	// Special
 	"AbilitySpecial"
@@ -654,7 +654,12 @@
 		"01"
 		{
 			"var_type"					"FIELD_FLOAT"
-			"stun_duration"		        "2.0"
+			"stun_duration_hero"		"2.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration_creep"		"5.0"
 		}
 	}
     
@@ -664,7 +669,8 @@
         "particle"                      "particles/units/eliteanbu/eliteanbu_fuuma_shuriken.vpcf"
         "particle"                      "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
         "particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
-        "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_sven.vsndevt"
+		"particle"						"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+        "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_sven.vsndevt"			
     }
     "OnSpellStart"
     {
@@ -704,19 +710,49 @@
             "Target"                    "TARGET"
             "EffectName"                "Hero_FacelessVoid.TimeLockImpact"
         }
-        "Damage"
-        {
-            "Target"                    "TARGET"
-            "Type"                      "DAMAGE_TYPE_PHYSICAL"
-            "Damage"                    "%AbilityDamage"
-        }
-        "ApplyModifier"
-        {
-            "Target"                    "TARGET"
-            "ModifierName"              "modifier_bash_stun"
-            "Duration"                  "%stun_duration"
-        }
+		"ApplyModifier"
+		{
+			"ModifierName"				"modifier_elite_anbu_fuuma_shuriken"
+			"Target"
+			{
+				"Center"				"TARGET"
+				"Types"					"DOTA_UNIT_TARGET_HERO"
+			}
+			"Duration"					"%stun_duration_hero"
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"				"modifier_elite_anbu_fuuma_shuriken"
+			"Target"
+			{
+				"Center"				"TARGET"
+				"Types"					"DOTA_UNIT_TARGET_BASIC"
+			}
+			"Duration"					"%stun_duration_creep"
+		}
+		"Damage"
+		{
+			"Target"					"TARGET"
+			"Type"						"DAMAGE_TYPE_PHYSICAL"
+			"Damage"					"%AbilityDamage"
+		}
     }
+	"Modifiers"
+	{
+		"modifier_elite_anbu_fuuma_shuriken"
+		{
+			"IsDebuff"                      "1"
+            "IsStunDebuff"                  "true"
+            "EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+            "EffectAttachType"              "follow_overhead"
+            "StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+            "StatusEffectPriority"          "1"
+            "States"
+            {
+                "MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+            }
+		}
+	}
   }
   
   //-------------------------------------------------------------------------------------------------------------
@@ -765,11 +801,11 @@
 	}
 	"OnSpellStart"
 	{
-		"RunScript"
-		{
-			"ScriptFile"				"units/eliteanbu/kuchiyose_ninkens.lua"
-			"Function"					"KillNinkens"
-		}
+		//"RunScript"
+		//{
+		//	"ScriptFile"				"units/eliteanbu/kuchiyose_ninkens.lua"
+		//	"Function"					"KillNinkens"
+		//}
 		"AttachEffect"
 		{
 			"Target"					"CASTER"
@@ -801,8 +837,8 @@
 				}
 			}
 			"Duration"					"%duration"
-			"UnitCount"					"1"
-			"UnitLimit"					"%num_units"
+			//"UnitCount"					"1"
+			//"UnitLimit"					"%num_units"
 			"GrantsGold"				"0"
 			"GrantsXP"					"0"
 			"SpawnRadius"				"10"
@@ -998,7 +1034,7 @@
         "02"
         {
             "var_type"                  "FIELD_INTEGER"
-            "radius"                    "1200"
+            "radius"                    "1500"
         }
     }
     

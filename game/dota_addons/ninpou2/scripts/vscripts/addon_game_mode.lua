@@ -11,6 +11,9 @@ require('utilities')
 -- AI for medical ninja units in order to enable them to autocast heal ability
 require('units/ai/medical_ninja_ai')
 
+-- AI for elite anbu units 
+require('units/ai/elite_anbu_ai')
+
 require('gamemode')
 
 function Precache( context )
