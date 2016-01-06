@@ -1,0 +1,47 @@
+"npc_oto_base_unit"
+{
+	// General 
+	"BaseClass"					"npc_dota_fort"
+	"Model"						"models/buildings/YamataNoOrochi/YamataNoOrochi.vmdl"
+	"ModelScale"				"1.7"
+		
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"550"
+	"AttackDamageMax"			"650"
+	"AttackRate"				"1.0"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"600"
+	"ProjectileModel"			"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
+	"ProjectileSpeed"			"1100"
+		
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
+	"RingRadius"				"400"
+
+	// Bounty
+	"BountyXP"					"1000"
+	"BountyGoldMin"				"10000"
+	"BountyGoldMax"				"10000"
+
+	// Movement 
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"				"0"
+	"MovementTurnRate"			"1.0"
+
+	// Status 
+	"StatusHealth"				"30000"
+	"StatusHealthRegen"			"0"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Team 
+	"TeamName"                  "DOTA_TEAM_BADGUYS" 				
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		
+	// Vision 
+	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+}

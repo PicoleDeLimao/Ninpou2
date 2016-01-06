@@ -1,0 +1,52 @@
+"npc_akatsuki_chunnin_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/akatsukicreep/akatsukicreepranged.vmdl" 
+	"ModelScale"				"1.0"
+	"SoundSet"          		"n_creep_Ranged"        
+
+	// Armor 
+	"ArmorPhysical"				"0"
+	"MagicalResistance" 		"0"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"30"
+	"AttackDamageMax"			"35"
+	"AttackRate"				"1.75"
+	"AttackAnimationPoint"		"0.30"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"600"
+	"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
+	"ProjectileSpeed"			"800"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+	"RingRadius"				"50"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"250"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"500"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+		
+	// Bounty
+	"BountyXP"					"50"
+	"BountyGoldMin"       	    "80"      // Gold earned min.
+	"BountyGoldMax"      	    "100"     // Gold earned max.
+}

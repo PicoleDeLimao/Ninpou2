@@ -1,0 +1,55 @@
+"npc_anbu_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/anbu/anbu.vmdl" 
+	"ModelScale"				"1.0"
+	"SoundSet"          		"n_creep_Meele"   
+	"Level"           			"3"    
+
+	// Armor 
+	"ArmorPhysical"				"10"
+	"MagicalResistance" 		"0"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageMin"			"70"
+	"AttackDamageMax"			"90"
+	"AttackRate"				"2.0"
+	"AttackRange"				"100"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"60"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"285"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"1000"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Bounty
+	"BountyXP"					"200"
+	"BountyGoldMin"       	    "230"      // Gold earned min.
+	"BountyGoldMax"      	    "260"      // Gold earned max.
+
+	// Abilities
+	"AbilitiesLayout"           "3"
+	"Ability1"                  "anbu_bash"
+	"Ability2"                  "anbu_demolish"
+	"Ability3"                  "anbu_confidence_aura"
+}

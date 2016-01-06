@@ -1,0 +1,93 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Anbu's Bash
+//-------------------------------------------------------------------------------------------------------------
+"anbu_bash"
+{
+	// General
+	"BaseClass"                         "ability_datadriven"
+	"AbilityTextureName"                "anbu_bash"
+	"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+	// Special 
+	"precache"
+	{
+		"particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
+		"particle"                      "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+		"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+	}
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"                  "FIELD_INTEGER"
+			"bash_chance"               "10"
+		}
+		"02"
+		{
+			"var_type"                  "FIELD_FLOAT"
+			"stun_duration_hero"        "1.0"
+		}
+		"03"
+		{
+			"var_type"                  "FIELD_FLOAT"
+			"stun_duration_creep"       "2.0"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_anbu_bash"
+		{
+			"Passive"                   "1"
+			"IsHidden"                  "1"
+			"OnAttackLanded"
+			{
+				"Random"
+				{
+					"Chance"            "%bash_chance"
+					"PseudoRandom"      "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+					"OnSuccess"
+					{
+						"FireSound"
+						{
+							"Target"        "TARGET"
+							"EffectName"    "Hero_FacelessVoid.TimeLockImpact"
+						}
+						"ApplyModifier"
+						{
+							"ModifierName"  "modifier_anbu_bash_stun"
+							"Target"
+							{
+								"Center"    "TARGET"
+								"Types"     "DOTA_UNIT_TARGET_HERO"
+							}
+							"Duration"      "%stun_duration_hero"
+						}
+						"ApplyModifier"
+						{
+							"ModifierName"  "modifier_anbu_bash_stun"
+							"Target"
+							{
+								"Center"    "TARGET"
+								"Types"     "DOTA_UNIT_TARGET_BASIC"
+							}
+							"Duration"      "%stun_duration_creep"
+						}
+					}
+				}
+			}
+		}
+		"modifier_anbu_bash_stun"
+		{
+			"IsDebuff"                      "1"
+			"IsStunDebuff"                  "1"
+			"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"              "follow_overhead"
+			"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+			"StatusEffectPriority"          "1"
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

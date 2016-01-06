@@ -1,0 +1,61 @@
+"npc_elite_anbu_leader_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/eliteanbu/eliteanbu_1.vmdl" 
+	"ModelScale"				"1.2"
+	"SoundSet"          		"n_creep_Ranged"        
+	"Level"           			"6"
+	"ConsideredHero"            "1"
+
+	// Armor 
+	"ArmorPhysical"				"15"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"400"
+	"AttackDamageMax"			"550"
+	"AttackRate"				"1.5"
+	"AttackAnimationPoint"		"0.3"
+	"AttackAcquisitionRange"	"900"
+	"AttackRange"				"600"
+	"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
+	"ProjectileSpeed"			"800"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"60"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"250"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"6000"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Bounty
+	"BountyXP"					"2000"
+	"BountyGoldMin"       	    "1800"       // Gold earned min.
+	"BountyGoldMax"      	    "2200"      // Gold earned max.
+
+	// Abilities 
+	"AbilitiesLayout"			"5"
+	"Ability1"					"elite_anbu_leader_katon_jutsu"
+	"Ability2"					"elite_anbu_leader_suiton_jutsu"
+	"Ability3"					"elite_anbu_leader_doton_jutsu"
+	"Ability4"					"elite_anbu_leader_fuuton_jutsu"
+	"Ability5"					"elite_anbu_leader_raiton_jutsu"
+}

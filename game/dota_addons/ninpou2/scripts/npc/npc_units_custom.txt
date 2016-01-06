@@ -1,1118 +1,1123 @@
-  // Dota Units File
 "DOTAUnits"
 {
-  "Version" "1"
-  
-  "npc_dummy_unit"
-  {
-    // General
-    "BaseClass"         "npc_dota_thinker"  					// Class of entity of link to.
-    "Model"           	"models/development/invisiblebox.vmdl"  // Model.
-    
-    // Attack
-    "AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
-    "AttackDamageMin"     		"0"     // Damage range min.
-    "AttackDamageMax"     		"0"     // Damage range max.
-    "AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"        		"1"     // Speed of attack.
-    "AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
-    "AttackRange"       		"500"   // Range within a target can be attacked.
-    "ProjectileModel"     		"" 		// Particle system model for projectile.
-    "ProjectileSpeed"     		"900"   // Speed of projectile.
-
-    // Bounty
-    "BountyXP"          	"0"     // Experience earn.
-    "BountyGoldMin"       	"0"     // Gold earned min.
-    "BountyGoldMax"      	"0"     // Gold earned max.
-
-    // Movement
-    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-    "MovementSpeed"       	"450"   	// Speed
-    "MovementTurnRate"      "1.0"   	// Turning rate.
-    "FollowRange"       	"250"   	// Distance to keep when following
-
-    // Status
-    "StatusHealth"        	"1"     // Base health.
-    "StatusHealthRegen"     "0"     // Health regeneration rate.
-    "StatusMana"        	"0"     // Base mana.
-    "StatusManaRegen"    	"0"     // Mana regeneration rate.
-
-    // Vision
-    "VisionDaytimeRange"        "0"   	// Range of vision during day light.
-    "VisionNighttimeRange"      "0"   // Range of vision at night time.
-  }
-  "npc_rogue_ninja_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/rogueninja/rogueninja.vmdl" 
-	"ModelScale"				"3.0"
-    "SoundSet"          		"n_creep_Meele"        
-    "Level"           			"4"
-	
-	// Armor 
-	"ArmorPhysical"				"10"
-	"MagicalResistance" 		"0"
-	
-	// Minimap
-	"MinimapIcon"               "minimap_candybucket"
-	"MinimapIconSize"           "300"
-
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"100"
-	"AttackDamageMax"			"150"
-	"AttackRate"				"1.7"
-	"AttackAcquisitionRange"	"1000"
-	"AttackRange"				"100"
-	"ProjectileModel"			""
-	"ProjectileSpeed"			"0"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"45"
-	"HealthBarOffset"			"170"
-	
-	// Bounty
-	"BountyXP"					"500"
-	"BountyGoldMin"				"350"
-	"BountyGoldMax"				"600"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"250"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"2000"
-	"StatusHealthRegen"			"1"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-  }
-  "npc_ninja_academy_unit"
-  {
-	// General 
-	"BaseClass"					"npc_dota_barracks"
-	"Model"						"models/buildings/NinjaAcademy/NinjaAcademy.vmdl"
-	"ModelScale"				"1.85"
-	
-	// Armor 
-	"PhysicalArmor"				"10"
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
-	"RingRadius"				"350"
-	
-	// Bounty
-	"BountyXP"					"500"
-	"BountyGoldMin"				"499"
-	"BountyGoldMax"				"500"
-	
-	// Status 
-	"StatusHealth"				"8000"
-	"StatusHealthRegen"			"0"
-  }
-  "npc_anbu_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/anbu/anbu.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Meele"   
-    "Level"           			"3"    
-	
-	// Armor 
-	"ArmorPhysical"				"10"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"70"
-	"AttackDamageMax"			"90"
-	"AttackRate"				"2.0"
-	"AttackRange"				"100"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"60"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"285"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"1000"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"200"
-    "BountyGoldMin"       	    "230"      // Gold earned min.
-    "BountyGoldMax"      	    "260"      // Gold earned max.
-    
-    // Abilities
-    "AbilitiesLayout"           "3"
-    "Ability1"                  "anbu_bash"
-    "Ability2"                  "anbu_demolish"
-    "Ability3"                  "anbu_confidence_aura"
-  }
-  "npc_ninken_unit"
-  {
-    // General
-    "BaseClass"                 "npc_dota_creature"
-    "Model"                     "models/items/beastmaster/boar/fotw_wolf/fotw_wolf.vmdl"
-    "ModelScale"                "1.0"
-    "SoundSet"                  "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"200"
-	"AttackDamageMax"			"250"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"100"
-	
-	// Vision
-	"VisionDaytimeRange"		"1200"
-	"VisionNighttimeRange"		"800"
-	
-	// Bounds 
-	"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"80"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"270"
-	
-	// Team 
-	"TeamName"					"DOTA_TEAM_NEUTRALS"
-	"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_WEAK"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"2000"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	"AbilitiesLayout"			"2"
-	"Ability1"					"anbu_bash"
-	"Ability2"					"ninken_critical_strike"
-  }
-  "npc_elite_anbu_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/eliteanbu/eliteanbu_2.vmdl" 
-	"ModelScale"				"1.2"
-    "SoundSet"          		"n_creep_Ranged"        
-    "Level"           			"5"
-	
-	// Armor 
-	"ArmorPhysical"				"10"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"300"
-	"AttackDamageMax"			"350"
-	"AttackRate"				"1.5"
-	"AttackAnimationPoint"		"0.3"
-	"AttackAcquisitionRange"	"900"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
-	"ProjectileSpeed"			"800"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"60"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"250"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"4000"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"300"
-	"StatusManaRegen"			"1.0"
-    
-    // Bounty
-	"BountyXP"					"1000"
-    "BountyGoldMin"       	    "800"      // Gold earned min.
-    "BountyGoldMax"      	    "1200"      // Gold earned max.
-    
-    "AbilitiesLayout"           "3"
-    "Ability1"                  "elite_anbu_fuuma_shuriken"
-    "Ability2"                  "elite_anbu_kuchiyose_ninkens"
-    "Ability3"                  "elite_anbu_tatics_aura"
-  }
-  "npc_elite_anbu_leader_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/eliteanbu/eliteanbu_1.vmdl" 
-	"ModelScale"				"1.2"
-    "SoundSet"          		"n_creep_Ranged"        
-    "Level"           			"6"
-    "ConsideredHero"            "1"
-	
-	// Armor 
-	"ArmorPhysical"				"15"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"400"
-	"AttackDamageMax"			"550"
-	"AttackRate"				"1.5"
-	"AttackAnimationPoint"		"0.3"
-	"AttackAcquisitionRange"	"900"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
-	"ProjectileSpeed"			"800"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"60"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"250"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"6000"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"2000"
-    "BountyGoldMin"       	    "1800"       // Gold earned min.
-    "BountyGoldMax"      	    "2200"      // Gold earned max.
-  }
-  "npc_medical_ninja_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/medicalninja/medicalninja.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Ranged"  
-    "Level"           			"2"    
-	
-	// Armor 
-	"ArmorPhysical"				"0"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"20"
-	"AttackDamageMax"			"25"
-	"AttackRate"				"2.0"
-	"AttackAnimationPoint"		"0.30"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"400"
-	"ProjectileModel"			"particles/units/medicalninja/medicalninja_base_attack.vpcf"
-	"ProjectileSpeed"			"800"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"60"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"270"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"800"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"300"
-	"StatusManaRegen"			"1.0"
-    
-    // Bounty
-	"BountyXP"					"100"
-    "BountyGoldMin"       	    "180"      // Gold earned min.
-    "BountyGoldMax"      	    "220"      // Gold earned max.
-    
-    // Abilities
-    "AbilitiesLayout"           "1"
-    "Ability1"                  "medical_ninja_heal"
-  }
-  "npc_konoha_base_unit"
-  {
-	// General 
-	"BaseClass"					"npc_dota_fort"
-	"Model"						"models/buildings/HokageBuilding/HokageBuilding.vmdl"
-		
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"550"
-	"AttackDamageMax"			"650"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
-	"RingRadius"				"400"
-	
-	// Bounty
-	"BountyXP"					"5000"
-	"BountyGoldMin"				"10000"
-	"BountyGoldMax"				"10000"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"30000"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-
-	// Team 
-	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_konoha_tower_unit"
-  {
-	// General
-	"BaseClass"					"npc_dota_tower"
-	"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_1.vmdl"
-	"ModelScale"				"6.0"
-	"SoundSet"					"Tower.Water"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"350"
-	"AttackDamageMax"			"450"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
-	"RingRadius"				"180"
-	
-	// Bounty
-	"BountyXP"					"1000"
-	"BountyGoldMin"				"1000"
-	"BountyGoldMax"				"1000"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"4000"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	// Team 
-	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-	
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_konoha_primary_tower_unit"
-  {
-	// General
-	"BaseClass"					"npc_dota_tower"
-	"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_2.vmdl"
-	"ModelScale"				"3.5"
-	"SoundSet"					"Tower.Water"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"250"
-	"AttackDamageMax"			"350"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
-	"RingRadius"				"180"
-	
-	// Bounty
-	"BountyXP"					"500"
-	"BountyGoldMin"				"499"
-	"BountyGoldMax"				"500"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"2500"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	// Team 
-	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-	
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_konoha_chunnin_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/konohagakurecreep/konohagakurecreepranged.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Ranged"        
-	
-	// Armor 
-	"ArmorPhysical"				"0"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"30"
-	"AttackDamageMax"			"35"
-	"AttackRate"				"1.75"
-	"AttackAnimationPoint"		"0.30"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
-	"ProjectileSpeed"			"800"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"50"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"250"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"500"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"50"
-    "BountyGoldMin"       	    "80"      // Gold earned min.
-    "BountyGoldMax"      	    "100"     // Gold earned max.
-  }
-  "npc_konoha_jounin_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/konohagakurecreep/konohagakurecreepmeele.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Meele"        
-	
-	// Armor 
-	"ArmorPhysical"				"2"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"50"
-	"AttackDamageMax"			"55"
-	"AttackRate"				"1.75"
-	"AttackRange"				"100"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
-	"RingRadius"				"50"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"270"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"650"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"75"
-    "BountyGoldMin"       	    "130"      // Gold earned min.
-    "BountyGoldMax"      	    "160"      // Gold earned max.
-  }
-  "npc_oto_base_unit"
-  {
-	// General 
-	"BaseClass"					"npc_dota_fort"
-	"Model"						"models/buildings/YamataNoOrochi/YamataNoOrochi.vmdl"
-	"ModelScale"				"1.7"
-		
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"550"
-	"AttackDamageMax"			"650"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
-	"RingRadius"				"400"
-	
-	// Bounty
-	"BountyXP"					"1000"
-	"BountyGoldMin"				"10000"
-	"BountyGoldMax"				"10000"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"30000"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-
-	// Team 
-	"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_oto_tower_unit"
-  {
-	// General
-	"BaseClass"					"npc_dota_tower"
-	"Model"						"models/buildings/OtogakureTower/OtogakureTower_1.vmdl"
-	"ModelScale"				"9.0"
-	"SoundSet"					"Tower.Water"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"350"
-	"AttackDamageMax"			"450"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
-	"RingRadius"				"180"
-	
-	// Bounty
-	"BountyXP"					"1000"
-	"BountyGoldMin"				"1000"
-	"BountyGoldMax"				"1000"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"4000"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	// Team 
-	"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-	
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_oto_primary_tower_unit"
-  {
-	// General
-	"BaseClass"					"npc_dota_tower"
-	"Model"						"models/buildings/OtogakureTower/OtogakureTower_2.vmdl"
-	"ModelScale"				"3.5"
-	"SoundSet"					"Tower.Water"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"250"
-	"AttackDamageMax"			"350"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
-	"RingRadius"				"180"
-	
-	// Bounty
-	"BountyXP"					"500"
-	"BountyGoldMin"				"499"
-	"BountyGoldMax"				"500"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"2500"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	// Team 
-	"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-	
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_oto_chunnin_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/otogakurecreep/otogakurecreepranged.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Ranged"        
-	
-	// Armor 
-	"ArmorPhysical"				"0"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"30"
-	"AttackDamageMax"			"35"
-	"AttackRate"				"1.75"
-	"AttackAnimationPoint"		"0.30"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
-	"ProjectileSpeed"			"800"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"50"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"250"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"500"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"50"
-    "BountyGoldMin"       	    "80"      // Gold earned min.
-    "BountyGoldMax"      	    "100"     // Gold earned max.
-  }
-  "npc_oto_jounin_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/otogakurecreep/otogakurecreepmeele.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Meele"        
-	
-	// Armor 
-	"ArmorPhysical"				"2"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"50"
-	"AttackDamageMax"			"55"
-	"AttackRate"				"1.75"
-	"AttackRange"				"100"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"50"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"270"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"650"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"75"
-    "BountyGoldMin"       	    "130"      // Gold earned min.
-    "BountyGoldMax"      	    "160"      // Gold earned max.
-  }
-  "npc_akatsuki_base_unit"
-  {
-	// General 
-	"BaseClass"					"npc_dota_fort"
-	"Model"						"models/buildings/GedoMazo/GedoMazo.vmdl"
-		
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"550"
-	"AttackDamageMax"			"650"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
-	"RingRadius"				"400"
-	
-	// Bounty
-	"BountyXP"					"1000"
-	"BountyGoldMin"				"10000"
-	"BountyGoldMax"				"10000"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"30000"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-
-	// Team 
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-		
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_akatsuki_tower_unit"
-  {
-	// General
-	"BaseClass"					"npc_dota_tower"
-	"Model"						"models/buildings/AmegakureTower/AmegakureTower_1.vmdl"
-	"ModelScale"				"2.5"
-	"SoundSet"					"Tower.Water"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"350"
-	"AttackDamageMax"			"450"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
-	"RingRadius"				"180"
-	
-	// Bounty
-	"BountyXP"					"1000"
-	"BountyGoldMin"				"1000"
-	"BountyGoldMax"				"1000"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"4000"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	// Team 
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-	
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_akatsuki_primary_tower_unit"
-  {
-	// General
-	"BaseClass"					"npc_dota_tower"
-	"Model"						"models/buildings/AmegakureTower/AmegakureTower_2.vmdl"
-	"ModelScale"				"2.5"
-	"SoundSet"					"Tower.Water"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"250"
-	"AttackDamageMax"			"350"
-	"AttackRate"				"1.0"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
-	"ProjectileSpeed"			"1100"
-		
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
-	"RingRadius"				"180"
-	
-	// Bounty
-	"BountyXP"					"500"
-	"BountyGoldMin"				"499"
-	"BountyGoldMax"				"500"
-	
-	// Movement 
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-	"MovementSpeed"				"0"
-	"MovementTurnRate"			"1.0"
-	
-	// Status 
-	"StatusHealth"				"2500"
-	"StatusHealthRegen"			"0"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-	
-	// Team 
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
-	
-	// Vision 
-	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
-	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
-  }
-  "npc_akatsuki_chunnin_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/akatsukicreep/akatsukicreepranged.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Ranged"        
-	
-	// Armor 
-	"ArmorPhysical"				"0"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"30"
-	"AttackDamageMax"			"35"
-	"AttackRate"				"1.75"
-	"AttackAnimationPoint"		"0.30"
-	"AttackAcquisitionRange"	"800"
-	"AttackRange"				"600"
-	"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
-	"ProjectileSpeed"			"800"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"50"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"250"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"500"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-        
-    // Bounty
-	"BountyXP"					"50"
-    "BountyGoldMin"       	    "80"      // Gold earned min.
-    "BountyGoldMax"      	    "100"     // Gold earned max.
-  }
-  "npc_akatsuki_jounin_unit"
-  {
-    // General
-    "BaseClass"         		"npc_dota_creature"  							
-    "Model"           			"models/units/akatsukicreep/akatsukicreepmeele.vmdl" 
-	"ModelScale"				"1.0"
-    "SoundSet"          		"n_creep_Meele"        
-	
-	// Armor 
-	"ArmorPhysical"				"2"
-	"MagicalResistance" 		"0"
-	
-	// Attack 
-	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"50"
-	"AttackDamageMax"			"55"
-	"AttackRate"				"1.75"
-	"AttackRange"				"100"
-	
-	// Vision
-	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
-	"VisionNighttimeRange"      "800"            // Range of vision at night time.
-	
-	// Bounds
-	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
-	"RingRadius"				"50"
-	
-	// Movement
-	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-	"MovementSpeed"				"270"
-	
-	// Team
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
-	// Status 
-	"StatusHealth"				"650"
-	"StatusHealthRegen"			"0.25"
-	"StatusMana"				"0"
-	"StatusManaRegen"			"0"
-    
-    // Bounty
-	"BountyXP"					"75"
-    "BountyGoldMin"       	    "130"      // Gold earned min.
-    "BountyGoldMax"      	    "160"      // Gold earned max.
-  }
+	"npc_akatsuki_base_unit"
+	{
+		// General 
+		"BaseClass"					"npc_dota_fort"
+		"Model"						"models/buildings/GedoMazo/GedoMazo.vmdl"
+			
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"650"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
+		"RingRadius"				"400"
+	
+		// Bounty
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"10000"
+		"BountyGoldMax"				"10000"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"30000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+			
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_akatsuki_primary_tower_unit"
+	{
+		// General
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/buildings/AmegakureTower/AmegakureTower_2.vmdl"
+		"ModelScale"				"2.5"
+		"SoundSet"					"Tower.Water"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+		"RingRadius"				"180"
+	
+		// Bounty
+		"BountyXP"					"500"
+		"BountyGoldMin"				"499"
+		"BountyGoldMax"				"500"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+	
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_akatsuki_tower_unit"
+	{
+		// General
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/buildings/AmegakureTower/AmegakureTower_1.vmdl"
+		"ModelScale"				"2.5"
+		"SoundSet"					"Tower.Water"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"450"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+		"RingRadius"				"180"
+	
+		// Bounty
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"1000"
+		"BountyGoldMax"				"1000"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+	
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_konoha_base_unit"
+	{
+		// General 
+		"BaseClass"					"npc_dota_fort"
+		"Model"						"models/buildings/HokageBuilding/HokageBuilding.vmdl"
+			
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"650"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
+		"RingRadius"				"400"
+	
+		// Bounty
+		"BountyXP"					"5000"
+		"BountyGoldMin"				"10000"
+		"BountyGoldMax"				"10000"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"30000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+			
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_konoha_primary_tower_unit"
+	{
+		// General
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_2.vmdl"
+		"ModelScale"				"3.5"
+		"SoundSet"					"Tower.Water"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+		"RingRadius"				"180"
+	
+		// Bounty
+		"BountyXP"					"500"
+		"BountyGoldMin"				"499"
+		"BountyGoldMax"				"500"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+	
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_konoha_tower_unit"
+	{
+		// General
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_1.vmdl"
+		"ModelScale"				"6.0"
+		"SoundSet"					"Tower.Water"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"450"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+		"RingRadius"				"180"
+	
+		// Bounty
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"1000"
+		"BountyGoldMax"				"1000"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+	
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_ninja_academy_unit"
+	{
+		// General 
+		"BaseClass"					"npc_dota_barracks"
+		"Model"						"models/buildings/NinjaAcademy/NinjaAcademy.vmdl"
+		"ModelScale"				"1.85"
+	
+		// Armor 
+		"PhysicalArmor"				"10"
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
+		"RingRadius"				"350"
+	
+		// Bounty
+		"BountyXP"					"500"
+		"BountyGoldMin"				"499"
+		"BountyGoldMax"				"500"
+	
+		// Status 
+		"StatusHealth"				"8000"
+		"StatusHealthRegen"			"0"
+	}
+	"npc_oto_base_unit"
+	{
+		// General 
+		"BaseClass"					"npc_dota_fort"
+		"Model"						"models/buildings/YamataNoOrochi/YamataNoOrochi.vmdl"
+		"ModelScale"				"1.7"
+			
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"650"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
+		"RingRadius"				"400"
+	
+		// Bounty
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"10000"
+		"BountyGoldMax"				"10000"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"30000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+			
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_oto_primary_tower_unit"
+	{
+		// General
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/buildings/OtogakureTower/OtogakureTower_2.vmdl"
+		"ModelScale"				"3.5"
+		"SoundSet"					"Tower.Water"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+		"RingRadius"				"180"
+	
+		// Bounty
+		"BountyXP"					"500"
+		"BountyGoldMin"				"499"
+		"BountyGoldMax"				"500"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+	
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_oto_tower_unit"
+	{
+		// General
+		"BaseClass"					"npc_dota_tower"
+		"Model"						"models/buildings/OtogakureTower/OtogakureTower_1.vmdl"
+		"ModelScale"				"9.0"
+		"SoundSet"					"Tower.Water"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"450"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+			
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+		"RingRadius"				"180"
+	
+		// Bounty
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"1000"
+		"BountyGoldMax"				"1000"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+	
+		// Status 
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Team 
+		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+	
+		// Vision 
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_akatsuki_chunnin_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/akatsukicreep/akatsukicreepranged.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Ranged"        
+	
+		// Armor 
+		"ArmorPhysical"				"0"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"35"
+		"AttackRate"				"1.75"
+		"AttackAnimationPoint"		"0.30"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"50"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+			
+		// Bounty
+		"BountyXP"					"50"
+		"BountyGoldMin"       	    "80"      // Gold earned min.
+		"BountyGoldMax"      	    "100"     // Gold earned max.
+	}
+	"npc_akatsuki_jounin_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/akatsukicreep/akatsukicreepmeele.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Meele"        
+	
+		// Armor 
+		"ArmorPhysical"				"2"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
+		"AttackRate"				"1.75"
+		"AttackRange"				"100"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"50"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"650"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"75"
+		"BountyGoldMin"       	    "130"      // Gold earned min.
+		"BountyGoldMax"      	    "160"      // Gold earned max.
+	}
+	"npc_anbu_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/anbu/anbu.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Meele"   
+		"Level"           			"3"    
+	
+		// Armor 
+		"ArmorPhysical"				"10"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"70"
+		"AttackDamageMax"			"90"
+		"AttackRate"				"2.0"
+		"AttackRange"				"100"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"285"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"200"
+		"BountyGoldMin"       	    "230"      // Gold earned min.
+		"BountyGoldMax"      	    "260"      // Gold earned max.
+	
+		// Abilities
+		"AbilitiesLayout"           "3"
+		"Ability1"                  "anbu_bash"
+		"Ability2"                  "anbu_demolish"
+		"Ability3"                  "anbu_confidence_aura"
+	}
+	"npc_dummy_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_thinker"  					// Class of entity of link to.
+		"Model"           	"models/development/invisiblebox.vmdl"  // Model.
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"1"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
+	}
+	"npc_elite_anbu_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/eliteanbu/eliteanbu_2.vmdl" 
+		"ModelScale"				"1.2"
+		"SoundSet"          		"n_creep_Ranged"        
+		"Level"           			"5"
+	
+		// Armor 
+		"ArmorPhysical"				"10"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"4000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"0.5"
+	
+		// Bounty
+		"BountyXP"					"1000"
+		"BountyGoldMin"       	    "800"      // Gold earned min.
+		"BountyGoldMax"      	    "1200"      // Gold earned max.
+	
+		"AbilitiesLayout"           "3"
+		"Ability1"                  "elite_anbu_fuuma_shuriken"
+		"Ability2"                  "elite_anbu_kuchiyose_ninkens"
+		"Ability3"                  "elite_anbu_tatics_aura"
+	}
+	"npc_elite_anbu_leader_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/eliteanbu/eliteanbu_1.vmdl" 
+		"ModelScale"				"1.2"
+		"SoundSet"          		"n_creep_Ranged"        
+		"Level"           			"6"
+		"ConsideredHero"            "1"
+	
+		// Armor 
+		"ArmorPhysical"				"15"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"400"
+		"AttackDamageMax"			"550"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"6000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"2000"
+		"BountyGoldMin"       	    "1800"       // Gold earned min.
+		"BountyGoldMax"      	    "2200"      // Gold earned max.
+	
+		// Abilities 
+		"AbilitiesLayout"			"5"
+		"Ability1"					"elite_anbu_leader_katon_jutsu"
+		"Ability2"					"elite_anbu_leader_suiton_jutsu"
+		"Ability3"					"elite_anbu_leader_doton_jutsu"
+		"Ability4"					"elite_anbu_leader_fuuton_jutsu"
+		"Ability5"					"elite_anbu_leader_raiton_jutsu"
+	}
+	"npc_konoha_chunnin_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/konohagakurecreep/konohagakurecreepranged.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Ranged"        
+	
+		// Armor 
+		"ArmorPhysical"				"0"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"35"
+		"AttackRate"				"1.75"
+		"AttackAnimationPoint"		"0.30"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"50"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"50"
+		"BountyGoldMin"       	    "80"      // Gold earned min.
+		"BountyGoldMax"      	    "100"     // Gold earned max.
+	}
+	"npc_konoha_jounin_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/konohagakurecreep/konohagakurecreepmeele.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Meele"        
+	
+		// Armor 
+		"ArmorPhysical"				"2"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
+		"AttackRate"				"1.75"
+		"AttackRange"				"100"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"50"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"650"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"75"
+		"BountyGoldMin"       	    "130"      // Gold earned min.
+		"BountyGoldMax"      	    "160"      // Gold earned max.
+	}
+	"npc_medical_ninja_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/medicalninja/medicalninja.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Ranged"  
+		"Level"           			"2"    
+	
+		// Armor 
+		"ArmorPhysical"				"0"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"20"
+		"AttackDamageMax"			"25"
+		"AttackRate"				"2.0"
+		"AttackAnimationPoint"		"0.30"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"400"
+		"ProjectileModel"			"particles/units/medicalninja/medicalninja_base_attack.vpcf"
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"60"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"800"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"1.0"
+	
+		// Bounty
+		"BountyXP"					"100"
+		"BountyGoldMin"       	    "180"      // Gold earned min.
+		"BountyGoldMax"      	    "220"      // Gold earned max.
+	
+		// Abilities
+		"AbilitiesLayout"           "1"
+		"Ability1"                  "medical_ninja_heal"
+	}
+	"npc_ninken_unit"
+	{
+		// General
+		"BaseClass"                 "npc_dota_creature"
+		"Model"                     "models/items/beastmaster/boar/fotw_wolf/fotw_wolf.vmdl"
+		"ModelScale"                "1.0"
+		"SoundSet"                  "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"200"
+		"AttackDamageMax"			"250"
+		"AttackRate"				"1.0"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"100"
+	
+		// Vision
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"800"
+	
+		// Bounds 
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"80"
+	
+		// Movement 
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"
+	
+		// Team 
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		"AbilitiesLayout"			"2"
+		"Ability1"					"anbu_bash"
+		"Ability2"					"ninken_critical_strike"
+	}
+	"npc_oto_chunnin_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/otogakurecreep/otogakurecreepranged.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Ranged"        
+	
+		// Armor 
+		"ArmorPhysical"				"0"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"35"
+		"AttackRate"				"1.75"
+		"AttackAnimationPoint"		"0.30"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/konohagakurecreep/konohagakurecreepranged_base_attack.vpcf"
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"50"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"50"
+		"BountyGoldMin"       	    "80"      // Gold earned min.
+		"BountyGoldMax"      	    "100"     // Gold earned max.
+	}
+	"npc_oto_jounin_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/otogakurecreep/otogakurecreepmeele.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Meele"        
+	
+		// Armor 
+		"ArmorPhysical"				"2"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
+		"AttackRate"				"1.75"
+		"AttackRange"				"100"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"50"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"650"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	
+		// Bounty
+		"BountyXP"					"75"
+		"BountyGoldMin"       	    "130"      // Gold earned min.
+		"BountyGoldMax"      	    "160"      // Gold earned max.
+	}
+	"npc_rogue_ninja_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/rogueninja/rogueninja.vmdl" 
+		"ModelScale"				"3.0"
+		"SoundSet"          		"n_creep_Meele"        
+		"Level"           			"4"
+	
+		// Armor 
+		"ArmorPhysical"				"10"
+		"MagicalResistance" 		"0"
+	
+		// Minimap
+		"MinimapIcon"               "minimap_candybucket"
+		"MinimapIconSize"           "300"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"150"
+		"AttackRate"				"1.7"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"45"
+		"HealthBarOffset"			"170"
+	
+		// Bounty
+		"BountyXP"					"500"
+		"BountyGoldMin"				"350"
+		"BountyGoldMax"				"600"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+	}
 }

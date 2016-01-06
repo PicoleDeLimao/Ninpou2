@@ -46,3 +46,18 @@ function KillNinkens(event)
 	-- Reset table
 	caster.ninkens = {}
 end
+
+-- Create a thinker to fire smoke and sound effects
+function ShowEffect(event) 
+	local target = event.target
+	local ability = event.ability
+	ability:ApplyDataDrivenThinker(target, target:GetAbsOrigin(), "modifier_kuchiyose_effect", nil)
+end
+
+-- Display smoke effect 
+function ShowSmoke(event)
+	local target = event.target 
+	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_final_explosion_smoke.vpcf", PATTACH_ABSORIGIN, target)
+	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin())
+end

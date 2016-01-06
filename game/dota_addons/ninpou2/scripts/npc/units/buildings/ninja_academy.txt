@@ -1,0 +1,23 @@
+"npc_ninja_academy_unit"
+{
+	// General 
+	"BaseClass"					"npc_dota_barracks"
+	"Model"						"models/buildings/NinjaAcademy/NinjaAcademy.vmdl"
+	"ModelScale"				"1.85"
+
+	// Armor 
+	"PhysicalArmor"				"10"
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
+	"RingRadius"				"350"
+
+	// Bounty
+	"BountyXP"					"500"
+	"BountyGoldMin"				"499"
+	"BountyGoldMax"				"500"
+
+	// Status 
+	"StatusHealth"				"8000"
+	"StatusHealthRegen"			"0"
+}

@@ -1,0 +1,48 @@
+"npc_konoha_jounin_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/konohagakurecreep/konohagakurecreepmeele.vmdl" 
+	"ModelScale"				"1.0"
+	"SoundSet"          		"n_creep_Meele"        
+
+	// Armor 
+	"ArmorPhysical"				"2"
+	"MagicalResistance" 		"0"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageMin"			"50"
+	"AttackDamageMax"			"55"
+	"AttackRate"				"1.75"
+	"AttackRange"				"100"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"50"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"270"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"650"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Bounty
+	"BountyXP"					"75"
+	"BountyGoldMin"       	    "130"      // Gold earned min.
+	"BountyGoldMax"      	    "160"      // Gold earned max.
+}

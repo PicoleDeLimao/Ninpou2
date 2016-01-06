@@ -1,0 +1,57 @@
+"npc_medical_ninja_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/medicalninja/medicalninja.vmdl" 
+	"ModelScale"				"1.0"
+	"SoundSet"          		"n_creep_Ranged"  
+	"Level"           			"2"    
+
+	// Armor 
+	"ArmorPhysical"				"0"
+	"MagicalResistance" 		"0"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"20"
+	"AttackDamageMax"			"25"
+	"AttackRate"				"2.0"
+	"AttackAnimationPoint"		"0.30"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"400"
+	"ProjectileModel"			"particles/units/medicalninja/medicalninja_base_attack.vpcf"
+	"ProjectileSpeed"			"800"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_SMALL"
+	"RingRadius"				"60"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"270"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"800"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"300"
+	"StatusManaRegen"			"1.0"
+
+	// Bounty
+	"BountyXP"					"100"
+	"BountyGoldMin"       	    "180"      // Gold earned min.
+	"BountyGoldMax"      	    "220"      // Gold earned max.
+
+	// Abilities
+	"AbilitiesLayout"           "1"
+	"Ability1"                  "medical_ninja_heal"
+}
