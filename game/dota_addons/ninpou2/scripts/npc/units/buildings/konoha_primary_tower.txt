@@ -45,4 +45,8 @@
 	// Vision 
 	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	
+	// Abilities
+	"AbilitiesLayout"			"1"
+	"Ability1"					"konohagakure_tower_feedback"
 }

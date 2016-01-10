@@ -33,7 +33,7 @@ function RemoveCosmetics(hero)
       local model_name = ""
 
       -- Check if npc is hero
-      if not hero:IsHero() then return end
+      if not IsValidEntity(hero) or not hero:IsHero() then return end
 
       -- Getting model name
       if model_lookup[ hero:GetName() ] ~= nil and hero:GetModelName() ~= model_lookup[ hero:GetName() ] then
@@ -83,7 +83,7 @@ function GameMode:OnNPCSpawned(keys)
   local npc = EntIndexToHScript(keys.entindex)
   -- Initialize AI behavior for medical ninjas
   Timers:CreateTimer(0.05, function() 
-	  if npc:GetUnitName() == "npc_medical_ninja_unit" then 
+	  if IsValidEntity(npc) and npc:GetUnitName() == "npc_medical_ninja_unit" then 
 		MedicalNinjaAI:Start(npc)
 	  end
   end)

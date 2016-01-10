@@ -43,7 +43,7 @@ function MedicalNinjaAI:FindHurtAlly()
     return maxScore ~= nil and maxScore.unit or nil 
 end 
 
--- This function determines the next behavior for a medical ninja unit
+-- This function determines the next action for a medical ninja unit
 function MedicalNinjaAI:Think() 
     -- Will only perform the heal action if unit can cast it
     if Utils:CanCast(self.unit, self.ability) then 
@@ -77,7 +77,7 @@ function MedicalNinjaAI:Start(unit)
 	ai.distanceWeight = MEDICAL_NINJA_AI_DISTANCE_WEIGHT
 	ai.heroWeight = MEDICAL_NINJA_AI_HERO_WEIGHT
     -- Start thinking 
-    Timers:CreateTimer(function() 
+    Timers:CreateTimer(ai.thinkInterval, function() 
         return ai:GlobalThink()
     end)
     return ai

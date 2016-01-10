@@ -38,36 +38,40 @@
 	{
 		"particle"						"particles/generic_gameplay/generic_stunned.vpcf"
 		"particle"						"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+		"particle"						"particles/hw_fx/hw_rosh_fireball.vpcf"
+		"particle"						"particles/units/heroes/hero_jakiro/jakiro_base_attack_fire_launch.vpcf"
+		"particle"						"particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 	}
 	"OnSpellStart"
 	{
 		"TrackingProjectile"
 		{
 			"Target"					"TARGET"
-			"EffectName"				""
+			"EffectName"				"particles/hw_fx/hw_rosh_fireball.vpcf"
 			"Dodgeable"					"1"
 			"ProvidesVision"			"1"
 			"VisionRadius"				"250"
 			"MoveSpeed"					"800"
 			"SourceAttachment"			"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 		}
-		"FireEffect"
-		{
-			"Target"					"TARGET"
-			"EffectName"				""
-		}
 		"FireSound"
 		{
 			"Target"					"TARGET"
-			"EffectName"				""
+			"EffectName"				"Hero_OgreMagi.Fireblast.Cast"
+		}
+		"RunScript"
+		{
+			"ScriptFile"				"units/EliteAnbuLeader/elite_anbu_leader_katon_jutsu.lua"
+			"Function"					"ShowLaunchEffect"
 		}
 	}
 	"OnProjectileHitUnit"
 	{
-		"FireEffect"
+		"FireSound"
 		{
 			"Target"					"TARGET"
-			"EffectName"				""
+			"EffectName"				"Hero_OgreMagi.Fireblast.Target"
 		}
 		"ApplyModifier"
 		{
@@ -94,6 +98,11 @@
 			"Target"					"TARGET"
 			"Type"						"DAMAGE_TYPE_MAGICAL"
 			"Damage"					"%AbilityDamage"
+		}
+		"RunScript"
+		{
+			"ScriptFile"				"units/EliteAnbuLeader/elite_anbu_leader_katon_jutsu.lua"
+			"Function"					"ShowImpactEffect"
 		}
 	}
 	"Modifiers"

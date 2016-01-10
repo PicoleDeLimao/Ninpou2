@@ -14,6 +14,9 @@ require('units/AI/medical_ninja_ai')
 -- AI for elite anbu units 
 require('units/AI/elite_anbu_ai')
 
+-- AI for elite anbu leader units 
+require('units/AI/elite_anbu_leader_ai')
+
 require('gamemode')
 
 function Precache( context )

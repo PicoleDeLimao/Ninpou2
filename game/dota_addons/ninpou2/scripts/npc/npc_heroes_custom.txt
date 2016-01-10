@@ -27,7 +27,7 @@
 		{ }
 	
 		"AbilityLayout"     "6"
-		"Ability1"          "example_ability" 
+		"Ability1"          "elite_anbu_leader_fuuton_jutsu" 
 		"Ability2"          "elite_anbu_fuuma_shuriken" 
 		"Ability3"          "medical_ninja_heal" 
 		"Ability4"          "elite_anbu_kuchiyose_ninkens"

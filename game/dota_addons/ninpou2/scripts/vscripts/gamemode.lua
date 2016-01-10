@@ -187,12 +187,47 @@ function GameMode:OnGameInProgress()
     end)
 end
 
+-- Initialize AI behavior for pre defined units 
 function StartAI() 
   local units = Entities:FindAllByClassname("npc_dota_creature")
   for _, unit in pairs(units) do 
     -- Start AI for Elite Anbus
     if unit:GetUnitName() == "npc_elite_anbu_unit" then 
         EliteAnbuAI:Start(unit)
+	elseif unit:GetUnitName() == "npc_elite_anbu_leader_unit" then 
+		EliteAnbuLeaderAI:Start(unit)
+    end
+  end
+end
+
+-- This command increases hero health to infinite
+function GameMode:GodCommandOn()
+  print( '[CHEATS] Enabling God Mode' )
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+	  cmdPlayer.godMode = true 
+      Timers:CreateTimer(0.05, function()
+		cmdPlayer:GetAssignedHero():SetHealth(cmdPlayer:GetAssignedHero():GetMaxHealth())
+		if cmdPlayer.godMode then 
+			return 0.05 
+		else 
+			return nil 
+		end
+	  end)
+    end
+  end
+end
+
+-- Disable god mode command 
+function GameMode:GodCommandOff()
+  print( '[CHEATS] Disabling God Mode' )
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      cmdPlayer.godMode = false
     end
   end
 end
@@ -210,4 +245,8 @@ function GameMode:InitGameMode()
 
   -- Start AI Behavior for pre defined units
   StartAI()
+  
+  -- Register commands 
+  Convars:RegisterCommand("godon", Dynamic_Wrap(GameMode, 'GodCommandOn'), "Increases hero health to infinite", FCVAR_CHEAT)
+  Convars:RegisterCommand("godoff", Dynamic_Wrap(GameMode, 'GodCommandOff'), "Disables god mode", FCVAR_CHEAT)
 end

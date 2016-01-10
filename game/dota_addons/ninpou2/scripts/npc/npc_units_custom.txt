@@ -93,6 +93,10 @@
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"AbilitiesLayout"			"1"
+		"Ability1"					"konohagakure_tower_feedback"
 	}
 	"npc_akatsuki_tower_unit"
 	{
@@ -235,6 +239,10 @@
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"AbilitiesLayout"			"1"
+		"Ability1"					"konohagakure_tower_feedback"
 	}
 	"npc_konoha_tower_unit"
 	{
@@ -401,6 +409,10 @@
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"AbilitiesLayout"			"1"
+		"Ability1"					"konohagakure_tower_feedback"
 	}
 	"npc_oto_tower_unit"
 	{
@@ -449,6 +461,45 @@
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+	"npc_dummy_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_thinker"  					// Class of entity of link to.
+		"Model"           	"models/development/invisiblebox.vmdl"  // Model.
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"1"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
 	}
 	"npc_akatsuki_chunnin_unit"
 	{
@@ -605,45 +656,6 @@
 		"Ability2"                  "anbu_demolish"
 		"Ability3"                  "anbu_confidence_aura"
 	}
-	"npc_dummy_unit"
-	{
-		// General
-		"BaseClass"         "npc_dota_thinker"  					// Class of entity of link to.
-		"Model"           	"models/development/invisiblebox.vmdl"  // Model.
-	
-		// Attack
-		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
-		"AttackDamageMin"     		"0"     // Damage range min.
-		"AttackDamageMax"     		"0"     // Damage range max.
-		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"        		"1"     // Speed of attack.
-		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
-		"AttackRange"       		"500"   // Range within a target can be attacked.
-		"ProjectileModel"     		"" 		// Particle system model for projectile.
-		"ProjectileSpeed"     		"900"   // Speed of projectile.
-	
-		// Bounty
-		"BountyXP"          	"0"     // Experience earn.
-		"BountyGoldMin"       	"0"     // Gold earned min.
-		"BountyGoldMax"      	"0"     // Gold earned max.
-	
-		// Movement
-		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-		"MovementSpeed"       	"450"   	// Speed
-		"MovementTurnRate"      "1.0"   	// Turning rate.
-		"FollowRange"       	"250"   	// Distance to keep when following
-	
-		// Status
-		"StatusHealth"        	"1"     // Base health.
-		"StatusHealthRegen"     "0"     // Health regeneration rate.
-		"StatusMana"        	"0"     // Base mana.
-		"StatusManaRegen"    	"0"     // Mana regeneration rate.
-	
-		// Vision
-		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
-		"VisionNighttimeRange"      "0"   // Range of vision at night time.
-	}
 	"npc_elite_anbu_unit"
 	{
 		// General
@@ -715,13 +727,13 @@
 		"ArmorPhysical"				"15"
 	
 		// Attack 
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"400"
 		"AttackDamageMax"			"550"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"900"
-		"AttackRange"				"600"
+		"AttackRange"				"100"
 		"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
 		"ProjectileSpeed"			"800"
 	
@@ -746,8 +758,8 @@
 		// Status 
 		"StatusHealth"				"6000"
 		"StatusHealthRegen"			"0.25"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"0.5"
 	
 		// Bounty
 		"BountyXP"					"2000"

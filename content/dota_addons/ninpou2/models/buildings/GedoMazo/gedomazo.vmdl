@@ -75,15 +75,15 @@
 								m_sBoneName = "Cube"
 								m_vMinBounds =
 								[
-									-274.532593,
+									-165.858231,
 									-386.296844,
 									0.000000,
 								]
 								m_vMaxBounds =
 								[
-									359.620087,
+									232.692535,
 									396.200317,
-									794.589172,
+									570.792053,
 								]
 								m_bTranslationOnly = false
 								m_cRenderColor =

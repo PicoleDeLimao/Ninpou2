@@ -1,6 +1,69 @@
 "DOTAAbilities"
 {
 	//-------------------------------------------------------------------------------------------------------------
+	// BUILDINGS: Konohagakure Tower Feedback
+	//-------------------------------------------------------------------------------------------------------------
+	"konohagakure_tower_feedback"
+	{
+		// General
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"konohagakure_tower_feedback"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_per_hit"				"50"
+			}
+		}
+		
+		// Datadriven
+		"precache"
+		{
+			"particle"						"particles/generic_gameplay/generic_manaburn.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_konohagakure_tower_feedback"
+			}
+		}
+		"modifiers"
+		{
+			"modifier_konohagakure_tower_feedback"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"OnAttackLanded"
+				{
+					"AttachEffect"
+					{
+						"Target"				"TARGET"
+						"EffectName"			"particles/generic_gameplay/generic_manaburn.vpcf"
+						"EffectAttachType"		"attach_hitloc"
+					}
+					"FireSound"
+					{
+						"EffectName"			"Hero_Antimage.ManaBreak"
+						"Target"				"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"
+						"Function"			"ManaBurn"
+						"Target"			"TARGET"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// UNITS: Anbu's Bash
 	//-------------------------------------------------------------------------------------------------------------
 	"anbu_bash"
@@ -536,6 +599,50 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Elite Anbu Leader's Fuuton Jutsu
+	//-------------------------------------------------------------------------------------------------------------
+	"elite_anbu_leader_fuuton_jutsu"
+	{
+		// General
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"elite_anbu_leader_fuuton_jutsu"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		
+		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"					"0.3"
+		"AbilityCastRange"					"600"
+		"AbilityManaCost"					"50"
+		"AbilityCooldown"					"30"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"5"
+			}
+		}
+		
+		// Datadriven
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"					"TARGET"
+				"ModifierName"				"modifier_brewmaster_storm_cyclone"
+				"Duration"					"%duration"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// UNITS: Elite Anbu Leader's Katon Jutsu
 	//-------------------------------------------------------------------------------------------------------------
 	"elite_anbu_leader_katon_jutsu"
@@ -575,36 +682,40 @@
 		{
 			"particle"						"particles/generic_gameplay/generic_stunned.vpcf"
 			"particle"						"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+			"particle"						"particles/hw_fx/hw_rosh_fireball.vpcf"
+			"particle"						"particles/units/heroes/hero_jakiro/jakiro_base_attack_fire_launch.vpcf"
+			"particle"						"particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 		}
 		"OnSpellStart"
 		{
 			"TrackingProjectile"
 			{
 				"Target"					"TARGET"
-				"EffectName"				""
+				"EffectName"				"particles/hw_fx/hw_rosh_fireball.vpcf"
 				"Dodgeable"					"1"
 				"ProvidesVision"			"1"
 				"VisionRadius"				"250"
 				"MoveSpeed"					"800"
 				"SourceAttachment"			"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 			}
-			"FireEffect"
-			{
-				"Target"					"TARGET"
-				"EffectName"				""
-			}
 			"FireSound"
 			{
 				"Target"					"TARGET"
-				"EffectName"				""
+				"EffectName"				"Hero_OgreMagi.Fireblast.Cast"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"units/EliteAnbuLeader/elite_anbu_leader_katon_jutsu.lua"
+				"Function"					"ShowLaunchEffect"
 			}
 		}
 		"OnProjectileHitUnit"
 		{
-			"FireEffect"
+			"FireSound"
 			{
 				"Target"					"TARGET"
-				"EffectName"				""
+				"EffectName"				"Hero_OgreMagi.Fireblast.Target"
 			}
 			"ApplyModifier"
 			{
@@ -632,6 +743,11 @@
 				"Type"						"DAMAGE_TYPE_MAGICAL"
 				"Damage"					"%AbilityDamage"
 			}
+			"RunScript"
+			{
+				"ScriptFile"				"units/EliteAnbuLeader/elite_anbu_leader_katon_jutsu.lua"
+				"Function"					"ShowImpactEffect"
+			}
 		}
 		"Modifiers"
 		{
@@ -647,6 +763,162 @@
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Elite Anbu Leader's Suiton Jutsu
+	//-------------------------------------------------------------------------------------------------------------
+	"elite_anbu_leader_suiton_jutsu"
+	{
+		// General
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"elite_anbu_leader_suiton_jutsu"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		
+		"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"					"0.35"
+		"AbilityCastRange"					"100"
+		"AbilityCooldown"					"30"
+		"AbilityManaCost"					"50"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityChannelTime"				"5.0"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_per_think"			"100"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"think_interval"			"1.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5.0"
+			}
+		}
+		
+		// Datadriven
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"						"particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf"
+			"particle"						"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash_group_a.vpc"
+			"particle"						"particles/newplayer_fx/npx_splash_water3.vpcf"
+			"particle"						"particles/status_fx/status_effect_slardar_crush.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"Target"					"TARGET"
+				"EffectName"				"particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf"
+				"ControlPoints"
+				{
+					"00"					"TARGET"
+					"03"					"TARGET"
+				}
+			}
+			"FireSound"
+			{
+				"Target"					"TARGET"
+				"EffectName"				"Hero_Morphling.Waveform"
+			}
+			"ApplyModifier"
+			{
+				"Target"					"TARGET"
+				"ModifierName"				"modifier_elite_anbu_leader_suiton_jutsu"
+			}
+		}
+		"OnChannelFinish"
+		{
+			"FireEffect"
+			{
+				"Target"					"TARGET"
+				"EffectName"				"particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf"
+				"ControlPoints"
+				{
+					"00"					"TARGET"
+					"03"					"TARGET"
+				}
+			}
+			"FireSound"
+			{
+				"Target"					"TARGET"
+				"EffectName"				"Hero_Morphling.Waveform"
+			}
+			"RemoveModifier"
+			{
+				"Target"					"TARGET"
+				"ModifierName"				"modifier_elite_anbu_leader_suiton_jutsu"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_elite_anbu_leader_suiton_jutsu"
+			{
+				"IsDebuff"					"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+					}
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+					}
+				}
+				"ThinkInterval"				"%think_interval"
+				"OnThinkInterval"
+				{
+					"Damage"
+					{
+						"Target"			"TARGET"
+						"Damage"			"%damage_per_think"
+						"Type"				"DAMAGE_TYPE_MAGICAL"
+					}
+					"ApplyModifier"
+					{
+						"Target"			"CASTER"
+						"ModifierName"		"modifier_elite_anbu_leader_suiton_jutsu_channeling"
+					}
+					"FireEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash_group_a.vpc"
+					}
+					"FireEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/newplayer_fx/npx_splash_water3.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+					}
+				}
+				"StatusEffectName"			"particles/status_fx/status_effect_slardar_crush.vpcf"
+				"StatusEffectPriority"		"5"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_elite_anbu_leader_suiton_jutsu_channeling"
+			{
+				"IsHidden"					"1"
+				"Duration"					"%think_interval * 0.9"
+				"OverrideAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 			}
 		}
 	}
