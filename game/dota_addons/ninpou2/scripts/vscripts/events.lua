@@ -299,19 +299,13 @@ function DefeatTeam(teamNumber)
 	end
 	units = Entities:FindAllByClassname("npc_dota_tower")
 	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber and unit:GetUnitName() ~= "npc_konoha_base_unit" and unit:GetUnitName() ~= "npc_oto_base_unit" and unit:GetUnitName() ~= "npc_akatsuki_base" then 
-			ParticleManager:CreateParticle("particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_gold.vpcf", PATTACH_ABSORIGIN, unit)
-			local particle = ParticleManager:CreateParticle("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, unit)
-			ParticleManager:SetParticleControl(particle, 3, Vector(200, 200, 200))
+		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
 			unit:ForceKill(true)
 		end 
 	end
 	units = Entities:FindAllByClassname("npc_dota_barracks")
 	for _, unit in pairs(units) do 
 		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			ParticleManager:CreateParticle("particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_gold.vpcf", PATTACH_ABSORIGIN, unit)
-			local particle = ParticleManager:CreateParticle("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, unit)
-			ParticleManager:SetParticleControl(particle, 3, Vector(200, 200, 200))
 			unit:ForceKill(true)
 		end
 	end
@@ -356,38 +350,46 @@ end
 
 -- An entity died
 function GameMode:OnEntityKilled( keys )
-  DebugPrint( '[BAREBONES] OnEntityKilled Called' )
-  DebugPrintTable( keys )
+	DebugPrint( '[BAREBONES] OnEntityKilled Called' )
+	DebugPrintTable( keys )
 
-  GameMode:_OnEntityKilled( keys )
-  
+	GameMode:_OnEntityKilled( keys )
 
-  -- The Unit that was Killed
-  local killedUnit = EntIndexToHScript( keys.entindex_killed )
-  -- The Killing entity
-  local killerEntity = nil
+	-- The Unit that was Killed
+	local killedUnit = EntIndexToHScript( keys.entindex_killed )
+	-- The Killing entity
+	local killerEntity = nil
 
-  if keys.entindex_attacker ~= nil then
-    killerEntity = EntIndexToHScript( keys.entindex_attacker )
-  end
+	if keys.entindex_attacker ~= nil then
+	killerEntity = EntIndexToHScript( keys.entindex_attacker )
+	end
 
-  -- The ability/item used to kill, or nil if not killed by an item/ability
-  local killerAbility = nil
+	-- The ability/item used to kill, or nil if not killed by an item/ability
+	local killerAbility = nil
 
-  if keys.entindex_inflictor ~= nil then
-    killerAbility = EntIndexToHScript( keys.entindex_inflictor )
-  end
+	if keys.entindex_inflictor ~= nil then
+	killerAbility = EntIndexToHScript( keys.entindex_inflictor )
+	end
 
-  local damagebits = keys.damagebits -- This might always be 0 and therefore useless
+	local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
-  -- Put code here to handle when an entity gets killed
-  Timers:CreateTimer(0.05, function()
-	-- Kuchiyose doesn't display corpses nor death animation
-	if killedUnit.is_kuchiyose then 
-		killedUnit:RemoveSelf()
+	-- Put code here to handle when an entity gets killed
 	-- A base was destroyed
-	elseif killedUnit:GetUnitName() == "npc_konoha_base_unit" or killedUnit:GetUnitName() == "npc_oto_base_unit" or killedUnit:GetUnitName() == "npc_akatsuki_base_unit" then 
+	if killedUnit:GetUnitName() == "npc_konoha_base_unit" or killedUnit:GetUnitName() == "npc_oto_base_unit" or killedUnit:GetUnitName() == "npc_akatsuki_base_unit" then 
+		-- Display destruction particle 
+		local particle = ParticleManager:CreateParticle("particles/radiant_fx2/good_ancient001_znight_endcap.vpcf", PATTACH_CUSTOMORIGIN, killedUnit)
+		ParticleManager:SetParticleControl(particle, 0, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 1, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 2, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 7, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle, 10, Vector(500, 500, 500))
+		Timers:CreateTimer(2.0, function()
+			killedUnit:EmitSound("Building_DireTower.Destruction")
+			killedUnit:AddNoDraw()
+		end)
+		-- Defeat team 
 		DefeatTeam(killedUnit:GetTeamNumber())
+		-- Check victory conditions 
 		if GameRules.defeatedTeams == 2 then 
 			local winnerTeamNumber = GetWinnerTeamNumber()
 			print("[GENERAL] Winner team: " .. tostring(winnerTeamNumber))
@@ -397,7 +399,24 @@ function GameMode:OnEntityKilled( keys )
 			GameRules:SetGameWinner(winnerTeamNumber)
 		end
 	end
-  end)
+	-- Show proper death animation for buildings 
+	if killedUnit:GetClassname() == "npc_dota_tower" or killedUnit:GetClassname() == "npc_dota_barracks" and killedUnit:GetUnitName() ~= "npc_konoha_base_unit" and killedUnit:GetUnitName() ~= "npc_oto_base_unit" and killedUnit:GetUnitName() ~= "npc_akatsuki_base_unit" then 
+		local particle1 = ParticleManager:CreateParticle("particles/siege_fx/siege_good_death_01.vpcf", PATTACH_CUSTOMORIGIN, killedUnit)
+		ParticleManager:SetParticleControl(particle1, 0, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControlOrientation(particle1, 1, Vector(100, 0, 0), Vector(0, 0, 0), Vector(0, 0, 100))
+		local particle2 = ParticleManager:CreateParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", PATTACH_CUSTOMORIGIN, killedUnit)
+		ParticleManager:SetParticleControl(particle2, 0, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 1, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 3, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 7, Vector(300, 300, 300))
+		ParticleManager:SetParticleControl(particle2, 8, killedUnit:GetAbsOrigin())
+		killedUnit:EmitSound("Building_DireTower.Destruction")
+		killedUnit:AddNoDraw()
+	end
+	-- Kuchiyoses don't display corpses nor death animation
+	if killedUnit.is_kuchiyose then 
+		killedUnit:AddNoDraw()
+	end
 end
 
 -- This function is called 1 to 2 times as the player connects initially but before they 

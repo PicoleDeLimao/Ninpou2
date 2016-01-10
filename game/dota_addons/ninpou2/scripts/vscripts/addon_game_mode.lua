@@ -55,6 +55,7 @@ function Precache( context )
   
   -- Precache custom sounds
   PrecacheResource("soundfile", "soundevents/game_sounds_custom.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds.vsndevts", context)
 
   -- Precache units 
   PrecacheUnitByNameSync("npc_konoha_chunnin_unit", context)

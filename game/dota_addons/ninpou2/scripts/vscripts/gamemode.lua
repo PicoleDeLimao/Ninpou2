@@ -79,22 +79,6 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-  DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
-
-  -- This line for example will set the starting gold of every hero to 500 unreliable gold
-  --hero:SetGold(500, false)
-
-  -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-  --local item = CreateItem("item_example_item", hero, hero)
-  --hero:AddItem(item)
-
-  --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
-    --with the "example_ability" ability
-
-  local abil = hero:GetAbilityByIndex(1)
-  hero:RemoveAbility(abil:GetAbilityName())
-  hero:AddAbility("example_ability")]]
-  
   -- Set player gold to zero
   hero:SetGold(0, false)
 end
@@ -202,7 +186,7 @@ end
 
 -- This command increases hero health to infinite
 function GameMode:GodCommandOn()
-  print('[CHEATS] Enabling God Mode')
+  print("[CHEATS] Enabling God Mode")
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -222,7 +206,7 @@ end
 
 -- Disable god mode command 
 function GameMode:GodCommandOff()
-  print('[CHEATS] Disabling God Mode')
+  print("[CHEATS] Disabling God Mode")
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -234,7 +218,7 @@ end
 
 -- Defeat the Konohagakure Team
 function GameMode:DefeatTeamKonohaCommand() 
-	print('[CHEATS] Defeating Konohagakure team')
+	print("[CHEATS] Defeating Konohagakure team")
 	local units = Entities:FindAllByClassname("npc_dota_tower")
 	for _, unit in pairs(units) do 
 		if unit:GetUnitName() == "npc_konoha_base_unit" then 
@@ -245,7 +229,7 @@ end
 
 -- Defeat the Otogakure Team
 function GameMode:DefeatTeamOtoCommand() 
-	print('[CHEATS] Defeating Otogakure team')
+	print("[CHEATS] Defeating Otogakure team")
 	local units = Entities:FindAllByClassname("npc_dota_tower")
 	for _, unit in pairs(units) do 
 		if unit:GetUnitName() == "npc_oto_base_unit" then 
@@ -256,7 +240,7 @@ end
 
 -- Defeat the Akatsuki Team
 function GameMode:DefeatTeamAkatsukiCommand() 
-	print('[CHEATS] Defeating Akatsuki team')
+	print("[CHEATS] Defeating Akatsuki team")
 	local units = Entities:FindAllByClassname("npc_dota_tower")
 	for _, unit in pairs(units) do 
 		if unit:GetUnitName() == "npc_akatsuki_base_unit" then 
@@ -269,7 +253,6 @@ end
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
   GameMode = self
-  DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   -- Call the internal function to set up the rules/behaviors specified in constants.lua
   -- This also sets up event hooks for all event handlers in events.lua
