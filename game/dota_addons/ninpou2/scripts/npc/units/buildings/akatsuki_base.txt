@@ -1,7 +1,7 @@
 "npc_akatsuki_base_unit"
 {
 	// General 
-	"BaseClass"					"npc_dota_fort"
+	"BaseClass"					"npc_dota_tower"
 	"Model"						"models/buildings/GedoMazo/GedoMazo.vmdl"
 		
 	// Attack 

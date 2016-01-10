@@ -159,7 +159,7 @@ function GameMode:OnNonPlayerUsedAbility(keys)
   DebugPrint('[BAREBONES] OnNonPlayerUsedAbility')
   DebugPrintTable(keys)
 
-  local abilityname=  keys.abilityname
+  local abilityname = keys.abilityname
 end
 
 -- A player changed their name
@@ -272,6 +272,88 @@ function GameMode:OnTeamKillCredit(keys)
   local killerTeamNumber = keys.teamnumber
 end
 
+-- Get the real name of a team 
+function GetRealTeamName(teamNumber)
+	if teamNumber == DOTA_TEAM_GOODGUYS then 
+		return "Konohagakure"
+	elseif teamNumber == DOTA_TEAM_BADGUYS then 
+		return "Otogakure"
+	elseif teamNumber == DOTA_TEAM_CUSTOM_1 then 
+		return "Akatsuki"
+	end
+end
+
+-- Defeat a team 
+function DefeatTeam(teamNumber)
+	print("[GENERAL] Team #" .. tostring(teamNumber) .. " was defeated.")
+	-- Increment number of defeated teams 
+	GameRules.defeatedTeams = GameRules.defeatedTeams and GameRules.defeatedTeams + 1 or 1
+	-- Send defeat message 
+	GameRules:SendCustomMessage(GetRealTeamName(teamNumber) .. " was defeated.", 0, 0)
+	-- Remove units 
+	local units = Entities:FindAllByClassname("npc_dota_creature")
+	for _, unit in pairs(units) do 
+		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+			unit:RemoveSelf()
+		end
+	end
+	units = Entities:FindAllByClassname("npc_dota_tower")
+	for _, unit in pairs(units) do 
+		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber and unit:GetUnitName() ~= "npc_konoha_base_unit" and unit:GetUnitName() ~= "npc_oto_base_unit" and unit:GetUnitName() ~= "npc_akatsuki_base" then 
+			ParticleManager:CreateParticle("particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_gold.vpcf", PATTACH_ABSORIGIN, unit)
+			local particle = ParticleManager:CreateParticle("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, unit)
+			ParticleManager:SetParticleControl(particle, 3, Vector(200, 200, 200))
+			unit:ForceKill(true)
+		end 
+	end
+	units = Entities:FindAllByClassname("npc_dota_barracks")
+	for _, unit in pairs(units) do 
+		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+			ParticleManager:CreateParticle("particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_gold.vpcf", PATTACH_ABSORIGIN, unit)
+			local particle = ParticleManager:CreateParticle("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, unit)
+			ParticleManager:SetParticleControl(particle, 3, Vector(200, 200, 200))
+			unit:ForceKill(true)
+		end
+	end
+	units = Entities:FindAllByClassname("ent_dota_fountain")
+	for _, unit in pairs(units) do 
+		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+			unit:RemoveSelf() 
+		end 
+	end
+	-- Hide players' heroes
+	local defeatSpot = Entities:FindByName(nil, "defeat_spot"):GetAbsOrigin()
+	for i = 0, DOTA_MAX_TEAM_PLAYERS do 
+		if PlayerResource:IsValidPlayerID(i) then 
+			local player = PlayerResource:GetPlayer(i)
+			if player:GetTeamNumber() == teamNumber then 
+				local hero = PlayerResource:GetSelectedHeroEntity(i)
+				-- Move hero to defeat spot and turn it to command disabled
+				if hero ~= nil and IsValidEntity(hero) then 
+					hero:RespawnHero(false, false, false) 
+					FindClearSpaceForUnit(hero, defeatSpot, true)
+					hero:AddAbility("hide_hero")
+					local ability = hero:FindAbilityByName("hide_hero")
+					ability:UpgradeAbility(true)
+					hero:SetAbilityPoints(0)
+				end
+			end
+		end
+	end 
+end
+
+-- Check which team is the winner 
+function GetWinnerTeamNumber()
+	local units = Entities:FindAllByClassname("npc_dota_tower")
+	for _, unit in pairs(units) do 
+		if Utils:IsValidAlive(unit) then 
+			if unit:GetUnitName() == "npc_konoha_base_unit" or unit:GetUnitName() == "npc_oto_base_unit" or unit:GetUnitName() == "npc_akatsuki_base_unit" then 
+				return unit:GetTeamNumber()
+			end
+		end
+	end
+end
+
 -- An entity died
 function GameMode:OnEntityKilled( keys )
   DebugPrint( '[BAREBONES] OnEntityKilled Called' )
@@ -299,15 +381,24 @@ function GameMode:OnEntityKilled( keys )
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
   -- Put code here to handle when an entity gets killed
-  -- Kuchiyose doesn't display corpses nor death animation
-  if killedUnit.is_kuchiyose then 
-	Timers:CreateTimer(0.05, function()
+  Timers:CreateTimer(0.05, function()
+	-- Kuchiyose doesn't display corpses nor death animation
+	if killedUnit.is_kuchiyose then 
 		killedUnit:RemoveSelf()
-	end)
-  end
+	-- A base was destroyed
+	elseif killedUnit:GetUnitName() == "npc_konoha_base_unit" or killedUnit:GetUnitName() == "npc_oto_base_unit" or killedUnit:GetUnitName() == "npc_akatsuki_base_unit" then 
+		DefeatTeam(killedUnit:GetTeamNumber())
+		if GameRules.defeatedTeams == 2 then 
+			local winnerTeamNumber = GetWinnerTeamNumber()
+			print("[GENERAL] Winner team: " .. tostring(winnerTeamNumber))
+			-- Send winning message 
+			GameRules:SendCustomMessage(GetRealTeamName(winnerTeamNumber) .. " won the ninja war.", 0, 0)
+			-- Set team as winner 
+			GameRules:SetGameWinner(winnerTeamNumber)
+		end
+	end
+  end)
 end
-
-
 
 -- This function is called 1 to 2 times as the player connects initially but before they 
 -- have completely connected

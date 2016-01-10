@@ -8,7 +8,8 @@
 	"AbilityTextureName"                "elite_anbu_tatics_aura"
 	"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	"AbilityCastRange"                  "900"
+	"AbilityCastRange"                  "1500"
+	"MaxLevel"							"1"
 
 	// Special
 	"AbilitySpecial"

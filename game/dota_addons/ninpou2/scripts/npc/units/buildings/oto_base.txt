@@ -1,7 +1,7 @@
 "npc_oto_base_unit"
 {
 	// General 
-	"BaseClass"					"npc_dota_fort"
+	"BaseClass"					"npc_dota_tower"
 	"Model"						"models/buildings/YamataNoOrochi/YamataNoOrochi.vmdl"
 	"ModelScale"				"1.7"
 		

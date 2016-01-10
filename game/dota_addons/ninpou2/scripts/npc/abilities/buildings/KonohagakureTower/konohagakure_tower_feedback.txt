@@ -7,6 +7,7 @@
 	"BaseClass"							"ability_datadriven"
 	"AbilityTextureName"				"konohagakure_tower_feedback"
 	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxLevel"							"1"
 	
 	// Special
 	"AbilitySpecial"
@@ -40,17 +41,6 @@
 			"IsHidden"					"1"
 			"OnAttackLanded"
 			{
-				"AttachEffect"
-				{
-					"Target"				"TARGET"
-					"EffectName"			"particles/generic_gameplay/generic_manaburn.vpcf"
-					"EffectAttachType"		"attach_hitloc"
-				}
-				"FireSound"
-				{
-					"EffectName"			"Hero_Antimage.ManaBreak"
-					"Target"				"TARGET"
-				}
 				"RunScript"
 				{
 					"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"

@@ -1,7 +1,7 @@
 "npc_konoha_base_unit"
 {
 	// General 
-	"BaseClass"					"npc_dota_fort"
+	"BaseClass"					"npc_dota_tower"
 	"Model"						"models/buildings/HokageBuilding/HokageBuilding.vmdl"
 		
 	// Attack 

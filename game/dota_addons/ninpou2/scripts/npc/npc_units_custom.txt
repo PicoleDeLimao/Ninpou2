@@ -3,7 +3,7 @@
 	"npc_akatsuki_base_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_fort"
+		"BaseClass"					"npc_dota_tower"
 		"Model"						"models/buildings/GedoMazo/GedoMazo.vmdl"
 			
 		// Attack 
@@ -31,7 +31,7 @@
 		"MovementTurnRate"			"1.0"
 	
 		// Status 
-		"StatusHealth"				"30000"
+		"StatusHealth"				"3000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -149,7 +149,7 @@
 	"npc_konoha_base_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_fort"
+		"BaseClass"					"npc_dota_tower"
 		"Model"						"models/buildings/HokageBuilding/HokageBuilding.vmdl"
 			
 		// Attack 
@@ -318,7 +318,7 @@
 	"npc_oto_base_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_fort"
+		"BaseClass"					"npc_dota_tower"
 		"Model"						"models/buildings/YamataNoOrochi/YamataNoOrochi.vmdl"
 		"ModelScale"				"1.7"
 			

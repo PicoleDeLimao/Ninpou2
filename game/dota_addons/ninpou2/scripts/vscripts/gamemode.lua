@@ -202,19 +202,19 @@ end
 
 -- This command increases hero health to infinite
 function GameMode:GodCommandOn()
-  print( '[CHEATS] Enabling God Mode' )
+  print('[CHEATS] Enabling God Mode')
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
+    if playerID ~= nil and playerID ~= -1 and PlayerResource:GetSelectedHeroEntity(playerID) ~= nil then
 	  cmdPlayer.godMode = true 
       Timers:CreateTimer(0.05, function()
-		cmdPlayer:GetAssignedHero():SetHealth(cmdPlayer:GetAssignedHero():GetMaxHealth())
-		if cmdPlayer.godMode then 
-			return 0.05 
-		else 
+		local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+		if hero == nil or not cmdPlayer.godMode then 
 			return nil 
 		end
+		hero:SetHealth(hero:GetMaxHealth())
+		return 0.05
 	  end)
     end
   end
@@ -222,7 +222,7 @@ end
 
 -- Disable god mode command 
 function GameMode:GodCommandOff()
-  print( '[CHEATS] Disabling God Mode' )
+  print('[CHEATS] Disabling God Mode')
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
@@ -230,6 +230,39 @@ function GameMode:GodCommandOff()
       cmdPlayer.godMode = false
     end
   end
+end
+
+-- Defeat the Konohagakure Team
+function GameMode:DefeatTeamKonohaCommand() 
+	print('[CHEATS] Defeating Konohagakure team')
+	local units = Entities:FindAllByClassname("npc_dota_tower")
+	for _, unit in pairs(units) do 
+		if unit:GetUnitName() == "npc_konoha_base_unit" then 
+			unit:ForceKill(true)
+		end
+	end
+end
+
+-- Defeat the Otogakure Team
+function GameMode:DefeatTeamOtoCommand() 
+	print('[CHEATS] Defeating Otogakure team')
+	local units = Entities:FindAllByClassname("npc_dota_tower")
+	for _, unit in pairs(units) do 
+		if unit:GetUnitName() == "npc_oto_base_unit" then 
+			unit:ForceKill(true)
+		end
+	end
+end
+
+-- Defeat the Akatsuki Team
+function GameMode:DefeatTeamAkatsukiCommand() 
+	print('[CHEATS] Defeating Akatsuki team')
+	local units = Entities:FindAllByClassname("npc_dota_tower")
+	for _, unit in pairs(units) do 
+		if unit:GetUnitName() == "npc_akatsuki_base_unit" then 
+			unit:ForceKill(true)
+		end
+	end
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
@@ -246,7 +279,40 @@ function GameMode:InitGameMode()
   -- Start AI Behavior for pre defined units
   StartAI()
   
+  Timers:CreateTimer(10, function()
+	-- Check if there is any empty team 
+	local countPlayers = {}
+	countPlayers[DOTA_TEAM_GOODGUYS] = 0
+	countPlayers[DOTA_TEAM_BADGUYS] = 0 
+	countPlayers[DOTA_TEAM_CUSTOM_1] = 0
+	for i = 0, DOTA_MAX_TEAM_PLAYERS do 
+		if PlayerResource:IsValidPlayerID(i) then 
+			local player = PlayerResource:GetPlayer(i)
+			countPlayers[player:GetTeamNumber()] = countPlayers[player:GetTeamNumber()] + 1
+		end
+	end
+	-- Only remove teams if not on single player mode 
+	if countPlayers[DOTA_TEAM_GOODGUYS] + countPlayers[DOTA_TEAM_BADGUYS] + countPlayers[DOTA_TEAM_CUSTOM_1] > 1 then 
+		print("[GENERAL] Found " .. tostring(countPlayers[DOTA_TEAM_GOODGUYS]) .. " players for Team #" .. tostring(DOTA_TEAM_GOODGUYS) .. "...")
+		print("[GENERAL] Found " .. tostring(countPlayers[DOTA_TEAM_BADGUYS]) .. " players for Team #" .. tostring(DOTA_TEAM_BADGUYS) .. "...")
+		print("[GENERAL] Found " .. tostring(countPlayers[DOTA_TEAM_CUSTOM_1]) .. " players for Team #" .. tostring(DOTA_TEAM_CUSTOM_1) .. "...")
+		-- Defeat teams from which there is no player 
+		if countPlayers[DOTA_TEAM_GOODGUYS] == 0 then 
+			GameMode:DefeatTeamKonohaCommand() 
+		end
+		if countPlayers[DOTA_TEAM_BADGUYS] == 0 then 
+			GameMode:DefeatTeamOtoCommand() 
+		end
+		if countPlayers[DOTA_TEAM_CUSTOM_1] == 0 then 
+			GameMode:DefeatTeamAkatsukiCommand() 
+		end
+	end
+  end)
+  
   -- Register commands 
   Convars:RegisterCommand("godon", Dynamic_Wrap(GameMode, 'GodCommandOn'), "Increases hero health to infinite", FCVAR_CHEAT)
   Convars:RegisterCommand("godoff", Dynamic_Wrap(GameMode, 'GodCommandOff'), "Disables god mode", FCVAR_CHEAT)
+  Convars:RegisterCommand("defeatkonoha", Dynamic_Wrap(GameMode, 'DefeatTeamKonohaCommand'), "Defeat the Konohagakure team", FCVAR_CHEAT)
+  Convars:RegisterCommand("defeatoto", Dynamic_Wrap(GameMode, 'DefeatTeamOtoCommand'), "Defeat the Otogakure team", FCVAR_CHEAT)
+  Convars:RegisterCommand("defeatakatsuki", Dynamic_Wrap(GameMode, 'DefeatTeamAkatsukiCommand'), "Defeat the Akatsuki team", FCVAR_CHEAT)
 end
