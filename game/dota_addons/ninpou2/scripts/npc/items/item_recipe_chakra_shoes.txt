@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Chakra Shoes
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_chakra_shoes"
+{
+	// General
+	"ID"							"1012"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_chakra_shoes"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"1000"
+	"ItemResult"					"item_chakra_shoes"
+	"ItemRequirements"
+	{
+		"01"						"item_chunnin_shoes"
+	}
+}

@@ -3,8 +3,8 @@
 	"npc_dota_hero_orochimaru"
 	{
 		"override_hero"     "npc_dota_hero_dark_seer"
-		"Model"				      "models/development/invisiblebox.vmdl"
-		"ModelScale"		    "1.3"
+		"Model"				"models/heroes/orochimaru/orochimaru.vmdl" 
+		"ModelScale"		"1.3"
 		"SoundSet"          "0" 
 		"ItemSlots"			
 		{ }
@@ -20,8 +20,8 @@
 	"npc_dota_hero_sasuke"
 	{
 		"override_hero"     "npc_dota_hero_antimage"
-		"Model"				      "models/development/invisiblebox.vmdl"
-		"ModelScale"		    "1.3"
+		"Model"				"models/heroes/sasuke/sasuke.vmdl"
+		"ModelScale"	    "1.3"
 		"SoundSet"          "0" 
 		"ItemSlots"			
 		{ }
@@ -33,5 +33,5 @@
 		"Ability4"          "elite_anbu_kuchiyose_ninkens"
 		"Ability5"          "ninken_critical_strike"
 		"Ability6"          "barebones_empty6"
-	}
+	} 
 }

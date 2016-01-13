@@ -31,7 +31,7 @@
 		"MovementTurnRate"			"1.0"
 	
 		// Status 
-		"StatusHealth"				"3000"
+		"StatusHealth"				"30000"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

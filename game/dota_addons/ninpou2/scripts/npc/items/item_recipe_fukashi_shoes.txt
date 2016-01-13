@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Fukashi Shoes
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_fukashi_shoes"
+{
+	// General
+	"ID"							"1008"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_fukashi_shoes"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"1000"
+	"ItemResult"					"item_fukashi_shoes"
+	"ItemRequirements"
+	{
+		"01"						"item_chunnin_shoes"
+	}
+}

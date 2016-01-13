@@ -1,0 +1,105 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Chakra Shoes
+//-------------------------------------------------------------------------------------------------------------
+"item_chakra_shoes"
+{
+	// General
+	"ID"							"1013"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_chakra_shoes"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	
+	"ItemCost"						"2000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Ability 
+	"AbilityCastPoint"				"0"
+	"AbilityCooldown"				"90"
+	"AbilityManaCost"				"50"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"movespeed_bonus"		"80"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"health_bonus"			"500"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_bonus"			"300"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"chakra_boost_movespeed_bonus" "999" // percentage
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"chakra_boost_duration"	"6"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/items2_fx/phase_boots.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_item_chakra_shoes_chakra_boost"
+			"Duration"				"%chakra_boost_duration"
+		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"DOTA_Item.PhaseBoots.Activate"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_item_chakra_shoes"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
+				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+			}
+		}
+		"modifier_item_chakra_shoes_chakra_boost"
+		{
+			"IsBuff"				"1"
+			"IsPurgable"			"1"
+			"EffectName"			"particles/items2_fx/phase_boots.vpcf"
+			"EffectAttachType"		"follow_origin"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%chakra_boost_movespeed_bonus"
+			}
+			"States"
+			{
+				"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

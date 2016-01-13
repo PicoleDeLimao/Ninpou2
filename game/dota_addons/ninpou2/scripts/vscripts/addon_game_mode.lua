@@ -3,10 +3,11 @@
 require('libraries/timers')
 require('internal/util')
 
-require('model_list')
-
 -- Library containing many utility functions
 require('utilities') 
+
+-- Library containing utilitary methods to check victory/defeat conditions 
+require('ninpou_game_rules')
 
 -- AI for medical ninja units in order to enable them to autocast heal ability
 require('units/AI/medical_ninja_ai')
@@ -66,11 +67,6 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_akatsuki_jounin_unit", context)
   PrecacheUnitByNameSync("npc_anbu_unit", context)
   PrecacheUnitByNameSync("npc_medical_ninja_unit", context)
-  
-  -- Precache models
-  for k, v in pairs( model_lookup ) do
-    PrecacheResource( "model", v, context )
-  end
 end
 
 -- Create the game mode when we activate

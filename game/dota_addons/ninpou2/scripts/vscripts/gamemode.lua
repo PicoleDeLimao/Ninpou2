@@ -219,41 +219,25 @@ end
 -- Defeat the Konohagakure Team
 function GameMode:DefeatTeamKonohaCommand() 
 	print("[CHEATS] Defeating Konohagakure team")
-	local units = Entities:FindAllByClassname("npc_dota_tower")
-	for _, unit in pairs(units) do 
-		if unit:GetUnitName() == "npc_konoha_base_unit" then 
-			unit:ForceKill(true)
-		end
-	end
+	NinpouGameRules:DefeatTeam(DOTA_TEAM_GOODGUYS)
 end
 
 -- Defeat the Otogakure Team
 function GameMode:DefeatTeamOtoCommand() 
 	print("[CHEATS] Defeating Otogakure team")
-	local units = Entities:FindAllByClassname("npc_dota_tower")
-	for _, unit in pairs(units) do 
-		if unit:GetUnitName() == "npc_oto_base_unit" then 
-			unit:ForceKill(true)
-		end
-	end
+	NinpouGameRules:DefeatTeam(DOTA_TEAM_BADGUYS)
 end
 
 -- Defeat the Akatsuki Team
 function GameMode:DefeatTeamAkatsukiCommand() 
 	print("[CHEATS] Defeating Akatsuki team")
-	local units = Entities:FindAllByClassname("npc_dota_tower")
-	for _, unit in pairs(units) do 
-		if unit:GetUnitName() == "npc_akatsuki_base_unit" then 
-			unit:ForceKill(true)
-		end
-	end
+	NinpouGameRules:DefeatTeam(DOTA_TEAM_CUSTOM_1)
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
   GameMode = self
-
   -- Call the internal function to set up the rules/behaviors specified in constants.lua
   -- This also sets up event hooks for all event handlers in events.lua
   -- Check out internals/gamemode to see/modify the exact code
@@ -262,34 +246,9 @@ function GameMode:InitGameMode()
   -- Start AI Behavior for pre defined units
   StartAI()
   
-  Timers:CreateTimer(10, function()
+  Timers:CreateTimer(5, function()
 	-- Check if there is any empty team 
-	local countPlayers = {}
-	countPlayers[DOTA_TEAM_GOODGUYS] = 0
-	countPlayers[DOTA_TEAM_BADGUYS] = 0 
-	countPlayers[DOTA_TEAM_CUSTOM_1] = 0
-	for i = 0, DOTA_MAX_TEAM_PLAYERS do 
-		if PlayerResource:IsValidPlayerID(i) then 
-			local player = PlayerResource:GetPlayer(i)
-			countPlayers[player:GetTeamNumber()] = countPlayers[player:GetTeamNumber()] + 1
-		end
-	end
-	-- Only remove teams if not on single player mode 
-	if countPlayers[DOTA_TEAM_GOODGUYS] + countPlayers[DOTA_TEAM_BADGUYS] + countPlayers[DOTA_TEAM_CUSTOM_1] > 1 then 
-		print("[GENERAL] Found " .. tostring(countPlayers[DOTA_TEAM_GOODGUYS]) .. " players for Team #" .. tostring(DOTA_TEAM_GOODGUYS) .. "...")
-		print("[GENERAL] Found " .. tostring(countPlayers[DOTA_TEAM_BADGUYS]) .. " players for Team #" .. tostring(DOTA_TEAM_BADGUYS) .. "...")
-		print("[GENERAL] Found " .. tostring(countPlayers[DOTA_TEAM_CUSTOM_1]) .. " players for Team #" .. tostring(DOTA_TEAM_CUSTOM_1) .. "...")
-		-- Defeat teams from which there is no player 
-		if countPlayers[DOTA_TEAM_GOODGUYS] == 0 then 
-			GameMode:DefeatTeamKonohaCommand() 
-		end
-		if countPlayers[DOTA_TEAM_BADGUYS] == 0 then 
-			GameMode:DefeatTeamOtoCommand() 
-		end
-		if countPlayers[DOTA_TEAM_CUSTOM_1] == 0 then 
-			GameMode:DefeatTeamAkatsukiCommand() 
-		end
-	end
+	NinpouGameRules:CheckEmptyTeams()
   end)
   
   -- Register commands 

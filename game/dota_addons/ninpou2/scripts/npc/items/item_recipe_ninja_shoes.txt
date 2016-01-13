@@ -1,0 +1,16 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Ninja Shoes
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_ninja_shoes"
+{
+	// General
+	"ID"							"1007"
+	"BaseClass"						"item_datadriven"
+	"ItemRecipe"					"1"
+	"ItemCost"						"1000"
+	"ItemResult"					"item_chunnin_shoes"
+	"ItemRequeriment"
+	{
+		"01"						"item_genin_shoes"
+	}
+}

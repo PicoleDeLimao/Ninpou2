@@ -1522,7 +1522,7 @@
 				},
 				{
 					_class = "CVanim"
-					m_Animationname = "orochimaru_spell1"
+					m_Animationname = "orochimaru_spell2"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 781
 					m_nEndframe = 791
@@ -1547,7 +1547,7 @@
 					[
 						{
 							_class = "CActivity"
-							m_Name = "ACT_DOTA_CAST_ABILITY_1"
+							m_Name = "ACT_DOTA_CAST_ABILITY_2"
 							m_nWeight = 1
 						},
 					]
@@ -1591,7 +1591,7 @@
 				},
 				{
 					_class = "CVanim"
-					m_Animationname = "orochimaru_spell2"
+					m_Animationname = "orochimaru_spell1"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 656
 					m_nEndframe = 687
@@ -1616,7 +1616,7 @@
 					[
 						{
 							_class = "CActivity"
-							m_Name = "ACT_DOTA_CAST_ABILITY_2"
+							m_Name = "ACT_DOTA_CAST_ABILITY_1"
 							m_nWeight = 1
 						},
 					]

@@ -1,9 +1,6 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
 -- Do not remove the GameMode:_Function calls in these events as it will mess with the internal barebones systems.
 
--- Contains list of models associated to each hero
-require('model_list')
-
 -- Cleanup a player when they leave
 function GameMode:OnDisconnect(keys)
   DebugPrint('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))
@@ -26,50 +23,21 @@ function GameMode:OnGameRulesStateChange(keys)
   local newState = GameRules:State_Get()
 end
 
--- Remove heroes cosmetics
-function RemoveCosmetics(hero) 
-  Timers:CreateTimer(0.05, function()
-      -- Setup variables
-      local model_name = ""
-
-      -- Check if npc is hero
-      if not IsValidEntity(hero) or not hero:IsHero() then return end
-
-      -- Getting model name
-      if model_lookup[ hero:GetName() ] ~= nil and hero:GetModelName() ~= model_lookup[ hero:GetName() ] then
-        model_name = model_lookup[ hero:GetName() ]
-      else
-        return nil
-      end
-
-      -- Check if it's correct format
-      if hero:GetModelName() ~= "models/development/invisiblebox.vmdl" then return nil end
-
-      -- Never got changed before
-      local toRemove = {}
-      local wearable = hero:FirstMoveChild()
-      while wearable ~= nil do
-        if wearable:GetClassname() == "dota_item_wearable" then
-          table.insert( toRemove, wearable )
+-- Hide wearables for a hero 
+function HideWearables(hero)
+	hero.wearables = {} -- Keep every wearable handle in a table to remove them later 
+    local model = hero:FirstMoveChild()
+	local wearable = nil
+    while model ~= nil do
+        if model:GetClassname() == "dota_item_wearable" then
+            table.insert(hero.wearables, model)
         end
-        wearable = wearable:NextMovePeer()
-      end
-
-      -- Remove wearables
-      for k, v in pairs( toRemove ) do
-        v:SetModel( "models/development/invisiblebox.vmdl" )
-        v:RemoveSelf()
-      end
-
-      -- Set model
-      hero:SetModel( model_name )
-      hero:SetOriginalModel( model_name )
-      hero:MoveToPosition( hero:GetAbsOrigin() )
-	  hero:RespawnHero(false,false,false) 
-
-      return nil
+        model = model:NextMovePeer()
     end
-  )
+	-- Remove all wearables 
+	for i = 1, #hero.wearables do 
+		hero.wearables[i]:RemoveSelf()
+	end
 end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
@@ -87,7 +55,10 @@ function GameMode:OnNPCSpawned(keys)
 		MedicalNinjaAI:Start(npc)
 	  end
   end)
-  RemoveCosmetics(npc)
+  -- Hide wearables for heroes 
+  if npc:IsHero() then 
+	  HideWearables(npc)
+  end
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
@@ -272,82 +243,6 @@ function GameMode:OnTeamKillCredit(keys)
   local killerTeamNumber = keys.teamnumber
 end
 
--- Get the real name of a team 
-function GetRealTeamName(teamNumber)
-	if teamNumber == DOTA_TEAM_GOODGUYS then 
-		return "Konohagakure"
-	elseif teamNumber == DOTA_TEAM_BADGUYS then 
-		return "Otogakure"
-	elseif teamNumber == DOTA_TEAM_CUSTOM_1 then 
-		return "Akatsuki"
-	end
-end
-
--- Defeat a team 
-function DefeatTeam(teamNumber)
-	print("[GENERAL] Team #" .. tostring(teamNumber) .. " was defeated.")
-	-- Increment number of defeated teams 
-	GameRules.defeatedTeams = GameRules.defeatedTeams and GameRules.defeatedTeams + 1 or 1
-	-- Send defeat message 
-	GameRules:SendCustomMessage(GetRealTeamName(teamNumber) .. " was defeated.", 0, 0)
-	-- Remove units 
-	local units = Entities:FindAllByClassname("npc_dota_creature")
-	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			unit:RemoveSelf()
-		end
-	end
-	units = Entities:FindAllByClassname("npc_dota_tower")
-	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			unit:ForceKill(true)
-		end 
-	end
-	units = Entities:FindAllByClassname("npc_dota_barracks")
-	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			unit:ForceKill(true)
-		end
-	end
-	units = Entities:FindAllByClassname("ent_dota_fountain")
-	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			unit:RemoveSelf() 
-		end 
-	end
-	-- Hide players' heroes
-	local defeatSpot = Entities:FindByName(nil, "defeat_spot"):GetAbsOrigin()
-	for i = 0, DOTA_MAX_TEAM_PLAYERS do 
-		if PlayerResource:IsValidPlayerID(i) then 
-			local player = PlayerResource:GetPlayer(i)
-			if player:GetTeamNumber() == teamNumber then 
-				local hero = PlayerResource:GetSelectedHeroEntity(i)
-				-- Move hero to defeat spot and turn it to command disabled
-				if hero ~= nil and IsValidEntity(hero) then 
-					hero:RespawnHero(false, false, false) 
-					FindClearSpaceForUnit(hero, defeatSpot, true)
-					hero:AddAbility("hide_hero")
-					local ability = hero:FindAbilityByName("hide_hero")
-					ability:UpgradeAbility(true)
-					hero:SetAbilityPoints(0)
-				end
-			end
-		end
-	end 
-end
-
--- Check which team is the winner 
-function GetWinnerTeamNumber()
-	local units = Entities:FindAllByClassname("npc_dota_tower")
-	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) then 
-			if unit:GetUnitName() == "npc_konoha_base_unit" or unit:GetUnitName() == "npc_oto_base_unit" or unit:GetUnitName() == "npc_akatsuki_base_unit" then 
-				return unit:GetTeamNumber()
-			end
-		end
-	end
-end
-
 -- An entity died
 function GameMode:OnEntityKilled( keys )
 	DebugPrint( '[BAREBONES] OnEntityKilled Called' )
@@ -375,7 +270,7 @@ function GameMode:OnEntityKilled( keys )
 
 	-- Put code here to handle when an entity gets killed
 	-- A base was destroyed
-	if killedUnit:GetUnitName() == "npc_konoha_base_unit" or killedUnit:GetUnitName() == "npc_oto_base_unit" or killedUnit:GetUnitName() == "npc_akatsuki_base_unit" then 
+	if NinpouGameRules:IsBase(killedUnit) then 
 		-- Display destruction particle 
 		local particle = ParticleManager:CreateParticle("particles/radiant_fx2/good_ancient001_znight_endcap.vpcf", PATTACH_CUSTOMORIGIN, killedUnit)
 		ParticleManager:SetParticleControl(particle, 0, killedUnit:GetAbsOrigin())
@@ -388,16 +283,7 @@ function GameMode:OnEntityKilled( keys )
 			killedUnit:AddNoDraw()
 		end)
 		-- Defeat team 
-		DefeatTeam(killedUnit:GetTeamNumber())
-		-- Check victory conditions 
-		if GameRules.defeatedTeams == 2 then 
-			local winnerTeamNumber = GetWinnerTeamNumber()
-			print("[GENERAL] Winner team: " .. tostring(winnerTeamNumber))
-			-- Send winning message 
-			GameRules:SendCustomMessage(GetRealTeamName(winnerTeamNumber) .. " won the ninja war.", 0, 0)
-			-- Set team as winner 
-			GameRules:SetGameWinner(winnerTeamNumber)
-		end
+		NinpouGameRules:DefeatTeam(killedUnit:GetTeamNumber())
 	end
 	-- Show proper death animation for buildings 
 	if killedUnit:GetClassname() == "npc_dota_tower" or killedUnit:GetClassname() == "npc_dota_barracks" and killedUnit:GetUnitName() ~= "npc_konoha_base_unit" and killedUnit:GetUnitName() ~= "npc_oto_base_unit" and killedUnit:GetUnitName() ~= "npc_akatsuki_base_unit" then 
