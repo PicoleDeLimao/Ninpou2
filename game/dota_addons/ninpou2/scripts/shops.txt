@@ -12,7 +12,9 @@
 
   "weapons_armor"
   {
-    
+    "item"						"item_battle_kunai"
+	"item"						"item_battle_shuriken"
+	"item"						"item_battle_senbons"
   }
       
   "misc"
@@ -29,7 +31,6 @@
   // Level 2 - Blue Recipes
   "support"
   {
-	"item"						"item_chunnin_shoes"
 	"item"						"item_chakra_shoes"
 	"item"						"item_fukashi_shoes"
 	"item"						"item_bunshin_shoes"
@@ -49,7 +50,6 @@
       
   "weapons"
   {
-    
   }
     
   // Level 4 - Orange / Orb / Artifacts       

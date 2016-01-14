@@ -9,6 +9,9 @@ require('utilities')
 -- Library containing utilitary methods to check victory/defeat conditions 
 require('ninpou_game_rules')
 
+-- Library containing custom commands 
+require('commands')
+
 -- AI for medical ninja units in order to enable them to autocast heal ability
 require('units/AI/medical_ninja_ai')
 

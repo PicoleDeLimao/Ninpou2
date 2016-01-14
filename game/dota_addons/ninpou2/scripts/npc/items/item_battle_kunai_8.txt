@@ -1,0 +1,62 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Battle Kunai - Level 8
+//-------------------------------------------------------------------------------------------------------------
+"item_battle_kunai_8"
+{
+	// General
+	"ID"							"1027"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_battle_kunai_8"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxUpgradeLevel"				"9"
+	"ItemBaseLevel"					"8"
+	
+	"ItemCost"						"16000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	"UpgradesItems"					"item_battle_kunai_8;item_battle_kunai_9"
+	"UpgradeRecipe"					"item_recipe_battle_kunai"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"attack_bonus"			"100"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"strength_bonus"		"80"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_bonus"			"800"
+		}
+	}
+	
+	// Datadriven 
+	"Modifiers"
+	{
+		"modifier_item_battle_kunai_8"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
+				"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+			}
+		}
+	}
+}

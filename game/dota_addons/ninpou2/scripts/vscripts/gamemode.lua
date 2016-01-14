@@ -184,56 +184,6 @@ function StartAI()
   end
 end
 
--- This command increases hero health to infinite
-function GameMode:GodCommandOn()
-  print("[CHEATS] Enabling God Mode")
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 and PlayerResource:GetSelectedHeroEntity(playerID) ~= nil then
-	  cmdPlayer.godMode = true 
-      Timers:CreateTimer(0.05, function()
-		local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-		if hero == nil or not cmdPlayer.godMode then 
-			return nil 
-		end
-		hero:SetHealth(hero:GetMaxHealth())
-		return 0.05
-	  end)
-    end
-  end
-end
-
--- Disable god mode command 
-function GameMode:GodCommandOff()
-  print("[CHEATS] Disabling God Mode")
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      cmdPlayer.godMode = false
-    end
-  end
-end
-
--- Defeat the Konohagakure Team
-function GameMode:DefeatTeamKonohaCommand() 
-	print("[CHEATS] Defeating Konohagakure team")
-	NinpouGameRules:DefeatTeam(DOTA_TEAM_GOODGUYS)
-end
-
--- Defeat the Otogakure Team
-function GameMode:DefeatTeamOtoCommand() 
-	print("[CHEATS] Defeating Otogakure team")
-	NinpouGameRules:DefeatTeam(DOTA_TEAM_BADGUYS)
-end
-
--- Defeat the Akatsuki Team
-function GameMode:DefeatTeamAkatsukiCommand() 
-	print("[CHEATS] Defeating Akatsuki team")
-	NinpouGameRules:DefeatTeam(DOTA_TEAM_CUSTOM_1)
-end
-
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
@@ -252,9 +202,9 @@ function GameMode:InitGameMode()
   end)
   
   -- Register commands 
-  Convars:RegisterCommand("godon", Dynamic_Wrap(GameMode, 'GodCommandOn'), "Increases hero health to infinite", FCVAR_CHEAT)
-  Convars:RegisterCommand("godoff", Dynamic_Wrap(GameMode, 'GodCommandOff'), "Disables god mode", FCVAR_CHEAT)
-  Convars:RegisterCommand("defeatkonoha", Dynamic_Wrap(GameMode, 'DefeatTeamKonohaCommand'), "Defeat the Konohagakure team", FCVAR_CHEAT)
-  Convars:RegisterCommand("defeatoto", Dynamic_Wrap(GameMode, 'DefeatTeamOtoCommand'), "Defeat the Otogakure team", FCVAR_CHEAT)
-  Convars:RegisterCommand("defeatakatsuki", Dynamic_Wrap(GameMode, 'DefeatTeamAkatsukiCommand'), "Defeat the Akatsuki team", FCVAR_CHEAT)
+  Convars:RegisterCommand("godon", Dynamic_Wrap(Commands, 'GodCommandOn'), "Increases hero health to infinite", FCVAR_CHEAT)
+  Convars:RegisterCommand("godoff", Dynamic_Wrap(Commands, 'GodCommandOff'), "Disables god mode", FCVAR_CHEAT)
+  Convars:RegisterCommand("defeatkonoha", Dynamic_Wrap(Commands, 'DefeatTeamKonohaCommand'), "Defeat the Konohagakure team", FCVAR_CHEAT)
+  Convars:RegisterCommand("defeatoto", Dynamic_Wrap(Commands, 'DefeatTeamOtoCommand'), "Defeat the Otogakure team", FCVAR_CHEAT)
+  Convars:RegisterCommand("defeatakatsuki", Dynamic_Wrap(Commands, 'DefeatTeamAkatsukiCommand'), "Defeat the Akatsuki team", FCVAR_CHEAT)
 end
