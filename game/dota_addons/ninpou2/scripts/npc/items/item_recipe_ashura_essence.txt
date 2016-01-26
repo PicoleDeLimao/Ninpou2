@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPE: Ashura Essence
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_ashura_essence"
+{
+	// General
+	"ID"							"1092"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_ashura_essence"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"500"
+	"ItemResult"					"item_ashura_essence"
+	"ItemRequirements"
+	{
+		"01"						"item_life_stone_3"
+	}
+}

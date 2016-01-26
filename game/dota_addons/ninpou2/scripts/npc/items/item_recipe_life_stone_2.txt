@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Life Stone Level 2
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_life_stone_2"
+{
+	// General
+	"ID"							"1083"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_life_stone"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"500"
+	"ItemResult"					"item_life_stone_2"
+	"ItemRequirements"
+	{
+		"01"						"item_life_stone"
+	}
+}

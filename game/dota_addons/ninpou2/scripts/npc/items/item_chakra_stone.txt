@@ -1,0 +1,56 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Chakra Stone
+//-------------------------------------------------------------------------------------------------------------
+"item_chakra_stone"
+{
+	// General
+	"ID"							"1085"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_chakra_stone"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxUpgradeLevel"				"3"
+	"ItemBaseLevel"					"1"
+	
+	"ItemCost"						"500"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	"UpgradesItems"					"item_chakra_stone;item_chakra_stone_2;item_chakra_stone_3"
+	"UpgradeRecipe"					"item_recipe_chakra_stone"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"health_bonus"			"250"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_bonus"			"500"
+		}
+	}
+	
+	// Datadriven 
+	"Modifiers"
+	{
+		"modifier_item_chakra_stone"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+			}
+		}
+	}
+}

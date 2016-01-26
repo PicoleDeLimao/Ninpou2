@@ -8,6 +8,8 @@
   "attributes"
   {
 	"item"						"item_genin_shoes" 
+	"item"						"item_life_stone"
+	"item"						"item_chakra_stone"
   }
 
   "weapons_armor"
@@ -35,6 +37,9 @@
 	"item"						"item_fukashi_shoes"
 	"item"						"item_bunshin_shoes"
 	"item"						"item_shunshin_shoes"
+	"item"						"item_ashura_essence"
+	"item"						"item_indra_essence"
+	"item"						"item_yasakani_no_magatama"
   }
         
   "magics"      

@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPE: Yasakani no Magatama
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_yasakani_no_magatama"
+{
+	// General
+	"ID"							"1101"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_yasakani_no_magatama"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_yasakani_no_magatama"
+	"ItemRequirements"
+	{
+		"01"						"item_ashura_essence;item_indra_essence"
+	}
+}

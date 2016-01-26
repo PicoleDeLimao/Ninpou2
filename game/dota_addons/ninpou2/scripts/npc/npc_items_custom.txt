@@ -1,6 +1,58 @@
 "DOTAAbilities"
 {
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Ashura Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_ashura_essence"
+	{
+		// General
+		"ID"							"1090"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_ashura_essence"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"2000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen"			"25"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_ashura_essence"
+			{
+				"Passive"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"EffectName"			"particles/items/AshuraEssence/ashura_essence.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Battle Kunai
 	//-------------------------------------------------------------------------------------------------------------
 	"item_battle_kunai"
@@ -1864,6 +1916,174 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Chakra Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_chakra_stone"
+	{
+		// General
+		"ID"							"1085"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chakra_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"1"
+		
+		"ItemCost"						"500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		"UpgradesItems"					"item_chakra_stone;item_chakra_stone_2;item_chakra_stone_3"
+		"UpgradeRecipe"					"item_recipe_chakra_stone"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_bonus"			"500"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_chakra_stone"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Chakra Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_chakra_stone_2"
+	{
+		// General
+		"ID"							"1086"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chakra_stone_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"2"
+		
+		"ItemCost"						"1000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		"UpgradesItems"					"item_chakra_stone_2;item_chakra_stone_3"
+		"UpgradeRecipe"					"item_recipe_chakra_stone"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_bonus"			"1000"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_chakra_stone_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Chakra Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_chakra_stone_3"
+	{
+		// General
+		"ID"							"1087"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chakra_stone_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"3"
+		
+		"ItemCost"						"1500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		"UpgradesItems"					"item_chakra_stone_3"
+		"UpgradeRecipe"					"item_recipe_chakra_stone"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"750"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_bonus"			"1500"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_chakra_stone_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Chunnin Shoes 
 	//-------------------------------------------------------------------------------------------------------------
 	"item_chunnin_shoes"
@@ -2118,6 +2338,233 @@
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
 			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Indra Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_indra_essence"
+	{
+		// General
+		"ID"							"1091"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_indra_essence"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"2000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_bonus"			"2000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen"			"50"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_indra_essence"
+			{
+				"Passive"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"EffectName"			"particles/items/IndraEssence/indra_essence.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Life Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_life_stone"
+	{
+		// General
+		"ID"							"1080"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_life_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"1"
+		
+		"ItemCost"						"500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		"UpgradesItems"					"item_life_stone;item_life_stone_2;item_life_stone_3"
+		"UpgradeRecipe"					"item_recipe_life_stone"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"500"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_life_stone"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Life Stone Level 2
+	//-------------------------------------------------------------------------------------------------------------
+	"item_life_stone_2"
+	{
+		// General
+		"ID"							"1081"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_life_stone_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"2"
+		
+		"ItemCost"						"1000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		"UpgradesItems"					"item_life_stone_2;item_life_stone_3"
+		"UpgradeRecipe"					"item_recipe_life_stone"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"1000"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_life_stone_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Life Stone Level 3
+	//-------------------------------------------------------------------------------------------------------------
+	"item_life_stone_3"
+	{
+		// General
+		"ID"							"1082"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_life_stone_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"3"
+		
+		"ItemCost"						"1500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		"UpgradesItems"					"item_life_stone_3"
+		"UpgradeRecipe"					"item_recipe_life_stone"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"1500"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_life_stone_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPE: Ashura Essence
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_ashura_essence"
+	{
+		// General
+		"ID"							"1092"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_ashura_essence"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"500"
+		"ItemResult"					"item_ashura_essence"
+		"ItemRequirements"
+		{
+			"01"						"item_life_stone_3"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -2615,6 +3062,44 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Chakra Stone Level 2
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_chakra_stone_2"
+	{
+		// General
+		"ID"							"1088"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chakra_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"500"
+		"ItemResult"					"item_chakra_stone_2"
+		"ItemRequirements"
+		{
+			"01"						"item_chakra_stone"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Chakra Stone Level 3
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_chakra_stone_3"
+	{
+		// General
+		"ID"							"1089"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chakra_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"500"
+		"ItemResult"					"item_chakra_stone_3"
+		"ItemRequirements"
+		{
+			"01"						"item_chakra_stone_2"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPES: Chunnin Shoes 
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_chunnin_shoes"
@@ -2653,6 +3138,63 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPE: Indra Essence
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_indra_essence"
+	{
+		// General
+		"ID"							"1093"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_indra_essence"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"500"
+		"ItemResult"					"item_indra_essence"
+		"ItemRequirements"
+		{
+			"01"						"item_chakra_stone_3"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Life Stone Level 2
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_life_stone_2"
+	{
+		// General
+		"ID"							"1083"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_life_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"500"
+		"ItemResult"					"item_life_stone_2"
+		"ItemRequirements"
+		{
+			"01"						"item_life_stone"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Life Stone Level 3
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_life_stone_3"
+	{
+		// General
+		"ID"							"1084"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_life_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"500"
+		"ItemResult"					"item_life_stone_3"
+		"ItemRequirements"
+		{
+			"01"						"item_life_stone_2"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPES: Ninja Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_ninja_shoes"
@@ -2685,6 +3227,25 @@
 		"ItemRequirements"
 		{
 			"01"						"item_chunnin_shoes"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPE: Yasakani no Magatama
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_yasakani_no_magatama"
+	{
+		// General
+		"ID"							"1101"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yasakani_no_magatama"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_yasakani_no_magatama"
+		"ItemRequirements"
+		{
+			"01"						"item_ashura_essence;item_indra_essence"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -2787,6 +3348,104 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yasakani no Magatama
+	//-------------------------------------------------------------------------------------------------------------
+	"item_yasakani_no_magatama"
+	{
+		// General
+		"ID"							"1100"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yasakani_no_magatama"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"6000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"3000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_bonus"			"2000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen"			"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rinnegan_invulnerability_duration"	"3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rinnegan_invulnerability_cooldown"	"180"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_interval"		"0.1"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_yasakani_no_magatama"
+			{
+				"Passive"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"EffectName"			"particles/items/YasakaniNoMagatama/yasakani_no_magatama.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
+				}
+				"ThinkInterval"			"%think_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"								"items/yasakani_no_magatama.lua"
+						"Function"									"CheckHealth"
+					}
+				}
+			}
+			"modifier_item_yasakani_no_magatama_rinnegan"
+			{
+				"EffectName"			"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral03.vpcf"
+				"EffectAttachType"		"attach_hitloc"
+				"Duration"				"%rinnegan_invulnerability_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
 				}
 			}
 		}
