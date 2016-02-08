@@ -1,12 +1,12 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Indra Stone
+// ITEMS: Katon Orb
 //-------------------------------------------------------------------------------------------------------------
-"item_indra_essence"
+"item_katon_orb"
 {
 	// General
-	"ID"							"1091"
+	"ID"							"1102"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_indra_essence"
+	"AbilityTextureName"			"item_katon_orb"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemCost"						"4000"
@@ -24,38 +24,50 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"health_bonus"			"1000"
+			"katon_damage_bonus"	"20"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"mana_bonus"			"2000"
+			"damage_bonus"			"100"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"mana_regen"			"50"
+			"splash_area"			"200"
 		}
 	}
 	
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/items/IndraEssence/indra_essence.vpcf"
+		"particle"					"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+		"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
 	}
 	"Modifiers"
 	{
-		"modifier_item_indra_essence"
+		"modifier_item_katon_orb"
 		{
 			"Passive"				"1"
+			"IsHidden"				"1"
 			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
-			"EffectName"			"particles/items/IndraEssence/indra_essence.vpcf"
-			"EffectAttachType"		"follow_origin"
 			"Properties"
 			{
-				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
-				"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
-				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+			}
+			"Orb"
+			{
+				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+				"ProjectileName"	"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+			}
+			"OnAttackLanded"
+			{
+				"CleaveAttack"
+				{
+					"CleavePercent"	"100"
+					"CleaveRadius"	"%splash_area"
+					"CleaveEffect"	"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+				}
 			}
 		}
 	}

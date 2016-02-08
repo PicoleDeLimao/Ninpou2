@@ -1,0 +1,20 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Charged Absorbing Stone
+//-------------------------------------------------------------------------------------------------------------
+"item_charged_absorbing_stone"
+{
+	// General
+	"ID"							"1110"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_charged_absorbing_stone"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemCost"						"500"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"60"
+	"ItemStockInitial"				"3"
+}

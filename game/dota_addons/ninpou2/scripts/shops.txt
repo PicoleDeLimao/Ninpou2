@@ -21,7 +21,15 @@
       
   "misc"
   {
-   
+	"item"						"item_absorbing_stone"
+	"item"						"item_charged_absorbing_stone"
+    "item"						"item_katon_orb"
+	"item"						"item_suiton_orb"
+	"item"						"item_doton_orb"
+	"item"						"item_fuuton_orb"
+	"item"						"item_raiton_orb"
+	"item"						"item_yin_orb"
+	"item"						"item_yang_orb"
   } 
   
   // Level 1 - Green Recipes
@@ -60,7 +68,7 @@
   // Level 4 - Orange / Orb / Artifacts       
   "artifacts"
   { 
-    
+
   }
 
   "sideshop1"

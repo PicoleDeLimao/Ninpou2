@@ -9,7 +9,7 @@
 	"AbilityTextureName"			"item_yasakani_no_magatama"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
-	"ItemCost"						"6000"
+	"ItemCost"						"10000"
 	"ItemKillable"					"0"
 	"ItemSellable"					"1"
 	"ItemPurchasable"				"1"
@@ -59,6 +59,10 @@
 	}
 	
 	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/items/YasakaniNoMagatama/yasakani_no_magatama.vpcf"
+	}
 	"Modifiers"
 	{
 		"modifier_item_yasakani_no_magatama"

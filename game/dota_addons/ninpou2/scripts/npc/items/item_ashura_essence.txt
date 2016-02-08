@@ -9,7 +9,7 @@
 	"AbilityTextureName"			"item_ashura_essence"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
-	"ItemCost"						"2000"
+	"ItemCost"						"4000"
 	"ItemKillable"					"0"
 	"ItemSellable"					"1"
 	"ItemPurchasable"				"1"
@@ -34,6 +34,10 @@
 	}
 	
 	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/items/AshuraEssence/ashura_essence.vpcf"
+	}
 	"Modifiers"
 	{
 		"modifier_item_ashura_essence"

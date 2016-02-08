@@ -1,0 +1,87 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Yang Orb
+//-------------------------------------------------------------------------------------------------------------
+"item_yang_orb"
+{
+	// General
+	"ID"							"1108"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_yang_orb"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemCost"						"4000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"yin_damage_bonus"		"20"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_bonus"			"100"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"armor_reduction"		"-15"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"armor_duration"		"5"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_item_yang_orb"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				
+			}
+			"Orb"
+			{
+				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+				"ProjectileName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+			}
+			"OnAttackLanded"
+			{
+				"ApplyModifier"
+				{
+					"Target"		"TARGET"
+					"ModifierName"	"modifier_item_yang_orb_debuff"
+					"Duration"		"%armor_duration"
+				}
+			}
+		}
+		"modifier_item_yang_orb_debuff"
+		{
+			"IsDebuff"				"1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
+			}
+		}
+	}
+}

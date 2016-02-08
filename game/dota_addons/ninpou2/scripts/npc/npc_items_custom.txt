@@ -1,6 +1,135 @@
 "DOTAAbilities"
 {
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Absorbing Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_absorbing_stone"
+	{
+		// General
+		"ID"							"1109"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_absorbing_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"250"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.1"
+		"AbilityChannelTime"			"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_second"		"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"break_distance"		"800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_interval"			"1"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+			"particle"			"particles/units/heroes/hero_lion/lion_spell_mana_drain.vpcf"
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/absorbing_stone.lua"
+				"Function"		"ChakraLeechStart"
+			}		
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Lion.ManaDrain"
+				"Target"		"TARGET"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_absorbing_stone_mana"
+				"Target" 		"TARGET"
+				"Duration"		"%duration"
+			}			
+		}
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/absorbing_stone.lua"
+				"Function"			"ChakraLeechEnd"
+				"sound"				"Hero_Lion.ManaDrain"
+			}
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_absorbing_stone_mana"
+				"Target"			"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_absorbing_stone_mana"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+		
+				"ThinkInterval"		"%tick_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/absorbing_stone.lua"
+						"Function"		"ChakraLeech"
+					}
+				}
+			}
+			"modifier_absorbing_stone_mana_extra"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "%mana_per_second" 
+				}
+	
+				"Duration"			"%duration"
+			}
+		}	
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Ashura Stone
 	//-------------------------------------------------------------------------------------------------------------
 	"item_ashura_essence"
@@ -11,7 +140,7 @@
 		"AbilityTextureName"			"item_ashura_essence"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
-		"ItemCost"						"2000"
+		"ItemCost"						"4000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -36,6 +165,10 @@
 		}
 		
 		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/AshuraEssence/ashura_essence.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_item_ashura_essence"
@@ -1984,7 +2117,7 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"2"
 		
-		"ItemCost"						"1000"
+		"ItemCost"						"1500"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -2040,7 +2173,7 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"3"
 		
-		"ItemCost"						"1500"
+		"ItemCost"						"2500"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -2082,6 +2215,26 @@
 				}
 			}
 		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Charged Absorbing Stone
+	//-------------------------------------------------------------------------------------------------------------
+	"item_charged_absorbing_stone"
+	{
+		// General
+		"ID"							"1110"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_charged_absorbing_stone"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Chunnin Shoes 
@@ -2136,6 +2289,110 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Doton Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_doton_orb"
+	{
+		// General
+		"ID"							"1104"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_doton_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"doton_damage_bonus"	"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_chance"			"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_duration"			"1"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_doton_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
+				}
+				"OnAttackLanded"
+				{
+					"Random"
+					{
+						"Chance"		"%bash_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"FireSound"
+							{
+								"Target"        "TARGET"
+								"EffectName"    "Hero_FacelessVoid.TimeLockImpact"
+							}
+							"ApplyModifier"
+							{
+								"Target"		"TARGET"
+								"ModifierName"	"modifier_item_doton_orb_stun"
+								"Duration"      "%bash_duration"
+							}
+						}
+					}
+				}
+			}
+			"modifier_item_doton_orb_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -2284,6 +2541,132 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Fuuton Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_fuuton_orb"
+	{
+		// General
+		"ID"							"1105"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_fuuton_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fuuton_damage_bonus"	"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"200"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+			"particle"						"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+			"particle"						"particles/econ/items/techies/techies_arcana/techies_base_attack_arc_trail_c.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+		}
+		"Modifiers"
+		{
+			"modifier_item_fuuton_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/econ/items/techies/techies_arcana/techies_base_attack_arc_trail_c.vpcf"
+				}
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+						"Target"			"CASTER"
+						"ModifierName"		"modifier_item_fuuton_orb_crit"
+					}
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"FireEffect"
+							{
+								"Target"				"CASTER"
+								"EffectName"			"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+								"EffectAttachType"		"attach_attack1"
+							}
+							"FireSound"
+							{
+								"Target"				"CASTER"
+								"EffectName"			"Hero_SkeletonKing.CriticalStrike"
+							}
+							"ApplyModifier"
+							{
+								"Target"				"CASTER"
+								"ModifierName"			"modifier_item_fuuton_orb_crit"
+							}
+						}
+					}
+				}
+			}
+			"modifier_item_fuuton_orb_crit"
+			{
+				"IsHidden"					"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
+				}
+				"OnAttackLanded"
+				{
+					"FireEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+					}
+					"RemoveModifier"
+					{
+						"Target"			"CASTER"
+						"ModifierName"		"modifier_ninken_critical_strike_crit"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Genin Shoes 
 	//-------------------------------------------------------------------------------------------------------------
 	"item_genin_shoes"
@@ -2351,7 +2734,7 @@
 		"AbilityTextureName"			"item_indra_essence"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
-		"ItemCost"						"2000"
+		"ItemCost"						"4000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -2381,6 +2764,10 @@
 		}
 		
 		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/IndraEssence/indra_essence.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_item_indra_essence"
@@ -2394,6 +2781,80 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Katon Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_katon_orb"
+	{
+		// General
+		"ID"							"1102"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_katon_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"katon_damage_bonus"	"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_area"			"200"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+			"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_katon_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+				}
+				"OnAttackLanded"
+				{
+					"CleaveAttack"
+					{
+						"CleavePercent"	"100"
+						"CleaveRadius"	"%splash_area"
+						"CleaveEffect"	"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+					}
 				}
 			}
 		}
@@ -2461,7 +2922,7 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"2"
 		
-		"ItemCost"						"1000"
+		"ItemCost"						"1500"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -2511,7 +2972,7 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"3"
 		
-		"ItemCost"						"1500"
+		"ItemCost"						"2500"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -2549,6 +3010,72 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Raiton Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_raiton_orb"
+	{
+		// General
+		"ID"							"1106"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_raiton_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"raiton_damage_bonus"	"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_raiton_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+					
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPE: Ashura Essence
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_ashura_essence"
@@ -2560,7 +3087,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1500"
 		"ItemResult"					"item_ashura_essence"
 		"ItemRequirements"
 		{
@@ -3073,7 +3600,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_chakra_stone_2"
 		"ItemRequirements"
 		{
@@ -3092,7 +3619,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_chakra_stone_3"
 		"ItemRequirements"
 		{
@@ -3149,7 +3676,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1500"
 		"ItemResult"					"item_indra_essence"
 		"ItemRequirements"
 		{
@@ -3168,7 +3695,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_life_stone_2"
 		"ItemRequirements"
 		{
@@ -3187,7 +3714,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_life_stone_3"
 		"ItemRequirements"
 		{
@@ -3353,6 +3880,183 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Suiton Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_suiton_orb"
+	{
+		// General
+		"ID"							"1103"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_suiton_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"suiton_damage_bonus"	"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_effect"			"-25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"			"3"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items2_fx/skadi_projectile.vpcf"
+			"particle"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_suiton_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/items2_fx/skadi_projectile.vpcf"
+				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"TARGET"
+						"ModifierName"	"modifier_item_suiton_orb_slow"
+						"Duration"		"%slow_duration"
+					}
+				}
+			}
+			"modifier_item_suiton_orb_slow"
+			{
+				"IsDebuff"				"1"
+				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectAttachType"		"attach_hitloc"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_effect"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_effect"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yang Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_yang_orb"
+	{
+		// General
+		"ID"							"1108"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yang_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"yin_damage_bonus"		"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_duration"		"5"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_yang_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+					
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"TARGET"
+						"ModifierName"	"modifier_item_yang_orb_debuff"
+						"Duration"		"%armor_duration"
+					}
+				}
+			}
+			"modifier_item_yang_orb_debuff"
+			{
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Yasakani no Magatama
 	//-------------------------------------------------------------------------------------------------------------
 	"item_yasakani_no_magatama"
@@ -3363,7 +4067,7 @@
 		"AbilityTextureName"			"item_yasakani_no_magatama"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
-		"ItemCost"						"6000"
+		"ItemCost"						"10000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -3413,6 +4117,10 @@
 		}
 		
 		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/YasakaniNoMagatama/yasakani_no_magatama.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_item_yasakani_no_magatama"
@@ -3446,6 +4154,80 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yin Orb
+	//-------------------------------------------------------------------------------------------------------------
+	"item_yin_orb"
+	{
+		// General
+		"ID"							"1107"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yin_orb"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"4000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"yin_damage_bonus"		"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_hit"			"50"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_yin_orb"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+					
+				}
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"
+						"Function"			"ManaBurn"
+						"Target"			"TARGET"
+					}
 				}
 			}
 		}

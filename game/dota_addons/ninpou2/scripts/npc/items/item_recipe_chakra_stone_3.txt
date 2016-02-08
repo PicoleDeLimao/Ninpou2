@@ -10,7 +10,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemRecipe"					"1"
-	"ItemCost"						"500"
+	"ItemCost"						"1000"
 	"ItemResult"					"item_chakra_stone_3"
 	"ItemRequirements"
 	{
