@@ -118,7 +118,7 @@
 				"RemoveModifier"
 				{
 					"Target"			"CASTER"
-					"ModifierName"		"modifier_ninken_critical_strike_crit"
+					"ModifierName"		"modifier_item_fuuton_orb_crit"
 				}
 			}
 		}

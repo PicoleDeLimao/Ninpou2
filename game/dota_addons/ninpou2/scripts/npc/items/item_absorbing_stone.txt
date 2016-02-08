@@ -13,7 +13,7 @@
 	
 	"ItemCost"						"250"
 	"ItemKillable"					"0"
-	"ItemSellable"					"1"
+	"ItemSellable"					"0"
 	"ItemPurchasable"				"1"
 	"ItemDroppable"					"1"
 	"ItemStockMax"					"3"
@@ -77,7 +77,7 @@
 
 		"ApplyModifier"
 		{
-			"ModifierName"	"modifier_absorbing_stone_mana"
+			"ModifierName"	"modifier_item_absorbing_stone_mana"
 			"Target" 		"TARGET"
 			"Duration"		"%duration"
 		}			
@@ -92,13 +92,13 @@
 		}
 		"RemoveModifier"
 		{
-			"ModifierName"		"modifier_absorbing_stone_mana"
+			"ModifierName"		"modifier_item_absorbing_stone_mana"
 			"Target"			"TARGET"
 		}
 	}
 	"Modifiers"
 	{
-		"modifier_absorbing_stone_mana"
+		"modifier_item_absorbing_stone_mana"
 		{
 			"Passive"			"0"
 			"IsHidden"			"0"
@@ -114,7 +114,7 @@
 				}
 			}
 		}
-		"modifier_absorbing_stone_mana_extra"
+		"modifier_item_absorbing_stone_mana_extra"
 		{
 			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 			"IsHidden"			"1"

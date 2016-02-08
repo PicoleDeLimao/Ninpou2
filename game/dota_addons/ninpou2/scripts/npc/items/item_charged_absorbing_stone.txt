@@ -11,7 +11,7 @@
 	
 	"ItemCost"						"500"
 	"ItemKillable"					"0"
-	"ItemSellable"					"1"
+	"ItemSellable"					"0"
 	"ItemPurchasable"				"1"
 	"ItemDroppable"					"1"
 	"ItemStockMax"					"3"

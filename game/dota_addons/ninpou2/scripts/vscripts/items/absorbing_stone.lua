@@ -72,7 +72,7 @@ function ChakraLeech( keys )
 			-- Mana gained can go over the max mana
 			if caster_mana + mana_drain > caster_max_mana then
 				caster:GiveMana(mana_drain)
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_absorbing_stone_mana_extra", nil)
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_item_absorbing_stone_mana_extra", nil)
 			else
 				caster:GiveMana(mana_drain)
 			end

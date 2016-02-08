@@ -17,6 +17,7 @@
     "item"						"item_battle_kunai"
 	"item"						"item_battle_shuriken"
 	"item"						"item_battle_senbons"
+	"item"						"item_kusanagi_no_tsurugi"
   }
       
   "misc"

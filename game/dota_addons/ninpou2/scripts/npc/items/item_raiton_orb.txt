@@ -48,7 +48,7 @@
 		"modifier_item_raiton_orb"
 		{
 			"Passive"				"1"
-			"IsHidden"				"0"
+			"IsHidden"				"1"
 			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 			"Properties"
 			{
