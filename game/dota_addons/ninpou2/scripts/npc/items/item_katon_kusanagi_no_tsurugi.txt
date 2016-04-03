@@ -1,17 +1,17 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Kusanagi no Tsurugi
+// ITEMS: Katon Kusanagi no Tsurugi
 //-------------------------------------------------------------------------------------------------------------
-"item_kusanagi_no_tsurugi"
+"item_katon_kusanagi_no_tsurugi"
 {
 	// General
-	"ID"							"1111"
+	"ID"							"1112"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_kusanagi_no_tsurugi"
+	"AbilityTextureName"			"item_katon_kusanagi_no_tsurugi"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	
-	"ItemCost"						"5000"
+	"ItemCost"						"11500"
 	"ItemKillable"					"0"
 	"ItemSellable"					"1"
 	"ItemPurchasable"				"1"
@@ -32,12 +32,12 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"attack_bonus"			"100"
+			"attack_bonus"			"150"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"attack_speed_bonus"	"25"
+			"attack_speed_bonus"	"30"
 		}
 		"03"
 		{
@@ -47,17 +47,27 @@
 		"04"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"crit_bonus"			"200"
+			"crit_bonus"			"300"
 		}
 		"05"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"stun_duration_hero"	"2.0"
+			"var_type"				"FIELD_INTEGER"
+			"crit_area"				"600"
 		}
 		"06"
 		{
 			"var_type"				"FIELD_FLOAT"
+			"stun_duration_hero"	"2.0"
+		}
+		"07"
+		{
+			"var_type"				"FIELD_FLOAT"
 			"stun_duration_creep"	"5.0"
+		}
+		"08"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"katon_damage_bonus"	"20"
 		}
 	}
 	
@@ -71,7 +81,12 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+			"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
+			"Function"		"Equip"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"items/katon_orb.lua"
 			"Function"		"Equip"
 		}
 	}
@@ -79,7 +94,12 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+			"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
+			"Function"		"Unequip"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"items/katon_orb.lua"
 			"Function"		"Unequip"
 		}
 	}
@@ -154,7 +174,7 @@
 	}
 	"Modifiers"
 	{
-		"modifier_item_kusanagi_no_tsurugi"
+		"modifier_item_katon_kusanagi_no_tsurugi"
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"

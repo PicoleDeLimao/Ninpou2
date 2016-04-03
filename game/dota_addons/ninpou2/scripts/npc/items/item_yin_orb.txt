@@ -42,6 +42,23 @@
 	"precache"
 	{
 		"particle"					"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+		"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
+	}
+	"OnEquip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/yin_orb.lua"
+			"Function"		"Equip"
+		}
+	}
+	"OnUnequip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/yin_orb.lua"
+			"Function"		"Unequip"
+		}
 	}
 	"Modifiers"
 	{

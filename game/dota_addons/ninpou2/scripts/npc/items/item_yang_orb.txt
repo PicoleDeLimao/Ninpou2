@@ -24,7 +24,7 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"yin_damage_bonus"		"20"
+			"yang_damage_bonus"		"20"
 		}
 		"02"
 		{
@@ -47,6 +47,23 @@
 	"precache"
 	{
 		"particle"					"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+		"particle"					"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
+	}
+	"OnEquip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/yang_orb.lua"
+			"Function"		"Equip"
+		}
+	}
+	"OnUnequip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/yang_orb.lua"
+			"Function"		"Unequip"
+		}
 	}
 	"Modifiers"
 	{

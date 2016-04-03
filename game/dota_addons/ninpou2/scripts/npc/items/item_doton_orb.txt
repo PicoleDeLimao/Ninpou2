@@ -47,6 +47,23 @@
 	"precache"
 	{
 		"particle"					"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
+		"particle"					"particles/items/dotonorb/espirit_rollingboulder.vpcf"
+	}
+	"OnEquip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/doton_orb.lua"
+			"Function"		"Equip"
+		}
+	}
+	"OnUnequip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/doton_orb.lua"
+			"Function"		"Unequip"
+		}
 	}
 	"Modifiers"
 	{

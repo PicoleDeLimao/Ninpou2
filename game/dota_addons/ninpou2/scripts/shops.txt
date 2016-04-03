@@ -64,6 +64,7 @@
       
   "weapons"
   {
+	"item"						"item_katon_kusanagi_no_tsurugi"
   }
     
   // Level 4 - Orange / Orb / Artifacts       

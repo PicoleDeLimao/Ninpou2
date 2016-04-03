@@ -50,6 +50,23 @@
 		"particle"						"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
 		"particle"						"particles/econ/items/techies/techies_arcana/techies_base_attack_arc_trail_c.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+		"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
+	}
+	"OnEquip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/fuuton_orb.lua"
+			"Function"		"Equip"
+		}
+	}
+	"OnUnequip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/fuuton_orb.lua"
+			"Function"		"Unequip"
+		}
 	}
 	"Modifiers"
 	{

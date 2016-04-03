@@ -42,6 +42,23 @@
 	"precache"
 	{
 		"particle"					"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+		"particle"					"particles/items/raitonorb/invoker_apex_wex_orb.vpcf"
+	}
+	"OnEquip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/raiton_orb.lua"
+			"Function"		"Equip"
+		}
+	}
+	"OnUnequip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/raiton_orb.lua"
+			"Function"		"Unequip"
+		}
 	}
 	"Modifiers"
 	{

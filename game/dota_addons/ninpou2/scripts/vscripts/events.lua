@@ -55,9 +55,24 @@ function GameMode:OnNPCSpawned(keys)
 		MedicalNinjaAI:Start(npc)
 	  end
   end)
-  -- Hide wearables for heroes 
   if npc:IsHero() then 
+      -- Hide wearables for heroes
 	  HideWearables(npc)
+	  -- Initialize dmg and def values 
+	  npc.katonDmg = 0 
+	  npc.suitonDmg = 0
+	  npc.fuutonDmg = 0
+	  npc.dotonDmg = 0 
+	  npc.raitonDmg = 0
+	  npc.yinDmg = 0 
+	  npc.yangDmg = 0
+	  npc.katonDef = 0 
+	  npc.suitonDef = 0 
+	  npc.fuutonDef = 0 
+	  npc.dotonDef = 0  
+	  npc.raitonDef = 0 
+	  npc.yinDef = 0 
+	  npc.yangDef = 0 
   end
 end
 
