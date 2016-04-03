@@ -41,25 +41,9 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
-		"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+		"particle"					"particles\items_fx\desolator_projectile.vpcf"
 		"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_exort_orb.vpcf"
-	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/katon_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/katon_orb.lua"
-			"Function"		"Unequip"
-		}
+		"particle"					"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf"
 	}
 	"Modifiers"
 	{
@@ -75,15 +59,30 @@
 			"Orb"
 			{
 				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-				"ProjectileName"	"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+				"ProjectileName"	"particles\items_fx\desolator_projectile.vpcf"
 			}
 			"OnAttackLanded"
 			{
-				"CleaveAttack"
+				"RunScript"
 				{
-					"CleavePercent"	"100"
-					"CleaveRadius"	"%splash_area"
-					"CleaveEffect"	"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+					"ScriptFile"	"items/katon_orb.lua"
+					"Function"		"AttackLanded"
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/katon_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/katon_orb.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}

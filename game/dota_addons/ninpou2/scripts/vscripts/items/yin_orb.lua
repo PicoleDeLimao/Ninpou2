@@ -28,7 +28,5 @@ function Unequip(event)
 		caster.yinOrbParticle = nil
 		caster.yinDmg = caster.yinDmg - yinDmg 
 	end
-	if caster.numYinOrbs > 0 then 
-		caster.numYinOrbs = caster.numYinOrbs - 1 
-	end
+	caster.numYinOrbs = caster.numYinOrbs - 1 
 end

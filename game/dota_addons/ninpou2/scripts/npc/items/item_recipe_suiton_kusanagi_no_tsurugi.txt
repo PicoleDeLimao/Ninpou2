@@ -1,19 +1,19 @@
 //-------------------------------------------------------------------------------------------------------------
-// RECIPES: Bunshin Shoes
+// ITEMS: Suiton Kusanagi no Tsurugi Recipe
 //-------------------------------------------------------------------------------------------------------------
-"item_recipe_bunshin_shoes"
+"item_recipe_suiton_kusanagi_no_tsurugi"
 {
 	// General
-	"ID"							"1009"
+	"ID"							"1115"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_bunshin_shoes"
+	"AbilityTextureName"			"item_suiton_kusanagi_no_tsurugi"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemRecipe"					"1"
-	"ItemCost"						"500"
-	"ItemResult"					"item_bunshin_shoes"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_suiton_kusanagi_no_tsurugi"
 	"ItemRequirements"
 	{
-		"01"						"item_chunnin_shoes;item_scroll_bunshin"
+		"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_suiton_orb"
 	}
 }

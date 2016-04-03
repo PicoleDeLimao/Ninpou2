@@ -46,25 +46,9 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/items2_fx/skadi_projectile.vpcf"
+		"particle"					"particles/items/SuitonOrb/skadi_projectile_copy.vpcf"
 		"particle"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
 		"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf"
-	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/suiton_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/suiton_orb.lua"
-			"Function"		"Unequip"
-		}
 	}
 	"Modifiers"
 	{
@@ -80,7 +64,7 @@
 			"Orb"
 			{
 				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-				"ProjectileName"	"particles/items2_fx/skadi_projectile.vpcf"
+				"ProjectileName"	"particles/items/SuitonOrb/skadi_projectile_copy.vpcf"
 			}
 			"OnAttackLanded"
 			{
@@ -89,6 +73,22 @@
 					"Target"		"TARGET"
 					"ModifierName"	"modifier_item_suiton_orb_slow"
 					"Duration"		"%slow_duration"
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/suiton_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/suiton_orb.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}

@@ -52,22 +52,6 @@
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
 		"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
 	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/fuuton_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/fuuton_orb.lua"
-			"Function"		"Unequip"
-		}
-	}
 	"Modifiers"
 	{
 		"modifier_item_fuuton_orb"
@@ -114,6 +98,22 @@
 							"ModifierName"			"modifier_item_fuuton_orb_crit"
 						}
 					}
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/fuuton_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/fuuton_orb.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}

@@ -41,24 +41,8 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+		"particle"					"particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
 		"particle"					"particles/items/raitonorb/invoker_apex_wex_orb.vpcf"
-	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/raiton_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/raiton_orb.lua"
-			"Function"		"Unequip"
-		}
 	}
 	"Modifiers"
 	{
@@ -76,7 +60,23 @@
 			"Orb"
 			{
 				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-				"ProjectileName"	"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+				"ProjectileName"	"particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/raiton_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/raiton_orb.lua"
+					"Function"		"Unequip"
+				}
 			}
 		}
 	}

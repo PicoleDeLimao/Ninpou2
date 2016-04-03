@@ -1,12 +1,12 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Katon Kusanagi no Tsurugi
+// ITEMS: Fuuton Kusanagi no Tsurugi
 //-------------------------------------------------------------------------------------------------------------
-"item_katon_kusanagi_no_tsurugi"
+"item_fuuton_kusanagi_no_tsurugi"
 {
 	// General
-	"ID"							"1112"
+	"ID"							"1118"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_katon_kusanagi_no_tsurugi"
+	"AbilityTextureName"			"item_fuuton_kusanagi_no_tsurugi"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -42,17 +42,17 @@
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"crit_chance"			"25"
+			"crit_chance"			"30"
 		}
 		"04"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"crit_bonus"			"300"
+			"crit_bonus"			"400"
 		}
 		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"crit_area"				"600"
+			"crit_area"				"400"
 		}
 		"06"
 		{
@@ -67,7 +67,7 @@
 		"08"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"katon_damage_bonus"	"20"
+			"fuuton_damage_bonus"	"20"
 		}
 	}
 	
@@ -76,9 +76,9 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_exort_orb.vpcf"
-		"particle"						"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+		"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
+		"particle"						"particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 	}
 	"OnSpellStart"
 	{
@@ -151,7 +151,7 @@
 	}
 	"Modifiers"
 	{
-		"modifier_item_katon_kusanagi_no_tsurugi"
+		"modifier_item_fuuton_kusanagi_no_tsurugi"
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"
@@ -171,13 +171,13 @@
 					{
 						"RunScript"
 						{
-							"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
+							"ScriptFile"	"items/fuuton_kusanagi_no_tsurugi.lua"
 							"Function"		"CriticalStrike"
 						}
 						"FireSound"
 						{
 							"Target"		"TARGET"
-							"EffectName"	"Hero_OgreMagi.Fireblast.Target"
+							"EffectName"	"Hero_Invoker.Tornado.Cast"
 						}
 					}
 				}
@@ -186,7 +186,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"items/katon_orb.lua"
+					"ScriptFile"	"items/fuuton_orb.lua"
 					"Function"		"Equip"
 				}
 				"RunScript"
@@ -199,7 +199,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"items/katon_orb.lua"
+					"ScriptFile"	"items/fuuton_orb.lua"
 					"Function"		"Unequip"
 				}
 				"RunScript"

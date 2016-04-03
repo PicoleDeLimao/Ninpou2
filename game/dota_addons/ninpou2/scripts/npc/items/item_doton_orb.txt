@@ -49,22 +49,6 @@
 		"particle"					"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
 		"particle"					"particles/items/dotonorb/espirit_rollingboulder.vpcf"
 	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/doton_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/doton_orb.lua"
-			"Function"		"Unequip"
-		}
-	}
 	"Modifiers"
 	{
 		"modifier_item_doton_orb"
@@ -101,6 +85,22 @@
 							"Duration"      "%bash_duration"
 						}
 					}
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/doton_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/doton_orb.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}

@@ -1,0 +1,74 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Scroll: Shunshin no Jutsu
+//-------------------------------------------------------------------------------------------------------------
+"item_scroll_shunshin"
+{
+	// General
+	"ID"							"1130"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_scroll_1"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	
+	"ItemCost"						"1000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Ability 
+	"AbilityCastPoint"				"0"
+	"AbilityCooldown"				"30"
+	"AbilityManaCost"				"50"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"shunshin_range"		"700"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf"
+		"particle"					"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"AttachEffect"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf"
+			"EffectAttachType"		"attach_hitloc"
+		}
+		"AttachEffect"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpc"
+			"EffectAttachType"		"follow_origin"
+		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"Hero_Antimage.Blink_in"
+		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"Hero_Antimage.Blink_out"
+		}
+		"RunScript"
+		{
+			"ScriptFile"			"items/shunshin_shoes.lua"
+			"Function"				"ShunshinShoes"
+			"Target"				"POINT"
+		}
+	}
+}

@@ -1,12 +1,12 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Katon Kusanagi no Tsurugi
+// ITEMS: Suiton Kusanagi no Tsurugi
 //-------------------------------------------------------------------------------------------------------------
-"item_katon_kusanagi_no_tsurugi"
+"item_suiton_kusanagi_no_tsurugi"
 {
 	// General
-	"ID"							"1112"
+	"ID"							"1114"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_katon_kusanagi_no_tsurugi"
+	"AbilityTextureName"			"item_suiton_kusanagi_no_tsurugi"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -52,7 +52,7 @@
 		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"crit_area"				"600"
+			"crit_area"				"400"
 		}
 		"06"
 		{
@@ -67,7 +67,17 @@
 		"08"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"katon_damage_bonus"	"20"
+			"suiton_damage_bonus"	"20"
+		}
+		"09"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"slow_effect"			"-25"
+		}
+		"10"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"slow_duration"			"3"
 		}
 	}
 	
@@ -76,9 +86,10 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_exort_orb.vpcf"
-		"particle"						"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+		"particle"						"particles/generic_gameplay/generic_slowed_cold.vpcf"
+		"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf"
+		"particle"						"particles/units/heroes/hero_tidehunter/tidehunter_gush.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
 	}
 	"OnSpellStart"
 	{
@@ -151,7 +162,7 @@
 	}
 	"Modifiers"
 	{
-		"modifier_item_katon_kusanagi_no_tsurugi"
+		"modifier_item_suiton_kusanagi_no_tsurugi"
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"
@@ -171,14 +182,14 @@
 					{
 						"RunScript"
 						{
-							"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
+							"ScriptFile"	"items/suiton_kusanagi_no_tsurugi.lua"
 							"Function"		"CriticalStrike"
 						}
-						"FireSound"
-						{
-							"Target"		"TARGET"
-							"EffectName"	"Hero_OgreMagi.Fireblast.Target"
-						}
+					}
+					"FireSound"
+					{
+						"Target"		"TARGET"
+						"EffectName"	"Ability.GushCast"
 					}
 				}
 			}
@@ -186,7 +197,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"items/katon_orb.lua"
+					"ScriptFile"	"items/suiton_orb.lua"
 					"Function"		"Equip"
 				}
 				"RunScript"
@@ -199,7 +210,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"items/katon_orb.lua"
+					"ScriptFile"	"items/suiton_orb.lua"
 					"Function"		"Unequip"
 				}
 				"RunScript"
@@ -220,6 +231,17 @@
 			"States"
 			{
 				"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+		"modifier_item_suiton_orb_slow"
+		{
+			"IsDebuff"				"1"
+			"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"EffectAttachType"		"attach_hitloc"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_effect"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_effect"
 			}
 		}
 	}

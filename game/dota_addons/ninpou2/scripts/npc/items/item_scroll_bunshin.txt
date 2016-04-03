@@ -1,0 +1,54 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Scroll: Kage Bunshin no Jutsu
+//-------------------------------------------------------------------------------------------------------------
+"item_scroll_bunshin"
+{
+	// General
+	"ID"							"1129"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_scroll_1"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	
+	"ItemCost"						"1000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Ability 
+	"AbilityCastPoint"				"0.5"
+	"AbilityCooldown"				"15"
+	"AbilityManaCost"				"50"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bunshin_number"		"2"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bunshin_duration"		"15"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_orange_smoke_immortal1.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"items/bunshin_shoes.lua"
+			"Function"				"KageBunshinNoJutsu"
+		}
+	}
+}

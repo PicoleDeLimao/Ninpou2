@@ -41,24 +41,8 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+		"particle"					"particles/econ/items/puck/puck_alliance_set/puck_base_attack_aproset.vpcf"
 		"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
-	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/yin_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/yin_orb.lua"
-			"Function"		"Unequip"
-		}
 	}
 	"Modifiers"
 	{
@@ -75,7 +59,7 @@
 			"Orb"
 			{
 				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-				"ProjectileName"	"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+				"ProjectileName"	"particles/econ/items/puck/puck_alliance_set/puck_base_attack_aproset.vpcf"
 			}
 			"OnAttackLanded"
 			{
@@ -84,6 +68,22 @@
 					"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"
 					"Function"			"ManaBurn"
 					"Target"			"TARGET"
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/yin_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/yin_orb.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}

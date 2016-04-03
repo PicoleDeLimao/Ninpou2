@@ -1,6 +1,6 @@
 --[[
 	Author: PicoleDeLimao
-	Date: 02.08.2016
+	Date: 03.04.2016
 	Deals area critical strike damage
 ]]
 function CriticalStrike(event)
@@ -13,7 +13,12 @@ function CriticalStrike(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for _, enemy in pairs(enemies) do 
 		ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", PATTACH_ABSORIGIN, enemy)
-		ParticleManager:SetParticleControl(particle, 0, enemy:GetAbsOrigin())
+		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_tornado.vpcf", PATTACH_ABSORIGIN, enemy)
+		ParticleManager:SetParticleControlEnt(particle, 0, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(particle, 3, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(particle, 6, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin() + Vector(0, 0, 200), true)
+		Timers:CreateTimer(0.2, function() 
+			ParticleManager:DestroyParticle(particle, false)
+		end)
 	end
 end

@@ -2,7 +2,10 @@
 {
   "consumables"
   {
-   
+	"item"						"item_scroll_speed"
+	"item"						"item_scroll_fukashi"
+	"item"						"item_scroll_bunshin"
+	"item"						"item_scroll_shunshin"
   }
 
   "attributes"
@@ -65,6 +68,12 @@
   "weapons"
   {
 	"item"						"item_katon_kusanagi_no_tsurugi"
+	"item"						"item_suiton_kusanagi_no_tsurugi"
+	"item"						"item_doton_kusanagi_no_tsurugi"
+	"item"						"item_fuuton_kusanagi_no_tsurugi"
+	"item"						"item_raiton_kusanagi_no_tsurugi"
+	"item"						"item_yin_kusanagi_no_tsurugi"
+	"item"						"item_yang_kusanagi_no_tsurugi"
   }
     
   // Level 4 - Orange / Orb / Artifacts       

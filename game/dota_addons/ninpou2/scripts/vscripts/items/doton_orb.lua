@@ -28,7 +28,5 @@ function Unequip(event)
 		caster.dotonOrbParticle = nil
 		caster.dotonDmg = caster.dotonDmg - dotonDmg 
 	end
-	if caster.numDotonOrbs > 0 then 
-		caster.numDotonOrbs = caster.numDotonOrbs - 1 
-	end
+	caster.numDotonOrbs = caster.numDotonOrbs - 1 
 end

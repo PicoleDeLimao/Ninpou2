@@ -10,10 +10,10 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemRecipe"					"1"
-	"ItemCost"						"1000"
+	"ItemCost"						"500"
 	"ItemResult"					"item_fukashi_shoes"
 	"ItemRequirements"
 	{
-		"01"						"item_chunnin_shoes"
+		"01"						"item_chunnin_shoes;item_scroll_fukashi"
 	}
 }

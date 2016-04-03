@@ -46,24 +46,7 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
 		"particle"					"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
-	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/yang_orb.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/yang_orb.lua"
-			"Function"		"Unequip"
-		}
 	}
 	"Modifiers"
 	{
@@ -80,7 +63,7 @@
 			"Orb"
 			{
 				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-				"ProjectileName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+				"ProjectileName"	"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
 			}
 			"OnAttackLanded"
 			{
@@ -89,6 +72,22 @@
 					"Target"		"TARGET"
 					"ModifierName"	"modifier_item_yang_orb_debuff"
 					"Duration"		"%armor_duration"
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/yang_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/yang_orb.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}

@@ -203,6 +203,7 @@
 	[
 		{
 			m_ChildRef = resource:"particles/items/dotonorb/espirit_rollingboulder_swirl.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/items/dotonorb/espirit_rollingboulder_spray.vpcf"

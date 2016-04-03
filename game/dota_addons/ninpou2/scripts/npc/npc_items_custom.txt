@@ -2294,6 +2294,250 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Doton Kusanagi no Tsurugi
+	//-------------------------------------------------------------------------------------------------------------
+	"item_doton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1116"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_doton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"11500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_area"				"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_hero"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_creep"	"5.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"doton_damage_bonus"	"20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_duration"			"1"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+			"particle"						"particles/items/dotonorb/espirit_rollingboulder.vpcf"
+			"particle"						"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+				"Dodgeable"                 "0"
+				"ProvidesVision"            "1"
+				"VisionRadius"              "250"
+				"MoveSpeed"                 "600"
+				"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"                    "CASTER"
+				"EffectName"                "Hero_Sven.StormBolt"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"FireEffect"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"          "attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+				}
+			}
+			"FireSound"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"					"%stun_duration_hero"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_BASIC"
+				}
+				"Duration"					"%stun_duration_creep"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileEnd"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_doton_kusanagi_no_tsurugi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				}
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/doton_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
+							}
+							"FireSound"
+							{
+								"Target"		"TARGET"
+								"EffectName"	"Hero_ElderTitan.EchoStomp"
+							}
+						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/doton_orb.lua"
+						"Function"		"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/doton_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_kusanagi_no_tsurugi_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_item_doton_orb_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Doton Orb
 	//-------------------------------------------------------------------------------------------------------------
 	"item_doton_orb"
@@ -2342,23 +2586,7 @@
 		"precache"
 		{
 			"particle"					"particles/neutral_fx/mud_golem_hurl_boulder.vpcf"
-			"particle"					"particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/doton_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/doton_orb.lua"
-				"Function"		"Unequip"
-			}
+			"particle"					"particles/items/dotonorb/espirit_rollingboulder.vpcf"
 		}
 		"Modifiers"
 		{
@@ -2396,6 +2624,22 @@
 								"Duration"      "%bash_duration"
 							}
 						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/doton_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/doton_orb.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -2558,6 +2802,232 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Fuuton Kusanagi no Tsurugi
+	//-------------------------------------------------------------------------------------------------------------
+	"item_fuuton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1118"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_fuuton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"11500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"30"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_area"				"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_hero"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_creep"	"5.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fuuton_damage_bonus"	"20"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+			"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
+			"particle"						"particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+				"Dodgeable"                 "0"
+				"ProvidesVision"            "1"
+				"VisionRadius"              "250"
+				"MoveSpeed"                 "600"
+				"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"                    "CASTER"
+				"EffectName"                "Hero_Sven.StormBolt"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"FireEffect"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"          "attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+				}
+			}
+			"FireSound"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"					"%stun_duration_hero"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_BASIC"
+				}
+				"Duration"					"%stun_duration_creep"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileEnd"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_fuuton_kusanagi_no_tsurugi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				}
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/fuuton_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
+							}
+							"FireSound"
+							{
+								"Target"		"TARGET"
+								"EffectName"	"Hero_Invoker.Tornado.Cast"
+							}
+						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/fuuton_orb.lua"
+						"Function"		"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/fuuton_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_kusanagi_no_tsurugi_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Fuuton Orb
 	//-------------------------------------------------------------------------------------------------------------
 	"item_fuuton_orb"
@@ -2611,22 +3081,6 @@
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
 			"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
 		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/fuuton_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/fuuton_orb.lua"
-				"Function"		"Unequip"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_item_fuuton_orb"
@@ -2673,6 +3127,22 @@
 								"ModifierName"			"modifier_item_fuuton_orb_crit"
 							}
 						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/fuuton_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/fuuton_orb.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -2897,32 +3367,9 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
-				"Function"		"Equip"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"items/katon_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
-				"Function"		"Unequip"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"items/katon_orb.lua"
-				"Function"		"Unequip"
-			}
+			"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_exort_orb.vpcf"
+			"particle"						"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 		}
 		"OnSpellStart"
 		{
@@ -3007,56 +3454,49 @@
 				}
 				"OnAttackStart"
 				{
-					"RemoveModifier"
-					{
-						"Target"			"CASTER"
-						"ModifierName"		"modifier_item_kusanagi_no_tsurugi_crit"
-					}
 					"Random"
 					{
 						"Chance"		"%crit_chance"
 						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
 						"OnSuccess"
 						{
-							"FireEffect"
+							"RunScript"
 							{
-								"Target"				"CASTER"
-								"EffectName"			"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
-								"EffectAttachType"		"attach_attack1"
+								"ScriptFile"	"items/katon_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
 							}
 							"FireSound"
 							{
-								"Target"				"CASTER"
-								"EffectName"			"Hero_SkeletonKing.CriticalStrike"
-							}
-							"ApplyModifier"
-							{
-								"Target"				"CASTER"
-								"ModifierName"			"modifier_item_kusanagi_no_tsurugi_crit"
+								"Target"		"TARGET"
+								"EffectName"	"Hero_OgreMagi.Fireblast.Target"
 							}
 						}
 					}
 				}
-			}
-			"modifier_item_kusanagi_no_tsurugi_crit"
-			{
-				"IsHidden"					"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
-				}
-				"OnAttackLanded"
-				{
-					"FireEffect"
+					"RunScript"
 					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-						"EffectAttachType"	"attach_hitloc"
+						"ScriptFile"	"items/katon_orb.lua"
+						"Function"		"Equip"
 					}
-					"RemoveModifier"
+					"RunScript"
 					{
-						"Target"			"CASTER"
-						"ModifierName"		"modifier_item_kusanagi_no_tsurugi_crit"
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/katon_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -3118,25 +3558,9 @@
 		// Datadriven 
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
-			"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+			"particle"					"particles\items_fx\desolator_projectile.vpcf"
 			"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_exort_orb.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/katon_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/katon_orb.lua"
-				"Function"		"Unequip"
-			}
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf"
 		}
 		"Modifiers"
 		{
@@ -3152,15 +3576,30 @@
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack.vpcf"
+					"ProjectileName"	"particles\items_fx\desolator_projectile.vpcf"
 				}
 				"OnAttackLanded"
 				{
-					"CleaveAttack"
+					"RunScript"
 					{
-						"CleavePercent"	"100"
-						"CleaveRadius"	"%splash_area"
-						"CleaveEffect"	"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+						"ScriptFile"	"items/katon_orb.lua"
+						"Function"		"AttackLanded"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/katon_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/katon_orb.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -3234,22 +3673,6 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
-				"Function"		"Unequip"
-			}
 		}
 		"OnSpellStart"
 		{
@@ -3362,6 +3785,22 @@
 								"ModifierName"			"modifier_item_kusanagi_no_tsurugi_crit"
 							}
 						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -3553,6 +3992,258 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Raiton Kusanagi no Tsurugi
+	//-------------------------------------------------------------------------------------------------------------
+	"item_raiton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1121"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_raiton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"11500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_area"				"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_hero"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_creep"	"5.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"raiton_damage_bonus"	"20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_duration"	"2.0"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+			"particle"						"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"particle"						"particles/items/raitonorb/invoker_apex_wex_orb.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+				"Dodgeable"                 "0"
+				"ProvidesVision"            "1"
+				"VisionRadius"              "250"
+				"MoveSpeed"                 "600"
+				"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"                    "CASTER"
+				"EffectName"                "Hero_Sven.StormBolt"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"FireEffect"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"          "attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+				}
+			}
+			"FireSound"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"					"%stun_duration_hero"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_BASIC"
+				}
+				"Duration"					"%stun_duration_creep"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileEnd"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_raiton_kusanagi_no_tsurugi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				}
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/raiton_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
+							}
+							"FireSound"
+							{
+								"Target"		"TARGET"
+								"EffectName"	"Hero_Zuus.LightningBolt"
+							}
+							"ApplyModifier"
+							{
+								"Target"				"CASTER"
+								"ModifierName"			"modifier_item_chakra_shoes_chakra_boost"
+								"Duration"				"%movespeed_duration"
+							}
+						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/raiton_orb.lua"
+						"Function"		"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/raiton_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_kusanagi_no_tsurugi_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_item_chakra_shoes_chakra_boost"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"EffectName"			"particles/items2_fx/phase_boots.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"999"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Raiton Orb
 	//-------------------------------------------------------------------------------------------------------------
 	"item_raiton_orb"
@@ -3595,24 +4286,8 @@
 		// Datadriven 
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+			"particle"					"particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
 			"particle"					"particles/items/raitonorb/invoker_apex_wex_orb.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/raiton_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/raiton_orb.lua"
-				"Function"		"Unequip"
-			}
 		}
 		"Modifiers"
 		{
@@ -3630,7 +4305,23 @@
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+					"ProjectileName"	"particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/raiton_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/raiton_orb.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -4122,11 +4813,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1000"
+		"ItemCost"						"500"
 		"ItemResult"					"item_bunshin_shoes"
 		"ItemRequirements"
 		{
-			"01"						"item_chunnin_shoes"
+			"01"						"item_chunnin_shoes;item_scroll_bunshin"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -4141,11 +4832,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1000"
+		"ItemCost"						"500"
 		"ItemResult"					"item_chakra_shoes"
 		"ItemRequirements"
 		{
-			"01"						"item_chunnin_shoes"
+			"01"						"item_chunnin_shoes;item_scroll_speed"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -4206,6 +4897,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Doton Kusanagi no Tsurugi Recipe
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_doton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1117"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_doton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_doton_kusanagi_no_tsurugi"
+		"ItemRequirements"
+		{
+			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_doton_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPES: Fukashi Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_fukashi_shoes"
@@ -4217,11 +4927,30 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1000"
+		"ItemCost"						"500"
 		"ItemResult"					"item_fukashi_shoes"
 		"ItemRequirements"
 		{
-			"01"						"item_chunnin_shoes"
+			"01"						"item_chunnin_shoes;item_scroll_fukashi"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Fuuton Kusanagi no Tsurugi Recipe
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_fuuton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1119"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_fuuton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_fuuton_kusanagi_no_tsurugi"
+		"ItemRequirements"
+		{
+			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_fuuton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -4317,6 +5046,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Raiton Kusanagi no Tsurugi Recipe
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_raiton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1122"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_raiton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_raiton_kusanagi_no_tsurugi"
+		"ItemRequirements"
+		{
+			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_raiton_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPES: Shunshin Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_shunshin_shoes"
@@ -4328,11 +5076,49 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1000"
+		"ItemCost"						"500"
 		"ItemResult"					"item_shunshin_shoes"
 		"ItemRequirements"
 		{
-			"01"						"item_chunnin_shoes"
+			"01"						"item_chunnin_shoes;item_scroll_shunshin"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Suiton Kusanagi no Tsurugi Recipe
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_suiton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1115"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_suiton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_suiton_kusanagi_no_tsurugi"
+		"ItemRequirements"
+		{
+			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_suiton_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yang Kusanagi no Tsurugi Recipe
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_yang_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1126"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yang_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_yang_kusanagi_no_tsurugi"
+		"ItemRequirements"
+		{
+			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_yang_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -4352,6 +5138,347 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ashura_essence;item_indra_essence"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yin Kusanagi no Tsurugi Recipe
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_yin_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1124"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yin_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_yin_kusanagi_no_tsurugi"
+		"ItemRequirements"
+		{
+			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_yin_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Scroll: Kage Bunshin no Jutsu
+	//-------------------------------------------------------------------------------------------------------------
+	"item_scroll_bunshin"
+	{
+		// General
+		"ID"							"1129"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_scroll_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+		"ItemCost"						"1000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Ability 
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"50"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bunshin_number"		"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bunshin_duration"		"15"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_orange_smoke_immortal1.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/bunshin_shoes.lua"
+				"Function"				"KageBunshinNoJutsu"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Scroll: Meisagakure no Jutsu
+	//-------------------------------------------------------------------------------------------------------------
+	"item_scroll_fukashi"
+	{
+		// General
+		"ID"							"1128"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_scroll_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"ItemCost"						"1000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Ability 
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"meisagakure_duration"	"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"meisagakure_movespeed_bonus"	"-25" //percentage
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_fukashi_shoes_meisagakure"
+				"Duration"				"%meisagakure_duration"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_invisible"
+				"Duration"				"%meisagakure_duration"
+			}
+			"FireEffect"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+				"EffectAttachType"		"attach_origin"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_BountyHunter.WindWalk"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_fukashi_shoes_meisagakure"
+			{
+				"IsBuff"				"1"
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%meisagakure_movespeed_bonus"
+				}
+				"States"
+				{
+				//	"MODIFIER_STATE_INVISIBLE"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"Target"									"CASTER"
+						"ModifierName"								"modifier_item_fukashi_shoes_meisagakure"
+					}
+					"RemoveModifier"
+					{
+						"Target"									"CASTER"
+						"ModifierName"								"modifier_invisible"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RemoveModifier"
+					{
+						"Target"									"CASTER"
+						"ModifierName"								"modifier_item_fukashi_shoes_meisagakure"
+					}
+					"RemoveModifier"
+					{
+						"Target"									"CASTER"
+						"ModifierName"								"modifier_invisible"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Scroll: Shunshin no Jutsu
+	//-------------------------------------------------------------------------------------------------------------
+	"item_scroll_shunshin"
+	{
+		// General
+		"ID"							"1130"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_scroll_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		
+		"ItemCost"						"1000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Ability 
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"50"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shunshin_range"		"700"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf"
+			"particle"					"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf"
+				"EffectAttachType"		"attach_hitloc"
+			}
+			"AttachEffect"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpc"
+				"EffectAttachType"		"follow_origin"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_Antimage.Blink_in"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_Antimage.Blink_out"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"items/shunshin_shoes.lua"
+				"Function"				"ShunshinShoes"
+				"Target"				"POINT"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Scroll: Chakra Boost
+	//-------------------------------------------------------------------------------------------------------------
+	"item_scroll_speed"
+	{
+		// General
+		"ID"							"1127"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_scroll_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"ItemCost"						"500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Ability 
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chakra_boost_movespeed_bonus" "999" // percentage
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chakra_boost_duration"	"6"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items2_fx/phase_boots.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_chakra_shoes_chakra_boost"
+				"Duration"				"%chakra_boost_duration"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"DOTA_Item.PhaseBoots.Activate"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_chakra_shoes_chakra_boost"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"1"
+				"EffectName"			"particles/items2_fx/phase_boots.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%chakra_boost_movespeed_bonus"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -4459,6 +5586,254 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Suiton Kusanagi no Tsurugi
+	//-------------------------------------------------------------------------------------------------------------
+	"item_suiton_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1114"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_suiton_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"11500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_area"				"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_hero"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_creep"	"5.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"suiton_damage_bonus"	"20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_effect"			"-25"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"			"3"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+			"particle"						"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf"
+			"particle"						"particles/units/heroes/hero_tidehunter/tidehunter_gush.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+				"Dodgeable"                 "0"
+				"ProvidesVision"            "1"
+				"VisionRadius"              "250"
+				"MoveSpeed"                 "600"
+				"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"                    "CASTER"
+				"EffectName"                "Hero_Sven.StormBolt"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"FireEffect"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"          "attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+				}
+			}
+			"FireSound"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"					"%stun_duration_hero"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_BASIC"
+				}
+				"Duration"					"%stun_duration_creep"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileEnd"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_suiton_kusanagi_no_tsurugi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				}
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/suiton_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
+							}
+						}
+						"FireSound"
+						{
+							"Target"		"TARGET"
+							"EffectName"	"Ability.GushCast"
+						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/suiton_orb.lua"
+						"Function"		"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/suiton_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_kusanagi_no_tsurugi_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_item_suiton_orb_slow"
+			{
+				"IsDebuff"				"1"
+				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectAttachType"		"attach_hitloc"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_effect"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_effect"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Suiton Orb
 	//-------------------------------------------------------------------------------------------------------------
 	"item_suiton_orb"
@@ -4506,25 +5881,9 @@
 		// Datadriven 
 		"precache"
 		{
-			"particle"					"particles/items2_fx/skadi_projectile.vpcf"
+			"particle"					"particles/items/SuitonOrb/skadi_projectile_copy.vpcf"
 			"particle"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
 			"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/suiton_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/suiton_orb.lua"
-				"Function"		"Unequip"
-			}
 		}
 		"Modifiers"
 		{
@@ -4540,7 +5899,7 @@
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/items2_fx/skadi_projectile.vpcf"
+					"ProjectileName"	"particles/items/SuitonOrb/skadi_projectile_copy.vpcf"
 				}
 				"OnAttackLanded"
 				{
@@ -4549,6 +5908,22 @@
 						"Target"		"TARGET"
 						"ModifierName"	"modifier_item_suiton_orb_slow"
 						"Duration"		"%slow_duration"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/suiton_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/suiton_orb.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -4561,6 +5936,250 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_effect"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_effect"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yang Kusanagi no Tsurugi
+	//-------------------------------------------------------------------------------------------------------------
+	"item_yang_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1125"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yang_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"11500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_area"				"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_hero"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_creep"	"5.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"yang_damage_bonus"		"20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-30"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_duration"		"5"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+			"particle"						"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
+			"particle"						"particles/units/heroes/hero_chen/chen_holy_persuasion_a.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+				"Dodgeable"                 "0"
+				"ProvidesVision"            "1"
+				"VisionRadius"              "250"
+				"MoveSpeed"                 "600"
+				"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"                    "CASTER"
+				"EffectName"                "Hero_Sven.StormBolt"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"FireEffect"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"          "attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+				}
+			}
+			"FireSound"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"					"%stun_duration_hero"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_BASIC"
+				}
+				"Duration"					"%stun_duration_creep"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileEnd"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_yang_kusanagi_no_tsurugi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				}
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/yang_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
+							}
+							"FireSound"
+							{
+								"Target"		"TARGET"
+								"EffectName"	"Hero_Chen.HolyPersuasionCast"
+							}
+						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yang_orb.lua"
+						"Function"		"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yang_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_kusanagi_no_tsurugi_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_item_yang_orb_debuff"
+			{
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
 		}
@@ -4613,24 +6232,7 @@
 		// Datadriven 
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
 			"particle"					"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/yang_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/yang_orb.lua"
-				"Function"		"Unequip"
-			}
 		}
 		"Modifiers"
 		{
@@ -4647,7 +6249,7 @@
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_base_attack.vpcf"
+					"ProjectileName"	"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
 				}
 				"OnAttackLanded"
 				{
@@ -4656,6 +6258,22 @@
 						"Target"		"TARGET"
 						"ModifierName"	"modifier_item_yang_orb_debuff"
 						"Duration"		"%armor_duration"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yang_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yang_orb.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}
@@ -4772,6 +6390,237 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Yin Kusanagi no Tsurugi
+	//-------------------------------------------------------------------------------------------------------------
+	"item_yin_kusanagi_no_tsurugi"
+	{
+		// General
+		"ID"							"1123"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_yin_kusanagi_no_tsurugi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"ItemCost"						"11500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Ability 
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_bonus"	"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_bonus"			"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_area"				"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_hero"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_creep"	"5.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"yin_damage_bonus"		"20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_drain"			"200"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+			"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
+			"particle"						"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+				"Dodgeable"                 "0"
+				"ProvidesVision"            "1"
+				"VisionRadius"              "250"
+				"MoveSpeed"                 "600"
+				"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"                    "CASTER"
+				"EffectName"                "Hero_Sven.StormBolt"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"FireEffect"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"          "attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+					"TARGET"                "attach_origin"
+				}
+			}
+			"FireSound"
+			{
+				"Target"                    "TARGET"
+				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Duration"					"%stun_duration_hero"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
+				"Target"
+				{
+					"Center"				"TARGET"
+					"Types"					"DOTA_UNIT_TARGET_BASIC"
+				}
+				"Duration"					"%stun_duration_creep"
+			}
+			"RunScript"
+			{
+				"ScriptFile"				"items/kusanagi_no_tsurugi.lua"
+				"Function"					"ProjectileEnd"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_yin_kusanagi_no_tsurugi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				}
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"		"%crit_chance"
+						"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/yin_kusanagi_no_tsurugi.lua"
+								"Function"		"CriticalStrike"
+							}
+							"FireSound"
+							{
+								"Target"		"TARGET"
+								"EffectName"	"Hero_ShadowDemon.DemonicPurge.Cast"
+							}
+						}
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yin_orb.lua"
+						"Function"		"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yin_orb.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_kusanagi_no_tsurugi_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Yin Orb
 	//-------------------------------------------------------------------------------------------------------------
 	"item_yin_orb"
@@ -4814,24 +6663,8 @@
 		// Datadriven 
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+			"particle"					"particles/econ/items/puck/puck_alliance_set/puck_base_attack_aproset.vpcf"
 			"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/yin_orb.lua"
-				"Function"		"Equip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/yin_orb.lua"
-				"Function"		"Unequip"
-			}
 		}
 		"Modifiers"
 		{
@@ -4848,7 +6681,7 @@
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+					"ProjectileName"	"particles/econ/items/puck/puck_alliance_set/puck_base_attack_aproset.vpcf"
 				}
 				"OnAttackLanded"
 				{
@@ -4857,6 +6690,22 @@
 						"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"
 						"Function"			"ManaBurn"
 						"Target"			"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yin_orb.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/yin_orb.lua"
+						"Function"		"Unequip"
 					}
 				}
 			}

@@ -28,7 +28,5 @@ function Unequip(event)
 		caster.suitonOrbParticle = nil
 		caster.suitonDmg = caster.suitonDmg - suitonDmg 
 	end
-	if caster.numSuitonOrbs > 0 then 
-		caster.numSuitonOrbs = caster.numSuitonOrbs - 1 
-	end
+	caster.numSuitonOrbs = caster.numSuitonOrbs - 1 
 end

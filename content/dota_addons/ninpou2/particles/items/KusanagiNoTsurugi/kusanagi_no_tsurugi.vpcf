@@ -40,6 +40,16 @@
 		{
 			_class = "C_OP_SetToCP"
 		},
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 5
+			m_vecCP1Pos =
+			[
+				128.000000,
+				128.000000,
+				0.000000,
+			]
+		},
 	]
 	m_Initializers =
 	[
@@ -71,11 +81,6 @@
 			]
 			m_nCPInput = 2
 		},
-		{
-			_class = "C_INIT_RemapCPtoVector"
-			m_nCPInput = 5
-			m_nFieldOutput = 2
-		},
 	]
 	m_Emitters =
 	[
@@ -96,9 +101,6 @@
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_beastmaster/beastmaster_wildaxe_dust.vpcf"
 			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_lina/lina_spell_dragon_slave_fire.vpcf"
 		},
 	]
 }

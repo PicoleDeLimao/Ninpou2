@@ -67,22 +67,6 @@
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
 	}
-	"OnEquip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
-			"Function"		"Equip"
-		}
-	}
-	"OnUnequip"
-	{
-		"RunScript"
-		{
-			"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
-			"Function"		"Unequip"
-		}
-	}
 	"OnSpellStart"
 	{
 		"TrackingProjectile"
@@ -194,6 +178,22 @@
 							"ModifierName"			"modifier_item_kusanagi_no_tsurugi_crit"
 						}
 					}
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+					"Function"		"Unequip"
 				}
 			}
 		}
