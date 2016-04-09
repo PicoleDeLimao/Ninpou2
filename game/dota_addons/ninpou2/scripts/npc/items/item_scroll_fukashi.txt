@@ -72,6 +72,28 @@
 	}
 	"Modifiers"
 	{
+		"modifier_item_scroll_fukashi"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
 		"modifier_item_fukashi_shoes_meisagakure"
 		{
 			"IsBuff"				"1"

@@ -45,6 +45,22 @@
 			{
 				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
 		}
 	}
 }

@@ -18,5 +18,6 @@ function CriticalStrike(event)
 		ParticleManager:SetParticleControlEnt(particle, 0, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(particle, 1, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_yang_orb_debuff", {duration = armorDuration})
+		PopupCriticalDamage(enemy, damage * bonus)
 	end
 end

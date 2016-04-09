@@ -57,6 +57,22 @@
 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Unequip"
+				}
+			}
 		}
 	}
 }

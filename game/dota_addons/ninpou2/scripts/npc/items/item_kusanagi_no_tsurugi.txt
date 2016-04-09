@@ -142,7 +142,7 @@
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"
-			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 			"Properties"
 			{
 				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -187,12 +187,22 @@
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
 				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Equip"
+				}
 			}
 			"OnDestroy"
 			{
 				"RunScript"
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+					"Function"		"Unequip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
 					"Function"		"Unequip"
 				}
 			}

@@ -20,5 +20,6 @@ function CriticalStrike(event)
 		Timers:CreateTimer(0.2, function() 
 			ParticleManager:DestroyParticle(particle, false)
 		end)
+		PopupCriticalDamage(enemy, damage * bonus)
 	end
 end

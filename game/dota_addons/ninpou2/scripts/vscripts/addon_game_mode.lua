@@ -6,6 +6,9 @@ require('internal/util')
 -- Library containing many utility functions
 require('utilities') 
 
+-- Library containing some global functions 
+require('mechanics')
+
 -- Library containing utilitary methods to check victory/defeat conditions 
 require('ninpou_game_rules')
 

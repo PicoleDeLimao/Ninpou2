@@ -10,4 +10,12 @@
 	"DOTA_Custom1"    								"Akatsuki"
 	
 	"addonname"										    "Naruto Ninpou New Generation"
+	
+	//--------------------
+	// Errors 
+	//--------------------
+	"error_weapon"										"You can only wield one weapon at once."
+	"error_support"										"You can only carry two support items at once."
+	"error_armor"										"You can only wear one armor at once."
+
 }

@@ -18,5 +18,6 @@ function CriticalStrike(event)
 		--ParticleManager:SetParticleControlEnt(particle, 0, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(particle, 1, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(particle, 3, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
+		PopupCriticalDamage(enemy, damage * bonus)
 	end
 end

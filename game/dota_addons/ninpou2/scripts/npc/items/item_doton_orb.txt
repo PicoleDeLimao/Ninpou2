@@ -51,6 +51,28 @@
 	}
 	"Modifiers"
 	{
+		"modifier_item_doton_orb_mult"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
 		"modifier_item_doton_orb"
 		{
 			"Passive"				"1"

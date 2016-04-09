@@ -19,5 +19,6 @@ function CriticalStrike(event)
 		ParticleManager:SetParticleControl(particle, 1, Vector(100, 0, 0))
 		ParticleManager:SetParticleControl(particle, 2, Vector(100, 0, 0))
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_doton_orb_stun", {duration = bashDuration})
+		PopupCriticalDamage(enemy, damage * bonus)
 	end
 end

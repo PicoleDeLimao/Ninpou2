@@ -57,6 +57,22 @@
 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 				"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Unequip"
+				}
+			}
 		}
 	}
 }

@@ -71,4 +71,29 @@
 			"Target"				"POINT"
 		}
 	}
+	"Modifiers"
+	{
+		"modifier_item_scroll_shunshin"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+	}
 }

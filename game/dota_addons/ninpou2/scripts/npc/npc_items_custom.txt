@@ -171,6 +171,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_ashura_essence_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_ashura_essence"
 			{
 				"Passive"				"1"
@@ -244,6 +266,22 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -305,6 +343,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -368,6 +422,22 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -429,6 +499,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -492,6 +578,22 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -553,6 +655,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -616,6 +734,22 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -677,6 +811,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -740,6 +890,22 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%strength_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -801,6 +967,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -864,6 +1046,22 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -925,6 +1123,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -988,6 +1202,22 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1049,6 +1279,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1112,6 +1358,22 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1173,6 +1435,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1236,6 +1514,22 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1297,6 +1591,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%intelligence_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1360,6 +1670,22 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1421,6 +1747,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1484,6 +1826,22 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1545,6 +1903,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1608,6 +1982,22 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1669,6 +2059,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1732,6 +2138,22 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1794,6 +2216,22 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -1855,6 +2293,22 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agility_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Unequip"
+					}
 				}
 			}
 		}
@@ -1939,6 +2393,22 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -2030,6 +2500,22 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
 			}
 			"modifier_item_chakra_shoes_chakra_boost"
 			{
@@ -2101,6 +2587,22 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -2157,6 +2659,22 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -2212,6 +2730,22 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -2289,6 +2823,22 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -2455,7 +3005,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -2494,6 +3044,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -2505,6 +3060,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -2590,6 +3150,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_doton_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_doton_orb"
 			{
 				"Passive"				"1"
@@ -2757,6 +3339,22 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 			"modifier_item_fukashi_shoes_meisagakure"
@@ -2958,7 +3556,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -2997,6 +3595,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -3008,6 +3611,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -3083,6 +3691,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_fuuton_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_fuuton_orb"
 			{
 				"Passive"				"1"
@@ -3210,7 +3840,7 @@
 			}
 		}
 		
-		// Datadriven 
+		// Datadriven
 		"Modifiers"
 		{
 			"modifier_item_genin_shoes"
@@ -3223,6 +3853,22 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -3274,6 +3920,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_indra_essence_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_indra_essence"
 			{
 				"Passive"				"1"
@@ -3446,7 +4114,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -3485,6 +4153,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -3496,6 +4169,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -3564,6 +4242,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_katon_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_katon_orb"
 			{
 				"Passive"				"1"
@@ -3749,7 +4449,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -3794,12 +4494,22 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -3888,6 +4598,22 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -3938,6 +4664,22 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
 			}
 		}
 	}
@@ -3987,6 +4729,22 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -4153,7 +4911,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -4198,6 +4956,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -4209,6 +4972,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -4291,6 +5059,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_raiton_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_raiton_orb"
 			{
 				"Passive"				"1"
@@ -5212,6 +6002,31 @@
 				"Function"				"KageBunshinNoJutsu"
 			}
 		}
+		"Modifiers"
+		{
+			"modifier_item_scroll_bunshin"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Scroll: Meisagakure no Jutsu
@@ -5287,6 +6102,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_scroll_fukashi"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_fukashi_shoes_meisagakure"
 			{
 				"IsBuff"				"1"
@@ -5402,6 +6239,31 @@
 				"Target"				"POINT"
 			}
 		}
+		"Modifiers"
+		{
+			"modifier_item_scroll_shunshin"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Scroll: Chakra Boost
@@ -5464,6 +6326,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_chakra_shoes"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_chakra_shoes_chakra_boost"
 			{
 				"IsBuff"				"1"
@@ -5581,6 +6465,22 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -5753,7 +6653,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -5792,6 +6692,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -5803,6 +6708,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -5887,6 +6797,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_suiton_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_suiton_orb"
 			{
 				"Passive"				"1"
@@ -6107,7 +7039,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -6146,6 +7078,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -6157,6 +7094,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -6236,6 +7178,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_yang_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_yang_orb"
 			{
 				"Passive"				"1"
@@ -6354,6 +7318,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_yasakani_no_magatama_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_yasakani_no_magatama"
 			{
 				"Passive"				"1"
@@ -6551,7 +7537,7 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
@@ -6590,6 +7576,11 @@
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
+						"Function"		"Equip"
+					}
 				}
 				"OnDestroy"
 				{
@@ -6601,6 +7592,11 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
+						"Function"		"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/weapon.lua"
 						"Function"		"Unequip"
 					}
 				}
@@ -6668,6 +7664,28 @@
 		}
 		"Modifiers"
 		{
+			"modifier_item_yin_orb_mult"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 			"modifier_item_yin_orb"
 			{
 				"Passive"				"1"

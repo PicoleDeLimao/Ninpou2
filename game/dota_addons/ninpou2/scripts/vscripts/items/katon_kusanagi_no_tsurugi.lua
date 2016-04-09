@@ -15,5 +15,6 @@ function CriticalStrike(event)
 		ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", PATTACH_ABSORIGIN, enemy)
 		ParticleManager:SetParticleControl(particle, 0, enemy:GetAbsOrigin())
+		PopupCriticalDamage(enemy, damage * bonus)
 	end
 end
