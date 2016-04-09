@@ -186,6 +186,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
+					"ParticleName"	"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

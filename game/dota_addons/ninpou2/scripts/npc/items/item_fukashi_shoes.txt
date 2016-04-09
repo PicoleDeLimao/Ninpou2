@@ -7,7 +7,7 @@
 	"ID"							"1005"
 	"BaseClass"						"item_datadriven"
 	"AbilityTextureName"			"item_fukashi_shoes"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 	
 	"ItemCost"						"2000"
 	"ItemKillable"					"0"

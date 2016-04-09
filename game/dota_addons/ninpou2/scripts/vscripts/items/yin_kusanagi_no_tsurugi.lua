@@ -19,7 +19,7 @@ function CriticalStrike(event)
 		end 
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf", PATTACH_ABSORIGIN, enemy)
 		ParticleManager:SetParticleControlEnt(particle, 0, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControl(particle, 1, enemy:GetAbsOrigin() + Vector(50, 50, 50))
+		ParticleManager:SetParticleControl(particle, 1, enemy:GetAbsOrigin() + Vector(100, 100, 100))
 		PopupCriticalDamage(enemy, damage * bonus)
 	end
 end

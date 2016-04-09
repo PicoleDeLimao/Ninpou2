@@ -1,0 +1,135 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Bijuu Chakra Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_bijuu_chakra_armor"
+{
+	// General
+	"ID"							"1200"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_bijuu_chakra_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+	
+	"ItemCost"						"4000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Ability 
+	"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+	"AbilityCastPoint"				"0"
+	"AbilityCooldown"				"60"
+	"AbilityManaCost"				"50"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"armor_bonus"			"15"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"magic_resistance"		"10"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"shield_amount"			"1000"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"shield_duration"		"5"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal_armor.vpcf"
+		"particle"					"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok.vpcf"
+		"soundfile"					"soundevents/game_sounds_hero_pick.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_item_bijuu_chakra_armor_buff"
+			"Duration"				"%shield_duration"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_item_bijuu_chakra_armor"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"EffectName"			"particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal_armor.vpcf"
+			"EffectAttachType"		"follow_origin"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_bonus"
+				"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/armor.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/armor.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+		"modifier_item_bijuu_chakra_armor_buff"
+		{
+			"IsBuff"					"1"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/bijuu_chakra_armor.lua"
+					"Function"			"InitializeShield"
+				}
+			}
+			"OnTakeDamage"
+			{
+				"FireSound"
+				{
+					"Target"			"CASTER"
+					"EffectName"		""
+				}
+				"RunScript"
+				{
+					"ScriptFile"		"items/bijuu_chakra_armor.lua"
+					"Function"			"BlockDamage"
+					"Damage"			"%attack_damage"
+				}
+			}
+			"ThinkInterval"				"0.03"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/bijuu_chakra_armor.lua"
+					"Function"			"CasterHealth"
+				}
+			}
+		}
+	}
+}

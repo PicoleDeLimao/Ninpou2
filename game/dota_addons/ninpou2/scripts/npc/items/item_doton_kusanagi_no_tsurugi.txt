@@ -81,6 +81,7 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+		"particle"						"particles/items/DotonKusanagiNoTsurugi/doton_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/dotonorb/espirit_rollingboulder.vpcf"
 		"particle"						"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
@@ -198,6 +199,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
+					"ParticleName"	"particles/items/DotonKusanagiNoTsurugi/doton_kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

@@ -13,6 +13,7 @@
 	"item"						"item_genin_shoes" 
 	"item"						"item_life_stone"
 	"item"						"item_chakra_stone"
+	"item"						"item_bijuu_chakra_armor"
   }
 
   "weapons_armor"
@@ -74,6 +75,7 @@
 	"item"						"item_raiton_kusanagi_no_tsurugi"
 	"item"						"item_yin_kusanagi_no_tsurugi"
 	"item"						"item_yang_kusanagi_no_tsurugi"
+	"item"						"item_nunoboko_no_ken"
   }
     
   // Level 4 - Orange / Orb / Artifacts       

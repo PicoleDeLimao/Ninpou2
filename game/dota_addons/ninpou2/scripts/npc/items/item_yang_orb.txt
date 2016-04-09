@@ -46,7 +46,7 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_magic_merry_wanderer.vpcf"
+		"particle"					"particles/econ/courier/courier_axolotl_ambient/courier_axolotl_ambient_lvl4_magic.vpcf"
 	}
 	"Modifiers"
 	{

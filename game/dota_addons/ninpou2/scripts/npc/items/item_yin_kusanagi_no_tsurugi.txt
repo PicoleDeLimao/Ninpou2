@@ -81,6 +81,7 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
+		"particle"						"particles/items/YinKusanagiNoTsurugi/yin_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
 		"particle"						"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
@@ -198,6 +199,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
+					"ParticleName"	"particles/items/YinKusanagiNoTsurugi/yin_kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

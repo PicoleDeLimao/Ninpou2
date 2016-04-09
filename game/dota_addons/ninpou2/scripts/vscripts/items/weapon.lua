@@ -7,6 +7,7 @@
 function Equip(event)
 	local caster = event.caster 
 	local ability = event.ability 
+	caster.numWeapons = caster.numWeapons or 0
 	Timers:CreateTimer(0.1, function()
 		caster.numWeapons = (caster.numWeapons or 0) + 1
 		if caster.numWeapons > 1 then 
