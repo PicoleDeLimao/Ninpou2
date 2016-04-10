@@ -10,9 +10,11 @@
 
   "attributes"
   {
+	"item"						"item_forehead_protector"
 	"item"						"item_genin_shoes" 
 	"item"						"item_life_stone"
 	"item"						"item_chakra_stone"
+	"item"						"item_genin_armor"
 	"item"						"item_bijuu_chakra_armor"
   }
 

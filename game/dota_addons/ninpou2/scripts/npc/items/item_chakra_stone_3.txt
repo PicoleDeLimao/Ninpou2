@@ -29,12 +29,12 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"health_bonus"			"750"
+			"health_bonus"			"500"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"mana_bonus"			"1500"
+			"mana_bonus"			"1000"
 		}
 	}
 	

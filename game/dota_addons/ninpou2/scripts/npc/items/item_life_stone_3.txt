@@ -29,7 +29,7 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"health_bonus"			"1500"
+			"health_bonus"			"1000"
 		}
 	}
 	

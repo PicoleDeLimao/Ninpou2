@@ -11,7 +11,7 @@
 	"MaxUpgradeLevel"				"9"
 	"ItemBaseLevel"					"1"
 	
-	"ItemCost"						"2000"
+	"ItemCost"						"3000"
 	"ItemKillable"					"0"
 	"ItemSellable"					"1"
 	"ItemPurchasable"				"1"

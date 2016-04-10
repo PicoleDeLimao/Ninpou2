@@ -130,6 +130,86 @@
 		}	
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: ANBU Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_anbu_armor"
+	{
+		// General
+		"ID"							"1207"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_anbu_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"15"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_anbu_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Ashura Stone
 	//-------------------------------------------------------------------------------------------------------------
 	"item_ashura_essence"
@@ -155,7 +235,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_bonus"			"2000"
+				"health_bonus"			"1500"
 			}
 			"02"
 			{
@@ -220,7 +300,7 @@
 		"MaxUpgradeLevel"				"9"
 		"ItemBaseLevel"					"1"
 		
-		"ItemCost"						"2000"
+		"ItemCost"						"3000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -922,7 +1002,7 @@
 		"MaxUpgradeLevel"				"9"
 		"ItemBaseLevel"					"1"
 		
-		"ItemCost"						"2000"
+		"ItemCost"						"3000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -1624,7 +1704,7 @@
 		"MaxUpgradeLevel"				"9"
 		"ItemBaseLevel"					"1"
 		
-		"ItemCost"						"2000"
+		"ItemCost"						"3000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -2479,7 +2559,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_bonus"		"80"
+				"movespeed_bonus"		"100"
 			}
 			"02"
 			{
@@ -2579,7 +2659,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_bonus"		"80"
+				"movespeed_bonus"		"100"
 			}
 			"02"
 			{
@@ -2772,12 +2852,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_bonus"			"500"
+				"health_bonus"			"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_bonus"			"1000"
+				"mana_bonus"			"750"
 			}
 		}
 		
@@ -2844,12 +2924,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_bonus"			"750"
+				"health_bonus"			"500"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_bonus"			"1500"
+				"mana_bonus"			"1000"
 			}
 		}
 		
@@ -2904,6 +2984,86 @@
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"60"
 		"ItemStockInitial"				"3"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Chunnin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_chunnin_armor"
+	{
+		// General
+		"ID"							"1205"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chunnin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"10"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_chunnin_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Chunnin Shoes 
@@ -3378,6 +3538,69 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Forehead Protector
+	//-------------------------------------------------------------------------------------------------------------
+	"item_forehead_protector"
+	{
+		// General
+		"ID"							"1203"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_forehead_protector"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemCost"						"500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"10"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_chakra_stone"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Fukashi Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_fukashi_shoes"
@@ -3408,7 +3631,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_bonus"		"80"
+				"movespeed_bonus"		"100"
 			}
 			"02"
 			{
@@ -3940,6 +4163,87 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Genin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_genin_armor"
+	{
+		// General
+		"ID"							"1204"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_genin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemCost"						"3000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"5"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_genin_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Genin Shoes 
 	//-------------------------------------------------------------------------------------------------------------
 	"item_genin_shoes"
@@ -4038,12 +4342,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_bonus"			"1000"
+				"health_bonus"			"750"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_bonus"			"2000"
+				"mana_bonus"			"1500"
 			}
 			"03"
 			{
@@ -4092,6 +4396,86 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Jounin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_jounin_armor"
+	{
+		// General
+		"ID"							"1209"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_jounin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"20"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_jounin_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
 				}
 			}
 		}
@@ -4790,7 +5174,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_bonus"			"1000"
+				"health_bonus"			"750"
 			}
 		}
 		
@@ -4856,7 +5240,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_bonus"			"1500"
+				"health_bonus"			"1000"
 			}
 		}
 		
@@ -4989,7 +5373,7 @@
 			"14"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"shape_world_damage_taken_duration"	"5.0"
+				"shape_world_damage_taken_duration"	"10.0"
 			}
 		}
 		
@@ -4999,6 +5383,8 @@
 			"particle"						"particles/items/NunobokoNoKen/nunoboko_no_ken.vpcf"
 			"particle"						"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
 			"particle"						"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5.vpcf"
+			"particle"						"particles/items3_fx/silver_edge_slow.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
 		}
 		"OnSpellStart"
 		{
@@ -5020,6 +5406,9 @@
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
 				}
 				"OnAttackStart"
 				{
@@ -5077,7 +5466,7 @@
 			"modifier_item_nunoboko_no_ken_slow"
 			{
 				"IsDebuff"				"1"
-				"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"EffectName"			"particles/items3_fx/silver_edge_slow.vpcf"
 				"EffectAttachType"		"attach_hitloc"
 				"Properties"
 				{
@@ -5474,6 +5863,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: ANBU Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_anbu_armor"
+	{
+		// General
+		"ID"							"1208"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_anbu_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2500"
+		"ItemResult"					"item_anbu_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_chunnin_armor"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPE: Ashura Essence
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_ashura_essence"
@@ -5485,7 +5893,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1500"
+		"ItemCost"						"2500"
 		"ItemResult"					"item_ashura_essence"
 		"ItemRequirements"
 		{
@@ -5960,7 +6368,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_bunshin_shoes"
 		"ItemRequirements"
 		{
@@ -5979,7 +6387,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_chakra_shoes"
 		"ItemRequirements"
 		{
@@ -6017,11 +6425,30 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1000"
+		"ItemCost"						"2000"
 		"ItemResult"					"item_chakra_stone_3"
 		"ItemRequirements"
 		{
 			"01"						"item_chakra_stone_2"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Chunnin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_chunnin_armor"
+	{
+		// General
+		"ID"							"1206"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_chunnin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2500"
+		"ItemResult"					"item_chunnin_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_genin_armor"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -6074,7 +6501,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_fukashi_shoes"
 		"ItemRequirements"
 		{
@@ -6112,11 +6539,30 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1500"
+		"ItemCost"						"2500"
 		"ItemResult"					"item_indra_essence"
 		"ItemRequirements"
 		{
 			"01"						"item_chakra_stone_3"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Jounin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_jounin_armor"
+	{
+		// General
+		"ID"							"1210"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_jounin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2500"
+		"ItemResult"					"item_jounin_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_anbu_armor"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -6169,7 +6615,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"1000"
+		"ItemCost"						"2000"
 		"ItemResult"					"item_life_stone_3"
 		"ItemRequirements"
 		{
@@ -6237,6 +6683,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Sannin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_sannin_armor"
+	{
+		// General
+		"ID"							"1212"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_sannin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2500"
+		"ItemResult"					"item_sannin_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_jounin_armor"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPES: Shunshin Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_shunshin_shoes"
@@ -6248,7 +6713,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"500"
+		"ItemCost"						"1000"
 		"ItemResult"					"item_shunshin_shoes"
 		"ItemRequirements"
 		{
@@ -6305,7 +6770,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemRecipe"					"1"
-		"ItemCost"						"2000"
+		"ItemCost"						"5000"
 		"ItemResult"					"item_yasakani_no_magatama"
 		"ItemRequirements"
 		{
@@ -6329,6 +6794,86 @@
 		"ItemRequirements"
 		{
 			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_yin_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Sannin Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_sannin_armor"
+	{
+		// General
+		"ID"							"1211"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_sannin_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"25"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_sannin_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -6778,7 +7323,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_bonus"		"80"
+				"movespeed_bonus"		"100"
 			}
 			"02"
 			{
@@ -7648,7 +8193,6 @@
 		"AbilityTextureName"			"item_yasakani_no_magatama"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
-		"ItemCost"						"10000"
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemPurchasable"				"1"
@@ -7660,6 +8204,11 @@
 		// Special
 		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"20"
+			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -7709,6 +8258,14 @@
 				"Passive"				"1"
 				"IsHidden"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -7734,9 +8291,7 @@
 				"EffectAttachType"		"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
-					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
 				}
 				"ThinkInterval"			"%think_interval"

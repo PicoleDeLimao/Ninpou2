@@ -1,22 +1,22 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Indra Stone
+// ITEMS: Forehead Protector
 //-------------------------------------------------------------------------------------------------------------
-"item_indra_essence"
+"item_forehead_protector"
 {
 	// General
-	"ID"							"1091"
+	"ID"							"1203"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_indra_essence"
+	"AbilityTextureName"			"item_forehead_protector"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	
-	"ItemCost"						"4000"
+
+	"ItemCost"						"500"
 	"ItemKillable"					"0"
 	"ItemSellable"					"1"
 	"ItemPurchasable"				"1"
 	"ItemDroppable"					"1"
 	"ItemStockMax"					"1"
 	"ItemStockTime"					"120"
-	"ItemStockInitial"				"1"
+	"ItemStockInitial"				"3"
 	
 	// Special
 	"AbilitySpecial"
@@ -24,32 +24,24 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"health_bonus"			"750"
-		}
-		"02"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"mana_bonus"			"1500"
-		}
-		"03"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"mana_regen"			"50"
+			"stats_bonus"			"10"
 		}
 	}
 	
 	// Datadriven 
-	"precache"
-	{
-		"particle"					"particles/items/IndraEssence/indra_essence.vpcf"
-	}
 	"Modifiers"
 	{
-		"modifier_item_indra_essence_mult"
+		"modifier_item_chakra_stone"
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"
 			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+			}
 			"OnCreated"
 			{
 				"RunScript"
@@ -65,19 +57,6 @@
 					"ScriptFile"		"items/support.lua"
 					"Function"			"Unequip"
 				}
-			}
-		}
-		"modifier_item_indra_essence"
-		{
-			"Passive"				"1"
-			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
-			"EffectName"			"particles/items/IndraEssence/indra_essence.vpcf"
-			"EffectAttachType"		"follow_origin"
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
-				"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
-				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
 			}
 		}
 	}

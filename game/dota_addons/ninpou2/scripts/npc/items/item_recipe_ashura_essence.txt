@@ -10,7 +10,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemRecipe"					"1"
-	"ItemCost"						"1500"
+	"ItemCost"						"2500"
 	"ItemResult"					"item_ashura_essence"
 	"ItemRequirements"
 	{

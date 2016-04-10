@@ -10,7 +10,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemRecipe"					"1"
-	"ItemCost"						"1000"
+	"ItemCost"						"2000"
 	"ItemResult"					"item_life_stone_3"
 	"ItemRequirements"
 	{

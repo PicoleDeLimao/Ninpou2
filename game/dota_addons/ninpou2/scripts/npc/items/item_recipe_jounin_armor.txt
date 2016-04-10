@@ -1,19 +1,19 @@
 //-------------------------------------------------------------------------------------------------------------
-// RECIPES: Shunshin Shoes
+// RECIPES: Jounin Armor
 //-------------------------------------------------------------------------------------------------------------
-"item_recipe_shunshin_shoes"
+"item_recipe_jounin_armor"
 {
 	// General
-	"ID"							"1011"
+	"ID"							"1210"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_shunshin_shoes"
+	"AbilityTextureName"			"item_jounin_armor"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
 	"ItemRecipe"					"1"
-	"ItemCost"						"1000"
-	"ItemResult"					"item_shunshin_shoes"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_jounin_armor"
 	"ItemRequirements"
 	{
-		"01"						"item_chunnin_shoes;item_scroll_shunshin"
+		"01"						"item_anbu_armor"
 	}
 }
