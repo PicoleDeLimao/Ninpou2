@@ -1075,6 +1075,56 @@
 							},
 						]
 					},
+					{
+						_class = "CVattachment"
+						m_name = "attach_head"
+						m_influences =
+						[
+							{
+								_class = "CVattachmentInfluence"
+								m_influenceName = "head"
+								m_vTranslationOffset =
+								[
+									0.000000,
+									-5.167421,
+									12.527802,
+								]
+								m_vRotationOffset =
+								[
+									-0.000000,
+									0.000000,
+									-0.000138,
+								]
+								m_flWeight = 1.000000
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						_class = "CVattachment"
+						m_name = "attach_chest"
+						m_influences =
+						[
+							{
+								_class = "CVattachmentInfluence"
+								m_influenceName = "torso"
+								m_vTranslationOffset =
+								[
+									-0.000000,
+									1.405955,
+									0.000000,
+								]
+								m_vRotationOffset =
+								[
+									-0.000000,
+									0.000000,
+									-0.000021,
+								]
+								m_flWeight = 1.000000
+								m_bRoot = false
+							},
+						]
+					},
 				]
 			}
 		},

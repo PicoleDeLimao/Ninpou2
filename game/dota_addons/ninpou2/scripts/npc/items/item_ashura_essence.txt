@@ -65,6 +65,7 @@
 		"modifier_item_ashura_essence"
 		{
 			"Passive"				"1"
+			"IsHidden"				"1"
 			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 			"EffectName"			"particles/items/AshuraEssence/ashura_essence.vpcf"
 			"EffectAttachType"		"follow_origin"

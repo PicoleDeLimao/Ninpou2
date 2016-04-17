@@ -1,0 +1,165 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Kami no Kagami
+//-------------------------------------------------------------------------------------------------------------
+"item_kami_no_kagami"
+{
+	// General
+	"ID"							"1221"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_kami_no_kagami"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"stats_bonus"			"30"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"true_sight_radius"		"800"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"block_cooldown"		"60"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"night_vision_bonus"	"700"		
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"evasion_bonus"			"35"
+		}
+		"06"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"armor_bonus"			"10"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+		"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_item_kami_no_kagami"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
+				"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+				"AttachEffect"
+				{
+					"Target"			"CASTER"
+					"EffectName"		"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+					"EffectAttachType"	"follow_origin"
+					"ControlPointEntities"
+					{
+						"CASTER"		"attach_origin"
+						"CASTER"		"attach_origin"
+						"CASTER"		"attach_origin"
+					}
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"		"items/spell_shield.lua"
+					"Function"			"RemoveSpellShield"
+				}
+			}
+			"ThinkInterval"		"0.03"
+			"OnIntervalThink"
+			{
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"	"TARGET"
+						"Radius"	"%true_sight_radius"
+						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					}
+					"Action"
+					{
+						"RemoveModifier"
+						{
+							"Target"	"TARGET"
+							"ModifierName"	"modifier_truesight_reveal"
+						}
+						"ApplyModifier"
+						{
+							"Target"	"TARGET"
+							"ModifierName"	"modifier_truesight_reveal"
+						}
+					}
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/spell_shield.lua"
+					"Function"		"CreateShield"
+					"Cooldown"		"%block_cooldown"
+				}
+			}
+		}
+		"modifier_truesight_reveal"
+		{
+			"IsHidden"				"1"
+			"Duration"				"0.05"
+			"States"
+			{
+				"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"
+			}
+		}
+		"modifier_item_spell_shield"
+		{
+			"IsPassive"				"1"
+			"IsBuff"				"1"
+			"IsHidden"				"0"
+			"AttachEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/prototype_fx/item_linkens_buff.vpcf"
+			}
+		}
+	}
+}

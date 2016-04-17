@@ -16,6 +16,8 @@
 	"item"						"item_chakra_stone"
 	"item"						"item_genin_armor"
 	"item"						"item_bijuu_chakra_armor"
+	"item"						"item_bingo_book"
+	"item"						"item_kagami"
   }
 
   "weapons_armor"
@@ -42,7 +44,8 @@
   // Level 1 - Green Recipes
   "basics"
   {
-	
+	"item"						"item_genin_set"
+	"item"						"item_anbu_set"
   }
 
   // Level 2 - Blue Recipes
@@ -52,6 +55,8 @@
 	"item"						"item_fukashi_shoes"
 	"item"						"item_bunshin_shoes"
 	"item"						"item_shunshin_shoes"
+	"item"						"item_anbu_mask"
+	"item"						"item_kami_no_kagami"
 	"item"						"item_ashura_essence"
 	"item"						"item_indra_essence"
 	"item"						"item_yasakani_no_magatama"

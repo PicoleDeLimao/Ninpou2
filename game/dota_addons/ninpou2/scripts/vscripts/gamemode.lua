@@ -81,14 +81,14 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-  -- Set player gold to zero
-  hero:SetGold(0, false)
+  -- Set player gold to a starting value
+  hero:SetGold(500, false)
 end
                   
 -- Spawn creeps for a determined lane
 function SpawnCreepsLane(units, unitsCount, offsets, path, team, spawnerName)
 	local spawner = Entities:FindByName(nil, spawnerName)
-	if Utils:IsValidAlive(spawner) then -- Only spawn units from which spawner is alive
+	if Units:IsValidAlive(spawner) then -- Only spawn units from which spawner is alive
 		local forwardVector = (path[2] - path[1]):Normalized()
 		for unitKey, unitValue in pairs(units) do 
             for i = 1, unitsCount[unitKey] do 

@@ -12,7 +12,7 @@ function KageBunshinNoJutsu(event)
 	caster:EmitSound("Jutsu")
 	Timers:CreateTimer(0.4, function()
 		for i = 1, numBunshins do 
-			Utils:CreateBunshin(caster, ability, duration)
+			Units:CreateBunshin(caster, ability, duration)
 		end
 	end)
 end

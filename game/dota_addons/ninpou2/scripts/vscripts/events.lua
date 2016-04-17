@@ -318,6 +318,10 @@ function GameMode:OnEntityKilled( keys )
 	if killedUnit.is_kuchiyose then 
 		killedUnit:AddNoDraw()
 	end
+	-- Additional gold for bing book 
+	if killerEntity:HasItemInInventory("item_bingo_book") or killerEntity:HasItemInInventory("item_anbu_mask") or killerEntity:HasItemInInventory("item_anbu_set") then 
+		Players:AddGoldToUnit(killerEntity, killerEntity.bingoReward)
+	end
 end
 
 -- This function is called 1 to 2 times as the player connects initially but before they 

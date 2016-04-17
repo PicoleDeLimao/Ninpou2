@@ -12,7 +12,7 @@ function Equip(event)
 		caster.numSupports = (caster.numSupports or 0) + 1
 		if caster.numSupports > 2 then 
 			caster:DropItemAtPositionImmediate(ability, caster:GetAbsOrigin())
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#error_support")
+			HUD:SendErrorMessage(caster:GetPlayerOwnerID(), "#error_support")
 		end
 	end)
 end 

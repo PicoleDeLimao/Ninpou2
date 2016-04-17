@@ -31,9 +31,9 @@ function EliteAnbuAI:Think()
 		end
 	-- If there are nearby enemies
 	elseif #enemies > 0 then 
-		local nearestHero = Utils:GetNearestHero(enemies, self.unit)
+		local nearestHero = Units:GetNearestHero(enemies, self.unit)
 		-- Check if unit can cast ability 2 (Kuchiyose: Ninkens)
-		if (nearestHero ~= nil or #enemies > self.ability2EnemiesLimit) and Utils:CanCast(self.unit, self.ability2) then 
+		if (nearestHero ~= nil or #enemies > self.ability2EnemiesLimit) and Units:CanCast(self.unit, self.ability2) then 
 			print("[AI] Elite Anbu casting " .. self.ability2:GetAbilityName() .. "...")
 			ExecuteOrderFromTable({
 				UnitIndex = self.unit:GetEntityIndex(),
@@ -42,7 +42,7 @@ function EliteAnbuAI:Think()
 				Queue = false
 			})
 		-- Check if unit can cast ability 1 (Fuuma Shuriken)
-		elseif nearestHero ~= nil and Utils:CanCast(self.unit, self.ability1) and not nearestHero:HasModifier("modifier_elite_anbu_fuuma_shuriken") then 
+		elseif nearestHero ~= nil and Units:CanCast(self.unit, self.ability1) and not nearestHero:HasModifier("modifier_elite_anbu_fuuma_shuriken") then 
 			print("[AI] Elite Anbu casting " .. self.ability1:GetAbilityName() .. "...")
 			ExecuteOrderFromTable({
 				UnitIndex = self.unit:GetEntityIndex(),
@@ -57,7 +57,7 @@ end
 
 function EliteAnbuAI:GlobalThink() 
 	-- Check if unit is still valid 
-	if not Utils:IsValidAlive(self.unit) then
+	if not Units:IsValidAlive(self.unit) then
 		return nil
 	end
 	self:Think()

@@ -12,7 +12,7 @@ function Equip(event)
 		caster.numArmors = (caster.numArmors or 0) + 1
 		if caster.numArmors > 1 then 
 			caster:DropItemAtPositionImmediate(ability, caster:GetAbsOrigin())
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#error_armor")
+			HUD:SendErrorMessage(caster:GetPlayerOwnerID(), "#error_armor")
 		end
 	end)
 end 

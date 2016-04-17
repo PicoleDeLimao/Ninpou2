@@ -18,7 +18,7 @@
 	"ItemDroppable"					"1"
 	"ItemStockMax"					"1"
 	"ItemStockTime"					"120"
-	"ItemStockInitial"				"1"
+	"ItemStockInitial"				"3"
 	
 	"UpgradesItems"					"item_chakra_stone;item_chakra_stone_2;item_chakra_stone_3"
 	"UpgradeRecipe"					"item_recipe_chakra_stone"

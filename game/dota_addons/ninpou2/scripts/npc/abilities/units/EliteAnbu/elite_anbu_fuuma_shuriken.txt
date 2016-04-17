@@ -81,25 +81,14 @@
 			"Target"                    "TARGET"
 			"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 		}
-		"ApplyModifier"
+		"RunScript"
 		{
+			"ScriptFile"				"items/spell_shield.lua"
+			"Function"					"ApplyModifier"
+			"Target"					"TARGET"
 			"ModifierName"				"modifier_elite_anbu_fuuma_shuriken"
-			"Target"
-			{
-				"Center"				"TARGET"
-				"Types"					"DOTA_UNIT_TARGET_HERO"
-			}
-			"Duration"					"%stun_duration_hero"
-		}
-		"ApplyModifier"
-		{
-			"ModifierName"				"modifier_elite_anbu_fuuma_shuriken"
-			"Target"
-			{
-				"Center"				"TARGET"
-				"Types"					"DOTA_UNIT_TARGET_BASIC"
-			}
-			"Duration"					"%stun_duration_creep"
+			"DurationHero"				"%stun_duration_hero"
+			"DurationCreep"				"%stun_duration_creep"
 		}
 		"Damage"
 		{

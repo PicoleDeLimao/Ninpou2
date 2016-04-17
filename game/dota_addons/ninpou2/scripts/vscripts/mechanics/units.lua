@@ -1,28 +1,30 @@
 --[[
 	Author: PicoleDeLiamo
 	Date: 04.01.2016
-	Define many utilitary functions 
+	Define some units wrapper functions 
 ]]
 
-Utils = {}
+if not Units then
+	Units = class({})
+end
 
 -- Check if unit is valid and alive 
-function Utils:IsValidAlive(unit)
+function Units:IsValidAlive(unit)
     return unit ~= nil and IsValidEntity(unit) and unit:IsAlive()
 end
 
 -- Check if unit is disabled 
-function Utils:IsDisabled(unit)
+function Units:IsDisabled(unit)
 	return unit:IsMuted() or unit:IsSilenced() or unit:IsStunned()
 end
 
 -- Check if unit can cast an ability
-function Utils:CanCast(unit, ability)
-	return not Utils:IsDisabled(unit) and unit:GetMana() > ability:GetManaCost(ability:GetLevel() - 1) and ability:GetCooldownTimeRemaining() == 0
+function Units:CanCast(unit, ability)
+	return not Units:IsDisabled(unit) and unit:GetMana() > ability:GetManaCost(ability:GetLevel() - 1) and ability:GetCooldownTimeRemaining() == 0
 end
 
 -- Get the nearest hero to an unit inside a group of units 
-function Utils:GetNearestHero(units, toUnit)
+function Units:GetNearestHero(units, toUnit)
 	local nearestHero = nil 
 	for _, unit in pairs(units) do 
 		if unit ~= nil and unit:IsRealHero() then 
@@ -39,7 +41,7 @@ function Utils:GetNearestHero(units, toUnit)
 end
 
 -- Create an illusion of the caster 
-function Utils:CreateBunshin(caster, ability, duration)
+function Units:CreateBunshin(caster, ability, duration)
 	-- Get a random position around the caster 
 	local origin = caster:GetAbsOrigin() + caster:GetForwardVector() * 150
 	-- Create a new bunshin 
@@ -78,21 +80,21 @@ function Utils:CreateBunshin(caster, ability, duration)
 	ParticleManager:CreateParticle("particles/econ/items/invoker/invoker_apex/invoker_sun_strike_orange_smoke_immortal1.vpcf", PATTACH_ABSORIGIN, bunshin)
 	local lastOrigin = bunshin:GetAbsOrigin()
 	Timers:CreateTimer(0.1, function() 
-		if not Utils:IsValidAlive(bunshin) then 
+		if not Units:IsValidAlive(bunshin) then 
 			local dummy = CreateUnitByName("npc_dummy_unit", lastOrigin, false, caster, nil, caster:GetTeamNumber())
 			dummy:EmitSound("Poof")
 			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_final_explosion_smoke.vpcf", PATTACH_CUSTOMORIGIN, dummy)
 			ParticleManager:SetParticleControl(particle, 0, lastOrigin)
 			ParticleManager:SetParticleControl(particle, 3, lastOrigin)
 			Timers:CreateTimer(2.0, function() 
-				if Utils:IsValidAlive(dummy) then
+				if Units:IsValidAlive(dummy) then
 					dummy:ForceKill(true)
 				end
 			end)
 			return nil
 		end
 		lastOrigin = bunshin:GetAbsOrigin()
-		if not Utils:IsValidAlive(caster) then 
+		if not Units:IsValidAlive(caster) then 
 			bunshin:ForceKill(true)
 		end
 		return 0.1 

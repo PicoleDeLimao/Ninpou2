@@ -30,7 +30,7 @@ function MedicalNinjaAI:FindHurtAlly()
     local allies = FindUnitsInRadius(self.unit:GetTeamNumber(), self.unit:GetAbsOrigin(), nil, self.acquisitionRange, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for _, ally in pairs(allies) do 
         -- Check if ally is valid
-        if Utils:IsValidAlive(ally) then 
+        if Units:IsValidAlive(ally) then 
             local score = self:GetScore(ally)
             if score > 0 and (maxScore == nil or score > maxScore.score) then 
                 maxScore = {
@@ -46,7 +46,7 @@ end
 -- This function determines the next action for a medical ninja unit
 function MedicalNinjaAI:Think() 
     -- Will only perform the heal action if unit can cast it
-    if Utils:CanCast(self.unit, self.ability) then 
+    if Units:CanCast(self.unit, self.ability) then 
         local hurtAlly = self:FindHurtAlly()
         -- Check if there's any nearby hurt unit
         if hurtAlly ~= nil then 
@@ -58,7 +58,7 @@ end
 
 function MedicalNinjaAI:GlobalThink() 
     -- Check if unit is still valid
-    if not Utils:IsValidAlive(self.unit) then 
+    if not Units:IsValidAlive(self.unit) then 
         return nil
     end
     self:Think()

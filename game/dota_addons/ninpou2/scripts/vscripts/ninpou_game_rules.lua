@@ -66,7 +66,7 @@ function NinpouGameRules:CheckVictoryConditions()
 	local winnerBase = nil
 	local units = Entities:FindAllByClassname("npc_dota_tower")
 	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and NinpouGameRules:IsBase(unit) then 
+		if Units:IsValidAlive(unit) and NinpouGameRules:IsBase(unit) then 
 			countAliveBases = countAliveBases + 1 
 			winnerBase = unit
 		end
@@ -89,25 +89,25 @@ end
 function NinpouGameRules:RemoveAllUnits(teamNumber)
 	local units = Entities:FindAllByClassname("npc_dota_creature")
 	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
 			unit:RemoveSelf()
 		end
 	end
 	units = Entities:FindAllByClassname("npc_dota_tower")
 	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
 			unit:ForceKill(true)
 		end 
 	end
 	units = Entities:FindAllByClassname("npc_dota_barracks")
 	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
 			unit:ForceKill(true)
 		end
 	end
 	units = Entities:FindAllByClassname("ent_dota_fountain")
 	for _, unit in pairs(units) do 
-		if Utils:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
+		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
 			unit:RemoveSelf() 
 		end 
 	end

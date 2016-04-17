@@ -210,6 +210,227 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: ANBU Mask
+	//-------------------------------------------------------------------------------------------------------------
+	"item_anbu_mask"
+	{
+		// General
+		"ID"							"1216"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_anbu_mask"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_per_kill"			"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"night_vision_bonus"	"500"		
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"evasion_bonus"			"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/anbumask/anbu_mask.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_anbu_mask"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/bingo.lua"
+						"Function"			"Initialize"
+						"GoldReward"		"%gold_per_kill"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/anbumask/anbu_mask.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: ANBU Set
+	//-------------------------------------------------------------------------------------------------------------
+	"item_anbu_set"
+	{
+		// General
+		"ID"							"1218"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_anbu_set"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_per_kill"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"night_vision_bonus"	"500"		
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"evasion_bonus"			"30"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_reduction"	"20"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_reduction"		"30"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/anbumask/anbu_mask.vpcf"
+			"particle"					"particles/items/anbumask/anbu_set.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_anbu_set"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
+					"MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT"	"%cooldown_reduction"
+					"MODIFIER_PROPERTY_MANACOST_PERCENTAGE"			"%mana_reduction"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/set.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/bingo.lua"
+						"Function"			"Initialize"
+						"GoldReward"		"%gold_per_kill"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/anbumask/anbu_mask.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/set.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Ashura Stone
 	//-------------------------------------------------------------------------------------------------------------
 	"item_ashura_essence"
@@ -276,6 +497,7 @@
 			"modifier_item_ashura_essence"
 			{
 				"Passive"				"1"
+				"IsHidden"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 				"EffectName"			"particles/items/AshuraEssence/ashura_essence.vpcf"
 				"EffectAttachType"		"follow_origin"
@@ -2529,6 +2751,80 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Bingo Book
+	//-------------------------------------------------------------------------------------------------------------
+	"item_bingo_book"
+	{
+		// General
+		"ID"							"1215"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_bingo_book"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemCost"						"3000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_per_kill"			"20"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_bing_book"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/bingo.lua"
+						"Function"			"Initialize"
+						"GoldReward"		"%gold_per_kill"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Bunshin Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_bunshin_shoes"
@@ -3269,25 +3565,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -3885,25 +4170,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -4244,6 +4518,102 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Genin Set
+	//-------------------------------------------------------------------------------------------------------------
+	"item_genin_set"
+	{
+		// General
+		"ID"							"1213"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_genin_set"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_bonus"			"1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_bonus"			"500"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_item_genin_set"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%mana_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/set.lua"
+						"Function"			"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/set.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Genin Shoes 
 	//-------------------------------------------------------------------------------------------------------------
 	"item_genin_shoes"
@@ -4388,6 +4758,7 @@
 			"modifier_item_indra_essence"
 			{
 				"Passive"				"1"
+				"IsHidden"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 				"EffectName"			"particles/items/IndraEssence/indra_essence.vpcf"
 				"EffectAttachType"		"follow_origin"
@@ -4476,6 +4847,319 @@
 						"ScriptFile"		"items/armor.lua"
 						"Function"			"Unequip"
 					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Kagami
+	//-------------------------------------------------------------------------------------------------------------
+	"item_kagami"
+	{
+		// General
+		"ID"							"1220"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_kagami"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		"ItemCost"						"3000"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"true_sight_radius"		"800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_cooldown"		"90"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+			"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_kagami"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"		"attach_origin"
+							"CASTER"		"attach_origin"
+							"CASTER"		"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/spell_shield.lua"
+						"Function"			"RemoveSpellShield"
+					}
+				}
+				"ThinkInterval"		"0.03"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%true_sight_radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+						"Action"
+						{
+							"RemoveModifier"
+							{
+								"Target"	"TARGET"
+								"ModifierName"	"modifier_truesight_reveal"
+							}
+							"ApplyModifier"
+							{
+								"Target"	"TARGET"
+								"ModifierName"	"modifier_truesight_reveal"
+							}
+						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/spell_shield.lua"
+						"Function"		"CreateShield"
+						"Cooldown"		"%block_cooldown"
+					}
+				}
+			}
+			"modifier_truesight_reveal"
+			{
+				"IsHidden"				"1"
+				"Duration"				"0.05"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"
+				}
+			}
+			"modifier_item_spell_shield"
+			{
+				"IsPassive"				"1"
+				"IsBuff"				"1"
+				"IsHidden"				"0"
+				"AttachEffect"
+				{
+					"Target"			"CASTER"
+					"EffectName"		"particles/prototype_fx/item_linkens_buff.vpcf"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Kami no Kagami
+	//-------------------------------------------------------------------------------------------------------------
+	"item_kami_no_kagami"
+	{
+		// General
+		"ID"							"1221"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_kami_no_kagami"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"true_sight_radius"		"800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_cooldown"		"60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"night_vision_bonus"	"700"		
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"evasion_bonus"			"35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"10"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+			"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_kami_no_kagami"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"		"attach_origin"
+							"CASTER"		"attach_origin"
+							"CASTER"		"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/spell_shield.lua"
+						"Function"			"RemoveSpellShield"
+					}
+				}
+				"ThinkInterval"		"0.03"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%true_sight_radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+						"Action"
+						{
+							"RemoveModifier"
+							{
+								"Target"	"TARGET"
+								"ModifierName"	"modifier_truesight_reveal"
+							}
+							"ApplyModifier"
+							{
+								"Target"	"TARGET"
+								"ModifierName"	"modifier_truesight_reveal"
+							}
+						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/spell_shield.lua"
+						"Function"		"CreateShield"
+						"Cooldown"		"%block_cooldown"
+					}
+				}
+			}
+			"modifier_truesight_reveal"
+			{
+				"IsHidden"				"1"
+				"Duration"				"0.05"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"
+				}
+			}
+			"modifier_item_spell_shield"
+			{
+				"IsPassive"				"1"
+				"IsBuff"				"1"
+				"IsHidden"				"0"
+				"AttachEffect"
+				{
+					"Target"			"CASTER"
+					"EffectName"		"particles/prototype_fx/item_linkens_buff.vpcf"
 				}
 			}
 		}
@@ -4606,25 +5290,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -4942,25 +5615,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -5624,25 +6286,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -5879,6 +6530,44 @@
 		"ItemRequirements"
 		{
 			"01"						"item_chunnin_armor"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: ANBU Mask
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_anbu_mask"
+	{
+		// General
+		"ID"							"1217"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_anbu_mask"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2500"
+		"ItemResult"					"item_anbu_mask"
+		"ItemRequirements"
+		{
+			"01"						"item_forehead_protector;item_bingo_book"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: ANBU Set
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_anbu_set"
+	{
+		// General
+		"ID"							"1219"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_anbu_set"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"2000"
+		"ItemResult"					"item_anbu_set"
+		"ItemRequirements"
+		{
+			"01"						"item_anbu_mask;item_anbu_armor"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -6528,6 +7217,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Genin Set
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_genin_set"
+	{
+		// General
+		"ID"							"1214"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_genin_set"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"1000"
+		"ItemResult"					"item_genin_set"
+		"ItemRequirements"
+		{
+			"01"						"item_genin_shoes;item_genin_armor;item_forehead_protector"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPE: Indra Essence
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_indra_essence"
@@ -6563,6 +7271,25 @@
 		"ItemRequirements"
 		{
 			"01"						"item_anbu_armor"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Kami no Kagami
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_kami_no_kagami"
+	{
+		// General
+		"ID"							"1222"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_kami_no_kagami"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"5000"
+		"ItemResult"					"item_kami_no_kagami"
+		"ItemRequirements"
+		{
+			"01"						"item_anbu_mask;item_kagami"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -7549,25 +8276,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -7937,25 +8653,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{
@@ -8286,6 +8991,7 @@
 			"modifier_item_yasakani_no_magatama"
 			{
 				"Passive"				"1"
+				"IsHidden"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 				"EffectName"			"particles/items/YasakaniNoMagatama/yasakani_no_magatama.vpcf"
 				"EffectAttachType"		"follow_origin"
@@ -8447,25 +9153,14 @@
 				"Target"                    "TARGET"
 				"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"				"items/spell_shield.lua"
+				"Function"					"ApplyModifier"
+				"Target"					"TARGET"
 				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"					"%stun_duration_hero"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"				"modifier_item_kusanagi_no_tsurugi_stun"
-				"Target"
-				{
-					"Center"				"TARGET"
-					"Types"					"DOTA_UNIT_TARGET_BASIC"
-				}
-				"Duration"					"%stun_duration_creep"
+				"DurationHero"				"%stun_duration_hero"
+				"DurationCreep"				"%stun_duration_creep"
 			}
 			"RunScript"
 			{

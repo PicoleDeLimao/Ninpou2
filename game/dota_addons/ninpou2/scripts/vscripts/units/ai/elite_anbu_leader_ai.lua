@@ -33,7 +33,7 @@ function EliteAnbuLeaderAI:Think()
 		-- Check which abilities the anbu can cast
 		local casteableAbilities = {}
 		for i = 1, #self.abilities do 
-			if Utils:CanCast(self.unit, self.abilities[i]) then 
+			if Units:CanCast(self.unit, self.abilities[i]) then 
 				table.insert(casteableAbilities, self.abilities[i])
 			end
 		end
@@ -41,7 +41,7 @@ function EliteAnbuLeaderAI:Think()
 		if #casteableAbilities == #self.abilities then 
 			for _, enemy in pairs(enemies) do 
 				-- If there's a nearby hero which is not yet disabled
-				if enemy ~= nil and enemy:IsRealHero() and not Utils:IsDisabled(enemy) then 
+				if enemy ~= nil and enemy:IsRealHero() and not Units:IsDisabled(enemy) then 
 					local abilityIndex = math.random(1, #casteableAbilities)
 					local ability = casteableAbilities[abilityIndex]
 					print("[AI] Elite Anbu casting " .. ability:GetAbilityName() .. "...")
@@ -61,7 +61,7 @@ end
 
 function EliteAnbuLeaderAI:GlobalThink() 
 	-- Check if unit is still valid 
-	if not Utils:IsValidAlive(self.unit) then 
+	if not Units:IsValidAlive(self.unit) then 
 		return nil 
 	end
 	self:Think()

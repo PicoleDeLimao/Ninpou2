@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Genin Set
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_genin_set"
+{
+	// General
+	"ID"							"1214"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_genin_set"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"1000"
+	"ItemResult"					"item_genin_set"
+	"ItemRequirements"
+	{
+		"01"						"item_genin_shoes;item_genin_armor;item_forehead_protector"
+	}
+}

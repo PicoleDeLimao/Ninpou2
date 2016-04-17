@@ -102,6 +102,7 @@
 		"modifier_item_yasakani_no_magatama"
 		{
 			"Passive"				"1"
+			"IsHidden"				"1"
 			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 			"EffectName"			"particles/items/YasakaniNoMagatama/yasakani_no_magatama.vpcf"
 			"EffectAttachType"		"follow_origin"

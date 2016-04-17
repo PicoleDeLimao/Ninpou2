@@ -18,7 +18,7 @@
 	"ItemDroppable"					"1"
 	"ItemStockMax"					"1"
 	"ItemStockTime"					"120"
-	"ItemStockInitial"				"1"
+	"ItemStockInitial"				"3"
 	
 	"UpgradesItems"					"item_life_stone;item_life_stone_2;item_life_stone_3"
 	"UpgradeRecipe"					"item_recipe_life_stone"

@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Kami no Kagami
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_kami_no_kagami"
+{
+	// General
+	"ID"							"1222"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_kami_no_kagami"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"5000"
+	"ItemResult"					"item_kami_no_kagami"
+	"ItemRequirements"
+	{
+		"01"						"item_anbu_mask;item_kagami"
+	}
+}
