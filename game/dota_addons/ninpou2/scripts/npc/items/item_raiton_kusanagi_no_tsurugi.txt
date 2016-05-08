@@ -81,7 +81,7 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		"particle"						"particles/items/RaitonKusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
+		"particle"						"particles/items/KusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
 		"particle"						"particles/items/raitonorb/invoker_apex_wex_orb.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
@@ -194,7 +194,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
-					"ParticleName"	"particles/items/RaitonKusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
+					"ParticleName"	"particles/items/KusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

@@ -57,6 +57,7 @@
 	{
 		"particle"					"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
 		"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+		"particle"					"particles/econ/courier/courier_greevil_purple/courier_greevil_purple_ambient_3_a.vpcf"
 	}
 	"Modifiers"
 	{
@@ -73,6 +74,12 @@
 				"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
 				"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+			}
+			"AttachEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/econ/courier/courier_greevil_purple/courier_greevil_purple_ambient_3.vpcf"
+				"EffectAttachType"	"attach_hitloc"
 			}
 			"OnCreated"
 			{

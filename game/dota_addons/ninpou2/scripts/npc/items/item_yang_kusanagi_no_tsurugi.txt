@@ -86,7 +86,7 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		"particle"						"particles/items/YangKusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
+		"particle"						"particles/items/KusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/econ/courier/courier_axolotl_ambient/courier_axolotl_ambient_lvl4_magic.vpcf"
 		"particle"						"particles/units/heroes/hero_chen/chen_holy_persuasion_a.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
@@ -193,7 +193,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
-					"ParticleName"	"particles/items/YangKusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
+					"ParticleName"	"particles/items/KusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

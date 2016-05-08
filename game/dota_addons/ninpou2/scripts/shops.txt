@@ -70,7 +70,12 @@
   // Level 3 - Purple Recipes 
   "defense"
   {
-    
+    "item"						"item_hokage_armor"
+	"item"						"item_mizukage_armor"
+	"item"						"item_tsuchikage_armor"
+	"item"						"item_kazekage_armor"
+	"item"						"item_raikage_armor"
+	"item"						"item_otokage_armor"
   }
       
   "weapons"

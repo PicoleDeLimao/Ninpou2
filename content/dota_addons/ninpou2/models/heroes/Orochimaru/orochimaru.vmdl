@@ -3,11 +3,9 @@
 	_class = "CVModel"
 	m_meshList =
 	{
-		_class = "CVmeshList"
 		m_meshList =
 		[
 			{
-				_class = "CVmesh"
 				m_meshName = "orochimaru"
 				m_meshFile = "models/heroes/orochimaru/orochimaru.fbx"
 				m_materialSearchPath = ""
@@ -42,7 +40,6 @@
 	}
 	m_physicsMeshList =
 	{
-		_class = "CVphysicsMeshList"
 		m_meshList =
 		[
 		]
@@ -59,16 +56,13 @@
 			_class = "CVhitBoxSetListReference"
 			m_pObject =
 			{
-				_class = "CVhitBoxSetList"
 				m_HitBoxSets =
 				[
 					{
-						_class = "CVhitBoxSet"
 						m_name = "default"
 						m_HitBoxes =
 						[
 							{
-								_class = "CVhitBox"
 								m_name = "rigged_&_animated_by_marx"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -95,7 +89,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "upperbody"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -122,7 +115,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "torso"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -149,7 +141,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "chest"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -176,7 +167,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "shoulderUp.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -203,7 +193,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "shoulderUp.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -230,7 +219,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "shoulderDown.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -257,7 +245,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "shoulderDown.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -284,7 +271,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "arm.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -311,7 +297,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "arm.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -338,7 +323,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "neck"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -365,7 +349,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "elbow.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -392,7 +375,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "elbow.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -419,7 +401,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "waist"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -446,7 +427,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "head"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -473,7 +453,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "hand.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -500,7 +479,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "hand.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -527,7 +505,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "cloth.front"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -554,7 +531,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "leg.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -581,7 +557,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "leg.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -608,7 +583,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "hair.back-1"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -635,7 +609,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "knuckle.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -662,7 +635,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "knuckle.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -689,7 +661,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "cloth.front-2"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -716,7 +687,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "knee.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -743,7 +713,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "knee.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -770,7 +739,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "hair.back-2"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -797,7 +765,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "finger.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -824,7 +791,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "finger.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -851,7 +817,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "cloth.front-3"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -878,7 +843,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "cloth.back"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -905,7 +869,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "foot.R"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -932,7 +895,6 @@
 								]
 							},
 							{
-								_class = "CVhitBox"
 								m_name = "foot.L"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
@@ -971,17 +933,14 @@
 			_class = "CVattachmentListReference"
 			m_pObject =
 			{
-				_class = "CVattachmentList"
 				m_name = ""
 				m_attachments =
 				[
 					{
-						_class = "CVattachment"
 						m_name = "attach_hitloc"
 						m_influences =
 						[
 							{
-								_class = "CVattachmentInfluence"
 								m_influenceName = "chest"
 								m_vTranslationOffset =
 								[
@@ -1001,12 +960,10 @@
 						]
 					},
 					{
-						_class = "CVattachment"
 						m_name = "attach_origin"
 						m_influences =
 						[
 							{
-								_class = "CVattachmentInfluence"
 								m_influenceName = "rigged_&_animated_by_marx"
 								m_vTranslationOffset =
 								[
@@ -1026,12 +983,10 @@
 						]
 					},
 					{
-						_class = "CVattachment"
 						m_name = "attach_attack1"
 						m_influences =
 						[
 							{
-								_class = "CVattachmentInfluence"
 								m_influenceName = "hand.R"
 								m_vTranslationOffset =
 								[
@@ -1051,12 +1006,10 @@
 						]
 					},
 					{
-						_class = "CVattachment"
 						m_name = "attach_attack2"
 						m_influences =
 						[
 							{
-								_class = "CVattachmentInfluence"
 								m_influenceName = "hand.L"
 								m_vTranslationOffset =
 								[
@@ -1076,37 +1029,10 @@
 						]
 					},
 					{
-						_class = "CVattachment"
-						m_name = "attach_head"
-						m_influences =
-						[
-							{
-								_class = "CVattachmentInfluence"
-								m_influenceName = "head"
-								m_vTranslationOffset =
-								[
-									0.000000,
-									-5.167421,
-									12.527802,
-								]
-								m_vRotationOffset =
-								[
-									-0.000000,
-									0.000000,
-									-0.000138,
-								]
-								m_flWeight = 1.000000
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						_class = "CVattachment"
 						m_name = "attach_chest"
 						m_influences =
 						[
 							{
-								_class = "CVattachmentInfluence"
 								m_influenceName = "torso"
 								m_vTranslationOffset =
 								[
@@ -1125,6 +1051,29 @@
 							},
 						]
 					},
+					{
+						m_name = "attach_head"
+						m_influences =
+						[
+							{
+								m_influenceName = "head"
+								m_vTranslationOffset =
+								[
+									0.434455,
+									-1.762128,
+									11.385315,
+								]
+								m_vRotationOffset =
+								[
+									-0.000000,
+									0.000000,
+									-0.000100,
+								]
+								m_flWeight = 1.000000
+								m_bRoot = false
+							},
+						]
+					},
 				]
 			}
 		},
@@ -1134,7 +1083,6 @@
 		_class = "CVanimGroupReference"
 		m_pObject =
 		{
-			_class = "CVanimGroup"
 			m_Name = ""
 			m_pReferenceSkeleton =
 			{
@@ -1157,7 +1105,6 @@
 			m_Vanim =
 			[
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_run"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 31
@@ -1165,7 +1112,6 @@
 					m_flFps = 40.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1182,7 +1128,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_RUN"
 							m_nWeight = 1
 						},
@@ -1199,7 +1144,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1218,7 +1162,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1226,7 +1169,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_idle"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 93
@@ -1234,7 +1176,6 @@
 					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1251,7 +1192,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_IDLE"
 							m_nWeight = 1
 						},
@@ -1268,7 +1208,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1287,7 +1226,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1295,7 +1233,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_die"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 1157
@@ -1303,7 +1240,6 @@
 					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1320,7 +1256,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_DIE"
 							m_nWeight = 1
 						},
@@ -1337,7 +1272,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1356,7 +1290,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1364,7 +1297,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_attack1"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 875
@@ -1372,7 +1304,6 @@
 					m_flFps = 40.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1389,7 +1320,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_ATTACK"
 							m_nWeight = 3
 						},
@@ -1406,7 +1336,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1425,7 +1354,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1433,7 +1361,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_attack2"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 938
@@ -1441,7 +1368,6 @@
 					m_flFps = 40.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1458,7 +1384,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_ATTACK"
 							m_nWeight = 1
 						},
@@ -1475,7 +1400,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1494,7 +1418,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1502,7 +1425,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_attack3"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 1094
@@ -1510,7 +1432,6 @@
 					m_flFps = 40.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1527,7 +1448,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_ATTACK"
 							m_nWeight = 2
 						},
@@ -1544,7 +1464,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1563,7 +1482,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1571,7 +1489,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_spell2"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 781
@@ -1579,7 +1496,6 @@
 					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1596,7 +1512,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_CAST_ABILITY_2"
 							m_nWeight = 1
 						},
@@ -1613,7 +1528,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1632,7 +1546,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1640,7 +1553,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_spell1"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 656
@@ -1648,7 +1560,6 @@
 					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1665,7 +1576,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_CAST_ABILITY_1"
 							m_nWeight = 1
 						},
@@ -1682,7 +1592,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1701,7 +1610,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1709,7 +1617,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_spell3"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 593
@@ -1717,7 +1624,6 @@
 					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1734,7 +1640,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_CAST_ABILITY_3"
 							m_nWeight = 1
 						},
@@ -1751,7 +1656,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1770,7 +1674,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1778,7 +1681,6 @@
 					m_MotionFramesRootBone = ""
 				},
 				{
-					_class = "CVanim"
 					m_Animationname = "orochimaru_spell4"
 					m_Filepath = "models/heroes/orochimaru/orochimaruanimation.fbx"
 					m_nStartframe = 531
@@ -1786,7 +1688,6 @@
 					m_flFps = 30.000000
 					m_Loop =
 					{
-						_class = "CAnimationLoop"
 						m_bLoop = false
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
@@ -1803,7 +1704,6 @@
 					m_Activities =
 					[
 						{
-							_class = "CActivity"
 							m_Name = "ACT_DOTA_CAST_ABILITY_4"
 							m_nWeight = 1
 						},
@@ -1820,7 +1720,6 @@
 					m_pAlignAnimation = null
 					m_adjustAnimation =
 					{
-						_class = "CAdjustAnimation"
 						m_translation =
 						[
 							0.000000,
@@ -1839,7 +1738,6 @@
 					]
 					m_sequenceParams =
 					{
-						_class = "CVAnimResourceSequenceParams"
 						m_flFadeInTime = 0.200000
 						m_flFadeOutTime = 0.200000
 					}
@@ -1900,11 +1798,9 @@
 	]
 	m_pMaterialRemapList =
 	{
-		_class = "CVMaterialRemapList"
 		m_vMaterialRemapList =
 		[
 			{
-				_class = "CVMaterialRemap"
 				m_sSearchMaterial = "*"
 				m_sReplaceMaterial = "materials/heroes/orochimaru/orochimaru.vmat"
 			},

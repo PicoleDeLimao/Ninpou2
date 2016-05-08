@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Tsuchikage Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_tsuchikage_armor"
+{
+	// General
+	"ID"							"1228"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_tsuchikage_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"8000"
+	"ItemResult"					"item_tsuchikage_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_sannin_armor;item_doton_orb"
+	}
+}

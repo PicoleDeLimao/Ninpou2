@@ -2768,7 +2768,7 @@
 		"ItemDroppable"					"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"120"
-		"ItemStockInitial"				"3"
+		"ItemStockInitial"				"1"
 		
 		// Special
 		"AbilitySpecial"
@@ -3065,7 +3065,7 @@
 		"ItemDroppable"					"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"120"
-		"ItemStockInitial"				"1"
+		"ItemStockInitial"				"3"
 		
 		"UpgradesItems"					"item_chakra_stone;item_chakra_stone_2;item_chakra_stone_3"
 		"UpgradeRecipe"					"item_recipe_chakra_stone"
@@ -3517,7 +3517,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/DotonKusanagiNoTsurugi/doton_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/doton_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/dotonorb/espirit_rollingboulder.vpcf"
 			"particle"						"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
@@ -3624,7 +3624,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/DotonKusanagiNoTsurugi/doton_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/doton_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{
@@ -4122,7 +4122,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/FuutonKusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
 			"particle"						"particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
@@ -4229,7 +4229,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/FuutonKusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{
@@ -4687,6 +4687,115 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Hokage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_hokage_armor"
+	{
+		// General
+		"ID"							"1223"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_hokage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"katon_resistance"		"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/kagehat/hokage_hat.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_hokage_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/hokage_armor.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/kagehat/hokage_hat.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/hokage_armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Indra Stone
 	//-------------------------------------------------------------------------------------------------------------
 	"item_indra_essence"
@@ -4868,7 +4977,7 @@
 		"ItemDroppable"					"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"120"
-		"ItemStockInitial"				"3"
+		"ItemStockInitial"				"1"
 		"ItemCost"						"3000"
 		
 		// Special
@@ -5058,6 +5167,7 @@
 		{
 			"particle"					"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
 			"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+			"particle"					"particles/econ/courier/courier_greevil_purple/courier_greevil_purple_ambient_3_a.vpcf"
 		}
 		"Modifiers"
 		{
@@ -5074,6 +5184,12 @@
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+				}
+				"AttachEffect"
+				{
+					"Target"			"CASTER"
+					"EffectName"		"particles/econ/courier/courier_greevil_purple/courier_greevil_purple_ambient_3.vpcf"
+					"EffectAttachType"	"attach_hitloc"
 				}
 				"OnCreated"
 				{
@@ -5242,7 +5358,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/KatonKusanagiNoTsurugi/katon_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/katon_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_exort_orb.vpcf"
 			"particle"						"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
@@ -5349,7 +5465,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/KatonKusanagiNoTsurugi/katon_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/katon_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{
@@ -5498,6 +5614,115 @@
 					{
 						"ScriptFile"	"items/katon_orb.lua"
 						"Function"		"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Kazekage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_kazekage_armor"
+	{
+		// General
+		"ID"							"1229"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_kazekage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fuuton_resistance"		"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/kagehat/kazekage_hat.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_kazekage_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/kazekage_armor.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/kagehat/kazekage_hat.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/kazekage_armor.lua"
+						"Function"			"Unequip"
 					}
 				}
 			}
@@ -5759,7 +5984,7 @@
 		"ItemDroppable"					"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"120"
-		"ItemStockInitial"				"1"
+		"ItemStockInitial"				"3"
 		
 		"UpgradesItems"					"item_life_stone;item_life_stone_2;item_life_stone_3"
 		"UpgradeRecipe"					"item_recipe_life_stone"
@@ -5931,6 +6156,115 @@
 					"RunScript"
 					{
 						"ScriptFile"		"items/support.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Mizukage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_mizukage_armor"
+	{
+		// General
+		"ID"							"1225"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_mizukage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"suiton_resistance"		"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/kagehat/mizukage_hat.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_mizukage_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/mizukage_armor.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/kagehat/mizukage_hat.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/mizukage_armor.lua"
 						"Function"			"Unequip"
 					}
 				}
@@ -6156,6 +6490,229 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Otokage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_otokage_armor"
+	{
+		// General
+		"ID"							"1233"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_otokage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"yin_resistance"		"12"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"yang_resistance"		"12"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/kagehat/otokage_hat.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_otokage_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/otokage_armor.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/kagehat/otokage_hat.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/otokage_armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Raikage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_raikage_armor"
+	{
+		// General
+		"ID"							"1231"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_raikage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"raiton_resistance"		"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/kagehat/raikage_hat.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_raikage_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/raikage_armor.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/kagehat/raikage_hat.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/raikage_armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Raiton Kusanagi no Tsurugi
 	//-------------------------------------------------------------------------------------------------------------
 	"item_raiton_kusanagi_no_tsurugi"
@@ -6238,7 +6795,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/RaitonKusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
 			"particle"						"particles/items/raitonorb/invoker_apex_wex_orb.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
@@ -6351,7 +6908,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/RaitonKusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/raiton_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{
@@ -7236,6 +7793,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Hokage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_hokage_armor"
+	{
+		// General
+		"ID"							"1224"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_hokage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"8000"
+		"ItemResult"					"item_hokage_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_sannin_armor;item_katon_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPE: Indra Essence
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_indra_essence"
@@ -7312,6 +7888,25 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Kazekage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_kazekage_armor"
+	{
+		// General
+		"ID"							"1230"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_kazekage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"8000"
+		"ItemResult"					"item_kazekage_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_sannin_armor;item_fuuton_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// RECIPES: Life Stone Level 2
 	//-------------------------------------------------------------------------------------------------------------
 	"item_recipe_life_stone_2"
@@ -7347,6 +7942,25 @@
 		"ItemRequirements"
 		{
 			"01"						"item_life_stone_2"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Mizukage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_mizukage_armor"
+	{
+		// General
+		"ID"							"1226"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_mizukage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"8000"
+		"ItemResult"					"item_mizukage_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_sannin_armor;item_suiton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -7388,6 +8002,45 @@
 			"05"						"item_raiton_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
 			"06"						"item_yin_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
 			"07"						"item_yang_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Otokage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_otokage_armor"
+	{
+		// General
+		"ID"							"1234"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_otokage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"8000"
+		"ItemResult"					"item_otokage_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_sannin_armor;item_yin_orb"
+			"02"						"item_sannin_armor;item_yang_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Raikage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_raikage_armor"
+	{
+		// General
+		"ID"							"1232"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_raikage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"8000"
+		"ItemResult"					"item_raikage_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_sannin_armor;item_raiton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -7464,6 +8117,25 @@
 		"ItemRequirements"
 		{
 			"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_suiton_orb"
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// RECIPES: Tsuchikage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_tsuchikage_armor"
+	{
+		// General
+		"ID"							"1228"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_tsuchikage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"ItemRecipe"					"1"
+		"ItemCost"						"8000"
+		"ItemResult"					"item_tsuchikage_armor"
+		"ItemRequirements"
+		{
+			"01"						"item_sannin_armor;item_doton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -8227,7 +8899,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/SuitonKusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/generic_gameplay/generic_slowed_cold.vpcf"
 			"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf"
 			"particle"						"particles/units/heroes/hero_tidehunter/tidehunter_gush.vpcf"
@@ -8335,7 +9007,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/SuitonKusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{
@@ -8518,6 +9190,115 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Tsuchikage Armor
+	//-------------------------------------------------------------------------------------------------------------
+	"item_tsuchikage_armor"
+	{
+		// General
+		"ID"							"1227"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_tsuchikage_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stats_bonus"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"doton_resistance"		"25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/kagehat/tsuchikage_hat.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_tsuchikage_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Equip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/tsuchikage_armor.lua"
+						"Function"			"Equip"
+					}
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/items/kagehat/tsuchikage_hat.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_head"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/armor.lua"
+						"Function"			"Unequip"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"items/tsuchikage_armor.lua"
+						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Yang Kusanagi no Tsurugi
 	//-------------------------------------------------------------------------------------------------------------
 	"item_yang_kusanagi_no_tsurugi"
@@ -8605,7 +9386,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/YangKusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/econ/courier/courier_axolotl_ambient/courier_axolotl_ambient_lvl4_magic.vpcf"
 			"particle"						"particles/units/heroes/hero_chen/chen_holy_persuasion_a.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
@@ -8712,7 +9493,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/YangKusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{
@@ -9105,7 +9886,7 @@
 		{
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-			"particle"						"particles/items/YinKusanagiNoTsurugi/yin_kusanagi_no_tsurugi.vpcf"
+			"particle"						"particles/items/KusanagiNoTsurugi/yin_kusanagi_no_tsurugi.vpcf"
 			"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
 			"particle"						"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
@@ -9212,7 +9993,7 @@
 					{
 						"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 						"Function"		"Equip"
-						"ParticleName"	"particles/items/YinKusanagiNoTsurugi/yin_kusanagi_no_tsurugi.vpcf"
+						"ParticleName"	"particles/items/KusanagiNoTsurugi/yin_kusanagi_no_tsurugi.vpcf"
 					}
 					"RunScript"
 					{

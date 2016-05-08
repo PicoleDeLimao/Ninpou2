@@ -76,7 +76,7 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		"particle"						"particles/items/FuutonKusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
+		"particle"						"particles/items/KusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone_swirl.vpcf"
 		"particle"						"particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
@@ -183,7 +183,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
-					"ParticleName"	"particles/items/FuutonKusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
+					"ParticleName"	"particles/items/KusanagiNoTsurugi/fuuton_kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

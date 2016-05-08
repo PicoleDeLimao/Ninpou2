@@ -39,6 +39,12 @@
 		},
 		{
 			_class = "C_OP_SetToCP"
+			m_vecOffset =
+			[
+				0.000000,
+				-10.000000,
+				0.000000,
+			]
 		},
 		{
 			_class = "C_OP_SetSingleControlPointPosition"

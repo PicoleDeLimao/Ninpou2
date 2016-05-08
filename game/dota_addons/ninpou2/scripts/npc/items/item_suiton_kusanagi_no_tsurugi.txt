@@ -86,7 +86,7 @@
 	{
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
-		"particle"						"particles/items/SuitonKusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
+		"particle"						"particles/items/KusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/generic_gameplay/generic_slowed_cold.vpcf"
 		"particle"						"particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf"
 		"particle"						"particles/units/heroes/hero_tidehunter/tidehunter_gush.vpcf"
@@ -194,7 +194,7 @@
 				{
 					"ScriptFile"	"items/kusanagi_no_tsurugi.lua"
 					"Function"		"Equip"
-					"ParticleName"	"particles/items/SuitonKusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
+					"ParticleName"	"particles/items/KusanagiNoTsurugi/suiton_kusanagi_no_tsurugi.vpcf"
 				}
 				"RunScript"
 				{

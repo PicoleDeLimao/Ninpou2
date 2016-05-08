@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Kazekage Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_kazekage_armor"
+{
+	// General
+	"ID"							"1230"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_kazekage_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"8000"
+	"ItemResult"					"item_kazekage_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_sannin_armor;item_fuuton_orb"
+	}
+}

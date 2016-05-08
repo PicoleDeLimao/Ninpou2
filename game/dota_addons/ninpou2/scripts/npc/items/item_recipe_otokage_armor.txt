@@ -1,0 +1,20 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Otokage Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_otokage_armor"
+{
+	// General
+	"ID"							"1234"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_otokage_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"8000"
+	"ItemResult"					"item_otokage_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_sannin_armor;item_yin_orb"
+		"02"						"item_sannin_armor;item_yang_orb"
+	}
+}
