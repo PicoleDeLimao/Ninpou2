@@ -18,6 +18,8 @@
 	"item"						"item_bijuu_chakra_armor"
 	"item"						"item_bingo_book"
 	"item"						"item_kagami"
+	"item"						"item_akatsuki_ring"
+	"item"						"item_akatsuki_armor"
   }
 
   "weapons_armor"
@@ -46,6 +48,7 @@
   {
 	"item"						"item_genin_set"
 	"item"						"item_anbu_set"
+	"item"						"item_akatsuki_set"
   }
 
   // Level 2 - Blue Recipes

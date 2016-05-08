@@ -1,0 +1,72 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Akatsuki Ring
+//-------------------------------------------------------------------------------------------------------------
+"item_akatsuki_ring"
+{
+	// General
+	"ID"							"1235"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_akatsuki_ring"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemCost"						"2000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"stats_bonus"			"15"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"attack_bonus"			"50"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+	}
+	"Modifiers"
+	{
+		"modifier_item_akatsuki_ring"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+	}
+}

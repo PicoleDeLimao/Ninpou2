@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Akatsuki Set
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_akatsuki_set"
+{
+	// General
+	"ID"							"1238"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_akatsuki_set"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"4000"
+	"ItemResult"					"item_akatsuki_set"
+	"ItemRequirements"
+	{
+		"01"						"item_akatsuki_ring;item_akatsuki_armor"
+	}
+}
