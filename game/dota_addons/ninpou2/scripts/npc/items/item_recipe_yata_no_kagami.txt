@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Yata no Kagami
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_yata_no_kagami"
+{
+	// General
+	"ID"							"1240"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_yata_no_kagami"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"500"
+	"ItemResult"					"item_yata_no_kagami"
+	"ItemRequirements"
+	{
+		"01"						"item_kagami;item_katon_orb"
+	}
+}

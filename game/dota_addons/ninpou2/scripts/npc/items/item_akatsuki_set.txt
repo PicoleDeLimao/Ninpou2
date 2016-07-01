@@ -62,6 +62,7 @@
 	{
 		"particle"					"particles/items/akatsukihat/akatsuki_hat.vpcf"
 		"particle"					"particles/econ/items/templar_assassin/templar_assassin_focal/templar_assassin_meld_focal.vpcf"
+		"particle"					"particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf"
 	}
 	"Modifiers"
 	{
