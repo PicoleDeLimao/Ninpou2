@@ -4,7 +4,10 @@
 	Implements the Spell Shield functionality
 ]]
 function IsSpellBlocked(target)
-	if target:HasModifier("modifier_item_spell_shield") then
+	if target:HasModifier("modifier_item_susanoo_set") and math.random(0, 100) <= 10 then
+		target:EmitSound("DOTA_Item.LinkensSphere.Activate")
+		return true
+	elseif target:HasModifier("modifier_item_spell_shield") then
 		target:RemoveModifierByName("modifier_item_spell_shield")  --The particle effect is played automatically when this modifier is removed (but the sound isn't).
 		target:EmitSound("DOTA_Item.LinkensSphere.Activate")
 		target.spellShieldCooldown = target.spellShieldCooldownStarting

@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Susano'o Set
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_susanoo_set"
+{
+	// General
+	"ID"							"1244"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_susanoo_set"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"5000"
+	"ItemResult"					"item_susanoo_set"
+	"ItemRequirements"
+	{
+		"01"						"item_totsuka_no_tsurugi;item_yata_no_kagami"
+	}
+}
