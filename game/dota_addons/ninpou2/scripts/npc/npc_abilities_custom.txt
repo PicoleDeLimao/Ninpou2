@@ -958,7 +958,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"				"units/juubi/back_sword.lua"
+				"ScriptFile"				"units/juubi/juubi_back_sword.lua"
 				"Function"					"SpellStart"
 			}
 		}
@@ -1172,16 +1172,7 @@
 		"AbilityTextureName"				"juubi_spell_immunity"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"							"1"
-	
-		// Special 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"lifesteal"					"200"
-			}
-		}
+		"IsHidden"							"1"
 	
 		// Datadriven 
 		"Modifiers"

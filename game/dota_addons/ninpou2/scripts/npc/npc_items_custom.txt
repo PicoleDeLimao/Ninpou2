@@ -8727,7 +8727,10 @@
 			"particle"						"particles/items3_fx/silver_edge_slow.vpcf"
 			"particle"						"particles/items/RikuudouSenninSet/witchdoctor_ribbitar_ward_skull_lv.vpcf"
 			"particle"						"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf"
+			"particle"						"particles/radiant_fx2/radiant_ancient001_destruction_e.vpcf"
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+			"soundfile"						"soundevents/game_sounds_roshan_halloween.vsndevts"
+			"soundfile"						"sounds/physics/damage/building/radiant_tower_destruction_01.vsnd"
 		}
 		"OnSpellStart"
 		{
@@ -8738,13 +8741,17 @@
 				{
 					"Center"				"CASTER"
 				}
-				"Duration"					"300"
 				"UnitCount"					"1"
 				"GrantsGold"				"0"
 				"GrantsXP"					"0"
 				"SpawnRadius"				"10"
 				"OnSpawn"
 				{
+					"FireSound"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"RoshanDT.Toss"
+					}
 					"RunScript"
 					{
 						"ScriptFile"		"items/rikuudou_sennin_set.lua"
@@ -8761,11 +8768,6 @@
 						"Target"			"TARGET"
 						"ModifierName"		"modifier_kuchiyose"
 						"Duration"			"%duration"
-					}
-					"FireEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_final_explosion_smoke.vpcf"
 					}
 				}
 			}

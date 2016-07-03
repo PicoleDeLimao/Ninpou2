@@ -1397,7 +1397,7 @@
 					m_Animationname = "juubi_die"
 					m_Filepath = "models/units/Juubi/Juubi.FBX"
 					m_nStartframe = 360
-					m_nEndframe = 417
+					m_nEndframe = 410
 					m_flFps = 30.0
 					m_Loop = 
 					{

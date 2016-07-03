@@ -302,10 +302,10 @@ function GameMode:OnEntityKilled( keys )
 	end
 	-- Show proper death animation for buildings 
 	if killedUnit:GetClassname() == "npc_dota_tower" or killedUnit:GetClassname() == "npc_dota_barracks" and killedUnit:GetUnitName() ~= "npc_konoha_base_unit" and killedUnit:GetUnitName() ~= "npc_oto_base_unit" and killedUnit:GetUnitName() ~= "npc_akatsuki_base_unit" then 
-		local particle1 = ParticleManager:CreateParticle("particles/siege_fx/siege_good_death_01.vpcf", PATTACH_CUSTOMORIGIN, killedUnit)
+		local particle1 = ParticleManager:CreateParticle("particles/siege_fx/siege_good_death_01.vpcf", PATTACH_ABSORIGIN, killedUnit)
 		ParticleManager:SetParticleControl(particle1, 0, killedUnit:GetAbsOrigin())
 		ParticleManager:SetParticleControlOrientation(particle1, 1, Vector(100, 0, 0), Vector(0, 0, 0), Vector(0, 0, 100))
-		local particle2 = ParticleManager:CreateParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", PATTACH_CUSTOMORIGIN, killedUnit)
+		local particle2 = ParticleManager:CreateParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", PATTACH_ABSORIGIN, killedUnit)
 		ParticleManager:SetParticleControl(particle2, 0, killedUnit:GetAbsOrigin())
 		ParticleManager:SetParticleControl(particle2, 1, killedUnit:GetAbsOrigin())
 		ParticleManager:SetParticleControl(particle2, 3, killedUnit:GetAbsOrigin())
@@ -321,6 +321,15 @@ function GameMode:OnEntityKilled( keys )
 	-- Additional gold for bing book 
 	if killerEntity:HasItemInInventory("item_bingo_book") or killerEntity:HasItemInInventory("item_anbu_mask") or killerEntity:HasItemInInventory("item_anbu_set") then 
 		Players:AddGoldToUnit(killerEntity, killerEntity.bingoReward)
+	end
+	-- Check if is juubi
+	if killedUnit:GetUnitName() == "npc_juubi_unit" then 
+		local item = CreateItem("item_rikuudou_sennin_set", nil, nil)
+		CreateItemOnPositionSync(killedUnit:GetAbsOrigin(), item)
+		local particle = ParticleManager:CreateParticle("particles/radiant_fx2/radiant_ancient001_destruction_e.vpcf", PATTACH_ABSORIGIN, killedUnit)
+		ParticleManager:SetParticleControl(particle, 1, Vector(800, 800, 800))
+		killedUnit:EmitSound("Building_RadiantTower.Destruction")
+		--killedUnit:AddNoDraw()
 	end
 end
 

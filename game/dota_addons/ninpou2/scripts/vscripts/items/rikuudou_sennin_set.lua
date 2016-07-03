@@ -68,6 +68,7 @@ function SummonJuubi(event)
 	local ability = event.ability
 	local juubi = nil 
 	local units = Entities:FindAllByNameWithin("npc_dota_creature", caster:GetAbsOrigin(), 600)
+	caster:RemoveItem(ability)
 	for _, unit in pairs(units) do 
 		if unit:GetUnitName() == "npc_juubi_unit" and unit:GetOwner() == caster then 
 			local juubi = unit 
@@ -75,7 +76,7 @@ function SummonJuubi(event)
 			for count = 1,20 do
 				Timers:CreateTimer(0.5+count/10.0, function()
 					local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, juubi)
-					particle:SetParticleControlEnt(particle, 1, juubi:GetAbsOrigin())
+					ParticleManager:SetParticleControlEnt(particle, 1, juubi:GetAbsOrigin())
 					Timers:CreateTimer(2.0, function()
 						ParticleManager:DestroyParticle(particle, false)
 					end)

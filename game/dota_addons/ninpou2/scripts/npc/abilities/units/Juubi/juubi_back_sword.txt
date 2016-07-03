@@ -13,7 +13,7 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"				"units/juubi/back_sword.lua"
+			"ScriptFile"				"units/juubi/juubi_back_sword.lua"
 			"Function"					"SpellStart"
 		}
 	}

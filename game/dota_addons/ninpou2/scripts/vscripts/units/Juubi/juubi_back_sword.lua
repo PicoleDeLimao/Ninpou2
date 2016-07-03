@@ -7,5 +7,5 @@
 function SpellStart(event)
 	local caster = event.caster 
 	local ability = event.ability
-	caster:Kill()
+	caster:ForceKill(true)
 end

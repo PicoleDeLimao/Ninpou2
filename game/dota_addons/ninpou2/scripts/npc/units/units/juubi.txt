@@ -9,13 +9,13 @@
 	"ConsideredHero"			"1"
 
 	// Armor 
-	"ArmorPhysical"				"0"
+	"ArmorPhysical"				"100"
 	"MagicalResistance" 		"0"
 
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"500"
-	"AttackDamageMax"			"550"
+	"AttackDamageMin"			"700"
+	"AttackDamageMax"			"750"
 	"AttackRate"				"1.0"
 	"AttackAnimationPoint"		"0.30"
 	"AttackAcquisitionRange"	"800"
@@ -54,8 +54,9 @@
 
 	// Abilities
 	"AbilitiesLayout"           "4"
-	"Ability1"					"juubi_cleave_attack"
-	"Ability2"                  "juubi_critical_strike"
-	"Ability3"					"juubi_life_steal"
-	"Ability4"					"juubi_spell_immunity"
+	"Ability1"					"juubi_back_sword"
+	"Ability2"					"juubi_cleave_attack"
+	"Ability3"                  "juubi_critical_strike"
+	"Ability4"					"juubi_life_steal"
+	"Ability5"					"juubi_spell_immunity"
 }
