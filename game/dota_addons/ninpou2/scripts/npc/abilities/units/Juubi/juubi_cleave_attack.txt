@@ -1,0 +1,48 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Juubi Cleave Attack
+//-------------------------------------------------------------------------------------------------------------
+"juubi_cleave_attack"
+{
+	// General 
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"juubi_cleave_attack"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxLevel"							"1"
+
+	// Special 
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_bonus"			"100"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"splash_area"			"200"
+		}
+	}
+
+	// Datadriven 
+	"precache"
+	{
+		"particle"						"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_juubi_cleave_attack"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"units/juubi/juubi_cleave_attack.lua"
+					"Function"		"AttackLanded"
+				}
+			}
+		}
+	}
+}

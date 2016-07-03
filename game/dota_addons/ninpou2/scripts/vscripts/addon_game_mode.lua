@@ -23,6 +23,9 @@ require('units/AI/elite_anbu_ai')
 -- AI for elite anbu leader units 
 require('units/AI/elite_anbu_leader_ai')
 
+-- AI for Juubi 
+require('units/AI/juubi_ai')
+
 require('gamemode')
 
 function Precache( context )

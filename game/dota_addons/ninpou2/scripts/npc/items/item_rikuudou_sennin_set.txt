@@ -1,0 +1,224 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Rikuudou Sennin Set
+//-------------------------------------------------------------------------------------------------------------
+"item_rikuudou_sennin_set"
+{
+	// General
+	"ID"							"1244"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_rikuudou_sennin_set"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE"
+	
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	// Ability 
+	"AbilityCooldown"				"1000"
+	"AbilityCastPoint"				"0"
+	"AbilityManaCost"				"500"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"stats_bonus"			"100"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"health_bonus"			"5000"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"attack_bonus"			"300"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"attack_speed_bonus"	"50"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"crit_chance"			"30"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"crit_bonus"			"700"
+		}
+		"06"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"crit_area"				"600"
+		}
+		"07"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"slow_effect"			"25"
+		}
+		"08"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"slow_duration"			"2.0"
+		}
+		"09"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"elemental_damage_bonus" "25"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"						"particles/items/NunobokoNoKen/rikuudou_sennin_set.vpcf"
+		"particle"						"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+		"particle"						"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5.vpcf"
+		"particle"						"particles/items3_fx/silver_edge_slow.vpcf"
+		"particle"						"particles/items/RikuudouSenninSet/witchdoctor_ribbitar_ward_skull_lv.vpcf"
+		"particle"						"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"SpawnUnit"
+		{
+			"UnitName"					"npc_juubi_unit"
+			"Target"
+			{
+				"Center"				"CASTER"
+			}
+			"Duration"					"300"
+			"UnitCount"					"1"
+			"GrantsGold"				"0"
+			"GrantsXP"					"0"
+			"SpawnRadius"				"10"
+			"OnSpawn"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/rikuudou_sennin_set.lua"
+					"Function"			"SummonJuubi"
+				}
+				"ApplyModifier"
+				{
+					"Target"			"TARGET"
+					"ModifierName"		"modifier_phase"
+					"Duration"			"0.03"
+				}
+				"ApplyModifier"
+				{
+					"Target"			"TARGET"
+					"ModifierName"		"modifier_kuchiyose"
+					"Duration"			"%duration"
+				}
+				"FireEffect"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_sphere_final_explosion_smoke.vpcf"
+				}
+			}
+		}
+		
+	}
+	"Modifiers"
+	{
+		"modifier_item_rikuudou_sennin_set"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+			}
+			"OnAttackStart"
+			{
+				"RemoveModifier"
+				{
+					"Target"			"CASTER"
+					"ModifierName"		"modifier_item_kusanagi_no_tsurugi_crit"
+				}
+				"Random"
+				{
+					"Chance"		"%crit_chance"
+					"PseudoRandom"  "DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+					"OnSuccess"
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"items/rikuudou_sennin_set.lua"
+							"Function"		"CriticalStrike"
+						}
+						"FireSound"
+						{
+							"Target"		"TARGET"
+							"EffectName"	"Hero_ShadowDemon.DemonicPurge.Cast"
+						}
+					}
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/rikuudou_sennin_set.lua"
+					"Function"		"Equip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Equip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/set.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/rikuudou_sennin_set.lua"
+					"Function"		"Unequip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/weapon.lua"
+					"Function"		"Unequip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"items/set.lua"
+					"Function"		"Unequip"
+				}
+			}
+		}
+		"modifier_item_rikuudou_sennin_set_slow"
+		{
+			"IsDebuff"				"1"
+			"EffectName"			"particles/items3_fx/silver_edge_slow.vpcf"
+			"EffectAttachType"		"attach_hitloc"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_effect"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_effect"
+			}
+		}
+	}
+}

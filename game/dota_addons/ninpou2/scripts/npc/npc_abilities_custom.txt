@@ -944,6 +944,259 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Juubi Back to Sword Form
+	//-------------------------------------------------------------------------------------------------------------
+	"juubi_back_sword"
+	{
+		// General 
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"juubi_back_sword"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE"
+		"MaxLevel"							"1"
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"				"units/juubi/back_sword.lua"
+				"Function"					"SpellStart"
+			}
+		}
+		
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Juubi Cleave Attack
+	//-------------------------------------------------------------------------------------------------------------
+	"juubi_cleave_attack"
+	{
+		// General 
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"juubi_cleave_attack"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"							"1"
+	
+		// Special 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_area"			"200"
+			}
+		}
+	
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_juubi_cleave_attack"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/juubi/juubi_cleave_attack.lua"
+						"Function"		"AttackLanded"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Juubi Critical Strike
+	//-------------------------------------------------------------------------------------------------------------
+	"juubi_critical_strike"
+	{
+		// General 
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"ninken_critical_strike"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"							"1"
+	
+		// Special 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_bonus"				"1000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"25"
+			}
+		}
+	
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+			"particle"						"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+		}
+		"Modifiers"
+		{
+			"modifier_juubi_critical_strike"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"OnAttackStart"
+				{
+					"RemoveModifier"
+					{
+						"Target"			"CASTER"
+						"ModifierName"		"modifier_juubi_critical_strike_crit"
+					}
+					"Random"
+					{
+						"Chance"				"%crit_chance"
+						"OnSuccess"
+						{
+							"FireEffect"
+							{
+								"Target"		"CASTER"
+								"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+								"EffectAttachType"	"attach_attack1"
+							}
+							"FireSound"
+							{
+								"Target"		"CASTER"
+								"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+							}
+							"ApplyModifier"
+							{
+								"Target"		"CASTER"
+								"ModifierName"	"modifier_juubi_critical_strike_crit"
+							}
+						}
+					}
+				}
+			}
+			"modifier_juubi_critical_strike_crit"
+			{
+				"IsHidden"					"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
+				}
+				"OnAttackLanded"
+				{
+					"FireEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+					}
+					"RemoveModifier"
+					{
+						"Target"			"CASTER"
+						"ModifierName"		"modifier_juubi_critical_strike_crit"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Juubi Life Steal
+	//-------------------------------------------------------------------------------------------------------------
+	"juubi_life_steal"
+	{
+		// General 
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"juubi_life_steal"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"							"1"
+	
+		// Special 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"lifesteal"					"200"
+			}
+		}
+	
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_undying/undying_fg_aura.vpcf"
+			"particle"						"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_juubi_life_steal"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"EffectName"				"particles/units/heroes/hero_undying/undying_fg_aura.vpcf"
+				"EffectAttachType"			"follow_origin"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"units/juubi/juubi_life_steal.lua"
+						"Function"			"LifeSteal"
+					}
+					"FireEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_chest"
+						}
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Juubi Spell Immunity
+	//-------------------------------------------------------------------------------------------------------------
+	"juubi_spell_immunity"
+	{
+		// General 
+		"BaseClass"							"ability_datadriven"
+		"AbilityTextureName"				"juubi_spell_immunity"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"							"1"
+	
+		// Special 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"lifesteal"					"200"
+			}
+		}
+	
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_spell_immunity"
+			{
+				"Passive"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// UNITS: Medical Ninja's Heal 
 	//-------------------------------------------------------------------------------------------------------------
 	"medical_ninja_heal"
@@ -981,7 +1234,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_per_think"	"100"
+				"heal_per_think"	"75"
 			}
 		}
 	

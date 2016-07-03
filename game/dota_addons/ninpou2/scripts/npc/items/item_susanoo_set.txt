@@ -31,12 +31,12 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"health_bonus"			"500"
+			"attack_bonus"			"150"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"attack_bonus"			"150"
+			"health_bonus"			"500"
 		}
 		"03"
 		{

@@ -8,14 +8,17 @@
 
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"350"
-	"AttackDamageMax"			"450"
+	"AttackDamageMin"			"550"
+	"AttackDamageMax"			"650"
 	"AttackRate"				"1.0"
 	"AttackAcquisitionRange"	"800"
 	"AttackRange"				"600"
 	"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
 	"ProjectileSpeed"			"1100"
 		
+	// Armor 
+	"ArmorPhysical"				"25"
+
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 	"RingRadius"				"180"

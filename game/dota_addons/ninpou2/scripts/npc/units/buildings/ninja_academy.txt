@@ -6,7 +6,7 @@
 	"ModelScale"				"1.85"
 
 	// Armor 
-	"PhysicalArmor"				"10"
+	"PhysicalArmor"				"50"
 
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"

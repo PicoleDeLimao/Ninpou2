@@ -1,0 +1,61 @@
+"npc_juubi_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/juubi/juubi.vmdl" 
+	"ModelScale"				"1.0"
+	"SoundSet"          		"n_creep_Ranged"  
+	"Level"           			"10"   
+	"ConsideredHero"			"1"
+
+	// Armor 
+	"ArmorPhysical"				"0"
+	"MagicalResistance" 		"0"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"500"
+	"AttackDamageMax"			"550"
+	"AttackRate"				"1.0"
+	"AttackAnimationPoint"		"0.30"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"450"
+	"ProjectileModel"			""
+	"ProjectileSpeed"			"800"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_HUGE"
+	"RingRadius"				"150"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"200"
+
+	// Team
+	//"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"30000"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"1.0"
+
+	// Bounty
+	"BountyXP"					"100"
+	"BountyGoldMin"       	    "180"      // Gold earned min.
+	"BountyGoldMax"      	    "220"      // Gold earned max.
+
+	// Abilities
+	"AbilitiesLayout"           "4"
+	"Ability1"					"juubi_cleave_attack"
+	"Ability2"                  "juubi_critical_strike"
+	"Ability3"					"juubi_life_steal"
+	"Ability4"					"juubi_spell_immunity"
+}

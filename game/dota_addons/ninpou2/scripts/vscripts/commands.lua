@@ -55,3 +55,15 @@ function Commands:DefeatTeamAkatsukiCommand()
 	print("[CHEATS] Defeating Akatsuki team")
 	NinpouGameRules:DefeatTeam(DOTA_TEAM_CUSTOM_1)
 end
+
+-- Spawn the Juubi
+function Commands:SpawnJuubiCommand()
+	print("[CHEATS] Spawning Juubi")
+	local cmdPlayer = Convars:GetCommandClient()
+	if cmdPlayer then
+		local playerID = cmdPlayer:GetPlayerID()
+		local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+		local juubi = CreateUnitByName('npc_juubi_unit', hero:GetAbsOrigin(), true, hero, hero, hero:GetTeamNumber())
+		JuubiAI:Start(juubi)
+	end
+end

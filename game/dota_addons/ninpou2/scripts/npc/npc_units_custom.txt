@@ -8,14 +8,17 @@
 			
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"550"
-		"AttackDamageMax"			"650"
+		"AttackDamageMin"			"650"
+		"AttackDamageMax"			"750"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 			
+		// Armor 
+		"PhysicalArmor"				"50"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
 		"RingRadius"				"400"
@@ -56,14 +59,17 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"250"
-		"AttackDamageMax"			"350"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"450"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
-			
+	
+		// Armor 
+		"ArmorPhysical"				"10"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 		"RingRadius"				"180"
@@ -108,14 +114,17 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"350"
-		"AttackDamageMax"			"450"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"650"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
-			
+					
+		// Armor 
+		"ArmorPhysical"				"25"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 		"RingRadius"				"180"
@@ -154,14 +163,17 @@
 			
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"550"
-		"AttackDamageMax"			"650"
+		"AttackDamageMin"			"650"
+		"AttackDamageMax"			"750"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
-			
+		
+		// Armor 
+		"PhysicalArmor"				"50"
+		
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
 		"RingRadius"				"400"
@@ -202,14 +214,17 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"250"
-		"AttackDamageMax"			"350"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"450"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 			
+		// Armor 
+		"ArmorPhysical"				"10"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 		"RingRadius"				"180"
@@ -254,14 +269,17 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"350"
-		"AttackDamageMax"			"450"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"650"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 			
+		// Armor 
+		"ArmorPhysical"				"25"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 		"RingRadius"				"180"
@@ -300,7 +318,7 @@
 		"ModelScale"				"1.85"
 	
 		// Armor 
-		"PhysicalArmor"				"10"
+		"PhysicalArmor"				"50"
 	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
@@ -324,14 +342,17 @@
 			
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"550"
-		"AttackDamageMax"			"650"
+		"AttackDamageMin"			"650"
+		"AttackDamageMax"			"750"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 			
+		// Armor 
+		"PhysicalArmor"				"50"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
 		"RingRadius"				"400"
@@ -372,14 +393,17 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"250"
-		"AttackDamageMax"			"350"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"450"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 			
+		// Armor 
+		"ArmorPhysical"				"10"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 		"RingRadius"				"180"
@@ -424,14 +448,17 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"350"
-		"AttackDamageMax"			"450"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"650"
 		"AttackRate"				"1.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 			
+		// Armor 
+		"ArmorPhysical"				"25"
+	
 		// Bounds
 		"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
 		"RingRadius"				"180"
@@ -515,9 +542,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
-		"AttackRate"				"1.75"
+		"AttackDamageMin"			"40"
+		"AttackDamageMax"			"45"
+		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.30"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
@@ -567,9 +594,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"50"
-		"AttackDamageMax"			"55"
-		"AttackRate"				"1.75"
+		"AttackDamageMin"			"60"
+		"AttackDamageMax"			"65"
+		"AttackRate"				"1.5"
 		"AttackRange"				"100"
 	
 		// Vision
@@ -616,9 +643,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"70"
-		"AttackDamageMax"			"90"
-		"AttackRate"				"2.0"
+		"AttackDamageMin"			"90"
+		"AttackDamageMax"			"110"
+		"AttackRate"				"1.75"
 		"AttackRange"				"100"
 	
 		// Vision
@@ -774,6 +801,67 @@
 		"Ability4"					"elite_anbu_leader_fuuton_jutsu"
 		"Ability5"					"elite_anbu_leader_raiton_jutsu"
 	}
+	"npc_juubi_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/units/juubi/juubi.vmdl" 
+		"ModelScale"				"1.0"
+		"SoundSet"          		"n_creep_Ranged"  
+		"Level"           			"10"   
+		"ConsideredHero"			"1"
+	
+		// Armor 
+		"ArmorPhysical"				"0"
+		"MagicalResistance" 		"0"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"500"
+		"AttackDamageMax"			"550"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.30"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"450"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_HUGE"
+		"RingRadius"				"150"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"200"
+	
+		// Team
+		//"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	
+		// Status 
+		"StatusHealth"				"30000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"1.0"
+	
+		// Bounty
+		"BountyXP"					"100"
+		"BountyGoldMin"       	    "180"      // Gold earned min.
+		"BountyGoldMax"      	    "220"      // Gold earned max.
+	
+		// Abilities
+		"AbilitiesLayout"           "4"
+		"Ability1"					"juubi_cleave_attack"
+		"Ability2"                  "juubi_critical_strike"
+		"Ability3"					"juubi_life_steal"
+		"Ability4"					"juubi_spell_immunity"
+	}
 	"npc_konoha_chunnin_unit"
 	{
 		// General
@@ -788,9 +876,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
-		"AttackRate"				"1.75"
+		"AttackDamageMin"			"40"
+		"AttackDamageMax"			"45"
+		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.30"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
@@ -840,9 +928,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"50"
-		"AttackDamageMax"			"55"
-		"AttackRate"				"1.75"
+		"AttackDamageMin"			"60"
+		"AttackDamageMax"			"65"
+		"AttackRate"				"1.5"
 		"AttackRange"				"100"
 	
 		// Vision
@@ -989,9 +1077,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"35"
-		"AttackRate"				"1.75"
+		"AttackDamageMin"			"40"
+		"AttackDamageMax"			"45"
+		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.30"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
@@ -1041,9 +1129,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"50"
-		"AttackDamageMax"			"55"
-		"AttackRate"				"1.75"
+		"AttackDamageMin"			"60"
+		"AttackDamageMax"			"65"
+		"AttackRate"				"1.5"
 		"AttackRange"				"100"
 	
 		// Vision

@@ -209,4 +209,5 @@ function GameMode:InitGameMode()
   Convars:RegisterCommand("defeatkonoha", Dynamic_Wrap(Commands, 'DefeatTeamKonohaCommand'), "Defeat the Konohagakure team", FCVAR_CHEAT)
   Convars:RegisterCommand("defeatoto", Dynamic_Wrap(Commands, 'DefeatTeamOtoCommand'), "Defeat the Otogakure team", FCVAR_CHEAT)
   Convars:RegisterCommand("defeatakatsuki", Dynamic_Wrap(Commands, 'DefeatTeamAkatsukiCommand'), "Defeat the Akatsuki team", FCVAR_CHEAT)
+  Convars:RegisterCommand("spawnjuubi", Dynamic_Wrap(Commands, 'SpawnJuubiCommand'), "Spawn the juubi", FCVAR_CHEAT)
 end

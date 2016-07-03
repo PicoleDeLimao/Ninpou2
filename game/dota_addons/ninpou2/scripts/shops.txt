@@ -50,6 +50,7 @@
 	"item"						"item_anbu_set"
 	"item"						"item_akatsuki_set"
 	"item"						"item_susanoo_set"
+	"item"						"item_rikuudou_sennin_set"
   }
 
   // Level 2 - Blue Recipes

@@ -12,9 +12,9 @@
 
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-	"AttackDamageMin"			"50"
-	"AttackDamageMax"			"55"
-	"AttackRate"				"1.75"
+	"AttackDamageMin"			"60"
+	"AttackDamageMax"			"65"
+	"AttackRate"				"1.5"
 	"AttackRange"				"100"
 
 	// Vision

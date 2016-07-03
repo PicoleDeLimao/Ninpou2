@@ -1,0 +1,55 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Juubi Life Steal
+//-------------------------------------------------------------------------------------------------------------
+"juubi_life_steal"
+{
+	// General 
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"juubi_life_steal"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxLevel"							"1"
+
+	// Special 
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"lifesteal"					"200"
+		}
+	}
+
+	// Datadriven 
+	"precache"
+	{
+		"particle"						"particles/units/heroes/hero_undying/undying_fg_aura.vpcf"
+		"particle"						"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_juubi_life_steal"
+		{
+			"Passive"					"1"
+			"IsHidden"					"1"
+			"EffectName"				"particles/units/heroes/hero_undying/undying_fg_aura.vpcf"
+			"EffectAttachType"			"follow_origin"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"units/juubi/juubi_life_steal.lua"
+					"Function"			"LifeSteal"
+				}
+				"FireEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_oracle/oracle_false_promise_heal.vpcf"
+					"EffectAttachType"	"follow_origin"
+					"ControlPointEntities"
+					{
+						"CASTER"			"attach_chest"
+					}
+				}
+			}
+		}
+	}
+}

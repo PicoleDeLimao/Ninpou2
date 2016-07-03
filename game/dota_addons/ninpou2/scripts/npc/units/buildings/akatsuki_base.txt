@@ -6,14 +6,17 @@
 		
 	// Attack 
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-	"AttackDamageMin"			"550"
-	"AttackDamageMax"			"650"
+	"AttackDamageMin"			"650"
+	"AttackDamageMax"			"750"
 	"AttackRate"				"1.0"
 	"AttackAcquisitionRange"	"800"
 	"AttackRange"				"600"
 	"ProjectileModel"			"particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf"
 	"ProjectileSpeed"			"1100"
 		
+	// Armor 
+	"PhysicalArmor"				"50"
+
 	// Bounds
 	"BoundsHullName"        	"DOTA_HULL_SIZE_BUILDING"
 	"RingRadius"				"400"
