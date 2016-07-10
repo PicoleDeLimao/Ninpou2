@@ -1,5 +1,4 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
--- Do not remove the GameMode:_Function calls in these events as it will mess with the internal barebones systems.
 
 -- Cleanup a player when they leave
 function GameMode:OnDisconnect(keys)
@@ -16,9 +15,6 @@ end
 function GameMode:OnGameRulesStateChange(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
   DebugPrintTable(keys)
-
-  -- This internal handling is used to set up main barebones functions
-  GameMode:_OnGameRulesStateChange(keys)
 
   local newState = GameRules:State_Get()
 end
@@ -44,9 +40,6 @@ end
 function GameMode:OnNPCSpawned(keys)
   DebugPrint("[BAREBONES] NPC Spawned")
   DebugPrintTable(keys)
-
-  -- This internal handling is used to set up main barebones functions
-  GameMode:_OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
   -- Initialize AI behavior for medical ninjas
@@ -263,8 +256,6 @@ function GameMode:OnEntityKilled( keys )
 	DebugPrint( '[BAREBONES] OnEntityKilled Called' )
 	DebugPrintTable( keys )
 
-	GameMode:_OnEntityKilled( keys )
-
 	-- The Unit that was Killed
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )
 	-- The Killing entity
@@ -302,17 +293,19 @@ function GameMode:OnEntityKilled( keys )
 	end
 	-- Show proper death animation for buildings 
 	if killedUnit:GetClassname() == "npc_dota_tower" or killedUnit:GetClassname() == "npc_dota_barracks" and killedUnit:GetUnitName() ~= "npc_konoha_base_unit" and killedUnit:GetUnitName() ~= "npc_oto_base_unit" and killedUnit:GetUnitName() ~= "npc_akatsuki_base_unit" then 
-		--local particle1 = ParticleManager:CreateParticle("particles/siege_fx/siege_good_death_01.vpcf", PATTACH_ABSORIGIN, killedUnit)
-		--ParticleManager:SetParticleControl(particle1, 0, killedUnit:GetAbsOrigin())
-		--ParticleManager:SetParticleControlOrientation(particle1, 1, Vector(100, 0, 0), Vector(0, 0, 0), Vector(0, 0, 100))
-		--local particle2 = ParticleManager:CreateParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", PATTACH_ABSORIGIN, killedUnit)
-		--ParticleManager:SetParticleControl(particle2, 0, killedUnit:GetAbsOrigin())
-		--ParticleManager:SetParticleControl(particle2, 1, killedUnit:GetAbsOrigin())
-		--ParticleManager:SetParticleControl(particle2, 3, killedUnit:GetAbsOrigin())
-		--ParticleManager:SetParticleControl(particle2, 7, Vector(300, 300, 300))
-		--ParticleManager:SetParticleControl(particle2, 8, killedUnit:GetAbsOrigin())
+		local particle1 = ParticleManager:CreateParticle("particles/siege_fx/siege_good_death_01.vpcf", PATTACH_ABSORIGIN, killedUnit)
+		ParticleManager:SetParticleControl(particle1, 0, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControlOrientation(particle1, 1, Vector(100, 0, 0), Vector(0, 0, 0), Vector(0, 0, 100))
+		local particle2 = ParticleManager:CreateParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", PATTACH_ABSORIGIN, killedUnit)
+		ParticleManager:SetParticleControl(particle2, 0, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 1, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 3, killedUnit:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle2, 7, Vector(300, 300, 300))
+		ParticleManager:SetParticleControl(particle2, 8, killedUnit:GetAbsOrigin())
 		killedUnit:EmitSound("Building_DireTower.Destruction")
-		killedUnit:AddNoDraw()
+		Timers:CreateTimer(1.0, function()
+			killedUnit:AddNoDraw()
+		end)
 	end
 	-- Kuchiyoses don't display corpses nor death animation
 	if killedUnit.is_kuchiyose then 
@@ -345,8 +338,6 @@ function GameMode:OnConnectFull(keys)
   DebugPrint('[BAREBONES] OnConnectFull')
   DebugPrintTable(keys)
 
-  GameMode:_OnConnectFull(keys)
-  
   local entIndex = keys.index+1
   -- The Player entity of the joining user
   local ply = EntIndexToHScript(entIndex)

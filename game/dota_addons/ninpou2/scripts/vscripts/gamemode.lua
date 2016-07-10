@@ -1,4 +1,5 @@
 -- This is the primary barebones gamemode script and should be used to assist in initializing your game mode
+BAREBONES_VERSION = "1.00"
 
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
@@ -21,7 +22,17 @@ require('libraries/notifications')
 require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
 require('libraries/attachments')
--- This library can be used for performing "popup" messages over the head of units
+-- This library can be used to synchronize client-server data via player/client-specific nettables
+require('libraries/playertables')
+-- This library can be used to create container inventories or container shops
+require('libraries/containers')
+-- This library provides a searchable, automatically updating lua API in the tools-mode via "modmaker_api" console command
+require('libraries/modmaker')
+-- This library provides an automatic graph construction of path_corner entities within the map
+require('libraries/pathgraph')
+-- This library (by Noya) provides player selection inspection and management from server lua
+require('libraries/selection')
+-- This library provides popups
 require('libraries/popups')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
@@ -81,8 +92,6 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-  -- Set player gold to a starting value
-  hero:SetGold(500, false)
 end
                   
 -- Spawn creeps for a determined lane

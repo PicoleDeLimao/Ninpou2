@@ -23,7 +23,9 @@ function Unequip(event)
 		ParticleManager:DestroyParticle(caster.kusanagiNoTsurugiParticle, false)
 		caster.kusanagiNoTsurugiParticle = nil
 	end
-	caster.kusanagiNoTsurugiCount = caster.kusanagiNoTsurugiCount - 1
+	if caster.kusanagiNoTsurugiCount then
+		caster.kusanagiNoTsurugiCount = caster.kusanagiNoTsurugiCount - 1
+	end
 end
 
 function ProjectileStart(event)

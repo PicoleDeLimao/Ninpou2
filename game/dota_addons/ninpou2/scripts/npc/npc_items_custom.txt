@@ -3929,6 +3929,7 @@
 			{
 				"EffectName"            	"particles/items_fx/healing_flask.vpcf"
 				"EffectAttachType"      	"follow_origin"
+				"TextureName"       		"item_curry_of_life"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%hp_recover_per_sec"
@@ -4406,6 +4407,7 @@
 			{
 				"IsBuff"				"1"
 				"IsPurgable"			"1"
+				"TextureName"       	"item_food_pills"
 				"EffectName"			"particles/items2_fx/phase_boots.vpcf"
 				"EffectAttachType"		"follow_origin"
 				"Properties"
@@ -5541,6 +5543,7 @@
 		{
 			"modifier_item_ichiraku_ramen"
 			{
+				"TextureName"       	"item_ichiraku_ramen"
 				"OnCreated"
 				{
 					"AttachEffect"

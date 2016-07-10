@@ -78,7 +78,7 @@
 			"EffectAttachType"		"follow_origin"
 			"Properties"
 			{
-				"MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE"	"%damage_bonus"
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_bonus"
 			}
 		}
 	}
