@@ -104,12 +104,16 @@
 
   "sideshop1"
   {
-    
+    "item"						"item_fried_fish"
+	"item"						"item_chakra_sweets"
+	"item"						"item_curry_of_life"
+	"item"						"item_ichiraku_ramen"
   }
 
   "sideshop2"
   {
-    
+    "item"						"item_food_pills"
+	"item"						"item_three_colored_pills"
   }
   
   "secretshop"

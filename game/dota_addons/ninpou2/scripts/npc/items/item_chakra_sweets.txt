@@ -1,0 +1,71 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Chakra Sweets
+//-------------------------------------------------------------------------------------------------------------
+"item_chakra_sweets"
+{
+	// General
+	"ID"							"1247"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_chakra_sweets"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE"
+	
+	"ItemCost"						"250"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"5"
+	"ItemStockTime"					"30"
+	"ItemStockInitial"				"5"
+	"ItemInitialCharges"            "10"
+	"ItemRequiresCharges" 			"1"	
+	"ItemDisplayCharges" 			"1"
+	"ItemStackable"                 "1"
+    "ItemPermanent"                 "0"
+	"RequiresManaDeficit"			"1"
+	"ItemShopTags"					"consumable"
+	"ItemQuality"					"consumable"
+	
+	// Ability 
+	"AbilityCooldown"				"5"
+	"AbilityCastPoint"				"0"
+	"AbilityManaCost"				"0"
+	"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+	
+	"AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"          	"FIELD_INTEGER"
+            "mp_recover"			"200"
+        }
+    }
+	
+	// Datadriven
+	"precache"
+	{
+		"particle"					"particles/items/chakrasweets/oracle_false_promise_heal.vpcf"
+		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"SpendCharge"			{}
+		"RunScript"
+		{
+			"ScriptFile"		"items/mana.lua"
+			"Function"			"GiveMana"
+			"mana_amount"		"%mp_recover"
+		}
+		"FireEffect"
+		{
+			"Target"			"CASTER"
+			"EffectName"		"particles/items/chakrasweets/oracle_false_promise_heal.vpcf"
+			"EffectAttachType"  "attach_hitloc"
+		}
+		"FireSound"
+		{
+			"Target"			"CASTER"
+			"EffectName"		"Hero_Oracle.FalsePromise.Healed"
+		}
+	}
+}

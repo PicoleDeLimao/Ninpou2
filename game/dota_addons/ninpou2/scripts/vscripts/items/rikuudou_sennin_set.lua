@@ -76,7 +76,7 @@ function SummonJuubi(event)
 			for count = 1,20 do
 				Timers:CreateTimer(0.5+count/10.0, function()
 					local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, juubi)
-					ParticleManager:SetParticleControlEnt(particle, 1, juubi:GetAbsOrigin())
+					ParticleManager:SetParticleControl(particle, 1, juubi:GetAbsOrigin())
 					Timers:CreateTimer(2.0, function()
 						ParticleManager:DestroyParticle(particle, false)
 					end)

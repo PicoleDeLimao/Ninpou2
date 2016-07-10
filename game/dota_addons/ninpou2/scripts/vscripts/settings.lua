@@ -2,7 +2,7 @@
 
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
-UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
+UNIVERSAL_SHOP_MODE = true              -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same hero as each other
 
 HERO_SELECTION_TIME = 60.0              -- How long should we let people select their hero?
@@ -13,7 +13,7 @@ TREE_REGROW_TIME = 20.0                 -- How long should it take individual tr
 GOLD_PER_TICK = 0                       -- How much gold should players get per tick?
 GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
 
-RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes
+RECOMMENDED_BUILDS_DISABLED = true      -- Should we disable the recommened builds for heroes
 CAMERA_DISTANCE_OVERRIDE = 1534.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
@@ -57,7 +57,7 @@ ENABLE_FIRST_BLOOD = true               -- Should we enable first blood for the 
 HIDE_KILL_BANNERS = false               -- Should we hide the kill banners that show when a player is killed?
 LOSE_GOLD_ON_DEATH = false              -- Should we have players lose the normal amount of dota gold on death?
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
-DISABLE_STASH_PURCHASING = true         -- Should we prevent players from being able to buy items into their stash when not at a shop?
+DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?
 FORCE_PICKED_HERO = nil                 -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
 
