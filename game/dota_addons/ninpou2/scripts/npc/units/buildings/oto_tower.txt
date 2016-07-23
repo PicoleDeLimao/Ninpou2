@@ -1,7 +1,7 @@
 "npc_oto_tower_unit"
 {
 	// General
-	"BaseClass"					"npc_dota_tower"
+	"BaseClass"					"npc_dota_creature"
 	"Model"						"models/buildings/OtogakureTower/OtogakureTower_1.vmdl"
 	"ModelScale"				"9.0"
 	"SoundSet"					"Tower.Water"
@@ -41,11 +41,14 @@
 
 	// Team 
 	"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+	"CombatClassAttack"         "siege"
+	"CombatClassDefend"         "fortified"
 	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
 	// Vision 
 	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	
+	// Abilities
+	"Ability1"					"ability_building"
 }

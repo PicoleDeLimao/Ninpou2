@@ -25,7 +25,7 @@ end
 
 -- Kill the team base, defeating it 
 function NinpouGameRules:KillBase(teamNumber)
-	local units = Entities:FindAllByClassname("npc_dota_tower")
+	local units = Entities:FindAllByClassname("npc_dota_creature")
 	for _, unit in pairs(units) do 
 		-- Kill the team base 
 		if NinpouGameRules:IsBase(unit) and unit:GetTeamNumber() == teamNumber then 
@@ -64,7 +64,7 @@ end
 function NinpouGameRules:CheckVictoryConditions()
 	local countAliveBases = 0
 	local winnerBase = nil
-	local units = Entities:FindAllByClassname("npc_dota_tower")
+	local units = Entities:FindAllByClassname("npc_dota_creature")
 	for _, unit in pairs(units) do 
 		if Units:IsValidAlive(unit) and NinpouGameRules:IsBase(unit) then 
 			countAliveBases = countAliveBases + 1 
@@ -91,18 +91,6 @@ function NinpouGameRules:RemoveAllUnits(teamNumber)
 	for _, unit in pairs(units) do 
 		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
 			unit:RemoveSelf()
-		end
-	end
-	units = Entities:FindAllByClassname("npc_dota_tower")
-	for _, unit in pairs(units) do 
-		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			unit:ForceKill(true)
-		end 
-	end
-	units = Entities:FindAllByClassname("npc_dota_barracks")
-	for _, unit in pairs(units) do 
-		if Units:IsValidAlive(unit) and unit:GetTeamNumber() == teamNumber then 
-			unit:ForceKill(true)
 		end
 	end
 	units = Entities:FindAllByClassname("ent_dota_fountain")

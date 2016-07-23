@@ -15,7 +15,6 @@ function CriticalStrike(event)
 		unit = caster,
 		point = target:GetAbsOrigin(),
 		radius = radius,
-		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		func = function(enemy)
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
 			if not target:IsMagicImmune() and not target:GetMana() == 0 then 

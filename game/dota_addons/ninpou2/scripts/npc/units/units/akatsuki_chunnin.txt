@@ -34,9 +34,8 @@
 	"MovementSpeed"				"250"
 
 	// Team
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+	"CombatClassAttack"         "pierce"
+	"CombatClassDefend"         "light"
 	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 	// Status 

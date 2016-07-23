@@ -1,6 +1,115 @@
 "DOTAAbilities"
 {
 	//-------------------------------------------------------------------------------------------------------------
+	// BUILDINGS: Building
+	//-------------------------------------------------------------------------------------------------------------
+	"ability_building"
+	{
+		// General
+		"BaseClass"							"ability_datadriven"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"							"1"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"true_sight_radius"		"800"
+			}
+		}
+		"modifiers"
+		{
+			"modifier_is_building"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/econ/wards/f2p/f2p_ward/f2p_ward_true_sight_ambient.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"		"attach_origin"
+							"CASTER"		"attach_origin"
+							"CASTER"		"attach_origin"
+						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"buildings/buildings.lua"
+						"Function"			"OnCreated"
+					}
+				}
+				"OnDeath"
+				{
+					"CreateThinker"
+					{
+						"Target"					"CASTER"
+						"ModifierName"				"modifier_is_building_death"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"buildings/buildings.lua"
+						"Function"			"OnDeath"
+					}
+				}
+				"ThinkInterval"					"0.03"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"Target"		
+						{
+							"Center"	"CASTER"
+							"Radius"	"%true_sight_radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
+						"ModifierName"	"modifier_truesight_reveal"
+						"Duration"		"0.5"
+					}
+					"RunScript"
+					{
+						"ScriptFile"			"buildings/buildings.lua"
+						"Function"				"KeepHealth"
+					}
+				}
+			}
+			"modifier_is_building_death"
+			{
+				"Duration"							"3.0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"buildings/buildings.lua"
+						"Function"			"ShowDeathAnimation"
+					}
+				}
+			}
+			"modifier_truesight_reveal"
+			{
+				"IsHidden"				"1"
+				"Duration"				"0.5"
+				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// BUILDINGS: Konohagakure Tower Feedback
 	//-------------------------------------------------------------------------------------------------------------
 	"konohagakure_tower_feedback"
@@ -1029,7 +1138,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_bonus"				"1000"
+				"crit_bonus"				"500"
 			}
 			"02"
 			{

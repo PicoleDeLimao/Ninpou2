@@ -14,7 +14,6 @@ function CriticalStrike(event)
 		unit = caster,
 		point = target:GetAbsOrigin(),
 		radius = radius,
-		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		func = function(enemy)
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
 			Particles:CreateTimedParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf", enemy, 2.0)

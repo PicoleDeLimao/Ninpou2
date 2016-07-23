@@ -15,14 +15,15 @@ function CriticalStrike(event)
 		unit = caster,
 		point = target:GetAbsOrigin(),
 		radius = radius,
-		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		func = function(enemy)
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
 			local particle = Particles:CreateTimedParticle("particles/units/heroes/hero_tidehunter/tidehunter_gush.vpcf", enemy, 0.25)
 			Particles:SetControlEnt(particle, 0, enemy)
 			Particles:SetControlEnt(particle, 1, enemy, { target = enemy:GetAbsOrigin() + Vector(0, 0, 300) })
 			Particles:SetControl(particle, 3, 100)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_suiton_orb_slow", {duration = slowDuration})
+			if not enemy:IsMagicImmune() then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_suiton_orb_slow", {duration = slowDuration})
+			end
 			PopupCriticalDamage(enemy, damage * bonus)
 		end
 	})

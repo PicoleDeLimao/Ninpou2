@@ -107,7 +107,7 @@ function Units:FindEnemiesInRange(params)
 	local point = params.point or unit:GetAbsOrigin() 
 	local radius = params.radius 
 	local target_type = params.target_type or DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-	local flags = params.flags or DOTA_UNIT_TARGET_FLAG_NONE
+	local flags = params.flags or DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 	local callback = params.func
 	local enemies = FindUnitsInRadius(unit:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, flags, FIND_ANY_ORDER, false)
 	if callback then 
@@ -116,4 +116,75 @@ function Units:FindEnemiesInRange(params)
 		end
 	end
 	return enemies
+end
+
+                 
+-- Spawn creeps for a determined lane
+function Units:SpawnCreepsLane(units, unitsCount, offsets, path, team, spawnerName)
+	local spawner = Entities:FindByName(nil, spawnerName)
+	if Units:IsValidAlive(spawner) then -- Only spawn units from which spawner is alive
+		local forwardVector = (path[2] - path[1]):Normalized()
+		for unitKey, unitValue in pairs(units) do 
+            for i = 1, unitsCount[unitKey] do 
+				Timers:CreateTimer(function()
+					-- Create unit at forward vector between origin spot and next spot (in order to spawn them in correct order)
+					local unit = CreateUnitByName(unitValue, path[1] + forwardVector * offsets[unitKey], true, nil, nil, team)
+					for j = 2, #path do 
+						ExecuteOrderFromTable({
+							UnitIndex = unit:GetEntityIndex(),
+							OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+							Position = path[j],
+							Queue = true
+						})
+					end
+				end)
+			end
+		end
+	end
+end
+
+-- Spawn creeps for the whole map
+function Units:SpawnCreeps(count)
+    -- Getting info points 
+    local konohaLeftLane     = Entities:FindByName(nil, "spawn_konoha_left_lane"):GetAbsOrigin()
+    local konohaRightLane    = Entities:FindByName(nil, "spawn_konoha_right_lane"):GetAbsOrigin()
+    local konohaMidLane      = Entities:FindByName(nil, "spawn_konoha_mid_lane"):GetAbsOrigin()
+    local otoLeftLane        = Entities:FindByName(nil, "spawn_oto_left_lane"):GetAbsOrigin()
+    local otoRightLane       = Entities:FindByName(nil, "spawn_oto_right_lane"):GetAbsOrigin()
+    local otoMidLane         = Entities:FindByName(nil, "spawn_oto_mid_lane"):GetAbsOrigin()
+    local akatsukiLeftLane   = Entities:FindByName(nil, "spawn_akatsuki_left_lane"):GetAbsOrigin()
+    local akatsukiRightLane  = Entities:FindByName(nil, "spawn_akatsuki_right_lane"):GetAbsOrigin()
+    local akatsukiMidLane    = Entities:FindByName(nil, "spawn_akatsuki_mid_lane"):GetAbsOrigin()
+    local midLane            = Entities:FindByName(nil, "spawn_mid_lane"):GetAbsOrigin()
+    -- Define the path for which the units will walk 
+    local konohaLeftLanePath    = {konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane}
+    local konohaRightLanePath   = {konohaRightLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane, otoRightLane, otoMidLane, otoLeftLane, konohaLeftLane, konohaMidLane, konohaRightLane}
+    local konohaMidLanePath     = {konohaMidLane, midLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, konohaLeftLane, konohaMidLane}
+    local otoLeftLanePath       = {otoLeftLane, konohaLeftLane, konohaMidLane, konohaRightLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane, otoRightLane, otoMidLane, otoLeftLane}
+    local otoRightLanePath      = {otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane}
+    local otoMidLanePath        = {otoMidLane, midLane, akatsukiMidLane, akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane}
+    local akatsukiLeftLanePath  = {akatsukiLeftLane, konohaRightLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane, akatsukiLeftLane}
+    local akatsukiRightLanePath = {akatsukiRightLane, otoRightLane, otoMidLane, otoLeftLane, konohaLeftLane, konohaMidLane, konohaRightLane, akatsukiLeftLane, akatsukiMidLane, akatsukiRightLane}
+    local akatsukiMidLanePath   = {akatsukiMidLane, midLane, konohaMidLane, konohaLeftLane, otoLeftLane, otoMidLane, otoRightLane, akatsukiRightLane, akatsukiMidLane}
+	-- Load units definition from keyvalue file
+	local kv = LoadKeyValues("scripts/kv/units_spawn.kv")
+	local frequency = kv.Frequency
+	local spawnCountSide = kv.SideLaneSpawnCount
+	for unitKey, unitValue in pairs(spawnCountSide) do 
+		spawnCountSide[unitKey] = math.fmod(count, tonumber(frequency[unitKey])) == 0 and tonumber(spawnCountSide[unitKey]) or 0
+	end
+	local spawnCountMid = kv.MidLaneSpawnCount
+	for unitKey, unitValue in pairs(spawnCountMid) do 
+		spawnCountMid[unitKey] = math.fmod(count, tonumber(frequency[unitKey])) == 0 and tonumber(spawnCountMid[unitKey]) or 0 
+	end
+	-- Spawn creeps 
+    Units:SpawnCreepsLane(kv.Konoha, spawnCountSide, kv.Offsets, konohaLeftLanePath, DOTA_TEAM_GOODGUYS, "konoha_academy_left")
+    Units:SpawnCreepsLane(kv.Konoha, spawnCountSide, kv.Offsets, konohaRightLanePath, DOTA_TEAM_GOODGUYS, "konoha_academy_right")
+    Units:SpawnCreepsLane(kv.Konoha, spawnCountMid, kv.Offsets, konohaMidLanePath, DOTA_TEAM_GOODGUYS, "konoha_base")
+    Units:SpawnCreepsLane(kv.Oto, spawnCountSide, kv.Offsets, otoLeftLanePath, DOTA_TEAM_BADGUYS, "oto_academy_left")
+    Units:SpawnCreepsLane(kv.Oto, spawnCountSide, kv.Offsets, otoRightLanePath, DOTA_TEAM_BADGUYS, "oto_academy_right")
+    Units:SpawnCreepsLane(kv.Oto, spawnCountMid, kv.Offsets, otoMidLanePath, DOTA_TEAM_BADGUYS, "oto_base")
+    Units:SpawnCreepsLane(kv.Akatsuki, spawnCountSide, kv.Offsets, akatsukiLeftLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_academy_left")
+    Units:SpawnCreepsLane(kv.Akatsuki, spawnCountSide, kv.Offsets, akatsukiRightLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_academy_right")
+    Units:SpawnCreepsLane(kv.Akatsuki, spawnCountMid, kv.Offsets, akatsukiMidLanePath, DOTA_TEAM_CUSTOM_1, "akatsuki_base")
 end

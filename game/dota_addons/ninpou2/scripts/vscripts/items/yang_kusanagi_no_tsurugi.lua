@@ -15,12 +15,13 @@ function CriticalStrike(event)
 		unit = caster,
 		point = target:GetAbsOrigin(),
 		radius = radius,
-		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		func = function(enemy)
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
 			local particle = Particles:CreateTimedParticle("particles/units/heroes/hero_chen/chen_holy_persuasion_sparks.vpcf", enemy, 0.1)
 			Particles:SetControlEnt(particle, 1, enemy)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_yang_orb_debuff", {duration = armorDuration})
+			if not enemy:IsMagicImmune() then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_yang_orb_debuff", {duration = armorDuration})
+			end
 			PopupCriticalDamage(enemy, damage * bonus)
 		end
 	})

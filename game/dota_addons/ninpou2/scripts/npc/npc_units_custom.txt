@@ -3,7 +3,7 @@
 	"npc_akatsuki_base_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/GedoMazo/GedoMazo.vmdl"
 			
 		// Attack 
@@ -39,20 +39,22 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	
-		// Team 
-		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		// Team 		
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 			
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_akatsuki_primary_tower_unit"
 	{
 		// General
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/AmegakureTower/AmegakureTower_2.vmdl"
 		"ModelScale"				"2.5"
 		"SoundSet"					"Tower.Water"
@@ -90,10 +92,9 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	
-		// Team 
-		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		// Team 		
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -103,11 +104,12 @@
 		// Abilities
 		"AbilitiesLayout"			"1"
 		"Ability1"					"konohagakure_tower_feedback"
+		"Ability2"					"ability_building"
 	}
 	"npc_akatsuki_tower_unit"
 	{
 		// General
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/AmegakureTower/AmegakureTower_1.vmdl"
 		"ModelScale"				"2.5"
 		"SoundSet"					"Tower.Water"
@@ -145,20 +147,22 @@
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	
-		// Team 
-		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		// Team 			
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_konoha_base_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/HokageBuilding/HokageBuilding.vmdl"
 			
 		// Attack 
@@ -196,18 +200,21 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 			
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_konoha_primary_tower_unit"
 	{
 		// General
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_2.vmdl"
 		"ModelScale"				"3.5"
 		"SoundSet"					"Tower.Water"
@@ -247,8 +254,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -258,11 +265,12 @@
 		// Abilities
 		"AbilitiesLayout"			"1"
 		"Ability1"					"konohagakure_tower_feedback"
+		"Ability2"					"ability_building"
 	}
 	"npc_konoha_tower_unit"
 	{
 		// General
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_1.vmdl"
 		"ModelScale"				"6.0"
 		"SoundSet"					"Tower.Water"
@@ -302,18 +310,21 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_ninja_academy_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_barracks"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/NinjaAcademy/NinjaAcademy.vmdl"
 		"ModelScale"				"1.85"
 	
@@ -332,11 +343,14 @@
 		// Status 
 		"StatusHealth"				"8000"
 		"StatusHealthRegen"			"0"
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_oto_base_unit"
 	{
 		// General 
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/YamataNoOrochi/YamataNoOrochi.vmdl"
 		"ModelScale"				"1.7"
 			
@@ -375,18 +389,21 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 			
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_oto_primary_tower_unit"
 	{
 		// General
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/OtogakureTower/OtogakureTower_2.vmdl"
 		"ModelScale"				"3.5"
 		"SoundSet"					"Tower.Water"
@@ -426,8 +443,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -437,11 +454,12 @@
 		// Abilities
 		"AbilitiesLayout"			"1"
 		"Ability1"					"konohagakure_tower_feedback"
+		"Ability2"					"ability_building"
 	}
 	"npc_oto_tower_unit"
 	{
 		// General
-		"BaseClass"					"npc_dota_tower"
+		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/buildings/OtogakureTower/OtogakureTower_1.vmdl"
 		"ModelScale"				"9.0"
 		"SoundSet"					"Tower.Water"
@@ -481,13 +499,16 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"CombatClassAttack"         "siege"
+		"CombatClassDefend"         "fortified"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
 		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+		
+		// Abilities
+		"Ability1"					"ability_building"
 	}
 	"npc_dummy_unit"
 	{
@@ -564,9 +585,8 @@
 		"MovementSpeed"				"250"
 	
 		// Team
-		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"CombatClassAttack"         "pierce"
+		"CombatClassDefend"         "light"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -612,9 +632,8 @@
 		"MovementSpeed"				"270"
 	
 		// Team
-		"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "medium"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -662,8 +681,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "heavy"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -720,8 +739,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "heavy"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -778,8 +797,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"CombatClassAttack"         "hero"
+		"CombatClassDefend"         "hero"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -840,8 +859,8 @@
 	
 		// Team
 		//"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "unarmored"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -900,8 +919,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"CombatClassAttack"         "pierce"
+		"CombatClassDefend"         "light"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -948,8 +967,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "medium"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1001,8 +1020,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"         "pierce"
+		"CombatClassDefend"         "unarmored"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1050,8 +1069,8 @@
 	
 		// Team 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"CombatClassAttack"			"normal"
+		"CombatClassDefend"			"unarmored"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1101,8 +1120,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+		"CombatClassAttack"         "pierce"
+		"CombatClassDefend"         "light"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1149,8 +1168,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "medium"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1211,8 +1230,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassAttack"         "normal"
+		"CombatClassDefend"         "heavy"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 

@@ -186,7 +186,7 @@ function GameMode:OnLastHit(keys)
   local isHeroKill = keys.HeroKill == 1
   local isTowerKill = keys.TowerKill == 1
   local player = PlayerResource:GetPlayer(keys.PlayerID)
-  local killedEnt = EntIndexToHScript(keys.EntKilled)
+  --local killedEnt = EntIndexToHScript(keys.EntKilled)
 end
 
 -- A tree was cut down by tango, quelling blade, etc
@@ -262,14 +262,14 @@ function GameMode:OnEntityKilled( keys )
 	local killerEntity = nil
 
 	if keys.entindex_attacker ~= nil then
-	killerEntity = EntIndexToHScript( keys.entindex_attacker )
+		killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	end
 
 	-- The ability/item used to kill, or nil if not killed by an item/ability
 	local killerAbility = nil
 
 	if keys.entindex_inflictor ~= nil then
-	killerAbility = EntIndexToHScript( keys.entindex_inflictor )
+		killerAbility = EntIndexToHScript( keys.entindex_inflictor )
 	end
 
 	local damagebits = keys.damagebits -- This might always be 0 and therefore useless
@@ -290,22 +290,6 @@ function GameMode:OnEntityKilled( keys )
 		end)
 		-- Defeat team 
 		NinpouGameRules:DefeatTeam(killedUnit:GetTeamNumber())
-	end
-	-- Show proper death animation for buildings 
-	if killedUnit:GetClassname() == "npc_dota_tower" or killedUnit:GetClassname() == "npc_dota_barracks" and killedUnit:GetUnitName() ~= "npc_konoha_base_unit" and killedUnit:GetUnitName() ~= "npc_oto_base_unit" and killedUnit:GetUnitName() ~= "npc_akatsuki_base_unit" then 
-		local particle1 = ParticleManager:CreateParticle("particles/siege_fx/siege_good_death_01.vpcf", PATTACH_ABSORIGIN, killedUnit)
-		ParticleManager:SetParticleControl(particle1, 0, killedUnit:GetAbsOrigin())
-		ParticleManager:SetParticleControlOrientation(particle1, 1, Vector(100, 0, 0), Vector(0, 0, 0), Vector(0, 0, 100))
-		local particle2 = ParticleManager:CreateParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", PATTACH_ABSORIGIN, killedUnit)
-		ParticleManager:SetParticleControl(particle2, 0, killedUnit:GetAbsOrigin())
-		ParticleManager:SetParticleControl(particle2, 1, killedUnit:GetAbsOrigin())
-		ParticleManager:SetParticleControl(particle2, 3, killedUnit:GetAbsOrigin())
-		ParticleManager:SetParticleControl(particle2, 7, Vector(300, 300, 300))
-		ParticleManager:SetParticleControl(particle2, 8, killedUnit:GetAbsOrigin())
-		killedUnit:EmitSound("Building_DireTower.Destruction")
-		Timers:CreateTimer(1.0, function()
-			killedUnit:AddNoDraw()
-		end)
 	end
 	-- Kuchiyoses don't display corpses nor death animation
 	if killedUnit.is_kuchiyose then 

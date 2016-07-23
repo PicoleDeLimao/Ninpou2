@@ -5981,28 +5981,18 @@
 				"ThinkInterval"		"0.03"
 				"OnIntervalThink"
 				{
-					"ActOnTargets"
+					"ApplyModifier"
 					{
-						"Target"
+						"Target"		
 						{
-							"Center"	"TARGET"
+							"Center"	"CASTER"
 							"Radius"	"%true_sight_radius"
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
-						"Action"
-						{
-							"RemoveModifier"
-							{
-								"Target"	"TARGET"
-								"ModifierName"	"modifier_truesight_reveal"
-							}
-							"ApplyModifier"
-							{
-								"Target"	"TARGET"
-								"ModifierName"	"modifier_truesight_reveal"
-							}
-						}
+						"ModifierName"	"modifier_truesight_reveal"
+						"Duration"		"0.5"
 					}
 					"RunScript"
 					{
@@ -6015,7 +6005,7 @@
 			"modifier_truesight_reveal"
 			{
 				"IsHidden"				"1"
-				"Duration"				"0.05"
+				"Duration"				"0.5"
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"
@@ -6153,28 +6143,18 @@
 				"ThinkInterval"		"0.03"
 				"OnIntervalThink"
 				{
-					"ActOnTargets"
+					"ApplyModifier"
 					{
-						"Target"
+						"Target"		
 						{
-							"Center"	"TARGET"
+							"Center"	"CASTER"
 							"Radius"	"%true_sight_radius"
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
-						"Action"
-						{
-							"RemoveModifier"
-							{
-								"Target"	"TARGET"
-								"ModifierName"	"modifier_truesight_reveal"
-							}
-							"ApplyModifier"
-							{
-								"Target"	"TARGET"
-								"ModifierName"	"modifier_truesight_reveal"
-							}
-						}
+						"ModifierName"	"modifier_truesight_reveal"
+						"Duration"		"0.5"
 					}
 					"RunScript"
 					{
@@ -6187,7 +6167,7 @@
 			"modifier_truesight_reveal"
 			{
 				"IsHidden"				"1"
-				"Duration"				"0.05"
+				"Duration"				"0.5"
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"
@@ -7589,7 +7569,6 @@
 			"particle"						"particles/status_fx/status_effect_poison_viper.vpcf"
 			"particle"						"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
 			"particle"						"particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
-			"particle"						"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
 			"particle"						"particles/items/poisonmist/pudge_rot.vpcf"
 		}
 		"OnSpellStart"
@@ -7597,7 +7576,7 @@
 			"LinearProjectile"
 	        {
 				"Target"            		"POINT"
-				"EffectName"        		"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
+				"EffectName"        		"particles/items/poisonmist/batrider_flamebreak.vpcf"
 				"MoveSpeed"         		"1100"
 				"StartRadius"       		"100"
 				"EndRadius"         		"100"
@@ -7606,6 +7585,11 @@
 				"ProvidesVision" 			"1"
 				"VisionRadius" 				"300"
 	        }
+			"FireSound"
+			{
+				"Target"					"CASTER"
+				"EffectName"				"Hero_Alchemist.UnstableConcoction.Throw"
+			}
 		} 
 		"OnProjectileHitUnit"
 	    {
@@ -9484,7 +9468,7 @@
 					"FireSound"
 					{
 						"Target"			"CASTER"
-						"EffectName"		"RoshanDT.Toss"
+						"EffectName"		"RoshanDT.Scream"
 					}
 					"RunScript"
 					{
@@ -11789,28 +11773,18 @@
 				"ThinkInterval"		"0.03"
 				"OnIntervalThink"
 				{
-					"ActOnTargets"
+					"ApplyModifier"
 					{
-						"Target"
+						"Target"		
 						{
-							"Center"	"TARGET"
+							"Center"	"CASTER"
 							"Radius"	"%true_sight_radius"
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
-						"Action"
-						{
-							"RemoveModifier"
-							{
-								"Target"	"TARGET"
-								"ModifierName"	"modifier_truesight_reveal"
-							}
-							"ApplyModifier"
-							{
-								"Target"	"TARGET"
-								"ModifierName"	"modifier_truesight_reveal"
-							}
-						}
+						"ModifierName"	"modifier_truesight_reveal"
+						"Duration"		"0.5"
 					}
 					"RunScript"
 					{
@@ -11823,7 +11797,7 @@
 			"modifier_truesight_reveal"
 			{
 				"IsHidden"				"1"
-				"Duration"				"0.05"
+				"Duration"				"0.5"
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_DISABLED"

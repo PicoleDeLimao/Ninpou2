@@ -50,16 +50,19 @@ function CriticalStrike(event)
 	local bonus = ability:GetLevelSpecialValueFor("crit_bonus", ability:GetLevel() - 1) / 100.0
 	local radius = ability:GetLevelSpecialValueFor("crit_area", ability:GetLevel() - 1)
 	local slowDuration = ability:GetLevelSpecialValueFor("slow_duration", ability:GetLevel() - 1)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _, enemy in pairs(enemies) do 
-		ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_MAGICAL})
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", PATTACH_ABSORIGIN, enemy)
-		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_rikuudou_sennin_set_slow", {duration = slowDuration})
-		Timers:CreateTimer(0.25, function()
-			ParticleManager:DestroyParticle(particle, false)
-		end)
-		PopupCriticalDamage(enemy, damage * bonus)
-	end
+	Units:FindEnemiesInRange({
+		unit = caster,
+		point = target:GetAbsOrigin(),
+		radius = radius,
+		func = function(enemy)
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
+			Particles:CreateTimedParticle("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", enemy, 0.25)
+			if not enemy:IsMagicImmune() then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_rikuudou_sennin_set_slow", {duration = slowDuration})
+			end
+			PopupCriticalDamage(enemy, damage * bonus)
+		end
+	})
 end
 
 -- Display special effects when juubi is summoned
@@ -72,14 +75,11 @@ function SummonJuubi(event)
 	for _, unit in pairs(units) do 
 		if unit:GetUnitName() == "npc_juubi_unit" and unit:GetOwner() == caster then 
 			local juubi = unit 
-			StartAnimation(juubi, {duration=3.5, activity=ACT_DOTA_SPAWN, rate=1.0})
-			for count = 1,20 do
+			StartAnimation(juubi, {duration=2.5, activity=ACT_DOTA_SPAWN, rate=1.0})
+			for count = 1,15 do
 				Timers:CreateTimer(0.5+count/10.0, function()
-					local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, juubi)
+					local particle = Particles:CreateTimedParticle("particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", juubi, 2.0)
 					ParticleManager:SetParticleControl(particle, 1, juubi:GetAbsOrigin())
-					Timers:CreateTimer(2.0, function()
-						ParticleManager:DestroyParticle(particle, false)
-					end)
 				end)
 			end
 		end

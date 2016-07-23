@@ -29,6 +29,8 @@ require('units/AI/juubi_ai')
 
 require('gamemode')
 
+LinkLuaModifier("modifier_building", "libraries/modifiers/modifier_building", LUA_MODIFIER_MOTION_NONE)
+
 function Precache( context )
 --[[
   This function is used to precache resources/units/items/abilities that will be needed
@@ -66,6 +68,12 @@ function Precache( context )
   -- Precache custom sounds
   PrecacheResource("soundfile", "soundevents/game_sounds_custom.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_roshan_halloween.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf", context)
+  PrecacheResource("particle", "particles/items/poisonmist/batrider_flamebreak.vpcf", context)
 
   -- Precache units 
   PrecacheUnitByNameSync("npc_konoha_chunnin_unit", context)
@@ -76,6 +84,7 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_akatsuki_jounin_unit", context)
   PrecacheUnitByNameSync("npc_anbu_unit", context)
   PrecacheUnitByNameSync("npc_medical_ninja_unit", context)
+  PrecacheUnitByNameSync("npc_juubi_unit", context)
 end
 
 -- Create the game mode when we activate

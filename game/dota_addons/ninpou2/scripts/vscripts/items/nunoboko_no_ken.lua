@@ -53,11 +53,12 @@ function CriticalStrike(event)
 		unit = caster,
 		point = target:GetAbsOrigin(),
 		radius = radius,
-		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		func = function(enemy)
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_MAGICAL})
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
 			Particles:CreateTimedParticle("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", enemy, 0.25)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_slow", {duration = slowDuration})
+			if not enemy:IsMagicImmune() then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_slow", {duration = slowDuration})
+			end
 			PopupCriticalDamage(enemy, damage * bonus)
 		end
 	})

@@ -1,7 +1,7 @@
 "npc_konoha_primary_tower_unit"
 {
 	// General
-	"BaseClass"					"npc_dota_tower"
+	"BaseClass"					"npc_dota_creature"
 	"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_2.vmdl"
 	"ModelScale"				"3.5"
 	"SoundSet"					"Tower.Water"
@@ -41,8 +41,8 @@
 
 	// Team 
 	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+	"CombatClassAttack"         "siege"
+	"CombatClassDefend"         "fortified"
 	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
 	// Vision 
@@ -52,4 +52,5 @@
 	// Abilities
 	"AbilitiesLayout"			"1"
 	"Ability1"					"konohagakure_tower_feedback"
+	"Ability2"					"ability_building"
 }

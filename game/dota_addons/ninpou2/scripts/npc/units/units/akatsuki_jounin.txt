@@ -30,9 +30,8 @@
 	"MovementSpeed"				"270"
 
 	// Team
-	"TeamName"                  "DOTA_TEAM_CUSTOM_1" 				// Team name.
-	"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-	"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	"CombatClassAttack"         "normal"
+	"CombatClassDefend"         "medium"
 	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 	// Status 

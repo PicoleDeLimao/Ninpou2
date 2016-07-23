@@ -104,7 +104,6 @@
 			m_fForceAmount = 100.0
 			m_fFalloffPower = -0.25
 			m_vecComponentScale = [ 0.0, 0.0, 1.0 ]
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_TwistAroundAxis"
@@ -117,8 +116,8 @@
 		{
 			_class = "C_OP_ConstrainDistance"
 			m_fMinDistance = 70.0
-			m_CenterOffset = [ 0.0, 0.0, 50.0 ]
-			m_bDisableOperator = true
+			m_CenterOffset = [ 0.0, 0.0, 130.0 ]
+			m_fMaxDistance = 130.0
 		},
 	]
 	m_Children = 

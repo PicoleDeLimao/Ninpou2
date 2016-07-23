@@ -14,3 +14,8 @@ function HUD:SendErrorMessage(pID, message)
 	Notifications:Bottom(pID, {text=message, style={color='#E62020'}, duration=5})
 	EmitSoundOnClient("General.Cancel", PlayerResource:GetPlayer(pID))
 end
+
+-- Send a notification message to players
+function HUD:SendNotification(message)
+	Notifications:BottomToAll({text=message, class="NotificationMessage", duration=5})
+end

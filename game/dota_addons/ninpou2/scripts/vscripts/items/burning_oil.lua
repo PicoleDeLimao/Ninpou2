@@ -23,7 +23,9 @@ function SpellStart(event)
 			func = function(enemy)
 				Particles:CreateTimedParticle("particles/units/heroes/hero_batrider/batrider_firefly_head.vpcf", enemy, 1.0)
 				ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_burning_oil_burning", {duration = 2.0})
+				if not enemy:IsMagicImmune() then
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_burning_oil_burning", {duration = 2.0})
+				end
 			end
 		})
 		count = count + 1.0

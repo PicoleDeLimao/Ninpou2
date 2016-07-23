@@ -109,7 +109,7 @@
 				"FireSound"
 				{
 					"Target"			"CASTER"
-					"EffectName"		"RoshanDT.Toss"
+					"EffectName"		"RoshanDT.Scream"
 				}
 				"RunScript"
 				{

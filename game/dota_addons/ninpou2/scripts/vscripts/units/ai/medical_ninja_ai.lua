@@ -15,7 +15,7 @@ MedicalNinjaAI.__index = MedicalNinjaAI
 -- Get the score for an ally. The score determines how likely the ally is to be healed by the medical ninja
 function MedicalNinjaAI:GetScore(ally)
     -- Don't heal already healed allies
-    if ally:HasModifier("modifier_medical_ninja_heal") or ally:GetHealthPercent() == 100 then 
+    if ally:HasModifier("modifier_medical_ninja_heal") or ally:GetHealthPercent() == 100 or ally:HasModifier("modifier_building") then 
         return 0
     end
     local health = (100 - ally:GetHealthPercent()) / 100.0
