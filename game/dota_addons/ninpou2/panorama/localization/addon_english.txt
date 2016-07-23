@@ -18,5 +18,6 @@
 	"error_support"										"You can only carry two support items at once."
 	"error_armor"										"You can only wear one armor at once."
 	"error_set"											"You can only equip one set at once."
+	"error_ninja_weapon"								"You can only equip one ninja weapon at once."
 
 }

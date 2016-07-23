@@ -1,12 +1,12 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Burning Oil
+// ITEMS: Poison Mist
 //-------------------------------------------------------------------------------------------------------------
-"item_burning_oil"
+"item_poison_mist"
 {
 	// General
-	"ID"							"1252"
+	"ID"							"1253"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_burning_oil"
+	"AbilityTextureName"			"item_poison_mist"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -24,7 +24,7 @@
 	"AbilityCastRange" 				"700"   
     "AbilityCooldown"  				"40"       
     "AbilityManaCost"  				"0"
-    "AOERadius" 					"400"  
+    "AOERadius" 					"300"  
 	"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
 	// Special
@@ -33,34 +33,40 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"damage_per_second"		"200"
+			"damage_per_second"		"150"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"duration"				"4.0"
+			"duration"				"10.0"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"radius"				"400"
+			"radius"				"300"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"slow"					"-25"
 		}
 	}
 	
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
-		"particle"					"particles/items/burningoil/batrider_firefly.vpcf"
-		"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_loadout.vpc"
-		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+		"particle"						"particles/status_fx/status_effect_poison_viper.vpcf"
+		"particle"						"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
+		"particle"						"particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
+		"particle"						"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
+		"particle"						"particles/items/poisonmist/pudge_rot.vpcf"
 	}
 	"OnSpellStart"
 	{
 		"LinearProjectile"
         {
 			"Target"            		"POINT"
-			"EffectName"        		"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
+			"EffectName"        		"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
 			"MoveSpeed"         		"1100"
 			"StartRadius"       		"100"
 			"EndRadius"         		"100"
@@ -69,11 +75,6 @@
 			"ProvidesVision" 			"1"
 			"VisionRadius" 				"300"
         }
-		"FireSound"
-		{
-			"Target"                    "CASTER"
-			"EffectName"                "Hero_Batrider.Firefly.Cast"
-		}
 	} 
 	"OnProjectileHitUnit"
     {
@@ -84,12 +85,12 @@
 		"CreateThinker"
 		{
 			"Target"					"POINT"
-			"ModifierName"				"modifier_item_burning_oil_thinker"
+			"ModifierName"				"modifier_item_poison_mist_thinker"
 		}
 	}
 	"Modifiers"
 	{
-		"modifier_item_burning_oil"
+		"modifier_item_poison_mist"
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"
@@ -110,35 +111,45 @@
 				}
 			}
 		}
-		"modifier_item_burning_oil_thinker"
+		"modifier_item_poison_mist_thinker"
 		{
-			"Duration"					"6.0"
+			"Duration"							"12.0"
 			"OnCreated"
 			{
 				"RunScript"
 				{
-					"ScriptFile"			"items/burning_oil.lua"
-					"Function"				"SpellStart"
-				}
-				"FireSound"
-				{
-					"Target"					"TARGET"
-					"EffectName"				"Hero_Batrider.Firefly.loop"
+					"ScriptFile"				"items/poison_mist.lua"
+					"Function"					"SpellStart"
 				}
 			}
 		}
-		"modifier_item_burning_oil_burning"
+		"modifier_item_poison_mist_poison"
 		{
-			"EffectName"					"particles/units/heroes/hero_batrider/batrider_firefly_head.vpcf"
-			"EffectAttachType"				"follow_origin"
+			"IsDebuff"						"1"
+			"Attributes"					"MODIFIER_ATTRIBUTE_NONE"
+			"StatusEffectName"				"particles/status_fx/status_effect_poison_viper.vpcf"
+			"Duration"						"%duration"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow"
+			}
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"			"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
+					"EffectAttachType"		"attach_hitloc"
+					"Target"				"TARGET"
+				}
+			}
 			"ThinkInterval"					"1.0"
 			"OnIntervalThink"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"				"TARGET"
-					"Type" 					"DAMAGE_TYPE_PHYSICAL"
-					"Damage"				"50"
+					"ScriptFile"			"items/poison_mist.lua"
+					"Function"				"Poison"
 				}
 			}
 		}

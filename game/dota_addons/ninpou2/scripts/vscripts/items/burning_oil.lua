@@ -12,7 +12,7 @@ function SpellStart(event)
 	local duration = ability:GetSpecialValueFor("duration")
 	local damage = ability:GetSpecialValueFor("damage_per_second")
 	local count = 0
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_firefly.vpcf", PATTACH_ABSORIGIN, target)
+	local particle = ParticleManager:CreateParticle("particles/items/burningoil/batrider_firefly.vpcf", PATTACH_ABSORIGIN, target)
 	Particles:SetControl(particle, {1, 11}, radius + 200)
 	Timers:CreateTimer(1.0, function()
 		Particles:CreateTimedParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_loadout.vpcf", target, 1.0)

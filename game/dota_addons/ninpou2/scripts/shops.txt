@@ -119,5 +119,6 @@
   "secretshop"
   {             
     "item"						"item_burning_oil"
+	"item"						"item_poison_mist"
   } 
 }

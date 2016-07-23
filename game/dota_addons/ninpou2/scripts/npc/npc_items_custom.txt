@@ -3326,7 +3326,7 @@
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
-			"particle"					"particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+			"particle"					"particles/items/burningoil/batrider_firefly.vpcf"
 			"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_loadout.vpc"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
 		}
@@ -3337,8 +3337,8 @@
 				"Target"            		"POINT"
 				"EffectName"        		"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
 				"MoveSpeed"         		"1100"
-				"StartRadius"       		"150"
-				"EndRadius"         		"150"
+				"StartRadius"       		"100"
+				"EndRadius"         		"100"
 				"StartPosition"     		"attach_attack1"
 				"HasFrontalCone"    		"0"
 				"ProvidesVision" 			"1"
@@ -3359,12 +3359,33 @@
 			"CreateThinker"
 			{
 				"Target"					"POINT"
-				"ModifierName"				"modifier_item_burning_oil"
+				"ModifierName"				"modifier_item_burning_oil_thinker"
 			}
 		}
 		"Modifiers"
 		{
 			"modifier_item_burning_oil"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_burning_oil_thinker"
 			{
 				"Duration"					"6.0"
 				"OnCreated"
@@ -7503,6 +7524,163 @@
 					{
 						"ScriptFile"		"items/otokage_armor.lua"
 						"Function"			"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Poison Mist
+	//-------------------------------------------------------------------------------------------------------------
+	"item_poison_mist"
+	{
+		// General
+		"ID"							"1253"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_poison_mist"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType" 		"DAMAGE_TYPE_PHYSICAL"
+		
+		"ItemCost"						"2000"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+	
+		"AbilityCastRange" 				"700"   
+	    "AbilityCooldown"  				"40"       
+	    "AbilityManaCost"  				"0"
+	    "AOERadius" 					"300"  
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-25"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"						"particles/status_fx/status_effect_poison_viper.vpcf"
+			"particle"						"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
+			"particle"						"particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
+			"particle"						"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
+			"particle"						"particles/items/poisonmist/pudge_rot.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+	        {
+				"Target"            		"POINT"
+				"EffectName"        		"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
+				"MoveSpeed"         		"1100"
+				"StartRadius"       		"100"
+				"EndRadius"         		"100"
+				"StartPosition"     		"attach_attack1"
+				"HasFrontalCone"    		"0"
+				"ProvidesVision" 			"1"
+				"VisionRadius" 				"300"
+	        }
+		} 
+		"OnProjectileHitUnit"
+	    {
+	        "DeleteOnHit" 					"0" 
+	    }
+		"OnProjectileFinish"
+		{
+			"CreateThinker"
+			{
+				"Target"					"POINT"
+				"ModifierName"				"modifier_item_poison_mist_thinker"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_item_poison_mist"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+			"modifier_item_poison_mist_thinker"
+			{
+				"Duration"							"12.0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"				"items/poison_mist.lua"
+						"Function"					"SpellStart"
+					}
+				}
+			}
+			"modifier_item_poison_mist_poison"
+			{
+				"IsDebuff"						"1"
+				"Attributes"					"MODIFIER_ATTRIBUTE_NONE"
+				"StatusEffectName"				"particles/status_fx/status_effect_poison_viper.vpcf"
+				"Duration"						"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"			"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
+						"EffectAttachType"		"attach_hitloc"
+						"Target"				"TARGET"
+					}
+				}
+				"ThinkInterval"					"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/poison_mist.lua"
+						"Function"				"Poison"
 					}
 				}
 			}
