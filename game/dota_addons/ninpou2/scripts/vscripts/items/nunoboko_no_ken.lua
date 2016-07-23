@@ -49,16 +49,18 @@ function CriticalStrike(event)
 	local bonus = ability:GetLevelSpecialValueFor("crit_bonus", ability:GetLevel() - 1) / 100.0
 	local radius = ability:GetLevelSpecialValueFor("crit_area", ability:GetLevel() - 1)
 	local slowDuration = ability:GetLevelSpecialValueFor("slow_duration", ability:GetLevel() - 1)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _, enemy in pairs(enemies) do 
-		ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_MAGICAL})
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", PATTACH_ABSORIGIN, enemy)
-		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_slow", {duration = slowDuration})
-		Timers:CreateTimer(0.25, function()
-			ParticleManager:DestroyParticle(particle, false)
-		end)
-		PopupCriticalDamage(enemy, damage * bonus)
-	end
+	Units:FindEnemiesInRange({
+		unit = caster,
+		point = target:GetAbsOrigin(),
+		radius = radius,
+		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		func = function(enemy)
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_MAGICAL})
+			Particles:CreateTimedParticle("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", enemy, 0.25)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_slow", {duration = slowDuration})
+			PopupCriticalDamage(enemy, damage * bonus)
+		end
+	})
 end
 
 function ShapeTheWorld(event)
@@ -69,17 +71,18 @@ function ShapeTheWorld(event)
 	local paralysisDuration = ability:GetLevelSpecialValueFor("shape_world_duration", ability:GetLevel() - 1)
 	local damageTakenDuration = ability:GetLevelSpecialValueFor("shape_world_damage_taken_duration", ability:GetLevel() - 1)
 	local damage = ability:GetLevelSpecialValueFor("shape_world_damage", ability:GetLevel() - 1)
-	local particle = ParticleManager:CreateParticle("particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particle, 0, target)
-	ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
-	Timers:CreateTimer(paralysisDuration, function() 
-		ParticleManager:DestroyParticle(particle, false)
-	end)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _, enemy in pairs(enemies) do
-		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_paralysis", {duration = paralysisDuration})
-		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_damage_taken", {duration = damageTakenDuration})
-		ApplyDamage({ victim = enemy, attacker = caster, damage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * damage, damage_type = DAMAGE_TYPE_MAGICAL})
-	end
+	local particle = Particles:CreateTimedParticle("particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5.vpcf", caster, paralysisDuration)
+	Particles:SetControl(particle, 0, target)
+	Particles:SetControl(particle, 1, radius)
+	Units:FindEnemiesInRange({
+		unit = caster,
+		point = target, 
+		radius = radius,
+		func = function(enemy)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_paralysis", {duration = paralysisDuration})
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_nunoboko_no_ken_damage_taken", {duration = damageTakenDuration})
+			ApplyDamage({ victim = enemy, attacker = caster, damage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * damage, damage_type = DAMAGE_TYPE_MAGICAL})
+		end
+	})
 	caster:EmitSound("Hero_Enigma.BlackHole.Cast.Chasm")
 end

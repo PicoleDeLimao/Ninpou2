@@ -118,6 +118,6 @@
   
   "secretshop"
   {             
-    
+    "item"						"item_burning_oil"
   } 
 }

@@ -88,7 +88,7 @@
 		"particle"						"particles/items/KusanagiNoTsurugi/kusanagi_no_tsurugi_missile.vpcf"
 		"particle"						"particles/items/KusanagiNoTsurugi/yang_kusanagi_no_tsurugi.vpcf"
 		"particle"						"particles/econ/courier/courier_axolotl_ambient/courier_axolotl_ambient_lvl4_magic.vpcf"
-		"particle"						"particles/units/heroes/hero_chen/chen_holy_persuasion_a.vpcf"
+		"particle"						"particles/units/heroes/hero_chen/chen_holy_persuasion_sparks.vpcf"
 		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 	}
 	"OnSpellStart"

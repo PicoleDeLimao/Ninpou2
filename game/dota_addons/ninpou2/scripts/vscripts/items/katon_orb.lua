@@ -46,4 +46,7 @@ function AttackLanded(event)
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", PATTACH_ABSORIGIN, target)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 3, Vector(radius, 0, 0))
+	Timers:CreateTimer(2.0, function()
+		ParticleManager:DestroyParticle(particle, false)
+	end)
 end

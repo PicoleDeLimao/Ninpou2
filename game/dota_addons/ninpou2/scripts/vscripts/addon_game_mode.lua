@@ -7,6 +7,7 @@ require('gamemode')
 require('mechanics/hud')
 require('mechanics/players')
 require('mechanics/units')
+require('mechanics/particles')
 
 -- Library containing utilitary methods to check victory/defeat conditions 
 require('ninpou_game_rules')

@@ -10,16 +10,17 @@ function CriticalStrike(event)
 	local damage = caster:GetAverageTrueAttackDamage()
 	local bonus = ability:GetLevelSpecialValueFor("crit_bonus", ability:GetLevel() - 1) / 100.0
 	local radius = ability:GetLevelSpecialValueFor("crit_area", ability:GetLevel() - 1)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _, enemy in pairs(enemies) do 
-		ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
-		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_tornado.vpcf", PATTACH_ABSORIGIN, enemy)
-		ParticleManager:SetParticleControlEnt(particle, 0, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(particle, 3, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(particle, 6, enemy, PATTACH_ABSORIGIN, "attach_origin", enemy:GetAbsOrigin() + Vector(0, 0, 200), true)
-		Timers:CreateTimer(0.2, function() 
-			ParticleManager:DestroyParticle(particle, false)
-		end)
-		PopupCriticalDamage(enemy, damage * bonus)
-	end
+	Units:FindEnemiesInRange({
+		unit = caster,
+		point = target:GetAbsOrigin(),
+		radius = radius,
+		target_type = DOTA_UNIT_TARGET_BUILDING + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		func = function(enemy)
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * bonus, damage_type = DAMAGE_TYPE_PHYSICAL})
+			local particle = Particles:CreateTimedParticle("particles/units/heroes/hero_invoker/invoker_tornado.vpcf", enemy, 0.1)
+			Particles:SetControlEnt(particle, 3, enemy)
+			Particles:SetControlEnt(particle, 6, enemy, { target = enemy:GetAbsOrigin() + Vector(0, 0, 200) })
+			PopupCriticalDamage(enemy, damage * bonus)
+		end
+	})
 end

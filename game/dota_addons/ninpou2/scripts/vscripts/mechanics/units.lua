@@ -100,3 +100,20 @@ function Units:CreateBunshin(caster, ability, duration)
 		return 0.1 
 	end)
 end
+
+-- Find all enemies within range 
+function Units:FindEnemiesInRange(params)
+	local unit = params.unit 
+	local point = params.point or unit:GetAbsOrigin() 
+	local radius = params.radius 
+	local target_type = params.target_type or DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	local flags = params.flags or DOTA_UNIT_TARGET_FLAG_NONE
+	local callback = params.func
+	local enemies = FindUnitsInRadius(unit:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, flags, FIND_ANY_ORDER, false)
+	if callback then 
+		for _, enemy in pairs(enemies) do 
+			callback(enemy)
+		end
+	end
+	return enemies
+end

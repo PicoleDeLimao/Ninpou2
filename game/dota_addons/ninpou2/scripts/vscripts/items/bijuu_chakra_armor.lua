@@ -9,7 +9,7 @@ function InitializeShield(event)
 	local ability = event.ability
 	caster.bijuuChakraShieldHealth = ability:GetLevelSpecialValueFor("shield_amount", ability:GetLevel() - 1)
 	local particle = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + Vector(0, 0, 500))
+	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + Vector(500, 500, 500))
 	caster:EmitSound("Hero_Windrunner.Pick")
 end
 

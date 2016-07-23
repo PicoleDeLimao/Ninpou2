@@ -33,13 +33,9 @@ function ShadowAmbushThink(event)
 		end
 	else
 		if caster.shadow_ambush_duration > 0 then 
-			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_ABSORIGIN, "attach_origin", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_ABSORIGIN, "attach_origin", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControl(particle, 2, Vector(300, 0, 0))
-			ParticleManager:SetParticleControlEnt(particle, 3, caster, PATTACH_ABSORIGIN, "attach_origin", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(particle, 4, caster, PATTACH_ABSORIGIN, "attach_origin", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(particle, 5, caster, PATTACH_ABSORIGIN, "attach_origin", caster:GetAbsOrigin(), true)
+			local particle = Particles:CreateTimedParticle("particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf", caster, 2.0)
+			Particles:SetControlEnt(particle, {1, 3, 4, 5}, caster)
+			Particles:SetControl(particle, 2, 300)
 			caster.shadow_ambush_bonus = caster.shadow_ambush_duration
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_shadow_ambush_buff", {duration=6})
 		end
