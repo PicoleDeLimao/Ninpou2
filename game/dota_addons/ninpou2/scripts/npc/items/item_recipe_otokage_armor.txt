@@ -14,7 +14,7 @@
 	"ItemResult"					"item_otokage_armor"
 	"ItemRequirements"
 	{
-		"01"						"item_sannin_armor;item_yin_orb"
-		"02"						"item_sannin_armor;item_yang_orb"
+		"01"						"item_sannin_armor;item_charged_absorbing_stone;item_yin_orb"
+		"02"						"item_sannin_armor;item_charged_absorbing_stone;item_yang_orb"
 	}
 }

@@ -14,6 +14,6 @@
 	"ItemResult"					"item_hokage_armor"
 	"ItemRequirements"
 	{
-		"01"						"item_sannin_armor;item_katon_orb"
+		"01"						"item_sannin_armor;item_charged_absorbing_stone;item_katon_orb"
 	}
 }

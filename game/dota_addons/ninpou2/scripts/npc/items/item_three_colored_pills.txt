@@ -49,7 +49,7 @@
 	// Datadriven
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcff"
+		"particle"					"particles/items/threecoloredpills/ogre_magi_bloodlust_buff.vpcff"
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 	}
 	"OnSpellStart"
@@ -74,7 +74,7 @@
 			"IsBuff"				"1"
 			"IsPurgable"			"1"
 			"TextureName"       	"item_three_colored_pills"
-			"EffectName"			"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+			"EffectName"			"particles/items/threecoloredpills/ogre_magi_bloodlust_buff.vpcf"
 			"EffectAttachType"		"follow_origin"
 			"Properties"
 			{

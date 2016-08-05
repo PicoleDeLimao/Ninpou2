@@ -115,9 +115,9 @@
 	[
 		{
 			_class = "C_OP_ConstrainDistance"
-			m_fMinDistance = 70.0
+			m_fMinDistance = 170.0
 			m_CenterOffset = [ 0.0, 0.0, 130.0 ]
-			m_fMaxDistance = 130.0
+			m_fMaxDistance = 230.0
 		},
 	]
 	m_Children = 

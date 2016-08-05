@@ -74,6 +74,8 @@ function Precache( context )
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context)
   PrecacheResource("particle", "particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf", context)
   PrecacheResource("particle", "particles/items/poisonmist/batrider_flamebreak.vpcf", context)
+  PrecacheResource("particle", "particles/base_destruction_fx/gensmoke.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_generic.vpcf", context)
 
   -- Precache units 
   PrecacheUnitByNameSync("npc_konoha_chunnin_unit", context)

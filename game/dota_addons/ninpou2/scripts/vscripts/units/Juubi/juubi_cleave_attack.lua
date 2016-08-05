@@ -8,12 +8,15 @@ function AttackLanded(event)
 	local target = event.target
 	local ability = event.ability 
 	local damage = caster:GetAverageTrueAttackDamage()
+	local damageBonus = ability:GetLevelSpecialValueFor("damage_bonus", ability:GetLevel() - 1)
 	local radius = ability:GetLevelSpecialValueFor("splash_area", ability:GetLevel() - 1)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-	for _, enemy in pairs(enemies) do 
-		if enemy ~= target then 
-			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+	Units:FindEnemiesInRange({
+		unit = caster,
+		point = target:GetAbsOrigin(),
+		radius = radius,
+		func = function(enemy)
+			ApplyDamage({ victim = enemy, attacker = caster, damage = damage * damageBonus, damage_type = DAMAGE_TYPE_PHYSICAL})
+			Particles:CreateTimedParticle("particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf", enemy, 2.0)
 		end
-	end
-	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf", PATTACH_ABSORIGIN, target)
+	})
 end

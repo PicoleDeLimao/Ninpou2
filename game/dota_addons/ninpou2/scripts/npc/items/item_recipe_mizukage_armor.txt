@@ -14,6 +14,6 @@
 	"ItemResult"					"item_mizukage_armor"
 	"ItemRequirements"
 	{
-		"01"						"item_sannin_armor;item_suiton_orb"
+		"01"						"item_sannin_armor;item_charged_absorbing_stone;item_suiton_orb"
 	}
 }

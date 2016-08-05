@@ -26,11 +26,16 @@ function OnDeath(event)
 end
 
 function ShowDeathAnimation(event)
+	local caster = event.caster
 	local target = event.target
-	local particle1 = Particles:CreateTimedParticle("particles/siege_fx/siege_good_death_01.vpcf", target, 2.0)
-	ParticleManager:SetParticleControlOrientation(particle1, 1, Vector(100, 0, 0), Vector(0, 0, 0), Vector(0, 0, 100))
-	local particle2 = Particles:CreateTimedParticle("particles/radiant_fx/tower_good3_destroy_lvl3.vpcf", target, 2.0)
-	Particles:SetControl(particle2, {1, 3, 8}, target:GetAbsOrigin())
-	Particles:SetControl(particle2, 7, 300)
+	if NinpouGameRules:IsBase(caster) then 
+		local particle1 = Particles:CreateTimedParticle("particles/base_destruction_fx/gensmoke.vpcf", target, 2.0)
+		Particles:SetControl(particle1, 2, 600)
+	else
+		HUD:SendNotification("#message_building_destroyed")
+		local particle = Particles:CreateTimedParticle("particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_generic.vpcf", target, 2.0)
+		Particles:SetControl(particle, {1, 3, 8}, target:GetAbsOrigin())
+		Particles:SetControl(particle, 7, 300)
+	end
 	target:EmitSound("Building_DireTower.Destruction")
 end

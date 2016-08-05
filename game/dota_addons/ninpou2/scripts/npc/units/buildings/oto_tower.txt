@@ -10,7 +10,7 @@
 	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 	"AttackDamageMin"			"550"
 	"AttackDamageMax"			"650"
-	"AttackRate"				"1.0"
+	"AttackRate"				"2.0"
 	"AttackAcquisitionRange"	"800"
 	"AttackRange"				"600"
 	"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"

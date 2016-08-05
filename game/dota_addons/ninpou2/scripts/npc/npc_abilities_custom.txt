@@ -99,7 +99,7 @@
 			}
 			"modifier_truesight_reveal"
 			{
-				"IsHidden"				"1"
+				//"IsHidden"				"1"
 				"Duration"				"0.5"
 				"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
 				"States"
@@ -1090,12 +1090,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"100"
+				"damage_bonus"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"splash_area"			"200"
+				"splash_area"			"100"
 			}
 		}
 	
@@ -1334,7 +1334,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_per_think"	"75"
+				"heal_per_think"	"50"
 			}
 		}
 	

@@ -19,7 +19,7 @@ function SpellStart(event)
 			point = target:GetAbsOrigin(),
 			radius = radius,
 			func = function(enemy)
-				if not enemy:HasModifier("modifier_item_poison_mist_poison") then
+				if not enemy:HasModifier("modifier_item_poison_mist_poison") and not enemy:IsMagicImmune() then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_poison_mist_poison", {duration = duration})
 				end
 			end

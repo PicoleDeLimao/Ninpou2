@@ -42,6 +42,6 @@
 
 	// Bounty
 	"BountyXP"					"75"
-	"BountyGoldMin"       	    "130"      // Gold earned min.
-	"BountyGoldMax"      	    "160"      // Gold earned max.
+	"BountyGoldMin"       	    "80"      // Gold earned min.
+	"BountyGoldMax"      	    "100"      // Gold earned max.
 }

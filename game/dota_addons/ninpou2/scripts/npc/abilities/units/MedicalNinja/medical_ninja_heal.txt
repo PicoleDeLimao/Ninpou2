@@ -36,7 +36,7 @@
 		"03"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"heal_per_think"	"75"
+			"heal_per_think"	"50"
 		}
 	}
 

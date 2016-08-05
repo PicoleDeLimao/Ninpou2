@@ -120,11 +120,6 @@
 					"ScriptFile"			"items/burning_oil.lua"
 					"Function"				"SpellStart"
 				}
-				"FireSound"
-				{
-					"Target"					"TARGET"
-					"EffectName"				"Hero_Batrider.Firefly.loop"
-				}
 			}
 		}
 		"modifier_item_burning_oil_burning"

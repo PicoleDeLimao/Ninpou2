@@ -19,5 +19,10 @@
 	"error_armor"										"You can only wear one armor at once."
 	"error_set"											"You can only equip one set at once."
 	"error_ninja_weapon"								"You can only equip one ninja weapon at once."
-
-}
+	
+	//--------------------
+	// Messages 
+	//--------------------
+	"message_building_destroyed"						"A building was destroyed."
+	
+}		

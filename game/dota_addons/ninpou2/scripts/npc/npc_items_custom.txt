@@ -3395,11 +3395,6 @@
 						"ScriptFile"			"items/burning_oil.lua"
 						"Function"				"SpellStart"
 					}
-					"FireSound"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"Hero_Batrider.Firefly.loop"
-					}
 				}
 			}
 			"modifier_item_burning_oil_burning"
@@ -8894,7 +8889,7 @@
 		"ItemResult"					"item_hokage_armor"
 		"ItemRequirements"
 		{
-			"01"						"item_sannin_armor;item_katon_orb"
+			"01"						"item_sannin_armor;item_charged_absorbing_stone;item_katon_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -8989,7 +8984,7 @@
 		"ItemResult"					"item_kazekage_armor"
 		"ItemRequirements"
 		{
-			"01"						"item_sannin_armor;item_fuuton_orb"
+			"01"						"item_sannin_armor;item_charged_absorbing_stone;item_fuuton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -9046,7 +9041,7 @@
 		"ItemResult"					"item_mizukage_armor"
 		"ItemRequirements"
 		{
-			"01"						"item_sannin_armor;item_suiton_orb"
+			"01"						"item_sannin_armor;item_charged_absorbing_stone;item_suiton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -9106,8 +9101,8 @@
 		"ItemResult"					"item_otokage_armor"
 		"ItemRequirements"
 		{
-			"01"						"item_sannin_armor;item_yin_orb"
-			"02"						"item_sannin_armor;item_yang_orb"
+			"01"						"item_sannin_armor;item_charged_absorbing_stone;item_yin_orb"
+			"02"						"item_sannin_armor;item_charged_absorbing_stone;item_yang_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -9126,7 +9121,7 @@
 		"ItemResult"					"item_raikage_armor"
 		"ItemRequirements"
 		{
-			"01"						"item_sannin_armor;item_raiton_orb"
+			"01"						"item_sannin_armor;item_charged_absorbing_stone;item_raiton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -9278,7 +9273,7 @@
 		"ItemResult"					"item_tsuchikage_armor"
 		"ItemRequirements"
 		{
-			"01"						"item_sannin_armor;item_doton_orb"
+			"01"						"item_sannin_armor;item_charged_absorbing_stone;item_doton_orb"
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -10826,7 +10821,7 @@
 		// Datadriven
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcff"
+			"particle"					"particles/items/threecoloredpills/ogre_magi_bloodlust_buff.vpcff"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 		}
 		"OnSpellStart"
@@ -10851,7 +10846,7 @@
 				"IsBuff"				"1"
 				"IsPurgable"			"1"
 				"TextureName"       	"item_three_colored_pills"
-				"EffectName"			"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+				"EffectName"			"particles/items/threecoloredpills/ogre_magi_bloodlust_buff.vpcf"
 				"EffectAttachType"		"follow_origin"
 				"Properties"
 				{

@@ -61,9 +61,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"350"
-		"AttackDamageMax"			"450"
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.5"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
@@ -102,9 +102,10 @@
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
 		
 		// Abilities
-		"AbilitiesLayout"			"1"
+		"AbilitiesLayout"			"2"
 		"Ability1"					"konohagakure_tower_feedback"
 		"Ability2"					"ability_building"
+		"Ability3"					"juubi_cleave_attack"
 	}
 	"npc_akatsuki_tower_unit"
 	{
@@ -118,7 +119,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"550"
 		"AttackDamageMax"			"650"
-		"AttackRate"				"1.0"
+		"AttackRate"				"2.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
@@ -221,9 +222,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"350"
-		"AttackDamageMax"			"450"
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.5"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
@@ -263,9 +264,10 @@
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
 		
 		// Abilities
-		"AbilitiesLayout"			"1"
+		"AbilitiesLayout"			"2"
 		"Ability1"					"konohagakure_tower_feedback"
 		"Ability2"					"ability_building"
+		"Ability3"					"juubi_cleave_attack"
 	}
 	"npc_konoha_tower_unit"
 	{
@@ -279,7 +281,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"550"
 		"AttackDamageMax"			"650"
-		"AttackRate"				"1.0"
+		"AttackRate"				"2.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
@@ -410,9 +412,9 @@
 	
 		// Attack 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"350"
-		"AttackDamageMax"			"450"
-		"AttackRate"				"1.0"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.5"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
@@ -452,9 +454,10 @@
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
 		
 		// Abilities
-		"AbilitiesLayout"			"1"
+		"AbilitiesLayout"			"2"
 		"Ability1"					"konohagakure_tower_feedback"
 		"Ability2"					"ability_building"
+		"Ability3"					"juubi_cleave_attack"
 	}
 	"npc_oto_tower_unit"
 	{
@@ -468,7 +471,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"550"
 		"AttackDamageMax"			"650"
-		"AttackRate"				"1.0"
+		"AttackRate"				"2.0"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"600"
 		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
@@ -597,8 +600,8 @@
 			
 		// Bounty
 		"BountyXP"					"50"
-		"BountyGoldMin"       	    "80"      // Gold earned min.
-		"BountyGoldMax"      	    "100"     // Gold earned max.
+		"BountyGoldMin"       	    "40"      // Gold earned min.
+		"BountyGoldMax"      	    "60"     // Gold earned max.
 	}
 	"npc_akatsuki_jounin_unit"
 	{
@@ -644,8 +647,8 @@
 	
 		// Bounty
 		"BountyXP"					"75"
-		"BountyGoldMin"       	    "130"      // Gold earned min.
-		"BountyGoldMax"      	    "160"      // Gold earned max.
+		"BountyGoldMin"       	    "80"      // Gold earned min.
+		"BountyGoldMax"      	    "100"      // Gold earned max.
 	}
 	"npc_anbu_unit"
 	{
@@ -693,8 +696,8 @@
 	
 		// Bounty
 		"BountyXP"					"200"
-		"BountyGoldMin"       	    "230"      // Gold earned min.
-		"BountyGoldMax"      	    "260"      // Gold earned max.
+		"BountyGoldMin"       	    "180"      // Gold earned min.
+		"BountyGoldMax"      	    "200"      // Gold earned max.
 	
 		// Abilities
 		"AbilitiesLayout"           "3"
@@ -931,8 +934,8 @@
 	
 		// Bounty
 		"BountyXP"					"50"
-		"BountyGoldMin"       	    "80"      // Gold earned min.
-		"BountyGoldMax"      	    "100"     // Gold earned max.
+		"BountyGoldMin"       	    "40"      // Gold earned min.
+		"BountyGoldMax"      	    "60"     // Gold earned max.
 	}
 	"npc_konoha_jounin_unit"
 	{
@@ -979,8 +982,8 @@
 	
 		// Bounty
 		"BountyXP"					"75"
-		"BountyGoldMin"       	    "130"      // Gold earned min.
-		"BountyGoldMax"      	    "160"      // Gold earned max.
+		"BountyGoldMin"       	    "80"      // Gold earned min.
+		"BountyGoldMax"      	    "100"      // Gold earned max.
 	}
 	"npc_medical_ninja_unit"
 	{
@@ -1032,8 +1035,8 @@
 	
 		// Bounty
 		"BountyXP"					"100"
-		"BountyGoldMin"       	    "180"      // Gold earned min.
-		"BountyGoldMax"      	    "220"      // Gold earned max.
+		"BountyGoldMin"       	    "120"      // Gold earned min.
+		"BountyGoldMax"      	    "150"      // Gold earned max.
 	
 		// Abilities
 		"AbilitiesLayout"           "1"
@@ -1132,8 +1135,8 @@
 	
 		// Bounty
 		"BountyXP"					"50"
-		"BountyGoldMin"       	    "80"      // Gold earned min.
-		"BountyGoldMax"      	    "100"     // Gold earned max.
+		"BountyGoldMin"       	    "40"      // Gold earned min.
+		"BountyGoldMax"      	    "60"     // Gold earned max.
 	}
 	"npc_oto_jounin_unit"
 	{
@@ -1180,8 +1183,8 @@
 	
 		// Bounty
 		"BountyXP"					"75"
-		"BountyGoldMin"       	    "130"      // Gold earned min.
-		"BountyGoldMax"      	    "160"      // Gold earned max.
+		"BountyGoldMin"       	    "80"      // Gold earned min.
+		"BountyGoldMax"      	    "100"      // Gold earned max.
 	}
 	"npc_rogue_ninja_unit"
 	{
