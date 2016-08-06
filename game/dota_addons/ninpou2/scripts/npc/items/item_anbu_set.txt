@@ -28,7 +28,7 @@
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"gold_per_kill"			"50"
+			"gold_per_kill"			"30"
 		}
 		"03"
 		{

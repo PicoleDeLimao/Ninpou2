@@ -4,7 +4,7 @@
 "item_susanoo_set"
 {
 	// General
-	"ID"							"1243"
+	"ID"							"1443"
 	"BaseClass"						"item_datadriven"
 	"AbilityTextureName"			"item_susanoo_set"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"

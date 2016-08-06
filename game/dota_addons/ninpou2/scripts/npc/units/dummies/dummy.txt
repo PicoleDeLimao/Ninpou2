@@ -1,8 +1,8 @@
 "npc_dummy_unit"
 {
 	// General
-	"BaseClass"         "npc_dota_thinker"  					// Class of entity of link to.
-	"Model"           	"models/development/invisiblebox.vmdl"  // Model.
+	"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+	"Model"           	"models/units/dummy/invisiblebox.vmdl"  // Model.
 
 	// Attack
 	"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
@@ -36,4 +36,7 @@
 	// Vision
 	"VisionDaytimeRange"        "0"   	// Range of vision during day light.
 	"VisionNighttimeRange"      "0"   // Range of vision at night time.
+	
+	// Abilities
+	"Ability1"				"ability_dummy"
 }

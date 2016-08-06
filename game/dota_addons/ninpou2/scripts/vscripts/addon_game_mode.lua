@@ -8,6 +8,7 @@ require('mechanics/hud')
 require('mechanics/players')
 require('mechanics/units')
 require('mechanics/particles')
+require('mechanics/throwables')
 
 -- Library containing utilitary methods to check victory/defeat conditions 
 require('ninpou_game_rules')
@@ -72,10 +73,12 @@ function Precache( context )
   PrecacheResource("soundfile", "soundevents/game_sounds_roshan_halloween.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts", context)
   PrecacheResource("particle", "particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf", context)
   PrecacheResource("particle", "particles/items/poisonmist/batrider_flamebreak.vpcf", context)
   PrecacheResource("particle", "particles/base_destruction_fx/gensmoke.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_generic.vpcf", context)
+  PrecacheResource("particle", "particles/items/explosivekunai/explosive_kunai.vpcf", context)
 
   -- Precache units 
   PrecacheUnitByNameSync("npc_konoha_chunnin_unit", context)

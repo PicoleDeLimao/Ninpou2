@@ -1,0 +1,61 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Fuuma Shuriken
+//-------------------------------------------------------------------------------------------------------------
+"item_fuuma_shuriken"
+{
+	// General
+	"ID"							"1256"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_fuuma_shuriken"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType" 		"DAMAGE_TYPE_MAGICAL"
+	
+	"ItemCost"						"3500"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+
+	"AbilityCastRange" 				"700"   
+    "AbilityCooldown"  				"50"       
+    "AbilityManaCost"  				"0"
+	"AbilityCastPoint"				"0.5"
+	"AOERadius" 					"300"  
+	"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_agi"			"7"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"radius"				"200"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/items/fuumashuriken/fuuma_shuriken.vpcf"
+		"particle"					"particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_backstab_hit_blood.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"items/fuuma_shuriken.lua"
+			"Function"				"SpellStart"
+			"Target"				"POINT"
+		}
+	} 
+}

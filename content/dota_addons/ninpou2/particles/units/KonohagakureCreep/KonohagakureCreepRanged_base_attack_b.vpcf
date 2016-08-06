@@ -3,17 +3,11 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 128
-	m_flConstantRadius = 64.000000
-	m_flConstantLifespan = 0.300000
-	m_ConstantColor =
-	[
-		112,
-		208,
-		248,
-		16,
-	]
+	m_flConstantRadius = 64.0
+	m_flConstantLifespan = 0.3
+	m_ConstantColor = [ 112, 208, 248, 16 ]
 	m_bShouldSort = false
-	m_Renderers =
+	m_Renderers = 
 	[
 		{
 			_class = "C_OP_RenderSprites"
@@ -23,7 +17,7 @@
 			m_nOrientationType = 2
 		},
 	]
-	m_Operators =
+	m_Operators = 
 	[
 		{
 			_class = "C_OP_BasicMovement"
@@ -33,50 +27,51 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.100000
+			m_flFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.800000
+			m_flFadeOutTime = 0.8
 		},
 		{
 			_class = "C_OP_PercentageBetweenCPs"
 			m_bActiveRange = true
-			m_flOutputMax = 72.000000
-			m_flOutputMin = 48.000000
-			m_flInputMax = 0.500000
+			m_flOutputMax = 72.0
+			m_flOutputMin = 48.0
+			m_flInputMax = 0.5
 		},
 		{
 			_class = "C_OP_PercentageBetweenCPs"
 			m_bActiveRange = true
-			m_flOutputMax = 48.000000
-			m_flOutputMin = 72.000000
-			m_flInputMin = 0.500000
+			m_flOutputMax = 48.0
+			m_flOutputMin = 72.0
+			m_flInputMin = 0.5
 		},
 		{
 			_class = "C_OP_PercentageBetweenCPs"
 			m_bActiveRange = true
-			m_flOutputMin = 0.250000
+			m_flOutputMin = 0.25
 			m_nFieldOutput = 16
-			m_flInputMax = 0.500000
+			m_flInputMax = 0.5
 		},
 		{
 			_class = "C_OP_PercentageBetweenCPs"
 			m_bActiveRange = true
-			m_flOutputMax = 0.250000
-			m_flOutputMin = 1.000000
+			m_flOutputMax = 0.25
+			m_flOutputMin = 1.0
 			m_nFieldOutput = 16
-			m_flInputMin = 0.500000
+			m_flInputMin = 0.5
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartTime = 0.500000
-			m_flEndTime = 0.500000
-			m_flStartScale = 0.500000
-			m_flEndScale = 0.500000
+			m_flStartTime = 0.5
+			m_flEndTime = 0.5
+			m_flStartScale = 0.5
+			m_flEndScale = 0.5
+			m_bDisableOperator = true
 		},
 	]
-	m_Initializers =
+	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_CreateWithinSphere"
@@ -85,16 +80,16 @@
 		{
 			_class = "C_INIT_RemapCPtoScalar"
 			m_nCPInput = 5
-			m_flInputMax = 360.000000
+			m_flInputMax = 360.0
 			m_nFieldOutput = 4
-			m_flOutputMax = 360.000000
+			m_flOutputMax = 360.0
 		},
 	]
-	m_Emitters =
+	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 128.000000
+			m_flEmitRate = 128.0
 		},
 	]
 }
