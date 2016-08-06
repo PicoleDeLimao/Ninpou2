@@ -553,7 +553,92 @@
 		"VisionNighttimeRange"      "0"   // Range of vision at night time.
 		
 		// Abilities
+		"Ability1"				"ability_dummy_flying"
+	}
+	"npc_kawarimi_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+		"Model"           	"models/items/kawarimi/kawarimi.vmdl"  // Model.
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"1"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
+		
+		// Abilities
 		"Ability1"				"ability_dummy"
+	}
+	"npc_smoke_bomb_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+		"Model"           	"models/units/dummy/invisiblebox.vmdl"  // Model.
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"1"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
+		
+		// Abilities
+		"Ability1"				"ability_dummy"
+		"Ability2"				"smoke_bomb_slow"
 	}
 	"npc_akatsuki_chunnin_unit"
 	{

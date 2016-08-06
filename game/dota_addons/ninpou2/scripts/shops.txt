@@ -99,7 +99,8 @@
   // Level 4 - Orange / Orb / Artifacts       
   "artifacts"
   { 
-
+	"item"						"item_kawarimi"
+	"item"						"item_smoke_bomb"
   }
 
   "sideshop1"

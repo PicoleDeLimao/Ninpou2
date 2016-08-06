@@ -118,7 +118,23 @@ function Units:FindEnemiesInRange(params)
 	return enemies
 end
 
-                 
+-- Find all allies within range 
+function Units:FindAlliesInRange(params)
+	local unit = params.unit 
+	local point = params.point or unit:GetAbsOrigin() 
+	local radius = params.radius 
+	local target_type = params.target_type or DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	local flags = params.flags or DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	local callback = params.func
+	local allies = FindUnitsInRadius(unit:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, target_type, flags, FIND_ANY_ORDER, false)
+	if callback then 
+		for _, enemy in pairs(allies) do 
+			callback(enemy)
+		end
+	end
+	return allies
+end
+
 -- Spawn creeps for a determined lane
 function Units:SpawnCreepsLane(units, unitsCount, offsets, path, team, spawnerName)
 	local spawner = Entities:FindByName(nil, spawnerName)

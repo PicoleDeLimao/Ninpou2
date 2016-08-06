@@ -163,6 +163,62 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Smoke Bomb
+	//-------------------------------------------------------------------------------------------------------------
+	"smoke_bomb_slow"
+	{
+		// General
+		"BaseClass"                         "ability_datadriven"
+		"AbilityTextureName"                "smoke_bomb"
+		"AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"                  "300"
+		"MaxLevel"							"1"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                  "FIELD_INTEGER"
+				"radius"                    "300"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"-50"
+			}
+		}
+	
+		// Datadriven
+		"precache"
+		{
+			"particle"                      "particles/items_fx/aura_shivas.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_smoke_bomb"
+			{
+				"Passive"                   "1"
+				"IsHidden"                  "1"
+				"Aura"                      "modifier_smoke_bomb_slow"
+				"Aura_Radius"               "%radius"
+				"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"                "DOTA_UNIT_TARGET_ALL"
+			}
+			"modifier_smoke_bomb_slow"
+			{
+				"IsDebuff"                    "1"
+				"AbilityTextureName"		  "smoke_bomb"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%slow"
+	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// NEUTRALS: Hide hero
 	//-------------------------------------------------------------------------------------------------------------
 	"hide_hero"
@@ -409,6 +465,35 @@
 	// UNITS: Dummy
 	//-------------------------------------------------------------------------------------------------------------
 	"ability_dummy"
+	{
+		"BaseClass" 		"ability_datadriven"
+		"AbilityBehavior" 	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_is_dummy"
+			{
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// UNITS: Dummy (Flying)
+	//-------------------------------------------------------------------------------------------------------------
+	"ability_dummy_flying"
 	{
 		"BaseClass" 		"ability_datadriven"
 		"AbilityBehavior" 	"DOTA_ABILITY_BEHAVIOR_PASSIVE"

@@ -1,8 +1,8 @@
-"npc_dummy_unit"
+"npc_kawarimi_unit"
 {
 	// General
 	"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
-	"Model"           	"models/units/dummy/invisiblebox.vmdl"  // Model.
+	"Model"           	"models/items/kawarimi/kawarimi.vmdl"  // Model.
 
 	// Attack
 	"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
@@ -38,5 +38,5 @@
 	"VisionNighttimeRange"      "0"   // Range of vision at night time.
 	
 	// Abilities
-	"Ability1"				"ability_dummy_flying"
+	"Ability1"				"ability_dummy"
 }

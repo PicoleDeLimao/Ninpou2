@@ -1,4 +1,4 @@
-"npc_dummy_unit"
+"npc_smoke_bomb_unit"
 {
 	// General
 	"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
@@ -38,5 +38,6 @@
 	"VisionNighttimeRange"      "0"   // Range of vision at night time.
 	
 	// Abilities
-	"Ability1"				"ability_dummy_flying"
+	"Ability1"				"ability_dummy"
+	"Ability2"				"smoke_bomb_slow"
 }
