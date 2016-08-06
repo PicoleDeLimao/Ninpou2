@@ -7,30 +7,38 @@
 function SpellStart(event)
 	local ability = event.ability
 	local caster = event.caster
-	local target = event.target 
+	local target = event.target_points[1]   
 	local radius = ability:GetSpecialValueFor("radius")
 	local duration = ability:GetSpecialValueFor("duration")
-	local count = 0
-	local particle = ParticleManager:CreateParticle("particles/items/poisonmist/pudge_rot.vpcf", PATTACH_ABSORIGIN, target)
-	Particles:SetControl(particle, 1, radius)
-	Timers:CreateTimer(1.0, function()
-		Units:FindEnemiesInRange({
-			unit = caster,
-			point = target:GetAbsOrigin(),
-			radius = radius,
-			func = function(enemy)
-				if not enemy:HasModifier("modifier_item_poison_mist_poison") and not enemy:IsMagicImmune() then
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_poison_mist_poison", {duration = duration})
+	caster:EmitSound("Hero_Alchemist.UnstableConcoction.Throw")
+	Throwables:CreateThrowable({
+		caster = caster,
+		effectName = "particles/items/poisonmist/batrider_flamebreak.vpcf",
+		target = target,
+		height = 300,
+		speed = 300,
+		onEnd = function(dummy)
+			local count = 0
+			local particle = Particles:CreateTimedParticle("particles/items/poisonmist/pudge_rot.vpcf", target, duration, { caster = caster })
+			Particles:SetControl(particle, 1, radius)
+			Timers:CreateTimer(1.0, function()
+				Units:FindEnemiesInRange({
+					unit = caster,
+					point = target,
+					radius = radius,
+					func = function(enemy)
+						if not enemy:HasModifier("modifier_item_poison_mist_poison") and not enemy:IsMagicImmune() then
+							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_poison_mist_poison", {duration = duration})
+						end
+					end
+				})
+				count = count + 1.0
+				if count < duration then
+					return 1.0
 				end
-			end
-		})
-		count = count + 1.0
-		if count < duration then
-			return 1.0
-		else
-			ParticleManager:DestroyParticle(particle, false)
+			end)
 		end
-	end)
+	})
 end
 
 function Poison(event)

@@ -1,12 +1,12 @@
 //-------------------------------------------------------------------------------------------------------------
-// ITEMS: Fuuma Shuriken
+// ITEMS: Senbons Launcher
 //-------------------------------------------------------------------------------------------------------------
-"item_fuuma_shuriken"
+"item_senbons_launcher"
 {
 	// General
-	"ID"							"1256"
+	"ID"							"1257"
 	"BaseClass"						"item_datadriven"
-	"AbilityTextureName"			"item_fuuma_shuriken"
+	"AbilityTextureName"			"item_senbons_launcher"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -33,34 +33,34 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"damage_agi"			"7"
+			"damage_int"			"7"
 		}
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"radius"				"200"
+			"radius"				"300"
 		}
 	}
 	
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/items/fuumashuriken/fuuma_shuriken.vpcf"
+		"particle"					"particles/items/senbonslauncher/senbons_launcher.vpcf"
 		"particle"					"particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_backstab_hit_blood.vpcf"
-		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
 	}
 	"OnSpellStart"
 	{
 		"RunScript"
 		{
-			"ScriptFile"			"items/fuuma_shuriken.lua"
+			"ScriptFile"			"items/senbons_launcher.lua"
 			"Function"				"SpellStart"
 			"Target"				"POINT"
 		}
 	} 
 	"Modifiers"
 	{
-		"modifier_item_fuuma_shuriken"
+		"modifier_item_senbons_launcher"
 		{
 			"Passive"				"1"
 			"IsHidden"				"1"

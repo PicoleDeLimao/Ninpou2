@@ -122,5 +122,6 @@
 	"item"						"item_poison_mist"
 	"item"						"item_explosive_kunai"
 	"item"						"item_fuuma_shuriken"
+	"item"						"item_senbons_launcher"
   } 
 }

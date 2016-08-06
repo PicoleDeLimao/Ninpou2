@@ -11,6 +11,7 @@ function SpellStart(event)
 	local radius = ability:GetSpecialValueFor("radius")
 	local range = ability:GetCastRange()
 	local damage = ability:GetSpecialValueFor("damage_agi")
+	caster:EmitSound("Hero_BountyHunter.Shuriken")
 	Throwables:CreateThrowable({
 		caster = caster,
 		effectName = "particles/items/fuumashuriken/fuuma_shuriken.vpcf",

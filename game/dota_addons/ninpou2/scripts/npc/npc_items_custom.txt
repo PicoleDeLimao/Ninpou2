@@ -3325,43 +3325,20 @@
 		// Datadriven 
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
+			"particle"					"particles/items/burningoil/batrider_flamebreak.vpcf"
 			"particle"					"particles/items/burningoil/batrider_firefly.vpcf"
 			"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_loadout.vpc"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
 		}
 		"OnSpellStart"
 		{
-			"LinearProjectile"
-	        {
-				"Target"            		"POINT"
-				"EffectName"        		"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
-				"MoveSpeed"         		"1100"
-				"StartRadius"       		"100"
-				"EndRadius"         		"100"
-				"StartPosition"     		"attach_attack1"
-				"HasFrontalCone"    		"0"
-				"ProvidesVision" 			"1"
-				"VisionRadius" 				"300"
-	        }
-			"FireSound"
+			"RunScript"
 			{
-				"Target"                    "CASTER"
-				"EffectName"                "Hero_Batrider.Firefly.Cast"
+				"ScriptFile"			"items/burning_oil.lua"
+				"Function"				"SpellStart"
+				"Target"				"POINT"
 			}
 		} 
-		"OnProjectileHitUnit"
-	    {
-	        "DeleteOnHit" 					"0" 
-	    }
-		"OnProjectileFinish"
-		{
-			"CreateThinker"
-			{
-				"Target"					"POINT"
-				"ModifierName"				"modifier_item_burning_oil_thinker"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_item_burning_oil"
@@ -3382,18 +3359,6 @@
 					{
 						"ScriptFile"	"items/ninja_weapon.lua"
 						"Function"		"Unequip"
-					}
-				}
-			}
-			"modifier_item_burning_oil_thinker"
-			{
-				"Duration"					"6.0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"items/burning_oil.lua"
-						"Function"				"SpellStart"
 					}
 				}
 			}
@@ -4966,7 +4931,6 @@
 		"AbilityCastRange" 				"700"   
 	    "AbilityCooldown"  				"50"       
 	    "AbilityManaCost"  				"0"
-		"AbilityCastPoint"				"0.5"
 		"AOERadius" 					"300"  
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 	
@@ -4989,6 +4953,8 @@
 		"precache"
 		{
 			"particle"					"particles/items/fuumashuriken/fuuma_shuriken.vpcf"
+			"particle"					"particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_backstab_hit_blood.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
 		}
 		"OnSpellStart"
 		{
@@ -4999,6 +4965,30 @@
 				"Target"				"POINT"
 			}
 		} 
+		"Modifiers"
+		{
+			"modifier_item_fuuma_shuriken"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Fuuton Kusanagi no Tsurugi
@@ -7710,40 +7700,18 @@
 			"particle"						"particles/status_fx/status_effect_poison_viper.vpcf"
 			"particle"						"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
 			"particle"						"particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
+			"particle"						"particles/items/poisonmist/batrider_flamebreak.vpcf"
 			"particle"						"particles/items/poisonmist/pudge_rot.vpcf"
 		}
 		"OnSpellStart"
 		{
-			"LinearProjectile"
-	        {
-				"Target"            		"POINT"
-				"EffectName"        		"particles/items/poisonmist/batrider_flamebreak.vpcf"
-				"MoveSpeed"         		"1100"
-				"StartRadius"       		"100"
-				"EndRadius"         		"100"
-				"StartPosition"     		"attach_attack1"
-				"HasFrontalCone"    		"0"
-				"ProvidesVision" 			"1"
-				"VisionRadius" 				"300"
-	        }
-			"FireSound"
+			"RunScript"
 			{
-				"Target"					"CASTER"
-				"EffectName"				"Hero_Alchemist.UnstableConcoction.Throw"
+				"ScriptFile"				"items/poison_mist.lua"
+				"Function"					"SpellStart"
+				"Target"					"POINT"
 			}
 		} 
-		"OnProjectileHitUnit"
-	    {
-	        "DeleteOnHit" 					"0" 
-	    }
-		"OnProjectileFinish"
-		{
-			"CreateThinker"
-			{
-				"Target"					"POINT"
-				"ModifierName"				"modifier_item_poison_mist_thinker"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_item_poison_mist"
@@ -7764,18 +7732,6 @@
 					{
 						"ScriptFile"	"items/ninja_weapon.lua"
 						"Function"		"Unequip"
-					}
-				}
-			}
-			"modifier_item_poison_mist_thinker"
-			{
-				"Duration"							"12.0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"				"items/poison_mist.lua"
-						"Function"					"SpellStart"
 					}
 				}
 			}
@@ -10221,6 +10177,91 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// ITEMS: Senbons Launcher
+	//-------------------------------------------------------------------------------------------------------------
+	"item_senbons_launcher"
+	{
+		// General
+		"ID"							"1257"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_senbons_launcher"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType" 		"DAMAGE_TYPE_MAGICAL"
+		
+		"ItemCost"						"3500"
+		"ItemKillable"					"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemDroppable"					"1"
+		"ItemStockMax"					"3"
+		"ItemStockTime"					"120"
+		"ItemStockInitial"				"3"
+	
+		"AbilityCastRange" 				"700"   
+	    "AbilityCooldown"  				"50"       
+	    "AbilityManaCost"  				"0"
+		"AOERadius" 					"300"  
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_int"			"7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/items/senbonslauncher/senbons_launcher.vpcf"
+			"particle"					"particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_backstab_hit_blood.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/senbons_launcher.lua"
+				"Function"				"SpellStart"
+				"Target"				"POINT"
+			}
+		} 
+		"Modifiers"
+		{
+			"modifier_item_senbons_launcher"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Equip"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/ninja_weapon.lua"
+						"Function"		"Unequip"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// ITEMS: Shunshin Shoes
 	//-------------------------------------------------------------------------------------------------------------
 	"item_shunshin_shoes"
@@ -11785,9 +11826,9 @@
 				"EffectName"			"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral03.vpcf"
 				"EffectAttachType"		"attach_hitloc"
 				"Duration"				"%rinnegan_invulnerability_duration"
-				"Properties"
+				"States"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

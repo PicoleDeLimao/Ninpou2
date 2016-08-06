@@ -5,7 +5,7 @@
 ]]
 
 THROWABLE_FREQUENCY = 0.03   -- How often the throwable movement will be updated per sec?
-THROWABLE_MIN_HEIGHT = 60
+THROWABLE_MIN_HEIGHT = 128
 
 if not Throwables then
 	Throwables = class({})
@@ -88,5 +88,5 @@ end
 
 -- Return the parabola height for a point x given a maximum height and distance
 function Throwables:GetFlyHeight(height, distance, x, minHeight)
-	return (4*height/distance)*(distance - x)*(x / distance) + THROWABLE_MIN_HEIGHT
+	return (4*height/distance)*x*(-x/distance + 1) + THROWABLE_MIN_HEIGHT
 end

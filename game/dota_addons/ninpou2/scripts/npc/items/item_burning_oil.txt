@@ -50,43 +50,20 @@
 	// Datadriven 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
+		"particle"					"particles/items/burningoil/batrider_flamebreak.vpcf"
 		"particle"					"particles/items/burningoil/batrider_firefly.vpcf"
 		"particle"					"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_loadout.vpc"
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
 	}
 	"OnSpellStart"
 	{
-		"LinearProjectile"
-        {
-			"Target"            		"POINT"
-			"EffectName"        		"particles/units/heroes/hero_batrider/batrider_flamebreak.vpcf"
-			"MoveSpeed"         		"1100"
-			"StartRadius"       		"100"
-			"EndRadius"         		"100"
-			"StartPosition"     		"attach_attack1"
-			"HasFrontalCone"    		"0"
-			"ProvidesVision" 			"1"
-			"VisionRadius" 				"300"
-        }
-		"FireSound"
+		"RunScript"
 		{
-			"Target"                    "CASTER"
-			"EffectName"                "Hero_Batrider.Firefly.Cast"
+			"ScriptFile"			"items/burning_oil.lua"
+			"Function"				"SpellStart"
+			"Target"				"POINT"
 		}
 	} 
-	"OnProjectileHitUnit"
-    {
-        "DeleteOnHit" 					"0" 
-    }
-	"OnProjectileFinish"
-	{
-		"CreateThinker"
-		{
-			"Target"					"POINT"
-			"ModifierName"				"modifier_item_burning_oil_thinker"
-		}
-	}
 	"Modifiers"
 	{
 		"modifier_item_burning_oil"
@@ -107,18 +84,6 @@
 				{
 					"ScriptFile"	"items/ninja_weapon.lua"
 					"Function"		"Unequip"
-				}
-			}
-		}
-		"modifier_item_burning_oil_thinker"
-		{
-			"Duration"					"6.0"
-			"OnCreated"
-			{
-				"RunScript"
-				{
-					"ScriptFile"			"items/burning_oil.lua"
-					"Function"				"SpellStart"
 				}
 			}
 		}
