@@ -10,7 +10,7 @@ function Demolish(event)
     local target = event.target 
     if target:HasModifier("modifier_building") then 
         local ability = event.ability
-        local damage = caster:GetAverageTrueAttackDamage() * (ability:GetLevelSpecialValueFor("demolish", ability:GetLevel() - 1) - 1)
+        local damage = caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("demolish", ability:GetLevel() - 1) - 1)
         local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earth_spirit/espirit_spawn.vpcf", PATTACH_ABSORIGIN, target)
         ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
         ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())

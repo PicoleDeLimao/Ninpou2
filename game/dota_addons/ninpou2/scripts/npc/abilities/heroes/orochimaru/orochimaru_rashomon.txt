@@ -1,0 +1,45 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Orochimaru - Kuchiyose: Rashomon
+//-------------------------------------------------------------------------------------------------------------
+"orochimaru_rashomon"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"orochimaru_rashomon"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"MaxLevel"						"10"
+
+    "AbilityCooldown"  				"30 30 30 30 30 30 30 30 30 30"       
+    "AbilityManaCost"  				"200 200 200 200 200 200 200 200 200 200"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+	"AbilityCastPoint"				"0.2"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"3.0 3.2 3.4 3.6 3.8 4.0 4.2 4.5 4.7 5.0"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"dmg_absorbed"			"3000 3700 4400 5100 5800 6500 7200 7900 8600 10000"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_sandking/sandking_burrowstrike_eruption.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/orochimaru_rashomon.lua"
+			"Function"				"SpellStart"
+		}
+	} 
+}

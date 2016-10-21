@@ -3,6 +3,7 @@
 	Date: 04.01.2016
 	Define some units wrapper functions 
 ]]
+LinkLuaModifier("modifier_pause", "modifiers/modifier_pause", LUA_MODIFIER_MOTION_NONE)
 
 if not Units then
 	Units = class({})
@@ -23,6 +24,47 @@ function Units:CanCast(unit, ability)
 	return not Units:IsDisabled(unit) and unit:GetMana() > ability:GetManaCost(ability:GetLevel() - 1) and ability:GetCooldownTimeRemaining() == 0
 end
 
+-- Check if unit is a hero 
+function Units:IsHero(unit)
+	return unit:IsHero()
+end
+
+-- Check if unit is a building 
+function Units:IsBuilding(unit)
+	return unit:HasModifier("modifier_is_building")
+end
+
+-- Pause an unit 
+function Units:Pause(unit)
+	unit:AddNewModifier(unit, nil, "modifier_pause", {})
+end
+
+-- Unpause an unit 
+function Units:Unpause(unit)
+	unit:RemoveModifierByName("modifier_pause")
+end
+
+-- Damage an unit 
+function Units:Damage(damager, damaged, damage, damageType)
+	local trueDamage = nil
+	if damageType == "katon" then
+		trueDamage = damage * (100 + (damager.katonDmg or 0) - (damaged.katonDef or 0)) / 100.0
+	elseif damageType == "suiton" then
+		trueDamage = damage * (100 + (damager.suitonDmg or 0) - (damaged.suitonDef or 0)) / 100.0
+	elseif damageType == "doton" then
+		trueDamage = damage * (100 + (damager.dotonDmg or 0) - (damaged.dotonDef or 0)) / 100.0
+	elseif damageType == "fuuton" then
+		trueDamage = damage * (100 + (damager.fuutonDmg or 0) - (damaged.fuutonDef or 0)) / 100.0
+	elseif damageType == "raiton" then
+		trueDamage = damage * (100 + (damager.raitonDmg or 0) - (damaged.raitonDef or 0)) / 100.0
+	elseif damageType == "yin" then
+		trueDamage = damage * (100 + (damager.yinDmg or 0) - (damaged.yinDef or 0)) / 100.0
+	elseif damageType == "yang" then
+		trueDamage = damage * (100 + (damager.yangDmg or 0) - (damaged.yangDef or 0)) / 100.0
+	end
+	ApplyDamage({ victim = damaged, attacker = damager, damage = trueDamage, damage_type = DAMAGE_TYPE_MAGICAL})
+end
+
 -- Get the nearest hero to an unit inside a group of units 
 function Units:GetNearestHero(units, toUnit)
 	local nearestHero = nil 
@@ -38,6 +80,17 @@ function Units:GetNearestHero(units, toUnit)
 		end
 	end
 	return nearestHero ~= nil and nearestHero.unit or nil
+end
+
+-- Create a summon for the unit
+function Units:CreateSummon(caster, unitName, position, duration)
+	local unit = CreateUnitByName(unitName, position, true, caster, caster, caster:GetTeamNumber())
+	unit:SetForwardVector(caster:GetForwardVector())
+	unit:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
+	unit:AddNewModifier(caster, nil, "modifier_kill", {duration=duration})
+	unit:AddNewModifier(caster, nil, "modifier_phased", {duration=0.03})
+	unit:AddNewModifier(caster, nil, "modifier_summoned", {})
+	return unit
 end
 
 -- Create an illusion of the caster 
