@@ -1,6 +1,5 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	_class = "CVModel"
 	m_meshList = 
 	{
 		m_meshList = 
@@ -44,13 +43,11 @@
 	m_pModelInfo = null
 	m_pBoneFlagList = 
 	{
-		_class = "CVBoneFlagListReference"
 		m_pObject = null
 	}
 	m_pHitBoxSetLists = 
 	[
 		{
-			_class = "CVhitBoxSetListReference"
 			m_pObject = 
 			{
 				m_HitBoxSets = 
@@ -399,7 +396,6 @@
 	m_pAttachmentLists = 
 	[
 		{
-			_class = "CVattachmentListReference"
 			m_pObject = 
 			{
 				m_name = ""
@@ -502,23 +498,19 @@
 	]
 	m_pAnimGroup = 
 	{
-		_class = "CVanimGroupReference"
 		m_pObject = 
 		{
 			m_Name = ""
 			m_pReferenceSkeleton = 
 			{
-				_class = "CVReferenceSkeletonReference"
 				m_pObject = null
 			}
 			m_pBoneFlagList = 
 			{
-				_class = "CVBoneFlagListReference"
 				m_pObject = null
 			}
 			m_pSeqGroup = 
 			{
-				_class = "CVseqGroupReference"
 				m_pObject = null
 			}
 			m_pAnimGroups = [  ]
@@ -1076,6 +1068,52 @@
 					m_folderName = ""
 					m_MotionFramesRootBone = ""
 				},
+				{
+					m_Animationname = "orochimaru_spell7"
+					m_Filepath = "models/heroes/Orochimaru/OrochimaruAnimation.FBX"
+					m_nStartframe = 495
+					m_nEndframe = 500
+					m_flFps = 10.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = true
+						m_nSmoothLoopStart = 1
+						m_nSmoothLoopEnd = 1
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_7"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
 			]
 			m_sScripts = [  ]
 			m_folderNames = [  ]
@@ -1083,27 +1121,22 @@
 	}
 	m_pMaterialGroupList = 
 	{
-		_class = "CVNodeMaterialGroupListReference"
 		m_pObject = null
 	}
 	m_pMeshGroupList = 
 	{
-		_class = "CVMeshGroupListReference"
 		m_pObject = null
 	}
 	m_pLodGroupList = 
 	{
-		_class = "CVLODGroupListReference"
 		m_pObject = null
 	}
 	m_pPropBreakableList = 
 	{
-		_class = "CVpropBreakableListReference"
 		m_pObject = null
 	}
 	m_pPropDataList = 
 	{
-		_class = "CVpropDataListReference"
 		m_pObject = null
 	}
 	m_pConstraintLists = [  ]

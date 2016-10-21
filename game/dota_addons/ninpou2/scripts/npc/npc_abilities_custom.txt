@@ -194,6 +194,69 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Orochimaru - Kuchiyose: Kusanagi
+	//-------------------------------------------------------------------------------------------------------------
+	"orochimaru_kusanagi"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"orochimaru_kusanagi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"MaxLevel"						"10"
+	
+	    "AbilityCooldown"  				"10 11 12 13 14 15 16 17 18 19"       
+	    "AbilityManaCost"  				"60 80 100 120 140 160 180 200 220 240"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"60 120 180 240 300 360 420 480 540 600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/heroes/orochimaru/kusanagi/kusanagi_no_tsurugi.vpcf"
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/orochimaru_kusanagi.lua"
+				"Function"				"SpellStart"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/orochimaru_kusanagi.lua"
+				"Function"				"SpellStop"
+			}
+		}
+		"modifiers"
+		{
+			"modifier_orochimaru_kusanagi_phase"
+			{
+				"IsHidden"				"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// Ability: Orochimaru - Kuchiyose: Rashomon
 	//-------------------------------------------------------------------------------------------------------------
 	"orochimaru_rashomon"
@@ -215,18 +278,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10 3.2 3.4 3.6 3.8 4.0 4.2 4.5 4.7 5.0"
+				"duration"				"3.0 3.2 3.4 3.6 3.8 4.0 4.2 4.5 4.7 5.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"dmg_absorbed"			"3000 3700 4400 5100 5800 6500 7200 7900 8600 10000"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"300"
+			}
 		}
 		
 		// Datadriven 
 		"precache"
 		{
+			"particle"					"particles/units/heroes/hero_sandking/sandking_burrowstrike_eruption.vpcf"
 		}
 		"OnSpellStart"
 		{

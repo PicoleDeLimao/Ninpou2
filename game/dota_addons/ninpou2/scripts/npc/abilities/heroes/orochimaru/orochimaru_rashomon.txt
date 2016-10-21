@@ -27,6 +27,11 @@
 			"var_type"				"FIELD_INTEGER"
 			"dmg_absorbed"			"3000 3700 4400 5100 5800 6500 7200 7900 8600 10000"
 		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"range"					"300"
+		}
 	}
 	
 	// Datadriven 
