@@ -9,13 +9,12 @@
 		"ItemSlots"			
 		{ }
 	
-		"AbilityLayout"     "6"
+		"AbilityLayout"     "5"
 		"Ability1"          "orochimaru_seneijashu" 
 		"Ability2"          "orochimaru_rashomon" 
 		"Ability3"          "orochimaru_kusanagi" 
-		"Ability4"          "barebones_empty4"
+		"Ability4"          "orochimaru_uwabami"
 		"Ability5"          "barebones_empty5"
-		"Ability6"          "barebones_empty6"
 	}
 	"npc_dota_hero_sasuke"
 	{

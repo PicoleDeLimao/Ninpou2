@@ -42,52 +42,25 @@ function SpellStart(event)
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_orochimaru_kusanagi_phase", nil)
 			end
 			caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector() * 20)
-			affected = filterAffected(caster, affected)
+			affected = Tables:Filter(affected, function(el)
+				return (el:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() < 200
+			end)
 			Units:FindEnemiesInRange({
 				unit = caster,
 				point = caster:GetAbsOrigin(),
 				radius = 180,
 				func = function(enemy) 
-					if not contains(affected, enemy) then 
+					if not Tables:Contains(affected, enemy) then 
 						local particle = Particles:CreateTimedParticle("particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold_backstab_hit_blood.vpcf", enemy, 2.0)
 						Particles:SetControl(particle, 2, Vector(800, 0, 0))
 						Units:Damage(caster, enemy, damage, "yin")
-						affected[sizeof(affected)] = enemy
+						Tables:push(affected, enemy)
 					end
 				end
 			})
 		end
 		return 0.03
 	end)
-end
-
-function filterAffected(caster, affected)
-	local filtered = { }
-	local count = 0
-	for _, enemy in pairs(affected) do 
-		if (enemy:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() < 200 then 
-			filtered[count] = enemy 
-			count = count + 1
-		end
-	end
-	return filtered
-end
-
-function contains(affected, target) 
-	for _, enemy in pairs(affected) do 
-		if enemy == target then 
-			return true 
-		end
-	end
-	return false
-end
-
-function sizeof(t)
-	local count = 0
-	for k, v in pairs(t) do 
-		count = count + 1
-	end
-	return count 
 end
 
 function SpellStop(event)

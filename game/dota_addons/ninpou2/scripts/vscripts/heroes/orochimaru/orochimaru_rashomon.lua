@@ -13,6 +13,8 @@ function SpellStart(event)
 	local rashomon = Units:CreateSummon(caster, "npc_rashomon_unit", caster:GetAbsOrigin() + caster:GetForwardVector() * 150, duration)
 	rashomon:EmitSound("Hero_EarthShaker.Gravelmaw.Cast")
 	
+	Particles:CreateTimedParticle("particles/others/kuchiyose/kuchiyose.vpcf", caster, 2.0)
+	
 	local particle = Particles:CreateTimedParticle("particles/units/heroes/hero_sandking/sandking_burrowstrike_eruption.vpcf", rashomon, 2.0)
 	local particleInitialPos = rashomon:GetAbsOrigin() + Vectors:rotate2DDeg(rashomon:GetForwardVector(), 90) * 150
 	local particleFinalPos = rashomon:GetAbsOrigin() + Vectors:rotate2DDeg(rashomon:GetForwardVector(), -90) * 150

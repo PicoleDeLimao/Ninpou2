@@ -1,0 +1,73 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Orochimaru - Uwabami
+//-------------------------------------------------------------------------------------------------------------
+"orochimaru_uwabami"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"orochimaru_uwabami"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType" 		"DAMAGE_TYPE_MAGICAL"
+	"MaxLevel"						"2"
+	"RequiredLevel"					"10"
+	"LevelsBetweenUpgrades"			"5"
+
+	"AbilityCastRange" 				"1200 1200"   
+    "AbilityCooldown"  				"60 60"       
+    "AbilityManaCost"  				"200 300"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+	"AbilityCastPoint"				"0.2"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"dmg"					"600 1200"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"dmg_per_int"			"1.5 3.0"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"ensnare_duration"		"3.0"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/orochimaru_uwabami.lua"
+			"Function"				"SpellStart"
+			"Target"				"POINT"
+		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"Hero_Medusa.MysticSnake.Cast"
+		}
+	} 
+	"Modifiers"
+	{
+		"modifier_orochimaru_uwabami_esnare"
+		{
+			"IsDebuff"                      "1"
+			"States"
+			{
+                "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_VALUE_ENABLED"
+            }
+		}
+	}
+}

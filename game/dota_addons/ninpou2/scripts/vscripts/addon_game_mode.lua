@@ -10,6 +10,7 @@ require('mechanics/units')
 require('mechanics/particles')
 require('mechanics/throwables')
 require('mechanics/vectors')
+require('mechanics/tables')
 
 -- Library containing utilitary methods to check victory/defeat conditions 
 require('ninpou_game_rules')
@@ -83,6 +84,7 @@ function Precache( context )
   PrecacheResource("particle", "particles/base_destruction_fx/gensmoke.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_generic.vpcf", context)
   PrecacheResource("particle", "particles/items/explosivekunai/explosive_kunai.vpcf", context)
+  PrecacheResource("particle", "particles/others/kuchiyose/kuchiyose.vpcf", context)
 
   -- Precache units 
   PrecacheUnitByNameSync("npc_konoha_chunnin_unit", context)

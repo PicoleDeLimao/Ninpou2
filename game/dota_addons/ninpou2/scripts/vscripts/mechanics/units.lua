@@ -45,8 +45,9 @@ function Units:Unpause(unit)
 end
 
 -- Damage an unit 
-function Units:Damage(damager, damaged, damage, damageType)
+function Units:Damage(damager, damaged, damage, damageType, trueDamageType)
 	local trueDamage = nil
+	trueDamageType = trueDamageType or DAMAGE_TYPE_MAGICAL
 	if damageType == "katon" then
 		trueDamage = damage * (100 + (damager.katonDmg or 0) - (damaged.katonDef or 0)) / 100.0
 	elseif damageType == "suiton" then
@@ -62,7 +63,10 @@ function Units:Damage(damager, damaged, damage, damageType)
 	elseif damageType == "yang" then
 		trueDamage = damage * (100 + (damager.yangDmg or 0) - (damaged.yangDef or 0)) / 100.0
 	end
-	ApplyDamage({ victim = damaged, attacker = damager, damage = trueDamage, damage_type = DAMAGE_TYPE_MAGICAL})
+	if Units:IsBuilding(damaged) and trueDamageType == DAMAGE_TYPE_MAGICAL then 
+		trueDamageType = DAMAGE_TYPE_PHYSICAL
+	end
+	ApplyDamage({ victim = damaged, attacker = damager, damage = trueDamage, damage_type = trueDamageType})
 end
 
 -- Get the nearest hero to an unit inside a group of units 
@@ -160,7 +164,11 @@ function Units:FindEnemiesInRange(params)
 	local point = params.point or unit:GetAbsOrigin() 
 	local radius = params.radius 
 	local target_type = params.target_type or DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-	local flags = params.flags or DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	local flags = params.flags or 0
+	local includeBuildings = params.includeBuildings or true
+	if includeBuildings then 
+		flags = flags + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	end
 	local callback = params.func
 	local enemies = FindUnitsInRadius(unit:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, flags, FIND_ANY_ORDER, false)
 	if callback then 
