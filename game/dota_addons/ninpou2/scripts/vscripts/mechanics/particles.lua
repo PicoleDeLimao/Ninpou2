@@ -32,6 +32,14 @@ function Particles:CreateTimedParticle(effectName, target, particleTime, opts)
 	return particle
 end
 
+-- Attach a particle 
+-- @param particle: Particle to be attached 
+-- @param unit: Unit on which the particle will be attached to 
+-- @param attachName: Name of attachment
+function Particles:Attach(particle, unit, attachName)
+	ParticleManager:SetParticleControlEnt(particle, 0, unit, PATTACH_POINT_FOLLOW, attachName, unit:GetAbsOrigin(), true) 
+end
+
 -- Wrapper to set particle control entity
 -- @param particle: An existing particle 
 -- @param controlPoint: Control point which will be set (can be either a value or a list of values)

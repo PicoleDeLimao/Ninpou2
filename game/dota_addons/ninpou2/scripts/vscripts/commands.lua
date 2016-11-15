@@ -4,6 +4,31 @@
 	This script defines custom commands to help to debug or perform some trick
 ]]
 
+CHEAT_CODES = {
+
+}
+
+DEBUG_CODES = {
+	["testduel"] = function(playerID, hero)
+		local duelInviterPos = Entities:FindByName(nil, "duel_inviter"):GetAbsOrigin()
+		local duelReceiverPos = Entities:FindByName(nil, "duel_receiver"):GetAbsOrigin()
+		local inviterPlayer = PlayerResource:GetPlayer(playerID)
+		local inviterHero = inviterPlayer:GetAssignedHero()
+		inviterHero:SetAbsOrigin(duelInviterPos)
+		inviterHero:SetForwardVector((duelReceiverPos - duelInviterPos):Normalized())
+		local unit = CreateUnitByName("npc_dota_hero_dark_seer", duelReceiverPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
+		for i = 1, 50 do 
+			unit:HeroLevelUp(false)
+		end
+		unit:SetForwardVector((duelInviterPos - duelReceiverPos):Normalized())
+		unit:SetRespawnsDisabled(true)
+	end
+}
+
+PLAYER_CODES = {
+
+}
+
 Commands = {}
 
 -- This command increases hero health to infinite
@@ -65,5 +90,49 @@ function Commands:SpawnJuubiCommand()
 		local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 		local juubi = CreateUnitByName('npc_juubi_unit', hero:GetAbsOrigin(), true, hero, hero, hero:GetTeamNumber())
 		JuubiAI:Start(juubi)
+	end
+end
+
+-- Enable debug mode 
+function Commands:EnableDebugMode()
+	print("[CHEATS] Debug mode enabled")
+	Commands.DEBUG = true
+end
+
+function Commands:split(inputstr, sep)
+    if sep == nil then sep = "%s" end
+    local t={} ; i=1
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+        t[i] = str
+        i = i + 1
+    end
+    return t
+end
+
+function GameMode:OnPlayerChat(keys)
+	local teamonly = keys.teamonly
+	local userID = keys.userid
+	local playerID = self.vUserIds[userID]:GetPlayerID()
+  
+	local text = keys.text
+  
+	if string.sub(text, 1, 1) == '-' then 
+		text = string.sub(text, 2, string.len(text))
+	end
+  
+	local input = Commands:split(text, ' ')
+	local command = input[1]
+	if CHEAT_CODES[command] then 
+		if Commands.DEBUG then
+			print("[CHEATS] " .. text)
+			CHEAT_CODES[command](playerID, input[2])
+		end
+	elseif DEBUG_CODES[command] then 
+		if Commands.DEBUG then
+			print("[DEBUG] " .. text)
+			DEBUG_CODES[command](playerID, input[2])
+		end
+	elseif PLAYER_CODES[command] then 
+		PLAYER_CODES[command](playerID, input[2])
 	end
 end

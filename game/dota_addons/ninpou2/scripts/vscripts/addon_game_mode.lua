@@ -76,11 +76,19 @@ function Precache( context )
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", context)
+  
+  PrecacheResource("soundfile", "soundevents/orochimaru.vsndevts", context)
+  
   PrecacheResource("particle", "particles/base_destruction_fx/gensmoke.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/effigies/status_fx_effigies/base_statue_destruction_generic.vpcf", context)
   PrecacheResource("particle", "particles/items/explosivekunai/explosive_kunai.vpcf", context)
@@ -96,6 +104,8 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_anbu_unit", context)
   PrecacheUnitByNameSync("npc_medical_ninja_unit", context)
   PrecacheUnitByNameSync("npc_juubi_unit", context)
+  PrecacheUnitByNameSync("npc_edo_hashirama", context)
+  PrecacheUnitByNameSync("npc_edo_tobirama", context)
 end
 
 -- Create the game mode when we activate

@@ -1,0 +1,83 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Edo Tobirama - Suiton: Suijinheki 
+//-------------------------------------------------------------------------------------------------------------
+"edo_tobirama_suiton_suijinheki"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"edo_tobirama_suiton_suijinheki"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+	"MaxLevel"						"1"
+
+    "AbilityCooldown"  				"10"       
+    "AbilityManaCost"  				"100"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+	"AbilityCastPoint"				"0.2"
+	"AbilityChannelTime"			"2.0"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"damage"				"2000"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"range"					"400"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"armor_bonus"			"999999"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/heroes/orochimaru/suijinheki/kunkka_spell_torrent_splash_water4.vpcf"
+		"particle"					"particles/heroes/orochimaru/suijinheki/nyx_assassin_burrow_water.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/edo_tobirama_suiton_suijinheki.lua"
+			"Function"				"SpellStart"
+		}
+	} 
+	"OnChannelFinish"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/edo_tobirama_suiton_suijinheki.lua"
+			"Function"				"SpellStop"
+		}
+	}
+	"modifiers"
+	{
+		"modifier_edo_tobirama_suiton_suijinheki_stun"
+		{
+			"IsDebuff"                      "1"
+			"IsStunDebuff"                  "1"
+			"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"              "follow_overhead"
+			"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+			"StatusEffectPriority"          "1"
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+		"modifier_edo_tobirama_suiton_suijinheki_invulnerability"
+		{
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+			}
+		}
+	}
+}

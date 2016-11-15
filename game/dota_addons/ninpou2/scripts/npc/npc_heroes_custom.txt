@@ -14,7 +14,7 @@
 		"Ability2"          "orochimaru_rashomon" 
 		"Ability3"          "orochimaru_kusanagi" 
 		"Ability4"          "orochimaru_uwabami"
-		"Ability5"          "barebones_empty5"
+		"Ability5"          "orochimaru_edo_tensei"
 	}
 	"npc_dota_hero_sasuke"
 	{

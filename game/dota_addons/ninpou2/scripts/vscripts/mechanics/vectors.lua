@@ -29,3 +29,9 @@ end
 function Vectors:rotate2DDeg(vector, angle)
 	return Vectors:rotate2D(vector, math.rad(angle))
 end
+
+
+-- Return the parabola height for a point x given a maximum height and distance
+function Vectors:GetFlyHeight(height, distance, x, minHeight)
+	return (4*height/distance)*x*(-x/distance + 1) + THROWABLE_MIN_HEIGHT
+end

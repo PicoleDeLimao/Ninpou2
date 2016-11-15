@@ -133,7 +133,38 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"		"buildings/buildings.lua"
+						"ScriptFile"		"buildings/semi_buildings.lua"
+						"Function"			"OnCreated"
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// BUILDINGS: Tree
+	//-------------------------------------------------------------------------------------------------------------
+	"ability_tree"
+	{
+		// General
+		"BaseClass"							"ability_datadriven"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"							"1"
+		
+		"modifiers"
+		{
+			"modifier_is_tree"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"buildings/trees.lua"
 						"Function"			"OnCreated"
 					}
 				}
@@ -192,6 +223,485 @@
 				}
 			}
 		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Edo Hashirama - Adamantine Punch
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_hashirama_adamantine_punch"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_hashirama_adamantine_punch"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
+	
+	    "AbilityCooldown"  				"10"       
+	    "AbilityManaCost"  				"100"
+		"AbilityCastRange"				"700"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"800"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_leap_impact.vpcf"
+			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_blue_coreglow02.vpcf"
+			"particle"					"particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_leap_impact_d.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_hashirama_adamantine_punch.lua"
+				"Function"				"SpellStart"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Edo Hashirama - Konoha's fire will
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_hashirama_fire_will"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_hashirama_fire_will"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+	
+	    "AbilityCooldown"  				"30"       
+	    "AbilityManaCost"  				"100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"				"0.2"
+		
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed_bonus"			"9999"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_bonus"			"500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed_bonus"	"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15.0"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_3.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_edo_hashirama_fire_will"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_edo_hashirama_fire_will"
+			{
+				"IsBuff"				"1"
+				"Duration"				"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed_bonus"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_3.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_hitloc"
+						}
+					}
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Edo Hashirama - Mokuton Hijtusu: Jukai Koutan
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_hashirama_jukai_koutan"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_hashirama_jukai_koutan"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+	
+	    "AbilityCooldown"  				"15"       
+	    "AbilityManaCost"  				"200"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dmg_per_int"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dmg_fixed"				"700"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"range"					"1000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/world_destruction_fx/tree_grow_leaves.vpcf"
+			"particle"					"particles/world_destruction_fx/treeleaves_large.vpcf"
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_hashirama_jukai_koutan.lua"
+				"Function"				"SpellStart"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"EdoHashirama.JukaiKoutan"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_hashirama_jukai_koutan.lua"
+				"Function"				"SpellStop"
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Edo Tobirama - Genjutsu: Kokuangyo no Jutsu
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_tobirama_kokuangyo_no_jutsu"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_tobirama_kokuangyo_no_jutsu"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"						"1"
+	
+	    "AbilityCooldown"  				"30"       
+	    "AbilityManaCost"  				"100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"				"0.2"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow"					"-70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"range"					"700"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/heroes/orochimaru/kokuangyo/au_darkrift_target_oh_b.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_tobirama_kokuangyo_no_jutsu.lua"
+				"Function"				"SpellStart"
+			}
+		} 
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Kokuangyo no Jutsu: Slow Aura
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_tobirama_kokuangyo_no_jutsu_slow_aura"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_tobirama_kokyangyo_no_jutsu"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow"					"-70"
+			}
+		}
+		
+		// Datadriven 
+		"Modifiers"
+		{
+			"modifier_edo_tobirama_kokuangyo_no_jutsu_slow_aura"
+			{
+				"Passive"                   "1"
+				"IsBuff"                    "1"
+				"IsHidden"                  "1"
+				"Aura"                      "modifier_edo_tobirama_kokuangyo_no_jutsu_slow"
+				"Aura_Radius"               "%radius"
+				"Aura_Teams"                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			}
+			"modifier_edo_tobirama_kokuangyo_no_jutsu_slow"
+			{
+				"IsDebuff"          "1"
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%slow"
+	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%slow"
+	            }
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Edo Tobirama - Suiton: Suijinheki 
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_tobirama_suiton_suijinheki"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_tobirama_suiton_suijinheki"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"MaxLevel"						"1"
+	
+	    "AbilityCooldown"  				"10"       
+	    "AbilityManaCost"  				"100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastPoint"				"0.2"
+		"AbilityChannelTime"			"2.0"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"range"					"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"999999"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/heroes/orochimaru/suijinheki/kunkka_spell_torrent_splash_water4.vpcf"
+			"particle"					"particles/heroes/orochimaru/suijinheki/nyx_assassin_burrow_water.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_tobirama_suiton_suijinheki.lua"
+				"Function"				"SpellStart"
+			}
+		} 
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_tobirama_suiton_suijinheki.lua"
+				"Function"				"SpellStop"
+			}
+		}
+		"modifiers"
+		{
+			"modifier_edo_tobirama_suiton_suijinheki_stun"
+			{
+				"IsDebuff"                      "1"
+				"IsStunDebuff"                  "1"
+				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"              "follow_overhead"
+				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"          "1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_edo_tobirama_suiton_suijinheki_invulnerability"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+				}
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Edo Tobirama - Suiton: Suishoha
+	//-------------------------------------------------------------------------------------------------------------
+	"edo_tobirama_suiton_suishoha"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"edo_tobirama_suiton_suishoha"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType" 		"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
+	
+		"AbilityCastRange" 				"1200"   
+	    "AbilityCooldown"  				"15"       
+	    "AbilityManaCost"  				"200"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"0.2"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg_per_int"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg_fixed"				"500"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/edo_tobirama_suiton_suishoha.lua"
+				"Function"				"SpellStart"
+				"Target"				"POINT"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"EdoTobirama.SuitonSuishoha"
+			}
+		} 
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Orochimaru - Kuchiyose: Edo Tensei
+	//-------------------------------------------------------------------------------------------------------------
+	"orochimaru_edo_tensei"
+	{
+		// General
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"orochimaru_edo_tensei"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"35"
+	
+	    "AbilityCooldown"  				"180"       
+	    "AbilityManaCost"  				"400"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"				"0.2"
+	
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30"
+			}
+		}
+		
+		// Datadriven 
+		"precache"
+		{
+			"particle"					"particles/heroes/orochimaru/edotensei/courier_greevil_purple_ambient_3_e.vpcf"
+			"particle"					"particles/heroes/orochimaru/edotensei/greevil_transformation_dust.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/orochimaru/orochimaru_edo_tensei.lua"
+				"Function"				"SpellStart"
+			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Orochimaru.EdoTensei"
+			}
+		} 
 	}
 	//-------------------------------------------------------------------------------------------------------------
 	// Ability: Orochimaru - Kuchiyose: Kusanagi
@@ -306,6 +816,7 @@
 			}
 		} 
 	}
+	
 	//-------------------------------------------------------------------------------------------------------------
 	// Ability: Rashomon: Aura
 	//-------------------------------------------------------------------------------------------------------------
@@ -417,6 +928,11 @@
 				"Target"				"CASTER"
 				"EffectName"			"Hero_Medusa.MysticSnake.Cast"
 			}
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Orochimaru.Seneijashu"
+			}
 		} 
 	}
 	//-------------------------------------------------------------------------------------------------------------
@@ -484,9 +1000,6 @@
 			"modifier_orochimaru_uwabami_esnare"
 			{
 				"IsDebuff"                      "1"
-				"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
-				"EffectAttachType"              "follow_overhead"
-				"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
 				"States"
 				{
 	                "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"

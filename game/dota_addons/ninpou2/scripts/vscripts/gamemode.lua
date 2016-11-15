@@ -142,6 +142,11 @@ function GameMode:InitGameMode()
 	NinpouGameRules:CheckEmptyTeams()
   end)
   
+  -- Add vision to duel arena 
+  AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-5684, 4930, 1168), 2200, 999999999, false)
+  AddFOWViewer(DOTA_TEAM_BADGUYS, Vector(-5684, 4930, 1168), 2200, 999999999, false)
+  AddFOWViewer(DOTA_TEAM_CUSTOM_1, Vector(-5684, 4930, 1168), 2200, 999999999, false)
+  
   -- Register commands 
   Convars:RegisterCommand("godon", Dynamic_Wrap(Commands, 'GodCommandOn'), "Increases hero health to infinite", FCVAR_CHEAT)
   Convars:RegisterCommand("godoff", Dynamic_Wrap(Commands, 'GodCommandOff'), "Disables god mode", FCVAR_CHEAT)
@@ -149,4 +154,5 @@ function GameMode:InitGameMode()
   Convars:RegisterCommand("defeatoto", Dynamic_Wrap(Commands, 'DefeatTeamOtoCommand'), "Defeat the Otogakure team", FCVAR_CHEAT)
   Convars:RegisterCommand("defeatakatsuki", Dynamic_Wrap(Commands, 'DefeatTeamAkatsukiCommand'), "Defeat the Akatsuki team", FCVAR_CHEAT)
   Convars:RegisterCommand("spawnjuubi", Dynamic_Wrap(Commands, 'SpawnJuubiCommand'), "Spawn the juubi", FCVAR_CHEAT)
+  Convars:RegisterCommand("debug", Dynamic_Wrap(Commands, 'EnableDebugMode'), "Enable debug mode", FCVAR_CHEAT)
 end

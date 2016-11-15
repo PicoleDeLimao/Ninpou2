@@ -10,7 +10,7 @@ function SpellStart(event)
 	local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel() - 1)
 	local dmgAbsorbed = ability:GetLevelSpecialValueFor("dmg_absorbed", ability:GetLevel() - 1)
 	
-	local rashomon = Units:CreateSummon(caster, "npc_rashomon_unit", caster:GetAbsOrigin() + caster:GetForwardVector() * 150, duration)
+	local rashomon = Units:CreateSummon(caster, "npc_rashomon_unit", caster:GetAbsOrigin() + caster:GetForwardVector() * 200, duration)
 	rashomon:EmitSound("Hero_EarthShaker.Gravelmaw.Cast")
 	
 	Particles:CreateTimedParticle("particles/others/kuchiyose/kuchiyose.vpcf", caster, 2.0)
@@ -20,6 +20,12 @@ function SpellStart(event)
 	local particleFinalPos = rashomon:GetAbsOrigin() + Vectors:rotate2DDeg(rashomon:GetForwardVector(), -90) * 150
 	Particles:SetControl(particle, 0, particleInitialPos)
 	Particles:SetControl(particle, 1, particleFinalPos)
+	
+	for i = 0, 10 do 
+		local forward = Vectors:rotate2DDeg(rashomon:GetForwardVector(), -90)
+		local origin = rashomon:GetAbsOrigin() + forward * (-300 + 60 * i)
+		Units:CreateSummon(caster, "npc_block_medium_unit", origin, duration)
+	end
 	
 	local count = 0
 	Timers:CreateTimer(0.03, function()

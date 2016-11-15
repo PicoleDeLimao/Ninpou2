@@ -1,0 +1,81 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Edo Hashirama - Konoha's fire will
+//-------------------------------------------------------------------------------------------------------------
+"edo_hashirama_fire_will"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"edo_hashirama_fire_will"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+
+    "AbilityCooldown"  				"30"       
+    "AbilityManaCost"  				"100"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+	"AbilityCastPoint"				"0.2"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"speed_bonus"			"9999"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"damage_bonus"			"500"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"attack_speed_bonus"	"50"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"15.0"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_3.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_edo_hashirama_fire_will"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_edo_hashirama_fire_will"
+		{
+			"IsBuff"				"1"
+			"Duration"				"%duration"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_bonus"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed_bonus"
+			}
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"Target"				"CASTER"
+					"EffectName"			"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_3.vpcf"
+					"EffectAttachType"		"follow_origin"
+					"ControlPointEntities"
+					{
+						"CASTER"			"attach_hitloc"
+					}
+				}
+			}
+		}
+	}
+}

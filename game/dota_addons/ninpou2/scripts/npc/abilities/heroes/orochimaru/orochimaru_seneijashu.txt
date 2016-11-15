@@ -52,5 +52,10 @@
 			"Target"				"CASTER"
 			"EffectName"			"Hero_Medusa.MysticSnake.Cast"
 		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"Orochimaru.Seneijashu"
+		}
 	} 
 }

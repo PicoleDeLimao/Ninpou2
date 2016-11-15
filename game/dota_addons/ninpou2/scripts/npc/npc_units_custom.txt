@@ -513,27 +513,47 @@
 		// Abilities
 		"Ability1"					"ability_building"
 	}
-	"npc_rashomon_unit"
+	"npc_block_medium_unit"
 	{
-		// General 
-		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/abilities/orochimaru/rashomon/rashomon.vmdl"
-		"ModelScale"				"0.7"
+		// General
+		"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+		"Model"           	"models/units/dummy/invisiblebox.vmdl"  // Model.
 	
-		// Armor 
-		"PhysicalArmor"				"0"
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
 	
-		// Bounds
-		"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
-		"RingRadius"				"300"
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
 	
-		// Status 
-		"StatusHealth"				"3000"
-		"StatusHealthRegen"			"0"
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"999999"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
 		
 		// Abilities
-		"Ability1"					"ability_semi_building"
-		"Ability2"					"orochimaru_rashomon_aura"
+		"Ability1"				"ability_tree"
 	}
 	"npc_dummy_unit"
 	{
@@ -577,6 +597,49 @@
 		// Abilities
 		"Ability1"				"ability_dummy_flying"
 	}
+	"npc_edo_tensei_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+		"Model"           	"models/abilities/orochimaru/edotensei/edotensei.vmdl"  // Model.
+		"ModelScale"		"0.7"
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"1"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
+		
+		// Abilities
+		"Ability1"				"ability_dummy"
+	}
 	"npc_kawarimi_unit"
 	{
 		// General
@@ -618,6 +681,49 @@
 		
 		// Abilities
 		"Ability1"				"ability_dummy"
+	}
+	"npc_kokuangyo_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+		"Model"           	"models/units/dummy/invisiblebox.vmdl"  // Model.
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"1"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
+		
+		// Abilities
+		"Ability1"				"ability_dummy_flying"
+		"Ability2"				"edo_tobirama_kokuangyo_no_jutsu_slow_aura"
 	}
 	"npc_manda_unit"
 	{
@@ -703,6 +809,48 @@
 		// Abilities
 		"Ability1"				"ability_dummy"
 		"Ability2"				"smoke_bomb_slow"
+	}
+	"npc_tree_unit"
+	{
+		// General
+		"BaseClass"         "npc_dota_creature"  					// Class of entity of link to.
+		"Model"           	"models/props_foliage/draft_tree001_tall.vmdl"  // Model.
+	
+		// Attack
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
+		"AttackDamageMin"     		"0"     // Damage range min.
+		"AttackDamageMax"     		"0"     // Damage range max.
+		"AttackDamageType"      	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"        		"1"     // Speed of attack.
+		"AttackAnimationPoint"    	"0.5"   // Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"  	"800"   // Range within a target can be acquired.
+		"AttackRange"       		"500"   // Range within a target can be attacked.
+		"ProjectileModel"     		"" 		// Particle system model for projectile.
+		"ProjectileSpeed"     		"900"   // Speed of projectile.
+	
+		// Bounty
+		"BountyXP"          	"0"     // Experience earn.
+		"BountyGoldMin"       	"0"     // Gold earned min.
+		"BountyGoldMax"      	"0"     // Gold earned max.
+	
+		// Movement
+		"MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+		"MovementSpeed"       	"450"   	// Speed
+		"MovementTurnRate"      "1.0"   	// Turning rate.
+		"FollowRange"       	"250"   	// Distance to keep when following
+	
+		// Status
+		"StatusHealth"        	"999999"     // Base health.
+		"StatusHealthRegen"     "0"     // Health regeneration rate.
+		"StatusMana"        	"0"     // Base mana.
+		"StatusManaRegen"    	"0"     // Mana regeneration rate.
+	
+		// Vision
+		"VisionDaytimeRange"        "0"   	// Range of vision during day light.
+		"VisionNighttimeRange"      "0"   // Range of vision at night time.
+		
+		// Abilities
+		"Ability1"				"ability_tree"
 	}
 	"npc_akatsuki_chunnin_unit"
 	{
@@ -856,6 +1004,124 @@
 		"Ability1"                  "anbu_bash"
 		"Ability2"                  "anbu_demolish"
 		"Ability3"                  "anbu_confidence_aura"
+	}
+	"npc_edo_hashirama_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/heroes/hashirama/hashirama.vmdl" 
+		"ModelScale"				"1.3"  
+	
+		"ConsideredHero"            "1"
+	
+		// Armor 
+		"ArmorPhysical"				"20"
+		"MagicalResistance" 		"20"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"199"
+		"AttackDamageMax"			"200"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "hero"
+		"CombatClassDefend"         "hero"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+	
+		// Status 
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"0.5"
+	
+		// Bounty
+		"BountyXP"					"0"
+		"BountyGoldMin"       	    "0"       // Gold earned min.
+		"BountyGoldMax"      	    "0"      // Gold earned max.
+	
+		// Abilities 
+		"AbilitiesLayout"			"3"
+		"Ability1"					"edo_hashirama_adamantine_punch"
+		"Ability2"					"edo_hashirama_fire_will"
+		"Ability3"					"edo_hashirama_jukai_koutan"
+	}
+	"npc_edo_tobirama_unit"
+	{
+		// General
+		"BaseClass"         		"npc_dota_creature"  							
+		"Model"           			"models/heroes/tobirama/tobirama.vmdl" 
+		"ModelScale"				"1.3"  
+	
+		"ConsideredHero"            "1"
+	
+		// Armor 
+		"ArmorPhysical"				"20"
+		"MagicalResistance" 		"20"
+	
+		// Attack 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"199"
+		"AttackDamageMax"			"200"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"800"
+	
+		// Vision
+		"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+		"VisionNighttimeRange"      "800"            // Range of vision at night time.
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+	
+		// Movement
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+	
+		// Team
+		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+		"CombatClassAttack"         "hero"
+		"CombatClassDefend"         "hero"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+	
+		// Status 
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"0.25"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"0.5"
+	
+		// Bounty
+		"BountyXP"					"0"
+		"BountyGoldMin"       	    "0"       // Gold earned min.
+		"BountyGoldMax"      	    "0"      // Gold earned max.
+	
+		// Abilities 
+		"AbilitiesLayout"			"3"
+		"Ability1"					"edo_tobirama_suiton_suijinheki"
+		"Ability2"					"edo_tobirama_kokuangyo_no_jutsu"
+		"Ability3"					"edo_tobirama_suiton_suishoha"
 	}
 	"npc_elite_anbu_unit"
 	{
@@ -1337,6 +1603,28 @@
 		"BountyXP"					"75"
 		"BountyGoldMin"       	    "80"      // Gold earned min.
 		"BountyGoldMax"      	    "100"      // Gold earned max.
+	}
+	"npc_rashomon_unit"
+	{
+		// General 
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/abilities/orochimaru/rashomon/rashomon.vmdl"
+		"ModelScale"				"0.7"
+	
+		// Armor 
+		"PhysicalArmor"				"0"
+	
+		// Bounds
+		"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
+		"RingRadius"				"300"
+	
+		// Status 
+		"StatusHealth"				"3000"
+		"StatusHealthRegen"			"0"
+		
+		// Abilities
+		"Ability1"					"ability_semi_building"
+		"Ability2"					"orochimaru_rashomon_aura"
 	}
 	"npc_rogue_ninja_unit"
 	{

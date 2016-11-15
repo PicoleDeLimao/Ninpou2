@@ -4,6 +4,8 @@
 	Define a projectile with parabolic movement
 ]]
 
+require('mechanics/Vectors')
+
 THROWABLE_FREQUENCY = 0.03   -- How often the throwable movement will be updated per sec?
 THROWABLE_MIN_HEIGHT = 128
 
@@ -66,7 +68,7 @@ function Throwables:CreateThrowable(params)
 		else 
 			current = current + diffVector:Normalized() * step
 			if height > 0 then
-				current.z = Throwables:GetFlyHeight(height, maxDistance, currentDistance)
+				current.z = Vectors:GetFlyHeight(height, maxDistance, currentDistance)
 			end
 			dummy:SetAbsOrigin(current)
 			if tickCallback then 
@@ -84,9 +86,4 @@ function Throwables:_wasAffected(enemy, affected)
 		end
 	end
 	return false
-end
-
--- Return the parabola height for a point x given a maximum height and distance
-function Throwables:GetFlyHeight(height, distance, x, minHeight)
-	return (4*height/distance)*x*(-x/distance + 1) + THROWABLE_MIN_HEIGHT
 end

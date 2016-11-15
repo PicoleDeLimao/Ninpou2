@@ -4,6 +4,8 @@
 	Implement Orochimaru Uwabami ability
 ]]
 
+require('items/spell_shield')
+
 function SpellStart(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -52,7 +54,14 @@ function SpellStart(event)
 						Particles:SetControl(particle, 2, Vector(800, 0, 0))
 						Units:Damage(caster, enemy, damagePerInt * caster:GetIntellect() + damageFixed, damageType)
 						if not Units:IsBuilding(enemy) and enemy:IsAlive() then 
-							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_orochimaru_uwabami_esnare", {duration=ensnareDuration})
+							ApplyModifier({
+								caster = caster,
+								ability = ability,
+								target = enemy,
+								ModifierName = "modifier_orochimaru_uwabami_esnare",
+								DurationHero = 3.0,
+								DurationCreep = 3.0
+							})
 							local snakeDebuff = CreateUnitByName("npc_manda_unit", enemy:GetAbsOrigin(), false, caster, caster, caster:GetTeam())
 							snakeDebuff:SetAbsOrigin(snakeDebuff:GetAbsOrigin() + Vector(0, 0, 50))
 							StartAnimation(snakeDebuff, {duration=ensnareDuration, activity=ACT_DOTA_DIE, rate=1.0})

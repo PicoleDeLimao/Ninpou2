@@ -22,7 +22,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"buildings/buildings.lua"
+					"ScriptFile"		"buildings/semi_buildings.lua"
 					"Function"			"OnCreated"
 				}
 			}

@@ -1,8 +1,0 @@
-ninpou_v20
-{
-	material materials/overviews/ninpou_v20.vmat
-	pos_x -8932
-	pos_y 8256
-	scale 16.001
-}
-

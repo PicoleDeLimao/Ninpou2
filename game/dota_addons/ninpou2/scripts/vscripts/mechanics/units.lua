@@ -5,6 +5,8 @@
 ]]
 LinkLuaModifier("modifier_pause", "modifiers/modifier_pause", LUA_MODIFIER_MOTION_NONE)
 
+require('mechanics/Vectors')
+
 if not Units then
 	Units = class({})
 end
@@ -194,6 +196,66 @@ function Units:FindAlliesInRange(params)
 		end
 	end
 	return allies
+end
+
+-- Replace death animation by a particle 
+function Units:AddDeathEffect(unit, effectName)
+	Timers:CreateTimer(0.05, function()
+		if not unit:IsAlive() then 
+			local dummy = CreateUnitByName("npc_dummy_unit", unit:GetAbsOrigin(), false, unit, nil, unit:GetTeamNumber())
+			local particle = ParticleManager:CreateParticle(effectName, PATTACH_CUSTOMORIGIN, dummy)
+			ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
+			Timers:CreateTimer(2.0, function() 
+				if Units:IsValidAlive(dummy) then
+					dummy:ForceKill(true)
+				end
+			end)
+			
+			unit:AddNoDraw()
+			return nil
+		end
+		return 0.05
+	end)
+end
+
+-- Knockback an unit 
+function Units:Knockback(opts)
+	local unit = opts.unit 
+	local distance = opts.distance 
+	local duration = opts.duration
+	local forward = opts.forward 
+	local height = opts.height or 0 
+	local onTick = opts.onTick 
+	local onFinish = opts.onFinish
+	local tick = opts.tick or 0.03 
+	
+	local forward2 = Vectors:rotate2DDeg(forward, 180)
+	unit:SetForwardVector(forward2)
+	
+	local step = distance / (duration / tick)
+	local count = 0
+	local z = unit:GetAbsOrigin().z
+	Timers:CreateTimer(tick, function()
+		if count < distance then 
+			local newOrigin = unit:GetAbsOrigin() + forward * step 
+			local newHeight = height > 0 and z + Vectors:GetFlyHeight(height, distance, count) or z
+			newOrigin.z = newHeight
+			unit:SetAbsOrigin(newOrigin)
+			count = count + step
+			if onTick ~= nil then 
+				onTick()
+			end
+			return tick 
+		else
+			local newOrigin = unit:GetAbsOrigin()
+			newOrigin.z = z
+			unit:SetAbsOrigin(newOrigin)
+			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+			if onFinish ~= nil then 
+				onFinish()
+			end
+		end
+	end)
 end
 
 -- Spawn creeps for a determined lane

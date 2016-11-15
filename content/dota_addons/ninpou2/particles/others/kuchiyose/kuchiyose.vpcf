@@ -12,6 +12,7 @@
 			m_hTexture = resource:"materials/particles/others/kuchiyose/kuchiyose.vtex"
 			m_nOrientationType = 2
 			m_flAnimationRate = 1.0
+			m_bMod2X = true
 		},
 	]
 	m_Operators = 
@@ -33,6 +34,7 @@
 		{
 			_class = "C_OP_ColorInterpolate"
 			m_ColorFade = [ 170, 166, 211, 255 ]
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_PositionLock"
@@ -60,6 +62,7 @@
 			_class = "C_INIT_RandomColor"
 			m_ColorMax = [ 155, 185, 204, 255 ]
 			m_ColorMin = [ 214, 203, 255, 255 ]
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_PositionPlaceOnGround"
