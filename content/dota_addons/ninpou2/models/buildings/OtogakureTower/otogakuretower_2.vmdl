@@ -1,6 +1,5 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	_class = "CVModel"
 	m_meshList = 
 	{
 		m_meshList = 
@@ -13,6 +12,8 @@
 				m_bLegacySkinParentedTransforms = false
 				m_bExpensiveTangents = false
 				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
+				m_bBentNormals = false
 				m_bIgnoreCloth = false
 				m_bGetSkinningFromLod0 = false
 				m_pMorphInfo = null
@@ -28,9 +29,9 @@
 		m_bRemoveUnusedBonesEnabled = false
 		m_bDriveMeshesWithBacksolvedJointsOnly = true
 		m_flMatchProxiesToMeshes = 1.0
-		m_flReservedFloat = 0.0
+		m_flFallbackEnvelope = 1.0
 		m_nReservedInt = 0
-		m_bReservedBool1 = false
+		m_bSoftSkinAnimation = false
 		m_bReservedBool2 = false
 		m_bReservedBool3 = false
 		m_bReservedBool4 = false
@@ -43,13 +44,11 @@
 	m_pModelInfo = null
 	m_pBoneFlagList = 
 	{
-		_class = "CVBoneFlagListReference"
 		m_pObject = null
 	}
 	m_pHitBoxSetLists = 
 	[
 		{
-			_class = "CVhitBoxSetListReference"
 			m_pObject = 
 			{
 				m_HitBoxSets = 
@@ -59,12 +58,12 @@
 						m_HitBoxes = 
 						[
 							{
-								m_name = "Cube"
+								m_name = "cube"
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
-								m_sBoneName = "Cube"
-								m_vMinBounds = [ -45.221428, -43.992146, 0.0 ]
-								m_vMaxBounds = [ 41.961754, 46.375786, 91.663879 ]
+								m_sBoneName = "cube"
+								m_vMinBounds = [ -60.0, 0.0, -50.0 ]
+								m_vMaxBounds = [ 50.0, 100.0, 45.0 ]
 								m_bTranslationOnly = false
 								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
@@ -78,7 +77,6 @@
 	m_pAttachmentLists = 
 	[
 		{
-			_class = "CVattachmentListReference"
 			m_pObject = 
 			{
 				m_name = ""
@@ -89,7 +87,7 @@
 						m_influences = 
 						[
 							{
-								m_influenceName = "Cube1"
+								m_influenceName = "cube"
 								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
 								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
 								m_flWeight = 1.0
@@ -102,9 +100,9 @@
 						m_influences = 
 						[
 							{
-								m_influenceName = "Cube1"
-								m_vTranslationOffset = [ 0.0, 0.0, 31.555193 ]
-								m_vRotationOffset = [ -0.0, 0.0, -0.0 ]
+								m_influenceName = "cube"
+								m_vTranslationOffset = [ 0.000057, 46.498848, -4.347733 ]
+								m_vRotationOffset = [ -0.000017, -0.000055, -0.000017 ]
 								m_flWeight = 1.0
 								m_bRoot = false
 							},
@@ -115,9 +113,9 @@
 						m_influences = 
 						[
 							{
-								m_influenceName = "Cube1"
-								m_vTranslationOffset = [ 0.0, 0.0, 74.343163 ]
-								m_vRotationOffset = [ -0.0, 0.0, -0.0 ]
+								m_influenceName = "cube"
+								m_vTranslationOffset = [ 0.000016, 69.124481, -0.000004 ]
+								m_vRotationOffset = [ -0.000003, -0.000014, -0.000003 ]
 								m_flWeight = 1.0
 								m_bRoot = false
 							},
@@ -129,34 +127,30 @@
 	]
 	m_pAnimGroup = 
 	{
-		_class = "CVanimGroupReference"
 		m_pObject = 
 		{
 			m_Name = ""
 			m_pReferenceSkeleton = 
 			{
-				_class = "CVReferenceSkeletonReference"
 				m_pObject = null
 			}
 			m_pBoneFlagList = 
 			{
-				_class = "CVBoneFlagListReference"
 				m_pObject = null
 			}
 			m_pSeqGroup = 
 			{
-				_class = "CVseqGroupReference"
 				m_pObject = null
 			}
 			m_pAnimGroups = [  ]
 			m_Vanim = 
 			[
 				{
-					m_Animationname = "Cube"
-					m_Filepath = "models/units/Cube/Cube.dmx"
+					m_Animationname = "cube"
+					m_Filepath = "models/units/Cube/cube.fbx"
 					m_nStartframe = 0
-					m_nEndframe = 0
-					m_flFps = 30.0
+					m_nEndframe = 23
+					m_flFps = 24.0
 					m_Loop = 
 					{
 						m_bLoop = false
@@ -194,31 +188,27 @@
 			]
 			m_sScripts = [  ]
 			m_folderNames = [  ]
+			m_sCompileScripts = [  ]
 		}
 	}
 	m_pMaterialGroupList = 
 	{
-		_class = "CVNodeMaterialGroupListReference"
 		m_pObject = null
 	}
 	m_pMeshGroupList = 
 	{
-		_class = "CVMeshGroupListReference"
 		m_pObject = null
 	}
 	m_pLodGroupList = 
 	{
-		_class = "CVLODGroupListReference"
 		m_pObject = null
 	}
 	m_pPropBreakableList = 
 	{
-		_class = "CVpropBreakableListReference"
 		m_pObject = null
 	}
 	m_pPropDataList = 
 	{
-		_class = "CVpropDataListReference"
 		m_pObject = null
 	}
 	m_pConstraintLists = [  ]
@@ -240,12 +230,15 @@
 				m_sSearchMaterial = "material_#107.vmat"
 				m_sReplaceMaterial = "materials/buildings/otogakuretower/otogakuretower_wall.vmat"
 			},
+			{
+				m_sSearchMaterial = "material_#179.vmat"
+				m_sReplaceMaterial = "materials/particle/liquid_orb_blue_opaque.vmat"
+			},
 		]
 	}
 	m_flFbxScale = 1.0
 	m_flQCScale = 1.0
 	m_vOrigin = [ 0.0, 0.0, 0.0 ]
-	m_nLoadDmxAnimVersion = 0
 	m_pPsfList = null
 	m_keyValueText = ""
 	m_bStaticProp = false
@@ -257,5 +250,6 @@
 	m_bMakeUniqueVMeshes = false
 	m_bMakeImplicitBindPoseSequence = false
 	m_bAdjustSkeletonFromBoneFlags = false
+	m_bHiddenAssetFlag = false
 	m_pAnimGroups = [  ]
 }

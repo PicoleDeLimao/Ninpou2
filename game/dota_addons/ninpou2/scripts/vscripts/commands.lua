@@ -4,32 +4,23 @@
 	This script defines custom commands to help to debug or perform some trick
 ]]
 
-CHEAT_CODES = {
-
-}
-
-DEBUG_CODES = {
-	["testduel"] = function(playerID, hero)
-		local duelInviterPos = Entities:FindByName(nil, "duel_inviter"):GetAbsOrigin()
-		local duelReceiverPos = Entities:FindByName(nil, "duel_receiver"):GetAbsOrigin()
-		local inviterPlayer = PlayerResource:GetPlayer(playerID)
-		local inviterHero = inviterPlayer:GetAssignedHero()
-		inviterHero:SetAbsOrigin(duelInviterPos)
-		inviterHero:SetForwardVector((duelReceiverPos - duelInviterPos):Normalized())
-		local unit = CreateUnitByName("npc_dota_hero_dark_seer", duelReceiverPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
-		for i = 1, 50 do 
-			unit:HeroLevelUp(false)
-		end
-		unit:SetForwardVector((duelInviterPos - duelReceiverPos):Normalized())
-		unit:SetRespawnsDisabled(true)
-	end
-}
-
-PLAYER_CODES = {
-
-}
-
 Commands = {}
+
+--This command spawn an unit on duel 
+function Commands:TestDuel(playerID, hero)
+	local duelInviterPos = Entities:FindByName(nil, "duel_inviter"):GetAbsOrigin()
+	local duelReceiverPos = Entities:FindByName(nil, "duel_receiver"):GetAbsOrigin()
+	local inviterPlayer = PlayerResource:GetPlayer(playerID)
+	local inviterHero = inviterPlayer:GetAssignedHero()
+	inviterHero:SetAbsOrigin(duelInviterPos)
+	inviterHero:SetForwardVector((duelReceiverPos - duelInviterPos):Normalized())
+	local unit = CreateUnitByName("npc_dota_hero_dark_seer", duelReceiverPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	for i = 1, 50 do 
+		unit:HeroLevelUp(false)
+	end
+	unit:SetForwardVector((duelInviterPos - duelReceiverPos):Normalized())
+	unit:SetRespawnsDisabled(true)
+end 
 
 -- This command increases hero health to infinite
 function Commands:GodCommandOn()
@@ -65,19 +56,19 @@ end
 
 -- Defeat the Konohagakure Team
 function Commands:DefeatTeamKonohaCommand() 
-	print("[CHEATS] Defeating Konohagakure team")
+	print("[DEBUG] Defeating Konohagakure team")
 	NinpouGameRules:DefeatTeam(DOTA_TEAM_GOODGUYS)
 end
 
 -- Defeat the Otogakure Team
 function Commands:DefeatTeamOtoCommand() 
-	print("[CHEATS] Defeating Otogakure team")
+	print("[DEBUG] Defeating Otogakure team")
 	NinpouGameRules:DefeatTeam(DOTA_TEAM_BADGUYS)
 end
 
 -- Defeat the Akatsuki Team
 function Commands:DefeatTeamAkatsukiCommand() 
-	print("[CHEATS] Defeating Akatsuki team")
+	print("[DEBUG] Defeating Akatsuki team")
 	NinpouGameRules:DefeatTeam(DOTA_TEAM_CUSTOM_1)
 end
 
@@ -95,9 +86,40 @@ end
 
 -- Enable debug mode 
 function Commands:EnableDebugMode()
-	print("[CHEATS] Debug mode enabled")
+	print("[DEBUG] Debug mode enabled")
 	Commands.DEBUG = true
 end
+
+CHEAT_CODES = {
+	["godon"] = function(playerID, hero)
+		Commands:GodCommandOn()
+	end,
+	["godoff"] = function(playerID, hero)
+		Commands:GodCommandOff()
+	end,
+	["spawnjuubi"] = function(playerID, hero) 
+		Commands:Commands()
+	end
+}
+
+DEBUG_CODES = {
+	["testduel"] = function(playerID, hero)
+		Commands:TestDuel(playerID, hero)
+	end,
+	["defeatkonoha"] = function(playerID, hero) 
+		Commands:DefeatTeamKonohaCommand()
+	end,
+	["defeatoto"] = function(playerID, hero) 
+		Commands:DefeatTeamOtoCommand()
+	end,
+	["defeatakatsuki"] = function(playerID, hero)
+		Commands:DefeatTeamAkatsukiCommand()
+	end
+}
+
+PLAYER_CODES = {
+
+}
 
 function Commands:split(inputstr, sep)
     if sep == nil then sep = "%s" end

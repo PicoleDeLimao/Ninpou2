@@ -217,6 +217,13 @@ pip-log.txt
 #  DOTA 2
 #############
 
+game/*
+!game/dota_addons/ninpou2/*
+content/*
+!content/dota_addons/ninpou2/*
+_CommonRedist/*
+
+
 *.vpk
 *.vpcf_c
 *.vsnd_c
@@ -227,8 +234,7 @@ pip-log.txt
 *.vxml_c
 *.vcss_c
 *.vjs_c
-game/*
-!game/dota_addons/ninpou2/*
-content/*
-!content/dota_addons/ninpou2/*
-_CommonRedist/*
+*.vmdl_c
+*.vanim_c
+*.vagrp_c
+*.vmesh_c

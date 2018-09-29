@@ -40,8 +40,8 @@
 		"StatusManaRegen"			"0"
 	
 		// Team 		
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 			
 		// Vision 
@@ -93,8 +93,8 @@
 		"StatusManaRegen"			"0"
 	
 		// Team 		
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -149,8 +149,8 @@
 		"StatusManaRegen"			"0"
 	
 		// Team 			
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -201,8 +201,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 			
 		// Vision 
@@ -255,8 +255,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -312,8 +312,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -391,8 +391,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 			
 		// Vision 
@@ -445,8 +445,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -502,8 +502,8 @@
 	
 		// Team 
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				
-		"CombatClassAttack"         "siege"
-		"CombatClassDefend"         "fortified"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	
 		// Vision 
@@ -888,8 +888,8 @@
 		"MovementSpeed"				"250"
 	
 		// Team
-		"CombatClassAttack"         "pierce"
-		"CombatClassDefend"         "light"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -935,8 +935,8 @@
 		"MovementSpeed"				"270"
 	
 		// Team
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "medium"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -984,8 +984,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "heavy"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1043,8 +1043,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "hero"
-		"CombatClassDefend"         "hero"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 	
 		// Status 
@@ -1102,8 +1102,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "hero"
-		"CombatClassDefend"         "hero"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 	
 		// Status 
@@ -1160,8 +1160,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "heavy"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1218,8 +1218,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "hero"
-		"CombatClassDefend"         "hero"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1280,8 +1280,8 @@
 	
 		// Team
 		//"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "unarmored"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1340,8 +1340,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
-		"CombatClassAttack"         "pierce"
-		"CombatClassDefend"         "light"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1388,8 +1388,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_GOODGUYS" 				// Team name.
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "medium"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1441,8 +1441,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "pierce"
-		"CombatClassDefend"         "unarmored"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1490,8 +1490,8 @@
 	
 		// Team 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"			"normal"
-		"CombatClassDefend"			"unarmored"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1541,8 +1541,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
-		"CombatClassAttack"         "pierce"
-		"CombatClassDefend"         "light"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1589,8 +1589,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_BADGUYS" 				// Team name.
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "medium"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 
@@ -1673,8 +1673,8 @@
 	
 		// Team
 		"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
-		"CombatClassAttack"         "normal"
-		"CombatClassDefend"         "heavy"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	
 		// Status 

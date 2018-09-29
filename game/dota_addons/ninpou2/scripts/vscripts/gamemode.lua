@@ -33,7 +33,7 @@ require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua
 require('libraries/selection')
 -- This library provides popups
-require('libraries/popups')
+require('libraries/popups') 
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -148,11 +148,5 @@ function GameMode:InitGameMode()
   AddFOWViewer(DOTA_TEAM_CUSTOM_1, Vector(-5684, 4930, 1168), 2200, 999999999, false)
   
   -- Register commands 
-  Convars:RegisterCommand("godon", Dynamic_Wrap(Commands, 'GodCommandOn'), "Increases hero health to infinite", FCVAR_CHEAT)
-  Convars:RegisterCommand("godoff", Dynamic_Wrap(Commands, 'GodCommandOff'), "Disables god mode", FCVAR_CHEAT)
-  Convars:RegisterCommand("defeatkonoha", Dynamic_Wrap(Commands, 'DefeatTeamKonohaCommand'), "Defeat the Konohagakure team", FCVAR_CHEAT)
-  Convars:RegisterCommand("defeatoto", Dynamic_Wrap(Commands, 'DefeatTeamOtoCommand'), "Defeat the Otogakure team", FCVAR_CHEAT)
-  Convars:RegisterCommand("defeatakatsuki", Dynamic_Wrap(Commands, 'DefeatTeamAkatsukiCommand'), "Defeat the Akatsuki team", FCVAR_CHEAT)
-  Convars:RegisterCommand("spawnjuubi", Dynamic_Wrap(Commands, 'SpawnJuubiCommand'), "Spawn the juubi", FCVAR_CHEAT)
   Convars:RegisterCommand("debug", Dynamic_Wrap(Commands, 'EnableDebugMode'), "Enable debug mode", FCVAR_CHEAT)
 end

@@ -55,11 +55,6 @@
 			"var_type"				"FIELD_INTEGER"
 			"rinnegan_invulnerability_cooldown"	"180"
 		}
-		"07"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"think_interval"		"0.1"
-		}
 	}
 	
 	// Datadriven 
@@ -111,7 +106,7 @@
 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
 				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%mana_regen"
 			}
-			"ThinkInterval"			"%think_interval"
+			"ThinkInterval"			"0.1"
 			"OnIntervalThink"
 			{
 				"RunScript"

@@ -1132,13 +1132,13 @@
 			}
 			"02"
 			{
-				"var_type"                  "FIELD_FLOAT"
-				"stun_duration_hero"        "1.0"
+				"var_type"                  "FIELD_INTEGER"
+				"stun_duration_hero"        "1"
 			}
 			"03"
 			{
-				"var_type"                  "FIELD_FLOAT"
-				"stun_duration_creep"       "2.0"
+				"var_type"                  "FIELD_INTEGER"
+				"stun_duration_creep"       "2"
 			}
 		}
 		"Modifiers"
@@ -2283,13 +2283,13 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"2.0"
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"2"
 			}
 			"02"
 			{
-				"var_type"          "FIELD_FLOAT"
-				"think_interval"    "1.0"
+				"var_type"          "FIELD_INTEGER"
+				"think_interval"    "1"
 			}
 			"03"
 			{
