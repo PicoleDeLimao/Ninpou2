@@ -213,3 +213,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+game/*
+!game/dota_addons/ninpou2/*
+content/*
+!content/dota_addons/ninpou2/*
+_CommonRedist/*
