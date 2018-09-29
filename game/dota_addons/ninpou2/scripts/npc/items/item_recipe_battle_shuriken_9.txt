@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Battle Shuriken Level 9 Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_battle_shuriken_9"
+{
+	// General
+	"ID"							"1056"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_battle_shuriken"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_battle_shuriken_9"
+	"ItemRequirements"
+	{
+		"01"						"item_battle_shuriken_8"
+	}
+}

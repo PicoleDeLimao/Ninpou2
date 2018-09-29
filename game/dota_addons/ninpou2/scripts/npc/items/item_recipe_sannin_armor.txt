@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Sannin Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_sannin_armor"
+{
+	// General
+	"ID"							"1212"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_sannin_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_sannin_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_jounin_armor"
+	}
+}

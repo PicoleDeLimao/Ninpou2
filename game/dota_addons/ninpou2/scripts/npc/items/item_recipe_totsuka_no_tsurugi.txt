@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Totsuka no Tsurugi
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_totsuka_no_tsurugi"
+{
+	// General
+	"ID"							"1242"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_totsuka_no_tsurugi"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_totsuka_no_tsurugi"
+	"ItemRequirements"
+	{
+		"01"						"item_katon_kusanagi_no_tsurugi;"
+	}
+}

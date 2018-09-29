@@ -1,0 +1,109 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Hokage Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_hokage_armor"
+{
+	// General
+	"ID"							"1223"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_hokage_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"stats_bonus"			"50"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"attack_bonus"			"50"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"armor_bonus"			"50"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"magic_resistance"		"50"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"katon_resistance"		"25"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/items/kagehat/hokage_hat.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_item_hokage_armor"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%attack_bonus"
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+				"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resistance"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/armor.lua"
+					"Function"			"Equip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"		"items/hokage_armor.lua"
+					"Function"			"Equip"
+				}
+				"AttachEffect"
+				{
+					"Target"				"CASTER"
+					"EffectName"			"particles/items/kagehat/hokage_hat.vpcf"
+					"EffectAttachType"		"follow_origin"
+					"ControlPointEntities"
+					{
+						"CASTER"			"attach_head"
+					}
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/armor.lua"
+					"Function"			"Unequip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"		"items/hokage_armor.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+	}
+}

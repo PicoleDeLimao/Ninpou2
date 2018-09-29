@@ -1,0 +1,91 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Curry of life
+//-------------------------------------------------------------------------------------------------------------
+"item_curry_of_life"
+{
+	// General
+	"ID"							"1248"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_curry_of_life"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE"
+	
+	"ItemCost"						"400"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"60"
+	"ItemStockInitial"				"3"
+	"ItemInitialCharges"            "1"
+	"ItemRequiresCharges" 			"1"	
+	"ItemDisplayCharges" 			"1"
+	"ItemStackable"                 "1"
+    "ItemPermanent"                 "0"
+	"ItemShopTags"					"consumable"
+	"ItemQuality"					"consumable"
+	"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+	
+	// Ability 
+	"AbilityCooldown"				"60"
+	"AbilityCastPoint"				"0"
+	"AbilityManaCost"				"0"
+	"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+	
+	"AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"          	"FIELD_INTEGER"
+            "hp_recover_per_sec"	"125"
+        }
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"duration"				"15"
+		}
+    }
+	
+	// Datadriven
+	"precache"
+	{
+		"soundfile"					"soundevents/game_sounds_items.vsndevts"
+		"particle"					"particles/items_fx/healing_flask.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"SpendCharge"			{}
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_item_curry_of_life"
+			"Duration"			"%duration"
+		}
+		"FireSound"
+		{
+			"EffectName"		"DOTA_Item.ClarityPotion.Activate"
+			"Target"			"CASTER"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_item_curry_of_life"
+		{
+			"EffectName"            	"particles/items_fx/healing_flask.vpcf"
+			"EffectAttachType"      	"follow_origin"
+			"TextureName"       		"item_curry_of_life"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%hp_recover_per_sec"
+			}
+			"OnTakeDamage"
+			{
+				"RemoveModifier"
+				{
+					"Target"			"UNIT"
+					"ModifierName"		"modifier_item_curry_of_life"
+				}
+			}
+		}
+	}
+}

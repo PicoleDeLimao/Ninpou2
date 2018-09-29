@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Jounin Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_jounin_armor"
+{
+	// General
+	"ID"							"1210"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_jounin_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_jounin_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_anbu_armor"
+	}
+}

@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPE: Indra Essence
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_indra_essence"
+{
+	// General
+	"ID"							"1093"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_indra_essence"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_indra_essence"
+	"ItemRequirements"
+	{
+		"01"						"item_chakra_stone_3"
+	}
+}

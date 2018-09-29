@@ -1,0 +1,15 @@
+"AddonInfo"
+{
+	"maps"                   	"ninpou ninpou2"
+	"TeamCount"					"3"
+	"MaxPlayers"				"12"
+	"IsPlayable"  				"1"
+	"ninpou"
+	{
+		"MaxPlayers"		"12"
+	}
+	"ninpou2"
+	{
+		"MaxPlayers"		"12"
+	}
+}

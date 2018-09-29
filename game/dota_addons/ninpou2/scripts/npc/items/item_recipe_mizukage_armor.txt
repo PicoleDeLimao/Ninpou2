@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Mizukage Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_mizukage_armor"
+{
+	// General
+	"ID"							"1226"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_mizukage_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"8000"
+	"ItemResult"					"item_mizukage_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_sannin_armor;item_charged_absorbing_stone;item_suiton_orb"
+	}
+}

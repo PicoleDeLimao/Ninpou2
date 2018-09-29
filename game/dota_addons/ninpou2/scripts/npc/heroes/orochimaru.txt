@@ -1,0 +1,16 @@
+"npc_dota_hero_orochimaru"
+{
+	"override_hero"     "npc_dota_hero_dark_seer"
+	"Model"				"models/heroes/orochimaru/orochimaru.vmdl" 
+	"ModelScale"		"1.3"
+	"SoundSet"          "0" 
+	"ItemSlots"			
+	{ }
+
+	"AbilityLayout"     "5"
+	"Ability1"          "orochimaru_seneijashu" 
+	"Ability2"          "orochimaru_rashomon" 
+	"Ability3"          "orochimaru_kusanagi" 
+	"Ability4"          "orochimaru_uwabami"
+	"Ability5"          "orochimaru_edo_tensei"
+}

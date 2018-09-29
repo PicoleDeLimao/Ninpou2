@@ -1,0 +1,57 @@
+"npc_rogue_ninja_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/rogueninja/rogueninja.vmdl" 
+	"ModelScale"				"3.0"
+	"SoundSet"          		"n_creep_Meele"        
+	"Level"           			"4"
+
+	// Armor 
+	"ArmorPhysical"				"10"
+	"MagicalResistance" 		"0"
+
+	// Minimap
+	"MinimapIcon"               "minimap_candybucket"
+	"MinimapIconSize"           "300"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageMin"			"100"
+	"AttackDamageMax"			"150"
+	"AttackRate"				"1.7"
+	"AttackAcquisitionRange"	"1000"
+	"AttackRange"				"100"
+	"ProjectileModel"			""
+	"ProjectileSpeed"			"0"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"45"
+	"HealthBarOffset"			"170"
+
+	// Bounty
+	"BountyXP"					"500"
+	"BountyGoldMin"				"350"
+	"BountyGoldMax"				"600"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"250"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "normal"
+	"CombatClassDefend"         "heavy"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"2000"
+	"StatusHealthRegen"			"1"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+}

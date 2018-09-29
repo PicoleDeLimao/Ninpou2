@@ -1,0 +1,93 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Medical Ninja's Heal 
+//-------------------------------------------------------------------------------------------------------------
+"medical_ninja_heal"
+{
+	// General
+	"BaseClass"					"ability_datadriven"
+	"AbilityTextureName"		"medical_ninja_heal"
+	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	"MaxLevel"					"1"
+
+	//"AbilityCastPoint"			"0.35"
+	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	"AnimationPlaybackRate"		"1"
+
+	// Stats 
+	"AbilityManaCost"			"10"
+	"AbilityCooldown"			"1.0"
+	"AbilityCastRange"			"500"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration"			"2.0"
+		}
+		"02"
+		{
+			"var_type"          "FIELD_FLOAT"
+			"think_interval"    "1.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"heal_per_think"	"50"
+		}
+	}
+
+	// Datadriven
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"			"TARGET"
+			"ModifierName"		"modifier_medical_ninja_heal"
+		}
+	}
+	"precache"
+	{
+		"particle"              "particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
+		"particle"              "particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_medical_ninja_heal"
+		{
+			"IsBuff"			"1"
+			"Duration"			"%duration"
+			"ThinkInterval"		"%think_interval"
+			"OnIntervalThink"
+			{
+				"Heal"
+				{
+					"Target"			"TARGET"
+					"HealAmount"		"%heal_per_think"
+				}
+			}
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"Target"            "TARGET"
+					"EffectName"        "particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
+					"EffectAttachType"  "follow_overhead"
+					"ControlPoints"
+					{
+						"00"            "0 0 0"
+					}
+				}
+				"FireEffect"
+				{
+					"Target"            "TARGET"
+					"EffectName"        "particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf"
+					"EffectAttachType"  "attach_attack1"
+				}
+			}
+		}
+	}
+}

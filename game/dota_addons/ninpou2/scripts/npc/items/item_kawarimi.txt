@@ -1,0 +1,63 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Kawarimi
+//-------------------------------------------------------------------------------------------------------------
+"item_kawarimi"
+{
+	// General
+	"ID"							"1258"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_kawarimi"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE"
+	
+	"ItemCost"						"2000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+
+    "AbilityCooldown"  				"15"       
+    "AbilityManaCost"  				"0"
+	"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"invul_duration"		"0.5"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"items/kawarimi.lua"
+			"Function"					"SpellStart"
+		}
+	} 
+	"Modifiers"
+	{
+		"modifier_kawarimi_invul"
+		{
+			"IsHidden"					"1"
+			"Duration"					"%invul_duration"
+			"States"
+			{
+				"MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_LOW_ATTACK_PRIORITY"    "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_NO_HEALTH_BAR"          "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_UNSELECTABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_STUNNED"                "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

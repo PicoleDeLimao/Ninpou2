@@ -1,0 +1,59 @@
+"npc_edo_tobirama_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/heroes/tobirama/tobirama.vmdl" 
+	"ModelScale"				"1.3"  
+
+	"ConsideredHero"            "1"
+
+	// Armor 
+	"ArmorPhysical"				"20"
+	"MagicalResistance" 		"20"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageMin"			"199"
+	"AttackDamageMax"			"200"
+	"AttackRate"				"1.0"
+	"AttackAnimationPoint"		"0.3"
+	"AttackAcquisitionRange"	"900"
+	"AttackRange"				"100"
+	"ProjectileModel"			""
+	"ProjectileSpeed"			"800"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"60"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"400"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "hero"
+	"CombatClassDefend"         "hero"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+
+	// Status 
+	"StatusHealth"				"5000"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"1000"
+	"StatusManaRegen"			"0.5"
+
+	// Bounty
+	"BountyXP"					"0"
+	"BountyGoldMin"       	    "0"       // Gold earned min.
+	"BountyGoldMax"      	    "0"      // Gold earned max.
+
+	// Abilities 
+	"AbilitiesLayout"			"3"
+	"Ability1"					"edo_tobirama_suiton_suijinheki"
+	"Ability2"					"edo_tobirama_kokuangyo_no_jutsu"
+	"Ability3"					"edo_tobirama_suiton_suishoha"
+}

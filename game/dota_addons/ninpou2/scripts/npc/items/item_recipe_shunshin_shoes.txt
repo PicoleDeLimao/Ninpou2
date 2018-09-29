@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Shunshin Shoes
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_shunshin_shoes"
+{
+	// General
+	"ID"							"1011"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_shunshin_shoes"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"1000"
+	"ItemResult"					"item_shunshin_shoes"
+	"ItemRequirements"
+	{
+		"01"						"item_chunnin_shoes;item_scroll_shunshin"
+	}
+}

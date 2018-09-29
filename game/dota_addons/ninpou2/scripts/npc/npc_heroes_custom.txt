@@ -1,0 +1,36 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_orochimaru"
+	{
+		"override_hero"     "npc_dota_hero_dark_seer"
+		"Model"				"models/heroes/orochimaru/orochimaru.vmdl" 
+		"ModelScale"		"1.3"
+		"SoundSet"          "0" 
+		"ItemSlots"			
+		{ }
+	
+		"AbilityLayout"     "5"
+		"Ability1"          "orochimaru_seneijashu" 
+		"Ability2"          "orochimaru_rashomon" 
+		"Ability3"          "orochimaru_kusanagi" 
+		"Ability4"          "orochimaru_uwabami"
+		"Ability5"          "orochimaru_edo_tensei"
+	}
+	"npc_dota_hero_sasuke"
+	{
+		"override_hero"     "npc_dota_hero_antimage"
+		"Model"				"models/heroes/sasuke/sasuke.vmdl"
+		"ModelScale"	    "1.3"
+		"SoundSet"          "0" 
+		"ItemSlots"			
+		{ }
+	
+		"AbilityLayout"     "6"
+		"Ability1"          "elite_anbu_leader_fuuton_jutsu" 
+		"Ability2"          "elite_anbu_fuuma_shuriken" 
+		"Ability3"          "medical_ninja_heal" 
+		"Ability4"          "elite_anbu_kuchiyose_ninkens"
+		"Ability5"          "ninken_critical_strike"
+		"Ability6"          "barebones_empty6"
+	} 
+}

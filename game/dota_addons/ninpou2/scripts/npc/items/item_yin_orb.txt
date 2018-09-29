@@ -1,0 +1,113 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Yin Orb
+//-------------------------------------------------------------------------------------------------------------
+"item_yin_orb"
+{
+	// General
+	"ID"							"1107"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_yin_orb"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemCost"						"4000"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"yin_damage_bonus"		"20"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_bonus"			"100"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_per_hit"			"50"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/econ/items/puck/puck_alliance_set/puck_base_attack_aproset.vpcf"
+		"particle"					"particles/econ/items/invoker/invoker_apex/invoker_apex_wex_orb.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_item_yin_orb_mult"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+		"modifier_item_yin_orb"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_NONE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage_bonus"
+				
+			}
+			"Orb"
+			{
+				"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+				"ProjectileName"	"particles/econ/items/puck/puck_alliance_set/puck_base_attack_aproset.vpcf"
+			}
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"
+					"Function"			"ManaBurn"
+					"Target"			"TARGET"
+				}
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/yin_orb.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/yin_orb.lua"
+					"Function"		"Unequip"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Chunnin Armor
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_chunnin_armor"
+{
+	// General
+	"ID"							"1206"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_chunnin_armor"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_chunnin_armor"
+	"ItemRequirements"
+	{
+		"01"						"item_genin_armor"
+	}
+}

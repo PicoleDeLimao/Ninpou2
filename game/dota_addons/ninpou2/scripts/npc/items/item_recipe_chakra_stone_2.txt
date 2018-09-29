@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Chakra Stone Level 2
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_chakra_stone_2"
+{
+	// General
+	"ID"							"1088"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_chakra_stone"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"1000"
+	"ItemResult"					"item_chakra_stone_2"
+	"ItemRequirements"
+	{
+		"01"						"item_chakra_stone"
+	}
+}

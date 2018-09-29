@@ -1,0 +1,44 @@
+"npc_ninken_unit"
+{
+	// General
+	"BaseClass"                 "npc_dota_creature"
+	"Model"                     "models/items/beastmaster/boar/fotw_wolf/fotw_wolf.vmdl"
+	"ModelScale"                "1.0"
+	"SoundSet"                  "soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageMin"			"200"
+	"AttackDamageMax"			"250"
+	"AttackRate"				"1.0"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"100"
+
+	// Vision
+	"VisionDaytimeRange"		"1200"
+	"VisionNighttimeRange"		"800"
+
+	// Bounds 
+	"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"80"
+
+	// Movement 
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"270"
+
+	// Team 
+	"TeamName"					"DOTA_TEAM_NEUTRALS"
+	"CombatClassAttack"			"normal"
+	"CombatClassDefend"			"unarmored"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"2000"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	"AbilitiesLayout"			"2"
+	"Ability1"					"anbu_bash"
+	"Ability2"					"ninken_critical_strike"
+}

@@ -1,0 +1,99 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: ANBU Mask
+//-------------------------------------------------------------------------------------------------------------
+"item_anbu_mask"
+{
+	// General
+	"ID"							"1216"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_anbu_mask"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"stats_bonus"			"20"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"gold_per_kill"			"20"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"night_vision_bonus"	"500"		
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"evasion_bonus"			"25"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/items/anbumask/anbu_mask.vpcf"
+	}
+	"Modifiers"
+	{
+		"modifier_item_anbu_mask"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%stats_bonus"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
+				"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
+				"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+				"RunScript"
+				{
+					"ScriptFile"		"items/bingo.lua"
+					"Function"			"Initialize"
+					"GoldReward"		"%gold_per_kill"
+				}
+				"AttachEffect"
+				{
+					"Target"				"CASTER"
+					"EffectName"			"particles/items/anbumask/anbu_mask.vpcf"
+					"EffectAttachType"		"follow_origin"
+					"ControlPointEntities"
+					{
+						"CASTER"			"attach_head"
+					}
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+	}
+}

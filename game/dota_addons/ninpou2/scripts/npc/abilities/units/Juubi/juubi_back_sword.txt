@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Juubi Back to Sword Form
+//-------------------------------------------------------------------------------------------------------------
+"juubi_back_sword"
+{
+	// General 
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"juubi_back_sword"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDITATE"
+	"MaxLevel"							"1"
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"units/juubi/juubi_back_sword.lua"
+			"Function"					"SpellStart"
+		}
+	}
+	
+}

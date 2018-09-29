@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Battle Kunai Level 7 Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_battle_kunai_7"
+{
+	// General
+	"ID"							"1034"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_battle_kunai"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_battle_kunai_7"
+	"ItemRequirements"
+	{
+		"01"						"item_battle_kunai_6"
+	}
+}

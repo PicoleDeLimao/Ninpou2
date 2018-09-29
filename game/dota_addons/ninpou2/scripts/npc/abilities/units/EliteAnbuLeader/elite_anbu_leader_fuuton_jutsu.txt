@@ -1,0 +1,48 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Elite Anbu Leader's Fuuton Jutsu
+//-------------------------------------------------------------------------------------------------------------
+"elite_anbu_leader_fuuton_jutsu"
+{
+	// General
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"elite_anbu_leader_fuuton_jutsu"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	"MaxLevel"							"1"
+	
+	"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+	"AbilityCastPoint"					"0.3"
+	"AbilityCastRange"					"600"
+	"AbilityManaCost"					"50"
+	"AbilityCooldown"					"30"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"duration"					"5"
+		}
+	}
+	
+	// Datadriven
+	"precache"
+	{
+		"particle"						"particles/units/heroes/hero_brewmaster/brewmaster_cyclone.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"items/spell_shield.lua"
+			"Function"					"ApplyModifier"
+			"Target"					"TARGET"
+			"ModifierName"				"modifier_brewmaster_storm_cyclone"
+			"DurationHero"				"%duration"
+			"DurationCreep"				"%duration"
+		}
+	}
+}

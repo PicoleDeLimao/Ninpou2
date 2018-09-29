@@ -1,0 +1,31 @@
+//-------------------------------------------------------------------------------------------------------------
+// BUILDINGS: Semi Building
+//-------------------------------------------------------------------------------------------------------------
+"ability_semi_building"
+{
+	// General
+	"BaseClass"							"ability_datadriven"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"MaxLevel"							"1"
+	
+	"modifiers"
+	{
+		"modifier_is_semi_building"
+		{
+			"Passive"					"1"
+			"IsHidden"					"1"
+			"States"
+			{
+				"MODIFIER_STATE_MAGIC_IMMUNE"				"MODIFIER_STATE_VALUE_ENABLED"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"buildings/semi_buildings.lua"
+					"Function"			"OnCreated"
+				}
+			}
+		}
+	}
+}

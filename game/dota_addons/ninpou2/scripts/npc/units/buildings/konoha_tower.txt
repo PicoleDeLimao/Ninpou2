@@ -1,0 +1,54 @@
+"npc_konoha_tower_unit"
+{
+	// General
+	"BaseClass"					"npc_dota_creature"
+	"Model"						"models/buildings/KonohagakureTower/KonohagakureTower_1.vmdl"
+	"ModelScale"				"6.0"
+	"SoundSet"					"Tower.Water"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"550"
+	"AttackDamageMax"			"650"
+	"AttackRate"				"2.0"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"600"
+	"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
+	"ProjectileSpeed"			"1100"
+		
+	// Armor 
+	"ArmorPhysical"				"25"
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+	"RingRadius"				"180"
+
+	// Bounty
+	"BountyXP"					"1000"
+	"BountyGoldMin"				"1000"
+	"BountyGoldMax"				"1000"
+
+	// Movement 
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"				"0"
+	"MovementTurnRate"			"1.0"
+
+	// Status 
+	"StatusHealth"				"4000"
+	"StatusHealthRegen"			"0"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Team 
+	"TeamName"                  "DOTA_TEAM_GOODGUYS" 				
+	"CombatClassAttack"         "siege"
+	"CombatClassDefend"         "fortified"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+	// Vision 
+	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	
+	// Abilities
+	"Ability1"					"ability_building"
+}

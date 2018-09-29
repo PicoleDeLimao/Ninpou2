@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Battle Senbons Level 9 Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_battle_senbons_9"
+{
+	// General
+	"ID"							"1076"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_battle_senbons"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_battle_senbons_9"
+	"ItemRequirements"
+	{
+		"01"						"item_battle_senbons_8"
+	}
+}

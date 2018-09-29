@@ -1,0 +1,47 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Orochimaru - Kuchiyose: Edo Tensei
+//-------------------------------------------------------------------------------------------------------------
+"orochimaru_edo_tensei"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"orochimaru_edo_tensei"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"MaxLevel"						"1"
+	"RequiredLevel"					"35"
+
+    "AbilityCooldown"  				"180"       
+    "AbilityManaCost"  				"400"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+	"AbilityCastPoint"				"0.2"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"30"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/heroes/orochimaru/edotensei/courier_greevil_purple_ambient_3_e.vpcf"
+		"particle"					"particles/heroes/orochimaru/edotensei/greevil_transformation_dust.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/orochimaru_edo_tensei.lua"
+			"Function"				"SpellStart"
+		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"Orochimaru.EdoTensei"
+		}
+	} 
+}

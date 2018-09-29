@@ -1,0 +1,95 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Ninken's Critical Strike
+//-------------------------------------------------------------------------------------------------------------
+"ninken_critical_strike"
+{
+	// General 
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"ninken_critical_strike"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxLevel"							"1"
+
+	// Special 
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crit_bonus"				"200"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crit_chance"				"15"
+		}
+	}
+
+	// Datadriven 
+	"precache"
+	{
+		"particle"						"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+		"particle"						"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+	}
+	"Modifiers"
+	{
+		"modifier_ninken_critical_strike"
+		{
+			"Passive"					"1"
+			"IsHidden"					"1"
+			"OnAttackStart"
+			{
+				"RemoveModifier"
+				{
+					"Target"			"CASTER"
+					"ModifierName"		"modifier_ninken_critical_strike_crit"
+				}
+				"Random"
+				{
+					"Chance"				"%crit_chance"
+					"OnSuccess"
+					{
+						"FireEffect"
+						{
+							"Target"		"CASTER"
+							"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
+							"EffectAttachType"	"attach_attack1"
+						}
+						"FireSound"
+						{
+							"Target"		"CASTER"
+							"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+						}
+						"ApplyModifier"
+						{
+							"Target"		"CASTER"
+							"ModifierName"	"modifier_ninken_critical_strike_crit"
+						}
+					}
+				}
+			}
+		}
+		"modifier_ninken_critical_strike_crit"
+		{
+			"IsHidden"					"1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
+			}
+			"OnAttackLanded"
+			{
+				"FireEffect"
+				{
+					"Target"			"TARGET"
+					"EffectName"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+					"EffectAttachType"	"attach_hitloc"
+				}
+				"RemoveModifier"
+				{
+					"Target"			"CASTER"
+					"ModifierName"		"modifier_ninken_critical_strike_crit"
+				}
+			}
+		}
+	}
+}

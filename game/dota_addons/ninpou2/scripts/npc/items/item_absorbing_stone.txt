@@ -1,0 +1,129 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Absorbing Stone
+//-------------------------------------------------------------------------------------------------------------
+"item_absorbing_stone"
+{
+	// General
+	"ID"							"1109"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_absorbing_stone"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+	"ItemCost"						"250"
+	"ItemKillable"					"0"
+	"ItemSellable"					"0"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"60"
+	"ItemStockInitial"				"3"
+	
+	// Ability 
+	"AbilityCastPoint"				"0"
+	"AbilityCooldown"				"90"
+	"AbilityManaCost"				"0"
+	"AbilityCastRange"				"600"
+	"AbilityCastPoint"				"0.1"
+	"AbilityChannelTime"			"3"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"3"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"mana_per_second"		"100"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"break_distance"		"800"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"tick_interval"			"1"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		"particle"			"particles/units/heroes/hero_lion/lion_spell_mana_drain.vpcf"
+	}
+	"OnAbilityPhaseStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"items/absorbing_stone.lua"
+			"Function"		"ChakraLeechStart"
+		}		
+	}
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Lion.ManaDrain"
+			"Target"		"TARGET"
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_item_absorbing_stone_mana"
+			"Target" 		"TARGET"
+			"Duration"		"%duration"
+		}			
+	}
+	"OnChannelFinish"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"items/absorbing_stone.lua"
+			"Function"			"ChakraLeechEnd"
+			"sound"				"Hero_Lion.ManaDrain"
+		}
+		"RemoveModifier"
+		{
+			"ModifierName"		"modifier_item_absorbing_stone_mana"
+			"Target"			"TARGET"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_item_absorbing_stone_mana"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+	
+			"ThinkInterval"		"%tick_interval"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/absorbing_stone.lua"
+					"Function"		"ChakraLeech"
+				}
+			}
+		}
+		"modifier_item_absorbing_stone_mana_extra"
+		{
+			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"IsHidden"			"1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MANA_BONUS" "%mana_per_second" 
+			}
+
+			"Duration"			"%duration"
+		}
+	}	
+}

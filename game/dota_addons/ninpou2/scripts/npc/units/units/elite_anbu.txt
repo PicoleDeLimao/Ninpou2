@@ -1,0 +1,57 @@
+"npc_elite_anbu_unit"
+{
+	// General
+	"BaseClass"         		"npc_dota_creature"  							
+	"Model"           			"models/units/eliteanbu/eliteanbu_2.vmdl" 
+	"ModelScale"				"1.2"
+	"SoundSet"          		"n_creep_Ranged"        
+	"Level"           			"5"
+
+	// Armor 
+	"ArmorPhysical"				"10"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"300"
+	"AttackDamageMax"			"350"
+	"AttackRate"				"1.5"
+	"AttackAnimationPoint"		"0.3"
+	"AttackAcquisitionRange"	"900"
+	"AttackRange"				"600"
+	"ProjectileModel"			"particles/units/heroes/hero_silencer/silencer_base_attack.vpcf"
+	"ProjectileSpeed"			"800"
+
+	// Vision
+	"VisionDaytimeRange"        "1200"           // Range of vision during day light.
+	"VisionNighttimeRange"      "800"            // Range of vision at night time.
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_REGULAR"
+	"RingRadius"				"60"
+
+	// Movement
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"250"
+
+	// Team
+	"TeamName"                  "DOTA_TEAM_NEUTRALS" 				// Team name.
+	"CombatClassAttack"         "normal"
+	"CombatClassDefend"         "heavy"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Status 
+	"StatusHealth"				"4000"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"300"
+	"StatusManaRegen"			"0.5"
+
+	// Bounty
+	"BountyXP"					"1000"
+	"BountyGoldMin"       	    "800"      // Gold earned min.
+	"BountyGoldMax"      	    "1200"      // Gold earned max.
+
+	"AbilitiesLayout"           "3"
+	"Ability1"                  "elite_anbu_fuuma_shuriken"
+	"Ability2"                  "elite_anbu_kuchiyose_ninkens"
+	"Ability3"                  "elite_anbu_tatics_aura"
+}

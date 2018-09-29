@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Fuuton Kusanagi no Tsurugi Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_fuuton_kusanagi_no_tsurugi"
+{
+	// General
+	"ID"							"1119"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_fuuton_kusanagi_no_tsurugi"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_fuuton_kusanagi_no_tsurugi"
+	"ItemRequirements"
+	{
+		"01"						"item_kusanagi_no_tsurugi;item_charged_absorbing_stone;item_fuuton_orb"
+	}
+}

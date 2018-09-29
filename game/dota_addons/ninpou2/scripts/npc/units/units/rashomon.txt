@@ -1,0 +1,22 @@
+"npc_rashomon_unit"
+{
+	// General 
+	"BaseClass"					"npc_dota_creature"
+	"Model"						"models/abilities/orochimaru/rashomon/rashomon.vmdl"
+	"ModelScale"				"0.7"
+
+	// Armor 
+	"PhysicalArmor"				"0"
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_BARRACKS"
+	"RingRadius"				"300"
+
+	// Status 
+	"StatusHealth"				"3000"
+	"StatusHealthRegen"			"0"
+	
+	// Abilities
+	"Ability1"					"ability_semi_building"
+	"Ability2"					"orochimaru_rashomon_aura"
+}

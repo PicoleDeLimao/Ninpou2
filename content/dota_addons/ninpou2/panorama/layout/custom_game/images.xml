@@ -1,0 +1,8 @@
+<root>
+    <script>
+        $.Msg( "Images compiled" );
+    </script>     
+    <Panel hittest="false" class="ImagesRoot">
+        <Image style="opacity:0;" src="file://{images}/heroes/orochimaru.png" />
+    </Panel>
+</root>

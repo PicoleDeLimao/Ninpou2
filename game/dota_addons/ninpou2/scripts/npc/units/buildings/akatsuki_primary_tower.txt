@@ -1,0 +1,56 @@
+"npc_akatsuki_primary_tower_unit"
+{
+	// General
+	"BaseClass"					"npc_dota_creature"
+	"Model"						"models/buildings/AmegakureTower/AmegakureTower_2.vmdl"
+	"ModelScale"				"2.5"
+	"SoundSet"					"Tower.Water"
+
+	// Attack 
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"			"250"
+	"AttackDamageMax"			"350"
+	"AttackRate"				"1.5"
+	"AttackAcquisitionRange"	"800"
+	"AttackRange"				"600"
+	"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+	"ProjectileSpeed"			"1100"
+
+	// Armor 
+	"ArmorPhysical"				"10"
+
+	// Bounds
+	"BoundsHullName"        	"DOTA_HULL_SIZE_TOWER"
+	"RingRadius"				"180"
+
+	// Bounty
+	"BountyXP"					"500"
+	"BountyGoldMin"				"499"
+	"BountyGoldMax"				"500"
+
+	// Movement 
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+	"MovementSpeed"				"0"
+	"MovementTurnRate"			"1.0"
+
+	// Status 
+	"StatusHealth"				"2500"
+	"StatusHealthRegen"			"0"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Team 		
+	"CombatClassAttack"         "siege"
+	"CombatClassDefend"         "fortified"
+	"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+	// Vision 
+	"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+	"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	
+	// Abilities
+	"AbilitiesLayout"			"2"
+	"Ability1"					"konohagakure_tower_feedback"
+	"Ability2"					"ability_building"
+	"Ability3"					"juubi_cleave_attack"
+}

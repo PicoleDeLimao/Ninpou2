@@ -1,0 +1,63 @@
+//-------------------------------------------------------------------
+// Author: PicoleDeLimao
+// Date: 04.01.2016
+//-------------------------------------------------------------------
+// This file determines the units which will be spawned on each lane 
+//-------------------------------------------------------------------
+"DOTALaneCreepSpawn"
+{
+	// Define the quantity of units to be spawned for each type on side lanes
+	"SideLaneSpawnCount"		
+	{
+		"chunnin"				"2"
+		"jounin"				"3"
+		"medical"				"1"
+		"anbu"					"1"
+	}
+	// Define the quantity of units to be spawned for each type on mid lane 
+	"MidLaneSpawnCount"
+	{
+		"chunnin"				"3"
+		"jounin"				"4"
+		"medical"				"1"
+		"anbu"					"1"
+	}
+	// Define the distance offset from origin for which the units be spawned 
+	"Offsets"
+	{
+		"chunnin"				"0"
+		"jounin"				"200"
+		"medical"				"100"
+		"anbu"					"300"
+	}
+	// Define the frequency for which each unit type will be spawned (1 = all the time, 2 = half the time, 3 = a third of the time, etc.,...)
+	"Frequency"
+	{
+		"chunnin"				"1"
+		"jounin"				"1"
+		"medical"				"1"
+		"anbu"					"2"
+	}
+	// For each team, associate each unit type to a determined unit name 
+	"Konoha"
+	{
+		"chunnin"				"npc_konoha_chunnin_unit"
+		"jounin"				"npc_konoha_jounin_unit"
+		"medical"				"npc_medical_ninja_unit"
+		"anbu"					"npc_anbu_unit"
+	}
+	"Oto"
+	{
+		"chunnin"				"npc_oto_chunnin_unit"
+		"jounin"				"npc_oto_jounin_unit"
+		"medical"				"npc_medical_ninja_unit"
+		"anbu"					"npc_anbu_unit"
+	}
+	"Akatsuki"
+	{
+		"chunnin"				"npc_akatsuki_chunnin_unit"
+		"jounin"				"npc_akatsuki_jounin_unit"
+		"medical"				"npc_medical_ninja_unit"
+		"anbu"					"npc_anbu_unit"
+	}
+}

@@ -1,0 +1,114 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Elite Anbu Leader's Katon Jutsu
+//-------------------------------------------------------------------------------------------------------------
+"elite_anbu_leader_katon_jutsu"
+{
+	// General 
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"elite_anbu_leader_katon_jutsu"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	"MaxLevel"							"1"
+
+	"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_1"
+	"AbilityCastPoint"					"0.35"
+	"AbilityCastRange"					"700"
+	"AbilityCooldown"					"30"
+	"AbilityManaCost"					"50"
+	"AbilityDamage"						"1000"
+	"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration_hero"		"2.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration_creep"		"5.0"
+		}
+	}
+
+	// Datadriven
+	"precache"
+	{
+		"particle"						"particles/generic_gameplay/generic_stunned.vpcf"
+		"particle"						"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+		"particle"						"particles/hw_fx/hw_rosh_fireball.vpcf"
+		"particle"						"particles/units/heroes/hero_jakiro/jakiro_base_attack_fire_launch.vpcf"
+		"particle"						"particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"TrackingProjectile"
+		{
+			"Target"					"TARGET"
+			"EffectName"				"particles/hw_fx/hw_rosh_fireball.vpcf"
+			"Dodgeable"					"1"
+			"ProvidesVision"			"1"
+			"VisionRadius"				"250"
+			"MoveSpeed"					"800"
+			"SourceAttachment"			"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+		}
+		"FireSound"
+		{
+			"Target"					"TARGET"
+			"EffectName"				"Hero_OgreMagi.Fireblast.Cast"
+		}
+		"RunScript"
+		{
+			"ScriptFile"				"units/EliteAnbuLeader/elite_anbu_leader_katon_jutsu.lua"
+			"Function"					"ShowLaunchEffect"
+		}
+	}
+	"OnProjectileHitUnit"
+	{
+		"FireSound"
+		{
+			"Target"					"TARGET"
+			"EffectName"				"Hero_OgreMagi.Fireblast.Target"
+		}
+		"RunScript"
+		{
+			"ScriptFile"				"items/spell_shield.lua"
+			"Function"					"ApplyModifier"
+			"Target"					"TARGET"
+			"ModifierName"				"modifier_elite_anbu_leader_katon_jutsu"
+			"DurationHero"				"%stun_duration_hero"
+			"DurationCreep"				"%stun_duration_creep"
+		}
+		"Damage"
+		{
+			"Target"					"TARGET"
+			"Type"						"DAMAGE_TYPE_MAGICAL"
+			"Damage"					"%AbilityDamage"
+		}
+		"RunScript"
+		{
+			"ScriptFile"				"units/EliteAnbuLeader/elite_anbu_leader_katon_jutsu.lua"
+			"Function"					"ShowImpactEffect"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_elite_anbu_leader_katon_jutsu"
+		{
+			"IsDebuff"					"1"
+			"IsStunDebuff"				"1"
+			"EffectName"				"particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"			"follow_overhead"
+			"StatusEffectName"			"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+			"StatusEffectPriority"		"1"
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

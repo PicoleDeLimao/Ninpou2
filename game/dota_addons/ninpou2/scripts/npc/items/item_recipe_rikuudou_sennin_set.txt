@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: Rikuudou Sennin Set
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_rikuudou_sennin_set"
+{
+	// General
+	"ID"							"1245"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_totsuka_no_tsurugi"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"10000"
+	"ItemResult"					"item_rikuudou_sennin_set"
+	"ItemRequirements"
+	{
+		"01"						"item_yasakani_no_magatama;item_kami_no_kagami;item_nunoboko_no_ken"
+	}
+}

@@ -1,0 +1,86 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Explosive Kunai
+//-------------------------------------------------------------------------------------------------------------
+"item_explosive_kunai"
+{
+	// General
+	"ID"							"1255"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_explosive_kunai"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType" 		"DAMAGE_TYPE_MAGICAL"
+	
+	"ItemCost"						"3500"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"3"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"3"
+
+	"AbilityCastRange" 				"700"   
+    "AbilityCooldown"  				"50"       
+    "AbilityManaCost"  				"0"
+    "AOERadius" 					"300"  
+	"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_str"			"7"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"radius"				"300"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"						"particles/items/explosivekunai/explosive_kunai.vpcf"
+		"particle"						"particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion.vpcf"
+		"particle"						"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"items/explosive_kunai.lua"
+			"Function"					"SpellStart"
+			"Target"					"POINT"
+		}
+	} 
+	"Modifiers"
+	{
+		"modifier_item_explosive_kunai"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/ninja_weapon.lua"
+					"Function"		"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/ninja_weapon.lua"
+					"Function"		"Unequip"
+				}
+			}
+		}
+	}
+}

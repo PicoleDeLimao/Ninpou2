@@ -1,0 +1,128 @@
+"dota_shops"
+{
+  "consumables"
+  {
+	"item"						"item_scroll_speed"
+	"item"						"item_scroll_fukashi"
+	"item"						"item_scroll_bunshin"
+	"item"						"item_scroll_shunshin"
+  }
+
+  "attributes"
+  {
+	"item"						"item_forehead_protector"
+	"item"						"item_genin_shoes" 
+	"item"						"item_life_stone"
+	"item"						"item_chakra_stone"
+	"item"						"item_genin_armor"
+	"item"						"item_bijuu_chakra_armor"
+	"item"						"item_bingo_book"
+	"item"						"item_kagami"
+	"item"						"item_akatsuki_ring"
+	"item"						"item_akatsuki_armor"
+  }
+
+  "weapons_armor"
+  {
+    "item"						"item_battle_kunai"
+	"item"						"item_battle_shuriken"
+	"item"						"item_battle_senbons"
+	"item"						"item_kusanagi_no_tsurugi"
+  }
+      
+  "misc"
+  {
+	"item"						"item_absorbing_stone"
+	"item"						"item_charged_absorbing_stone"
+    "item"						"item_katon_orb"
+	"item"						"item_suiton_orb"
+	"item"						"item_doton_orb"
+	"item"						"item_fuuton_orb"
+	"item"						"item_raiton_orb"
+	"item"						"item_yin_orb"
+	"item"						"item_yang_orb"
+  } 
+  
+  // Level 1 - Green Recipes
+  "basics"
+  {
+	"item"						"item_genin_set"
+	"item"						"item_anbu_set"
+	"item"						"item_akatsuki_set"
+	"item"						"item_susanoo_set"
+	"item"						"item_rikuudou_sennin_set"
+  }
+
+  // Level 2 - Blue Recipes
+  "support"
+  {
+	"item"						"item_anbu_mask"
+	"item"						"item_kami_no_kagami"
+	"item"						"item_ashura_essence"
+	"item"						"item_indra_essence"
+	"item"						"item_yasakani_no_magatama"
+  }
+        
+  "magics"      
+  {
+    "item"						"item_chakra_shoes"
+	"item"						"item_fukashi_shoes"
+	"item"						"item_bunshin_shoes"
+	"item"						"item_shunshin_shoes"
+	"item"						"item_yata_no_kagami"
+  }
+    
+  // Level 3 - Purple Recipes 
+  "defense"
+  {
+    "item"						"item_hokage_armor"
+	"item"						"item_mizukage_armor"
+	"item"						"item_tsuchikage_armor"
+	"item"						"item_kazekage_armor"
+	"item"						"item_raikage_armor"
+	"item"						"item_otokage_armor"
+  }
+      
+  "weapons"
+  {
+	"item"						"item_katon_kusanagi_no_tsurugi"
+	"item"						"item_suiton_kusanagi_no_tsurugi"
+	"item"						"item_doton_kusanagi_no_tsurugi"
+	"item"						"item_fuuton_kusanagi_no_tsurugi"
+	"item"						"item_raiton_kusanagi_no_tsurugi"
+	"item"						"item_yin_kusanagi_no_tsurugi"
+	"item"						"item_yang_kusanagi_no_tsurugi"
+	"item"						"item_nunoboko_no_ken"
+	"item"						"item_totsuka_no_tsurugi"
+  }
+    
+  // Level 4 - Orange / Orb / Artifacts       
+  "artifacts"
+  { 
+	"item"						"item_kawarimi"
+	"item"						"item_smoke_bomb"
+  }
+
+  "sideshop1"
+  {
+    "item"						"item_fried_fish"
+	"item"						"item_chakra_sweets"
+	"item"						"item_curry_of_life"
+	"item"						"item_ichiraku_ramen"
+  }
+
+  "sideshop2"
+  {
+    "item"						"item_food_pills"
+	"item"						"item_three_colored_pills"
+  }
+  
+  "secretshop"
+  {             
+    "item"						"item_burning_oil"
+	"item"						"item_poison_mist"
+	"item"						"item_explosive_kunai"
+	"item"						"item_fuuma_shuriken"
+	"item"						"item_senbons_launcher"
+  } 
+}

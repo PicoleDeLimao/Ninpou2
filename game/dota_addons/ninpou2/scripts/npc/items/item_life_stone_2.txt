@@ -1,0 +1,66 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Life Stone Level 2
+//-------------------------------------------------------------------------------------------------------------
+"item_life_stone_2"
+{
+	// General
+	"ID"							"1081"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_life_stone_2"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxUpgradeLevel"				"3"
+	"ItemBaseLevel"					"2"
+	
+	"ItemCost"						"1500"
+	"ItemKillable"					"0"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemDroppable"					"1"
+	"ItemStockMax"					"1"
+	"ItemStockTime"					"120"
+	"ItemStockInitial"				"1"
+	
+	"UpgradesItems"					"item_life_stone_2;item_life_stone_3"
+	"UpgradeRecipe"					"item_recipe_life_stone"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"health_bonus"			"750"
+		}
+	}
+	
+	// Datadriven 
+	"Modifiers"
+	{
+		"modifier_item_life_stone_2"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%health_bonus"
+			}
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Equip"
+				}
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"items/support.lua"
+					"Function"			"Unequip"
+				}
+			}
+		}
+	}
+}

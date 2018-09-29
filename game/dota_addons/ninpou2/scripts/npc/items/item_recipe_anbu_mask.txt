@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: ANBU Mask
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_anbu_mask"
+{
+	// General
+	"ID"							"1217"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_anbu_mask"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2500"
+	"ItemResult"					"item_anbu_mask"
+	"ItemRequirements"
+	{
+		"01"						"item_forehead_protector;item_bingo_book"
+	}
+}

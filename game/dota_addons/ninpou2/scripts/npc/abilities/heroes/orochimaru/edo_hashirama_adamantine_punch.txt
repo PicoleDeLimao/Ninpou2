@@ -1,0 +1,45 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Edo Hashirama - Adamantine Punch
+//-------------------------------------------------------------------------------------------------------------
+"edo_hashirama_adamantine_punch"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"edo_hashirama_adamantine_punch"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"MaxLevel"						"1"
+
+    "AbilityCooldown"  				"10"       
+    "AbilityManaCost"  				"100"
+	"AbilityCastRange"				"700"
+	"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"damage"				"800"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_leap_impact.vpcf"
+		"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_transform_blue_coreglow02.vpcf"
+		"particle"					"particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_leap_impact_d.vpcf"
+	}
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/edo_hashirama_adamantine_punch.lua"
+			"Function"				"SpellStart"
+		}
+	}
+}

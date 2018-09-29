@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Battle Shuriken Level 5 Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_battle_shuriken_5"
+{
+	// General
+	"ID"							"1052"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_battle_shuriken"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_battle_shuriken_5"
+	"ItemRequirements"
+	{
+		"01"						"item_battle_shuriken_4"
+	}
+}

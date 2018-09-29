@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// RECIPES: ANBU Set
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_anbu_set"
+{
+	// General
+	"ID"							"1219"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_anbu_set"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_anbu_set"
+	"ItemRequirements"
+	{
+		"01"						"item_anbu_mask;item_anbu_armor"
+	}
+}

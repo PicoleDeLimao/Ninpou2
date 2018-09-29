@@ -1,0 +1,66 @@
+//-------------------------------------------------------------------------------------------------------------
+// Ability: Edo Hashirama - Mokuton Hijtusu: Jukai Koutan
+//-------------------------------------------------------------------------------------------------------------
+"edo_hashirama_jukai_koutan"
+{
+	// General
+	"BaseClass"						"ability_datadriven"
+	"AbilityTextureName"			"edo_hashirama_jukai_koutan"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+    "AbilityCooldown"  				"15"       
+    "AbilityManaCost"  				"200"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"dmg_per_int"			"3"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"dmg_fixed"				"700"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"range"					"1000"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"5.0"
+		}
+	}
+	
+	// Datadriven 
+	"precache"
+	{
+		"particle"					"particles/world_destruction_fx/tree_grow_leaves.vpcf"
+		"particle"					"particles/world_destruction_fx/treeleaves_large.vpcf"
+	}
+	"OnToggleOn"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/edo_hashirama_jukai_koutan.lua"
+			"Function"				"SpellStart"
+		}
+		"FireSound"
+		{
+			"Target"				"CASTER"
+			"EffectName"			"EdoHashirama.JukaiKoutan"
+		}
+	}
+	"OnToggleOff"
+	{
+		"RunScript"
+		{
+			"ScriptFile"			"heroes/orochimaru/edo_hashirama_jukai_koutan.lua"
+			"Function"				"SpellStop"
+		}
+	}
+}

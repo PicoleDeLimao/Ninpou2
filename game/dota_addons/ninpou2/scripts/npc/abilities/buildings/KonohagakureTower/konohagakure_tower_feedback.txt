@@ -1,0 +1,53 @@
+//-------------------------------------------------------------------------------------------------------------
+// BUILDINGS: Konohagakure Tower Feedback
+//-------------------------------------------------------------------------------------------------------------
+"konohagakure_tower_feedback"
+{
+	// General
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"konohagakure_tower_feedback"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"MaxLevel"							"1"
+	
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"mana_per_hit"				"50"
+		}
+	}
+	
+	// Datadriven
+	"precache"
+	{
+		"particle"						"particles/generic_gameplay/generic_manaburn.vpcf"
+		"soundfile"						"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+	}
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"					"CASTER"
+			"ModifierName"				"modifier_konohagakure_tower_feedback"
+		}
+	}
+	"modifiers"
+	{
+		"modifier_konohagakure_tower_feedback"
+		{
+			"Passive"					"1"
+			"IsHidden"					"1"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"buildings/KonohagakureTower/konohagakure_tower_feedback.lua"
+					"Function"			"ManaBurn"
+					"Target"			"TARGET"
+				}
+			}
+		}
+	}
+}

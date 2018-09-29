@@ -1,0 +1,116 @@
+//-------------------------------------------------------------------------------------------------------------
+// UNITS: Elite Anbu's Fuuma Shuriken
+//-------------------------------------------------------------------------------------------------------------
+"elite_anbu_fuuma_shuriken"
+{
+	// General
+	"BaseClass"							"ability_datadriven"
+	"AbilityTextureName"				"elite_anbu_fuuma_shuriken"
+	"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	"MaxLevel"							"1"
+
+	"AbilityCastAnimation"				"ACT_DOTA_ATTACK"
+	"AbilityCastRange"					"700"
+	"AbilityCastPoint"					"0.35"
+	"AbilityCooldown"					"30"
+	"AbilityManaCost"					"50"
+	"AbilityDamage"						"500"
+	"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+
+	// Special
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration_hero"		"2.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"stun_duration_creep"		"5.0"
+		}
+	}
+
+	// Datadriven 
+	"precache"
+	{
+		"particle"                      "particles/units/eliteanbu/eliteanbu_fuuma_shuriken.vpcf"
+		"particle"                      "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+		"particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
+		"particle"						"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+		"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_sven.vsndevt"			
+	}
+	"OnSpellStart"
+	{
+		"TrackingProjectile"
+		{
+			"Target"                    "TARGET"
+			"EffectName"                "particles/units/eliteanbu/eliteanbu_fuuma_shuriken.vpcf"
+			"Dodgeable"                 "1"
+			"ProvidesVision"            "1"
+			"VisionRadius"              "250"
+			"MoveSpeed"                 "800"
+			"SourceAttachment"          "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+		}
+		"FireSound"
+		{
+			"Target"                    "CASTER"
+			"EffectName"                "Hero_Sven.StormBolt"
+		}
+	}
+	"OnProjectileHitUnit"
+	{
+		"FireEffect"
+		{
+			"Target"                    "TARGET"
+			"EffectName"                "particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"EffectAttachType"          "attach_origin"
+			"ControlPointEntities"
+			{
+				"TARGET"                "attach_origin"
+				"TARGET"                "attach_origin"
+				"TARGET"                "attach_origin"
+				"TARGET"                "attach_origin"
+			}
+		}
+		"FireSound"
+		{
+			"Target"                    "TARGET"
+			"EffectName"                "Hero_FacelessVoid.TimeLockImpact"
+		}
+		"RunScript"
+		{
+			"ScriptFile"				"items/spell_shield.lua"
+			"Function"					"ApplyModifier"
+			"Target"					"TARGET"
+			"ModifierName"				"modifier_elite_anbu_fuuma_shuriken"
+			"DurationHero"				"%stun_duration_hero"
+			"DurationCreep"				"%stun_duration_creep"
+		}
+		"Damage"
+		{
+			"Target"					"TARGET"
+			"Type"						"DAMAGE_TYPE_PHYSICAL"
+			"Damage"					"%AbilityDamage"
+		}
+	}
+	"Modifiers"
+	{
+		"modifier_elite_anbu_fuuma_shuriken"
+		{
+			"IsDebuff"                      "1"
+			"IsStunDebuff"                  "1"
+			"EffectName"                    "particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"              "follow_overhead"
+			"StatusEffectName"              "particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+			"StatusEffectPriority"          "1"
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

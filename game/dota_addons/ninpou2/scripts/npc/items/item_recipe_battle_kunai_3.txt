@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Battle Kunai Level 3 Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_battle_kunai_3"
+{
+	// General
+	"ID"							"1030"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_battle_kunai"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"2000"
+	"ItemResult"					"item_battle_kunai_3"
+	"ItemRequirements"
+	{
+		"01"						"item_battle_kunai_2"
+	}
+}

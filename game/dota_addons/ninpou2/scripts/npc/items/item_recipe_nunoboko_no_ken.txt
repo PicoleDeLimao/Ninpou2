@@ -1,0 +1,25 @@
+//-------------------------------------------------------------------------------------------------------------
+// ITEMS: Nunoboko no Ken Recipe
+//-------------------------------------------------------------------------------------------------------------
+"item_recipe_nunoboko_no_ken"
+{
+	// General
+	"ID"							"1202"
+	"BaseClass"						"item_datadriven"
+	"AbilityTextureName"			"item_nunoboko_no_ken"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	"ItemRecipe"					"1"
+	"ItemCost"						"5000"
+	"ItemResult"					"item_nunoboko_no_ken"
+	"ItemRequirements"
+	{
+		"01"						"item_katon_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		"02"						"item_suiton_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		"03"						"item_doton_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		"04"						"item_fuuton_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		"05"						"item_raiton_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		"06"						"item_yin_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+		"07"						"item_yang_kusanagi_no_tsurugi;item_bijuu_chakra_armor"
+	}
+}
