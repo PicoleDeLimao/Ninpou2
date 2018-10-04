@@ -12,6 +12,32 @@
 	"addonname"										    "Naruto Ninpou New Generation"
 	
 	//--------------------
+	// Game setup  
+	//--------------------
+	"ninpou_game_setup_title"							"SETTINGS"
+	"normal_mode"										"Normal mode"
+	"time_mode"											"Time mode"
+	"time_mode_30"										"30 minutes"
+	"time_mode_45"										"45 minutes"
+	"time_mode_60"										"60 minutes"
+	"all_pick"											"All pick"
+	"all_random"										"All random"
+	//--------------------
+	// Game setup: Info
+	//--------------------
+	"game_info_header_objective"						"GOAL"
+	"brief_description"									"<b>Normal mode:</b> Defeat the enemy bases.<br/><br/><b>Time mode:</b> Get the biggest score before the timer ends.<br/>Score is acquired killing heroes."
+	"game_info_header_credits"							"CREDITS"
+	"game_info_credits_creator"							"<b>Creator</b>"
+	"game_info_credits_webpage"							"<b>Official site</b><br/><a url='http://www.narutoninpou.com'>http://www.narutoninpou.com/</a>"
+	"game_info_credits_discord"							"<b>Discord server</b><br/><a url='https://discord.gg/hAtXyyR'>https://discord.gg/hAtXyyR</a>"
+	"game_info_tips_header"								"TIPS"
+	"game_info_tip01"									"Prioritize your abilities with fixed damage."
+	"game_info_tip02"									"Be cautious around the mid area."
+	"game_info_tip03"									"Buy Burning Oil and Shoes as starting items."
+	"game_info_tip04"									"Focus on hero killing."
+	
+	//--------------------
 	// Errors 
 	//--------------------
 	"error_weapon"										"You can only wield one weapon at once."

@@ -18,23 +18,23 @@
 	{
 		"01"
 		{
-			"var_type"				"FIELD_FLOAT"
+			"var_type"				"FIELD_INTEGER"
 			"speed_bonus"			"9999"
 		}
 		"02"
 		{
-			"var_type"				"FIELD_FLOAT"
+			"var_type"				"FIELD_INTEGER"
 			"damage_bonus"			"500"
 		}
 		"03"
 		{
-			"var_type"				"FIELD_FLOAT"
+			"var_type"				"FIELD_INTEGER"
 			"attack_speed_bonus"	"50"
 		}
 		"04"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"duration"				"15.0"
+			"var_type"				"FIELD_INTEGER"
+			"duration"				"15"
 		}
 	}
 	

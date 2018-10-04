@@ -14,5 +14,4 @@ function SpellStart(event)
 	ParticleManager:SetParticleControl(particle, 1, Vector(200, 0, 0))
 	ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin() + Vector(0, 0, 400))
 	caster:EmitSound("Hero_OgreMagi.Fireblast.Target")
-	print("hmmmmok")
 end

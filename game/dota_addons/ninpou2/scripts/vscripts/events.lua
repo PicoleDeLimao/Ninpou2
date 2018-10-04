@@ -157,6 +157,31 @@ function GameMode:OnPlayerLearnedAbility( keys)
 
   local player = EntIndexToHScript(keys.player)
   local abilityname = keys.abilityname
+  
+  -- Talents 
+  local talentprefix = 'ninpou_special_bonus'
+  if #abilityname > #talentprefix and abilityname:sub(1, #talentprefix) == talentprefix then 
+	local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+	NinpouGameRules:UpdateScore(keys.PlayerID, 100) 
+	hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
+	if abilityname == 'ninpou_special_bonus_resistance' then 
+		hero.katonDef = hero.katonDef + 20
+		hero.suitonDef = hero.suitonDef + 20
+		hero.dotonDef = hero.dotonDef + 20
+		hero.raitonDef = hero.raitonDef + 20
+		hero.fuutonDef = hero.fuutonDef + 20
+		hero.yinDef = hero.yinDef + 20
+		hero.yangDef = hero.yangDef + 20
+	elseif abilityname == 'ninpou_special_bonus_power' then
+		hero.katonDmg = hero.katonDmg + 15
+		hero.suitonDmg = hero.suitonDmg + 15
+		hero.dotonDmg = hero.dotonDmg + 15
+		hero.raitonDmg = hero.raitonDmg + 15
+		hero.fuutonDmg = hero.fuutonDmg + 15
+		hero.yinDmg = hero.yinDmg + 15
+		hero.yangDmg = hero.yangDmg + 15
+	end 
+  end 
 end
 
 -- A channelled ability finished by either completing or being interrupted

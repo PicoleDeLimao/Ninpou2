@@ -20,14 +20,10 @@ require('libraries/projectiles')
 require('libraries/notifications')
 -- This library can be used for starting customized animations on units from lua
 require('libraries/animations')
--- This library can be used for performing "Frankenstein" attachments on units
-require('libraries/attachments')
 -- This library can be used to synchronize client-server data via player/client-specific nettables
 require('libraries/playertables')
 -- This library can be used to create container inventories or container shops
 require('libraries/containers')
--- This library provides a searchable, automatically updating lua API in the tools-mode via "modmaker_api" console command
-require('libraries/modmaker')
 -- This library provides an automatic graph construction of path_corner entities within the map
 require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua
@@ -137,6 +133,9 @@ function GameMode:InitGameMode()
   -- Start AI Behavior for pre defined units
   StartAI()
   
+  -- Link game settings 
+  CustomGameEventManager:RegisterListener("set_setting", Dynamic_Wrap(NinpouGameRules, "SetSetting"))
+  
   Timers:CreateTimer(5, function()
 	-- Check if there is any empty team 
 	NinpouGameRules:CheckEmptyTeams()
@@ -149,4 +148,15 @@ function GameMode:InitGameMode()
   
   -- Register commands 
   Convars:RegisterCommand("debug", Dynamic_Wrap(Commands, 'EnableDebugMode'), "Enable debug mode", FCVAR_CHEAT)
+  
+  -- Talents 
+  LinkLuaModifier("modifier_ninpou_special_bonus_damage",     "talents/modifier_ninpou_special_bonus_damage",     LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_chakra",     "talents/modifier_ninpou_special_bonus_chakra",     LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_speed",      "talents/modifier_ninpou_special_bonus_speed",      LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_hp",         "talents/modifier_ninpou_special_bonus_hp",         LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_stats",      "talents/modifier_ninpou_special_bonus_stats",      LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_resistance", "talents/modifier_ninpou_special_bonus_resistance", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_power",      "talents/modifier_ninpou_special_bonus_power",      LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ninpou_special_bonus_cd",         "talents/modifier_ninpou_special_bonus_cd",         LUA_MODIFIER_MOTION_NONE)
+  
 end

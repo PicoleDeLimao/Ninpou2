@@ -20,7 +20,7 @@ function SpellStart(event)
 	Particles:CreateTimedParticle("particles/heroes/orochimaru/edotensei/courier_greevil_purple_ambient_3_e.vpcf", edotensei1, 4.0)
 	Particles:CreateTimedParticle("particles/heroes/orochimaru/edotensei/courier_greevil_purple_ambient_3_e.vpcf", edotensei2, 4.0)
 	
-	Notifications:BottomToAll({image="file://{images}/heroes/orochimaru.png", duration=5.0})
+	Notifications:BottomToAll({image="file://{images}/heroes/npc_dota_hero_dark_seer.png", duration=5.0})
 	Notifications:BottomToAll({text="#orochimaru_ultimate", continue=true})
 	
 	Timers:CreateTimer(1.5, function()

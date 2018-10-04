@@ -289,23 +289,23 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"speed_bonus"			"9999"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"damage_bonus"			"500"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"attack_speed_bonus"	"50"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15.0"
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"15"
 			}
 		}
 		
@@ -1106,6 +1106,94 @@
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Cooldown
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_cd"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Chakra
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_chakra"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Damage
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_damage"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Health
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_hp"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Power
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_power"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Resistance
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_resistance"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Speed
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_speed"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
+	// Ability: Talent: Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"ninpou_special_bonus_stats"
+	{
+		// General
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"MaxLevel"						"1"
+	}
+	//-------------------------------------------------------------------------------------------------------------
 	// UNITS: Anbu's Bash
 	//-------------------------------------------------------------------------------------------------------------
 	"anbu_bash"
@@ -1217,7 +1305,7 @@
 		{
 			"01"
 			{
-				"var_type"                  "FIELD_FLOAT"
+				"var_type"                  "FIELD_INTEGER"
 				"attack_speed_bonus"        "25"
 			}
 			"02"
@@ -1654,7 +1742,7 @@
 		{
 			"01"
 			{
-				"var_type"                  "FIELD_FLOAT"
+				"var_type"                  "FIELD_INTEGER"
 				"resistance_bonus"		    "15"
 			}
 			"02"

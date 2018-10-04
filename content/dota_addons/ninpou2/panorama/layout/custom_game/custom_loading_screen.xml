@@ -3,11 +3,13 @@
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
   </styles>
   <Panel class="AddonLoadingRoot">
-    <Panel id="CustomBg" >
-      <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/loading_screen/gamemode.png" />
-    </Panel>
-    <Panel id="TitlePanel">
-      <Label id="AddonTitle" text="#addon_game_name" style="" />
-    </Panel>
+	<Image scaling="stretch-to-cover-preserve-aspect" id="Konoha" src="file://{images}/custom_game/loading_screen/konoha.png" />
+	<Image scaling="stretch-to-fit-x-preserve-aspect" id="Kurama" src="file://{images}/custom_game/loading_screen/kurama.png" />
+	<Image id="Obito" src="file://{images}/custom_game/loading_screen/obito.png" />
+	<Image scaling="stretch-to-fit-x-preserve-aspect" id="Landscape" src="file://{images}/custom_game/loading_screen/landscape.png" />
+	<Image scaling="stretch-to-fit-x-preserve-aspect" id="Grass" src="file://{images}/custom_game/loading_screen/grass.png" />
+	<Image id="Minato" src="file://{images}/custom_game/loading_screen/minato.png" />
+	<Image scaling="stretchx" id="Leaves" src="file://{images}/custom_game/loading_screen/leaves.png" />
+	<Image id="Logo" src="file://{images}/custom_game/loading_screen/logo.png" />
   </Panel>
 </root>

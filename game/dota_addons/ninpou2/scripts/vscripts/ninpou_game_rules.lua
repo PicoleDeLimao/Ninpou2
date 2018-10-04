@@ -6,6 +6,12 @@
 
 NinpouGameRules = {}
 NinpouGameRules.defeatedTeams = {}
+NinpouGameRules.teamScore = {
+	[DOTA_TEAM_GOODGUYS] = 0,
+	[DOTA_TEAM_BADGUYS] = 0,
+	[DOTA_TEAM_CUSTOM_1] = 0,
+}
+NinpouGameRules.playerScore = {}
 
 -- Get the real name of a team 
 function NinpouGameRules:GetRealTeamName(teamNumber)
@@ -43,7 +49,7 @@ function NinpouGameRules:CheckEmptyTeams()
 	for i = 0, DOTA_MAX_TEAM_PLAYERS do 
 		if PlayerResource:IsValidPlayerID(i) then 
 			local player = PlayerResource:GetPlayer(i)
-			countPlayers[player:GetTeamNumber()] = countPlayers[player:GetTeamNumber()] + 1
+			countPlayers[player:GetTeamNumber()] = (countPlayers[player:GetTeamNumber()] or 0) + 1
 		end
 	end
 	-- Only remove teams if not on single player mode 
@@ -143,3 +149,21 @@ function NinpouGameRules:DefeatTeam(teamNumber)
 		end
 	end
 end
+
+-- Set game settings 
+function NinpouGameRules:SetSetting(settings)
+	NinpouGameRules.settings = settings
+end 
+
+-- Update score 
+function NinpouGameRules:UpdateScore(playerID, score) 
+	local team = PlayerResource:GetTeam(playerID)
+	NinpouGameRules.teamScore[team] = (NinpouGameRules.teamScore[team] or 0) + score 
+	NinpouGameRules.playerScore[playerID] = (NinpouGameRules.playerScore[playerID] or 0) + score
+	local score_event = {
+		team_id = team,
+		team_score = NinpouGameRules.teamScore[team],
+	}
+	DebugPrint("team: " .. team .. " score: " .. score_event.team_score)
+	CustomGameEventManager:Send_ServerToAllClients("score_change", score_event)
+end 

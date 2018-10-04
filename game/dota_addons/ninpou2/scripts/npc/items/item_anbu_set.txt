@@ -43,7 +43,7 @@
 		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"cooldown_reduction"	"20"
+			"cooldown_reduction"	"-20"
 		}
 		"06"
 		{
@@ -72,7 +72,7 @@
 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%stats_bonus"
 				"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%night_vision_bonus"
 				"MODIFIER_PROPERTY_EVASION_CONSTANT"			"%evasion_bonus"
-				"MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT"	"%cooldown_reduction"
+				"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"			"%cooldown_reduction"
 				"MODIFIER_PROPERTY_MANACOST_PERCENTAGE"			"%mana_reduction"
 			}
 			"OnCreated"
